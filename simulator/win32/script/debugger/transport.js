@@ -93,7 +93,7 @@ DebuggerTransport.prototype = {
       // this._output.asyncWait(this, 0, 0, threadManager.currentThread);
       if (wantLogging) {
         log("outgoing: " + this._outgoing);//.substring(0, 200));
-      };
+      }
       _bufferWrite(this._outgoing);
     }
   },
@@ -144,7 +144,7 @@ DebuggerTransport.prototype = {
   {
     this._incoming = incoming;//+= NetUtil.readInputStreamToString(aStream,
                                //                       aStream.available());
-    while (this._processIncoming()) {};
+    while (this._processIncoming()) {}
   }, "DebuggerTransport.prototype.onDataAvailable"),
 
   /**

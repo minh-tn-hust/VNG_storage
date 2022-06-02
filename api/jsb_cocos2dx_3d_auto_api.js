@@ -499,7 +499,7 @@ material
 getName : function (
 )
 {
-    return ;
+
 },
 
 /**

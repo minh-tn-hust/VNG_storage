@@ -237,7 +237,7 @@ clearAllParticles : function (
 getMaterialName : function (
 )
 {
-    return ;
+
 },
 
 /**

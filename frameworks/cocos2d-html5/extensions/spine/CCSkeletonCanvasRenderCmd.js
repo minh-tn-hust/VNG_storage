@@ -114,7 +114,7 @@ proto._updateRegionAttachmentSlot = function (attachment, slot, points) {
     if (!points)
         return;
 
-    var vertices = spine.Utils.setArraySize(new Array(), 8, 0);
+    var vertices = spine.Utils.setArraySize([], 8, 0);
     attachment.computeWorldVertices(slot.bone, vertices, 0, 2);
     var VERTEX = spine.RegionAttachment;
     points.length = 0;

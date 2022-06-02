@@ -47,7 +47,7 @@ module.exports = function(projectDir, projectJson, buildOpt){
             jsAddedCache[item] = true;
         }
         return jsList;
-    };
+    }
 
 
 

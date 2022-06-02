@@ -387,7 +387,7 @@ getTitleTTFForState : function (
 state 
 )
 {
-    return ;
+
 },
 
 /**
@@ -477,7 +477,7 @@ getTitleBMFontForState : function (
 state 
 )
 {
-    return ;
+
 },
 
 /**
@@ -541,7 +541,7 @@ int
 getCurrentTitle : function(
 )
 {
-    return ;
+
 },
 
 /**
@@ -577,7 +577,7 @@ getTitleForState : function (
 state 
 )
 {
-    return ;
+
 },
 
 /**
@@ -2343,7 +2343,7 @@ getAssetsManagerEx : function (
 getAssetId : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2363,7 +2363,7 @@ getCURLECode : function (
 getMessage : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2447,7 +2447,7 @@ cc.Manifest = {
 getManifestFileUrl : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2477,7 +2477,7 @@ isLoaded : function (
 getPackageUrl : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2487,7 +2487,7 @@ getPackageUrl : function (
 getVersion : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2497,7 +2497,7 @@ getVersion : function (
 getVersionFileUrl : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2507,7 +2507,7 @@ getVersionFileUrl : function (
 getSearchPaths : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 };
@@ -2542,7 +2542,7 @@ checkUpdate : function (
 getStoragePath : function (
 )
 {
-    return ;
+
 },
 
 /**

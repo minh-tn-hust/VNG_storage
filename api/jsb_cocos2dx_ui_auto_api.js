@@ -147,7 +147,7 @@ str
 getRelativeName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -157,7 +157,7 @@ getRelativeName : function (
 getRelativeToWidgetName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -497,7 +497,7 @@ isTouchEnabled : function (
 getCallbackName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -785,7 +785,7 @@ getSizeType : function (
 getCallbackType : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -1335,7 +1335,7 @@ getNormalTextureSize : function (
 getTitleText : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -1587,7 +1587,7 @@ getTitleFontSize : function (
 getTitleFontName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2226,7 +2226,7 @@ getFontSize : function (
 getString : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2322,7 +2322,7 @@ isTouchScaleChangeEnabled : function (
 getFontName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2506,7 +2506,7 @@ getStringLength : function (
 getString : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -3320,7 +3320,7 @@ widget
 getItems : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -4052,7 +4052,7 @@ getFontSize : function (
 getString : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -4092,7 +4092,7 @@ getTextColor : function (
 getPlaceHolder : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -4180,7 +4180,7 @@ didNotSelectSelf : function (
 getFontName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -4500,7 +4500,7 @@ str
 getString : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -4698,7 +4698,7 @@ long
 getPages : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -4768,7 +4768,7 @@ int,
 int 
 )
 {
-    return ;
+
 },
 
 /**

@@ -15,7 +15,7 @@ ccui.VideoPlayer = {
 getFileName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -25,7 +25,7 @@ getFileName : function (
 getURL : function (
 )
 {
-    return ;
+
 },
 
 /**

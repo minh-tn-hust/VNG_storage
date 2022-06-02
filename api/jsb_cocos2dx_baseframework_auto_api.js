@@ -212,7 +212,7 @@ getControllerId : function (
 getString : function (
 )
 {
-    return ;
+
 },
 
 /**

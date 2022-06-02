@@ -228,7 +228,7 @@ bool
 getGroup : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -454,7 +454,7 @@ db.Animation = {
 getAnimationList : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -590,7 +590,7 @@ float
 getCurrentAnimationName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -729,7 +729,7 @@ bone
 getDisplay : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -1028,7 +1028,7 @@ str,
 displaydata 
 )
 {
-    return ;
+
 },
 
 /**

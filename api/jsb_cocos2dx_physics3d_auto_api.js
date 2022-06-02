@@ -193,7 +193,7 @@ setUserData : function (
 getUserData : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -253,7 +253,7 @@ int
 getCollisionCallback : function (
 )
 {
-    return;
+
 },
 
 /**
@@ -892,7 +892,7 @@ quaternion
 getPhysics3DComponentName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -1204,7 +1204,7 @@ float
 getUserData : function (
 )
 {
-    return ;
+
 },
 
 /**

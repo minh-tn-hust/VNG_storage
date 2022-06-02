@@ -17,7 +17,7 @@
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-function Object(){};
+function Object(){}
  /**
   * function toString() 
   * @memberOf   Object
@@ -44,7 +44,7 @@ Object.prototype.toLocaleString = function(){return "";};
   * @since   Standard ECMA-262 3rd. Edition 
   * @since   Level 2 Document Object Model Core Definition.
  */  
-Object.prototype.valueOf = function(){return new Object();};
+Object.prototype.valueOf = function(){return {};};
  /**
   * function hasOwnProperty(name) 
   * @memberOf   Object
@@ -92,7 +92,7 @@ Object.prototype.constructor = new Function();
   * @since Level 2 Document Object Model Core Definition.
  */
 function String(){}
-String.prototype = new Object();
+String.prototype = {};
 /**
   * static function fromCharCode(charCode1, ...)
   * @memberOf   String
@@ -284,7 +284,7 @@ String.prototype.toLocaleUpperCase = function(){return "";};
   * @since Level 2 Document Object Model Core Definition.
  */
 function Number(){}
-Number.prototype = new Object();
+Number.prototype = {};
 /**
   * property MIN_VALUE
   * @type Number
@@ -365,8 +365,8 @@ Number.prototype.toPrecision = function(fractionDigits){return "";};
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model Core Definition. 
 */
-function Boolean(){};
-Boolean.prototype = new Object();
+function Boolean(){}
+Boolean.prototype = {};
 
 /**
   * Object Array()
@@ -375,8 +375,8 @@ Boolean.prototype = new Object();
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-function Array(){};
-Array.prototype = new Object();
+function Array(){}
+Array.prototype = {};
 /**
   * Property length
   * @type    Number
@@ -414,7 +414,7 @@ Array.prototype.join = function(seperator){return [];};
   * @since   Standard ECMA-262 3rd. Edition 
   * @since   Level 2 Document Object Model Core Definition.    
  */  
-Array.prototype.pop = function(){return new Object();};
+Array.prototype.pop = function(){return {};};
 /**
   * function push(args)
   * @param {Array} args
@@ -441,7 +441,7 @@ Array.prototype.reverse = function(){return [];};
   * @since   Standard ECMA-262 3rd. Edition 
   * @since   Level 2 Document Object Model Core Definition.     
  */  
-Array.prototype.shift = function(){return new Object();};
+Array.prototype.shift = function(){return {};};
 /**
   * function slice(start, end)
   * @param {Number} start
@@ -493,8 +493,8 @@ Array.prototype.unshift = function(values){return 1;};
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-function Function(){};
-Function.prototype = new Object();
+function Function(){}
+Function.prototype = {};
 /**
  * function apply (thisObject, argArray)
  * @param {Object} thisObject
@@ -503,7 +503,7 @@ Function.prototype = new Object();
  * @since   Standard ECMA-262 3rd. Edition 
  * @since   Level 2 Document Object Model Core Definition.
  */ 
-Function.prototype.apply = function(thisArg, argArray){return new Object();};
+Function.prototype.apply = function(thisArg, argArray){return {};};
 /**
   * function call (thisObject, args)
   * @param {Object} thisObject
@@ -512,7 +512,7 @@ Function.prototype.apply = function(thisArg, argArray){return new Object();};
   * @since   Standard ECMA-262 3rd. Edition 
   * @since   Level 2 Document Object Model Core Definition.    
  */ 
-Function.prototype.call = function(thisObject, args){return new Object();};
+Function.prototype.call = function(thisObject, args){return {};};
 /**
   * property length
   * @type    Number
@@ -529,8 +529,8 @@ Function.prototype.length = 0;
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition. 
  */
-function Date(s){};
-Date.prototype = new Object();
+function Date(s){}
+Date.prototype = {};
 /**
  * function UTC(hour, min, sec, ms)
  * @memberOf Date
@@ -601,7 +601,7 @@ Date.prototype.toLocaleTimeString = function(){return "";};
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-Date.prototype.valueOf = function(){return new Object();};
+Date.prototype.valueOf = function(){return {};};
 /**
   * function getFullYear()
   * @memberOf Date
@@ -934,7 +934,7 @@ var Infinity=0;
   * @since   Standard ECMA-262 3rd. Edition 
   * @since   Level 2 Document Object Model Core Definition.     
  */
-function eval(s){return new Object();};
+function eval(s){return {};}
 
 //@GINO: Bug 197987 (Temp Fix)
 /**
@@ -958,7 +958,7 @@ var undefined=null;
   * @since   Standard ECMA-262 3rd. Edition 
   * @since   Level 2 Document Object Model Core Definition.    
  */
-function parseInt(s,radix){return 0;};
+function parseInt(s,radix){return 0;}
 /**
   * function parseFloat(s)
   * @param {String} s
@@ -967,7 +967,7 @@ function parseInt(s,radix){return 0;};
   * @since   Standard ECMA-262 3rd. Edition 
   * @since   Level 2 Document Object Model Core Definition.   
  */
-function parseFloat(s){return 0;};
+function parseFloat(s){return 0;}
 /**
  * function escape(s)
  * @param {String} s
@@ -976,7 +976,7 @@ function parseFloat(s){return 0;};
  * @since   Standard ECMA-262 3rd. Edition 
  * @since   Level 2 Document Object Model Core Definition.   
 */
-function escape(s){return "";};
+function escape(s){return "";}
 /**
  * function unescape(s)
  * @param {String} s
@@ -985,7 +985,7 @@ function escape(s){return "";};
  * @since   Standard ECMA-262 3rd. Edition 
  * @since   Level 2 Document Object Model Core Definition.   
 */
-function unescape(s){return "";};
+function unescape(s){return "";}
 /**
   * function isNaN(number)
   * @param {String} number
@@ -994,7 +994,7 @@ function unescape(s){return "";};
   * @since   Standard ECMA-262 3rd. Edition 
   * @since   Level 2 Document Object Model Core Definition.  
  */
-function isNaN(number){return false;};
+function isNaN(number){return false;}
 /**
   * function isFinite(number)
   * @param {String} number
@@ -1003,7 +1003,7 @@ function isNaN(number){return false;};
   * @since   Standard ECMA-262 3rd. Edition 
   * @since   Level 2 Document Object Model Core Definition.    
  */
-function isFinite(number){return false;};
+function isFinite(number){return false;}
 /**
  * function decodeURI(encodedURI)
  * @param {String} encodedURI
@@ -1012,7 +1012,7 @@ function isFinite(number){return false;};
  * @since   Standard ECMA-262 3rd. Edition 
  * @since   Level 2 Document Object Model Core Definition.  
 */
-function decodeURI(encodedURI){return "";};
+function decodeURI(encodedURI){return "";}
 /**
  * @param {String} uriComponent
  * @type String
@@ -1020,7 +1020,7 @@ function decodeURI(encodedURI){return "";};
  * @since   Standard ECMA-262 3rd. Edition 
  * @since   Level 2 Document Object Model Core Definition.  
 */
-function decodeURIComponent(uriComponent){return "";};
+function decodeURIComponent(uriComponent){return "";}
 /**
  * function encodeURIComponent(uriComponent)
  * @param {String} uriComponent
@@ -1029,7 +1029,7 @@ function decodeURIComponent(uriComponent){return "";};
  * @since   Standard ECMA-262 3rd. Edition 
  * @since   Level 2 Document Object Model Core Definition.    
 */
-function encodeURIComponent(uriComponent){return "";};
+function encodeURIComponent(uriComponent){return "";}
 
 /**
  * function encodeURIComponent(URI)
@@ -1039,7 +1039,7 @@ function encodeURIComponent(uriComponent){return "";};
  * @since   Standard ECMA-262 3rd. Edition 
  * @since   Level 2 Document Object Model Core Definition.    
 */
-function encodeURI(URI){return "";};
+function encodeURI(URI){return "";}
 
 /**
   * Object Math(\s)
@@ -1050,8 +1050,8 @@ function encodeURI(URI){return "";};
   * @since Level 2 Document Object Model Core Definition.
      
  */
-function Math(){};
-Math.prototype=new Object();
+function Math(){}
+Math.prototype={};
 /**
   * Property E
   * @memberOf Math
@@ -1297,8 +1297,8 @@ Math.tan=function(x){return 0;};
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-function RegExp(){};
-RegExp.prototype=new Object();
+function RegExp(){}
+RegExp.prototype={};
 /**
   * function exec(string)
   * @param {String} string
@@ -1369,8 +1369,8 @@ RegExp.prototype.lastIndex=0;
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition. 
  */
-function Error(message){};
-Error.prototype=new Object();
+function Error(message){}
+Error.prototype={};
 /**
   * property name
   * @type String
@@ -1396,7 +1396,7 @@ Error.prototype.message="";
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-function EvalError(){};
+function EvalError(){}
 EvalError.prototype=new Error("");
 /**
   * Object RangeError()
@@ -1407,7 +1407,7 @@ EvalError.prototype=new Error("");
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-function RangeError(){};
+function RangeError(){}
 RangeError.prototype=new Error("");
 /**
   * Object ReferenceError()
@@ -1418,7 +1418,7 @@ RangeError.prototype=new Error("");
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-function ReferenceError(){};
+function ReferenceError(){}
 ReferenceError.prototype=new Error("");
 /**
   * Object SyntaxError()
@@ -1429,7 +1429,7 @@ ReferenceError.prototype=new Error("");
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-function SyntaxError(){};
+function SyntaxError(){}
 SyntaxError.prototype=new Error("");
 /**
   * Object TypeError()
@@ -1440,7 +1440,7 @@ SyntaxError.prototype=new Error("");
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-function TypeError(){};
+function TypeError(){}
 TypeError.prototype=new Error("");
 /**
   * Object URIError()
@@ -1451,7 +1451,7 @@ TypeError.prototype=new Error("");
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.
  */
-function URIError(){};
+function URIError(){}
 URIError.prototype=new Error("");
 
 //support for debugger keyword

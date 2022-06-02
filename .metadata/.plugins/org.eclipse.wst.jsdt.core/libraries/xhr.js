@@ -23,8 +23,8 @@ Window.prototype.createRequest= function(){return new XMLHttpRequest();};
 * Object XMLHttpRequest
 * @type constructor
 */
-XMLHttpRequest.prototype=new Object();
-function XMLHttpRequest(){};
+XMLHttpRequest.prototype={};
+function XMLHttpRequest(){}
 
 /**
  * function onreadystatechange

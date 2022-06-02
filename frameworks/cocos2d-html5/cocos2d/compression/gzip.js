@@ -473,7 +473,7 @@ cc.Codec.GZip.prototype.DeflateLoop = function () {
             }
             len = this.literalTree.length;
             for (i = 0; i < len; i++) this.distanceTree[i] = new cc.Codec.GZip.HufNode();
-            var ll2 = new Array();
+            var ll2 = [];
             for (i = literalCodes; i < ll.length; i++) ll2[i - literalCodes] = ll[i];
             if (this.CreateTree(this.distanceTree, distCodes, ll2, 0)) {
                 this.flushBuffer();

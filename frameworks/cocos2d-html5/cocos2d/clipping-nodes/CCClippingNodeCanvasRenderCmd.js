@@ -63,7 +63,7 @@
 
             stencil._renderCmd.rendering = function (ctx, scaleX, scaleY) {
                 //make it do nothing and draw it in clipp render command
-                return;
+
             };
 
             stencil._renderCmd._canUseDirtyRegion = true;

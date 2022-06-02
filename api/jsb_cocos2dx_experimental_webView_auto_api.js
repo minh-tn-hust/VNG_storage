@@ -103,7 +103,7 @@ str
 getOnJSCallback : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -123,7 +123,7 @@ canGoForward : function (
 getOnShouldStartLoading : function (
 )
 {
-    return;
+
 },
 
 /**
@@ -159,7 +159,7 @@ str
 getOnDidFinishLoading : function (
 )
 {
-    return;
+
 },
 
 /**

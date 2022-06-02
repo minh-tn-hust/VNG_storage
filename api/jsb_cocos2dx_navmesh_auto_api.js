@@ -273,7 +273,7 @@ char
 getNavMeshAgentComponentName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -395,7 +395,7 @@ float
 getNavMeshObstacleComponentName : function (
 )
 {
-    return ;
+
 },
 
 /**

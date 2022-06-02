@@ -131,7 +131,7 @@ cc.UniformValue.prototype = {
             cc.glBindTexture2DN(this._value, this._textureId);
             break;
         default:
-            ;
+
         }
     },
 };
@@ -165,7 +165,7 @@ cc.GLProgramState.prototype = {
 
         for (var name in this._uniforms) {
             this._uniforms[name].apply();
-        };
+        }
     },
 
     setGLProgram: function setGLProgram(glprogram) {

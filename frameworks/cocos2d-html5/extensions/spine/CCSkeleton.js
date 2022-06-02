@@ -200,7 +200,7 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
             var attachment = slot.attachment;
             if (!attachment || !(attachment instanceof spine.RegionAttachment))
                 continue;
-            vertices = spine.Utils.setArraySize(new Array(), 8, 0);
+            vertices = spine.Utils.setArraySize([], 8, 0);
             attachment.computeWorldVertices(slot.bone, vertices, 0, 2);
             minX = Math.min(minX, vertices[VERTEX.OX1] * scaleX, vertices[VERTEX.OX4] * scaleX, vertices[VERTEX.OX2] * scaleX, vertices[VERTEX.OX3] * scaleX);
             minY = Math.min(minY, vertices[VERTEX.OY1] * scaleY, vertices[VERTEX.OY4] * scaleY, vertices[VERTEX.OY2] * scaleY, vertices[VERTEX.OY3] * scaleY);
@@ -348,7 +348,7 @@ sp.Skeleton = cc.Node.extend(/** @lends sp.Skeleton# */{
      * @param {Number} [dst]
      */
     setBlendFunc: function (src, dst) {
-        return;
+
     },
 
     /**

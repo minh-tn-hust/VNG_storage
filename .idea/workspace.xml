@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -160,12 +164,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Project/lgrc_project/client/HelloJavascript/src/framework/Framework.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/project/portal/ZPPClient/GameClientJS/frameworks/cocos2d-x/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/map" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="options.lastSelected" value="web-ide.project.structure" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -175,21 +182,23 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\project\TemplateGame\src\modules\animation" />
-      <recent name="D:\Project\TemplateGame\src\framework\plugins" />
-      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\network\auto" />
-      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\game\render\effect" />
+      <recent name="C:\Users\minht\Desktop\Minigame2\VNG_storage-main\res\map" />
+      <recent name="C:\Users\CPU60481-Local\Desktop\VNG_storage-main (1)\VNG_storage-main\res\map" />
+      <recent name="C:\Users\CPU60481-Local\Desktop\VNG_storage-main (1)\VNG_storage-main\res" />
+      <recent name="C:\Users\CPU60481-Local\Desktop\SinhTuMon\VNG_storage-main\res\monsters" />
+      <recent name="C:\Users\CPU60481-Local\Downloads\VNG_storage-main (1)\VNG_storage-main\res" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\CPU60481-Local\Desktop\VNG_storage-main (1)\VNG_storage-main\res\map" />
+      <recent name="C:\Users\CPU60481-Local\Desktop\SinhTuMon\VNG_storage-main\src\layer" />
+      <recent name="C:\Users\CPU60481-Local\Desktop\SinhTuMon\VNG_storage-main\src" />
+      <recent name="C:\Users\CPU60481-Local\Desktop\Work\Done snake - 26052022\VNG_storage-main\src\layer" />
       <recent name="D:\Project\TemplateGame\src\framework" />
-      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\framework\gui" />
-      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\framework\libs" />
-      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\network\custom" />
-      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\offline" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html">
@@ -390,6 +399,17 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/HelloJavascript/index.html">
       <method v="2" />
     </configuration>
@@ -577,6 +597,24 @@
       <workItem from="1652847969752" duration="357000" />
       <workItem from="1652848346243" duration="4488000" />
       <workItem from="1653231499876" duration="8784000" />
+      <workItem from="1653270661015" duration="18377000" />
+      <workItem from="1653444872793" duration="10068000" />
+      <workItem from="1653459811219" duration="18923000" />
+      <workItem from="1653528247146" duration="589000" />
+      <workItem from="1653529101661" duration="17833000" />
+      <workItem from="1653614375545" duration="31882000" />
+      <workItem from="1653750070789" duration="13031000" />
+      <workItem from="1653791880008" duration="7155000" />
+      <workItem from="1653842829280" duration="4357000" />
+      <workItem from="1653874380864" duration="89000" />
+      <workItem from="1653875043411" duration="1504000" />
+      <workItem from="1653890955069" duration="375000" />
+      <workItem from="1653891628035" duration="4939000" />
+      <workItem from="1653897780795" duration="1688000" />
+      <workItem from="1653905277295" duration="4165000" />
+      <workItem from="1654044143506" duration="2629000" />
+      <workItem from="1654047649474" duration="28059000" />
+      <workItem from="1654101378103" duration="1519000" />
     </task>
     <servers />
   </component>

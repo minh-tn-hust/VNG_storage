@@ -868,7 +868,7 @@ getActive : function (
 getColliderBodyList : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -1238,7 +1238,7 @@ getAnchorPoint : function (
 getDecorativeDisplayList : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -1805,7 +1805,7 @@ int
 getCurrentMovementID : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2348,7 +2348,7 @@ getNodeToWorldTransformAR : function (
 getDisplayName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2448,7 +2448,7 @@ str,
 str 
 )
 {
-    return ;
+
 },
 
 /**
@@ -3206,7 +3206,7 @@ ccs.TextureFrame = {
 getTextureName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -3834,7 +3834,7 @@ init : function (
 getEvent : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -4034,7 +4034,7 @@ frame
 getFrames : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -4270,7 +4270,7 @@ str
 getTimelines : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -4480,7 +4480,7 @@ getDebugDrawWidth : function (
 getChildBones : function(
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -4500,7 +4500,7 @@ getBlendFunc : function (
 getAllSubBones : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -4540,7 +4540,7 @@ getVisibleSkinsRect : function (
 getAllSubSkins : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -4606,7 +4606,7 @@ float
 getSkins : function(
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -4616,7 +4616,7 @@ getSkins : function(
 getVisibleSkins : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -4774,7 +4774,7 @@ int
 getCustomProperty : function (
 )
 {
-    return ;
+
 },
 
 /**

@@ -1151,12 +1151,12 @@ var spine;
 (function (spine) {
 	var AnimationState = (function () {
 		function AnimationState(data) {
-			this.tracks = new Array();
-			this.events = new Array();
-			this.listeners = new Array();
+			this.tracks = [];
+			this.events = [];
+			this.listeners = [];
 			this.queue = new EventQueue(this);
 			this.propertyIDs = new spine.IntSet();
-			this.mixingTo = new Array();
+			this.mixingTo = [];
 			this.animationsChanged = false;
 			this.timeScale = 1;
 			this.trackEntryPool = new spine.Pool(function () { return new TrackEntry(); });
@@ -1640,9 +1640,9 @@ var spine;
 	spine.AnimationState = AnimationState;
 	var TrackEntry = (function () {
 		function TrackEntry() {
-			this.timelineData = new Array();
-			this.timelineDipMix = new Array();
-			this.timelinesRotation = new Array();
+			this.timelineData = [];
+			this.timelineDipMix = [];
+			this.timelinesRotation = [];
 		}
 		TrackEntry.prototype.reset = function () {
 			this.next = null;
@@ -2060,7 +2060,7 @@ var spine;
 (function (spine) {
 	var Bone = (function () {
 		function Bone(data, skeleton, parent) {
-			this.children = new Array();
+			this.children = [];
 			this.x = 0;
 			this.y = 0;
 			this.rotation = 0;
@@ -2388,7 +2388,7 @@ var spine;
 			this.data = data;
 			this.mix = data.mix;
 			this.bendDirection = data.bendDirection;
-			this.bones = new Array();
+			this.bones = [];
 			for (var i = 0; i < data.bones.length; i++)
 				this.bones.push(skeleton.findBone(data.bones[i].name));
 			this.target = skeleton.findBone(data.target.name);
@@ -2568,7 +2568,7 @@ var spine;
 	var IkConstraintData = (function () {
 		function IkConstraintData(name) {
 			this.order = 0;
-			this.bones = new Array();
+			this.bones = [];
 			this.bendDirection = 1;
 			this.mix = 1;
 			this.name = name;
@@ -2585,18 +2585,18 @@ var spine;
 			this.spacing = 0;
 			this.rotateMix = 0;
 			this.translateMix = 0;
-			this.spaces = new Array();
-			this.positions = new Array();
-			this.world = new Array();
-			this.curves = new Array();
-			this.lengths = new Array();
-			this.segments = new Array();
+			this.spaces = [];
+			this.positions = [];
+			this.world = [];
+			this.curves = [];
+			this.lengths = [];
+			this.segments = [];
 			if (data == null)
 				throw new Error("data cannot be null.");
 			if (skeleton == null)
 				throw new Error("skeleton cannot be null.");
 			this.data = data;
-			this.bones = new Array();
+			this.bones = [];
 			for (var i = 0, n = data.bones.length; i < n; i++)
 				this.bones.push(skeleton.findBone(data.bones[i].name));
 			this.target = skeleton.findSlot(data.target.name);
@@ -2952,7 +2952,7 @@ var spine;
 	var PathConstraintData = (function () {
 		function PathConstraintData(name) {
 			this.order = 0;
-			this.bones = new Array();
+			this.bones = [];
 			this.name = name;
 		}
 		return PathConstraintData;
@@ -2989,7 +2989,7 @@ var spine;
 (function (spine) {
 	var Assets = (function () {
 		function Assets(clientId) {
-			this.toLoad = new Array();
+			this.toLoad = [];
 			this.assets = {};
 			this.clientId = clientId;
 		}
@@ -3127,8 +3127,8 @@ var spine;
 (function (spine) {
 	var Skeleton = (function () {
 		function Skeleton(data) {
-			this._updateCache = new Array();
-			this.updateCacheReset = new Array();
+			this._updateCache = [];
+			this.updateCacheReset = [];
 			this.time = 0;
 			this.flipX = false;
 			this.flipY = false;
@@ -3137,7 +3137,7 @@ var spine;
 			if (data == null)
 				throw new Error("data cannot be null.");
 			this.data = data;
-			this.bones = new Array();
+			this.bones = [];
 			for (var i = 0; i < data.bones.length; i++) {
 				var boneData = data.bones[i];
 				var bone = void 0;
@@ -3150,8 +3150,8 @@ var spine;
 				}
 				this.bones.push(bone);
 			}
-			this.slots = new Array();
-			this.drawOrder = new Array();
+			this.slots = [];
+			this.drawOrder = [];
 			for (var i = 0; i < data.slots.length; i++) {
 				var slotData = data.slots[i];
 				var bone = this.bones[slotData.boneData.index];
@@ -3159,17 +3159,17 @@ var spine;
 				this.slots.push(slot);
 				this.drawOrder.push(slot);
 			}
-			this.ikConstraints = new Array();
+			this.ikConstraints = [];
 			for (var i = 0; i < data.ikConstraints.length; i++) {
 				var ikConstraintData = data.ikConstraints[i];
 				this.ikConstraints.push(new spine.IkConstraint(ikConstraintData, this));
 			}
-			this.transformConstraints = new Array();
+			this.transformConstraints = [];
 			for (var i = 0; i < data.transformConstraints.length; i++) {
 				var transformConstraintData = data.transformConstraints[i];
 				this.transformConstraints.push(new spine.TransformConstraint(transformConstraintData, this));
 			}
-			this.pathConstraints = new Array();
+			this.pathConstraints = [];
 			for (var i = 0; i < data.pathConstraints.length; i++) {
 				var pathConstraintData = data.pathConstraints[i];
 				this.pathConstraints.push(new spine.PathConstraint(pathConstraintData, this));
@@ -3563,8 +3563,8 @@ var spine;
 			this.minY = 0;
 			this.maxX = 0;
 			this.maxY = 0;
-			this.boundingBoxes = new Array();
-			this.polygons = new Array();
+			this.boundingBoxes = [];
+			this.polygons = [];
 			this.polygonPool = new spine.Pool(function () {
 				return spine.Utils.newFloatArray(16);
 			});
@@ -3726,11 +3726,11 @@ var spine;
 	var SkeletonClipping = (function () {
 		function SkeletonClipping() {
 			this.triangulator = new spine.Triangulator();
-			this.clippingPolygon = new Array();
-			this.clipOutput = new Array();
-			this.clippedVertices = new Array();
-			this.clippedTriangles = new Array();
-			this.scratch = new Array();
+			this.clippingPolygon = [];
+			this.clipOutput = [];
+			this.clippedVertices = [];
+			this.clippedTriangles = [];
+			this.scratch = [];
 		}
 		SkeletonClipping.prototype.clipStart = function (slot, clip) {
 			if (this.clipAttachment != null)
@@ -4005,14 +4005,14 @@ var spine;
 (function (spine) {
 	var SkeletonData = (function () {
 		function SkeletonData() {
-			this.bones = new Array();
-			this.slots = new Array();
-			this.skins = new Array();
-			this.events = new Array();
-			this.animations = new Array();
-			this.ikConstraints = new Array();
-			this.transformConstraints = new Array();
-			this.pathConstraints = new Array();
+			this.bones = [];
+			this.slots = [];
+			this.skins = [];
+			this.events = [];
+			this.animations = [];
+			this.ikConstraints = [];
+			this.transformConstraints = [];
+			this.pathConstraints = [];
 			this.fps = 0;
 		}
 		SkeletonData.prototype.findBone = function (boneName) {
@@ -4139,7 +4139,7 @@ var spine;
 	var SkeletonJson = (function () {
 		function SkeletonJson(attachmentLoader) {
 			this.scale = 1;
-			this.linkedMeshes = new Array();
+			this.linkedMeshes = [];
 			this.attachmentLoader = attachmentLoader;
 		}
 		SkeletonJson.prototype.readSkeletonData = function (json) {
@@ -4454,8 +4454,8 @@ var spine;
 				attachment.vertices = scaledVertices;
 				return;
 			}
-			var weights = new Array();
-			var bones = new Array();
+			var weights = [];
+			var bones = [];
 			for (var i = 0, n = vertices.length; i < n;) {
 				var boneCount = vertices[i++];
 				bones.push(boneCount);
@@ -4471,7 +4471,7 @@ var spine;
 		};
 		SkeletonJson.prototype.readAnimation = function (map, name, skeletonData) {
 			var scale = this.scale;
-			var timelines = new Array();
+			var timelines = [];
 			var duration = 0;
 			if (map.slots) {
 				for (var slotName in map.slots) {
@@ -4854,7 +4854,7 @@ var spine;
 (function (spine) {
 	var Skin = (function () {
 		function Skin(name) {
-			this.attachments = new Array();
+			this.attachments = [];
 			if (name == null)
 				throw new Error("name cannot be null.");
 			this.name = name;
@@ -4901,7 +4901,7 @@ var spine;
 (function (spine) {
 	var Slot = (function () {
 		function Slot(data, bone) {
-			this.attachmentVertices = new Array();
+			this.attachmentVertices = [];
 			if (data == null)
 				throw new Error("data cannot be null.");
 			if (bone == null)
@@ -5032,8 +5032,8 @@ var spine;
 (function (spine) {
 	var TextureAtlas = (function () {
 		function TextureAtlas(atlasText, textureLoader) {
-			this.pages = new Array();
-			this.regions = new Array();
+			this.pages = [];
+			this.regions = [];
 			this.load(atlasText, textureLoader);
 		}
 		TextureAtlas.prototype.load = function (atlasText, textureLoader) {
@@ -5201,7 +5201,7 @@ var spine;
 			this.translateMix = data.translateMix;
 			this.scaleMix = data.scaleMix;
 			this.shearMix = data.shearMix;
-			this.bones = new Array();
+			this.bones = [];
 			for (var i = 0; i < data.bones.length; i++)
 				this.bones.push(skeleton.findBone(data.bones[i].name));
 			this.target = skeleton.findBone(data.target.name);
@@ -5427,7 +5427,7 @@ var spine;
 	var TransformConstraintData = (function () {
 		function TransformConstraintData(name) {
 			this.order = 0;
-			this.bones = new Array();
+			this.bones = [];
 			this.rotateMix = 0;
 			this.translateMix = 0;
 			this.scaleMix = 0;
@@ -5452,16 +5452,16 @@ var spine;
 (function (spine) {
 	var Triangulator = (function () {
 		function Triangulator() {
-			this.convexPolygons = new Array();
-			this.convexPolygonsIndices = new Array();
-			this.indicesArray = new Array();
-			this.isConcaveArray = new Array();
-			this.triangles = new Array();
+			this.convexPolygons = [];
+			this.convexPolygonsIndices = [];
+			this.indicesArray = [];
+			this.isConcaveArray = [];
+			this.triangles = [];
 			this.polygonPool = new spine.Pool(function () {
-				return new Array();
+				return [];
 			});
 			this.polygonIndicesPool = new spine.Pool(function () {
-				return new Array();
+				return [];
 			});
 		}
 		Triangulator.prototype.triangulate = function (verticesArray) {
@@ -5664,7 +5664,7 @@ var spine;
 (function (spine) {
 	var IntSet = (function () {
 		function IntSet() {
-			this.array = new Array();
+			this.array = [];
 		}
 		IntSet.prototype.add = function (value) {
 			var contains = this.contains(value);
@@ -5911,7 +5911,7 @@ var spine;
 	spine.DebugUtils = DebugUtils;
 	var Pool = (function () {
 		function Pool(instantiator) {
-			this.items = new Array();
+			this.items = [];
 			this.instantiator = instantiator;
 		}
 		Pool.prototype.obtain = function () {

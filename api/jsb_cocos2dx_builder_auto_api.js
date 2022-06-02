@@ -37,7 +37,7 @@ int
 getDocumentCallbackNames : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -73,7 +73,7 @@ str
 getDocumentOutletNodes : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -83,7 +83,7 @@ getDocumentOutletNodes : function (
 getLastCompletedSequenceName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -183,7 +183,7 @@ ccbsequenceproperty
 getDocumentOutletNames : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -213,7 +213,7 @@ init : function (
 getKeyframeCallbacks : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -223,7 +223,7 @@ getKeyframeCallbacks : function (
 getDocumentCallbackControlEvents : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -371,7 +371,7 @@ str
 getDocumentCallbackNodes : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -399,7 +399,7 @@ debug : function (
 getDocumentControllerName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -455,7 +455,7 @@ str
 getOwnerCallbackNames : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -495,7 +495,7 @@ node
 getOwnerCallbackNodes : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -517,7 +517,7 @@ ccbsequence
 getCCBRootPath : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -527,7 +527,7 @@ getCCBRootPath : function (
 getOwnerCallbackControlEvents : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -537,7 +537,7 @@ getOwnerCallbackControlEvents : function (
 getOwnerOutletNodes : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -547,7 +547,7 @@ getOwnerOutletNodes : function (
 readUTF8 : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -567,7 +567,7 @@ eventtype
 getOwnerOutletNames : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -589,7 +589,7 @@ ccbsequence
 getAnimationManagersForNodes : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -599,7 +599,7 @@ getAnimationManagersForNodes : function (
 getNodesWithAnimationManagers : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**

@@ -8,8 +8,8 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-function BarProp(){};
-BarProp.prototype = new Array();
+function BarProp(){}
+BarProp.prototype = [];
 
 /**
  * Object Window()
@@ -17,17 +17,17 @@ BarProp.prototype = new Array();
  * @constructor
  * @since Common Usage, no standard
 */
-function Window(){};
+function Window(){}
 Window.prototype = new EventTarget();
 Window.prototype.self = new Window();
 Window.prototype.window = new Window();
-Window.prototype.frames = new Array();
+Window.prototype.frames = [];
 /**
  * Property closed
  * @type Boolean
  * @memberOf Window
  */
-Window.prototype.closed = new Boolean();
+Window.prototype.closed = Boolean();
 /**
  * Property defaultStatus
  * @type String
@@ -225,7 +225,7 @@ Window.prototype.focus = function(){};
  * @memberOf Window
  * @returns {Object}
  */
-Window.prototype.getComputedStyle = function(element,pseudoElt ){return new Object();};
+Window.prototype.getComputedStyle = function(element,pseudoElt ){return {};};
 /**
  * function moveTo(x, y) 
  * @param {Number} x
@@ -351,8 +351,8 @@ Window.prototype.scroll=function(pixelX,pixelY){};
   * @constructor
   * @since Common Usage, no standard
  */
-function History(){};
-History.prototype=new Object();
+function History(){}
+History.prototype={};
 History.prototype.history = new History();
 /**
  * Property length
@@ -383,8 +383,8 @@ History.prototype.go = function(arg){};
   * @constructor
   * @since Common Usage, no standard
  */
-function Location(){};
-Location.prototype = new Object();
+function Location(){}
+Location.prototype = {};
 Location.prototype.location = new Location();
 /**
  * Property hash
@@ -459,8 +459,8 @@ Location.prototype.replace = function(arg){};
  * @constructor
  * @since Common Usage, no standard
 */
-function Navigator(){};
-Navigator.prototype = new Object();
+function Navigator(){}
+Navigator.prototype = {};
 Navigator.prototype.navigator = new Navigator();
 /**
  * Property appCodeName
@@ -485,13 +485,13 @@ Navigator.prototype.appVersion = "";
  * @type Boolean
  * @memberOf Navigator
  */
-Navigator.prototype.cookieEnabled = new Boolean();
+Navigator.prototype.cookieEnabled = Boolean();
 /**
  * Property mimeTypes
  * @type Array
  * @memberOf Navigator
  */
-Navigator.prototype.mimeTypes = new Array();
+Navigator.prototype.mimeTypes = [];
 /**
  * Property platform
  * @type String
@@ -503,7 +503,7 @@ Navigator.prototype.platform = "";
  * @type Array
  * @memberOf Navigator
  */
-Navigator.prototype.plugins = new Array();
+Navigator.prototype.plugins = [];
 /**
  * Property userAgent
  * @type String
@@ -523,8 +523,8 @@ Navigator.prototype.javaEnabled = function(){return false;};
  * @constructor
  * @since Common Usage, no standard
 */
-function Screen(){};
-Screen.prototype = new Object();
+function Screen(){}
+Screen.prototype = {};
 Screen.prototype.screen = new Screen();
 /**
  * Property availHeight
@@ -557,7 +557,7 @@ Navigator.prototype.height = 0;
  */
 Navigator.prototype.width = 0;
 
-Event.prototype=new Object();
+Event.prototype={};
 // PhaseType
 Event.prototype.CAPTURING_PHASE = 1;
 Event.prototype.AT_TARGET = 2;
@@ -580,16 +580,16 @@ Event.prototype.preventDefault=function(){};
 Event.prototype.initEvent=function(eventTypeArg, 
                              canBubbleArg, 
                              cancelableArg){};
-function EventListener(){};
-EventListener.prototype=new Object();
+function EventListener(){}
+EventListener.prototype={};
 /**
  * @param {Event} event
  * @memberOf EventListener
  */
 EventListener.prototype.handleEvent=function(event){};
 
-function EventTarget(){};
-EventTarget.prototype=new Object();
+function EventTarget(){}
+EventTarget.prototype={};
 /*
  * These functions may need to be moved into a browser specific library.
  */

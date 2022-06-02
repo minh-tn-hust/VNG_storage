@@ -225,7 +225,7 @@ generateMipmap : function (
 getDescription : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -591,7 +591,7 @@ int
 getDescription : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -621,7 +621,7 @@ bool
 getChildren : function(
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -1005,7 +1005,7 @@ node
 getName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -2188,7 +2188,7 @@ float
 getViewName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -3989,7 +3989,7 @@ array
 getFrames : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -5576,7 +5576,7 @@ supportsS3TC : function (
 getInfo : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -5998,7 +5998,7 @@ fullPathForFilename : function (
 str 
 )
 {
-    return ;
+
 },
 
 /**
@@ -6010,7 +6010,7 @@ getStringFromFile : function (
 str 
 )
 {
-    return ;
+
 },
 
 /**
@@ -6082,7 +6082,7 @@ getValueVectorFromFile : function (
 str 
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -6092,7 +6092,7 @@ str
 getSearchPaths : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -6262,7 +6262,7 @@ str,
 str 
 )
 {
-    return ;
+
 },
 
 /**
@@ -6274,7 +6274,7 @@ getSuitableFOpen : function (
 str 
 )
 {
-    return ;
+
 },
 
 /**
@@ -6300,7 +6300,7 @@ getFileExtension : function (
 str 
 )
 {
-    return ;
+
 },
 
 /**
@@ -6352,7 +6352,7 @@ str
 getSearchResolutionsOrder : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -6374,7 +6374,7 @@ str
 getWritablePath : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -6475,7 +6475,7 @@ cc.EventCustom = {
 getEventName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -9762,7 +9762,7 @@ node
 pauseAllRunningActions : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -11639,7 +11639,7 @@ float
 getString : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -11891,7 +11891,7 @@ float
 getSystemFontName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -12033,7 +12033,7 @@ getTextAlignment : function (
 getBMFontFilePath : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -12189,7 +12189,7 @@ int
 getString : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -12267,7 +12267,7 @@ int
 getString : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -12317,7 +12317,7 @@ vec2
 getFntFile : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -12431,7 +12431,7 @@ getFontSize : function (
 getString : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -12633,7 +12633,7 @@ blendfunc
 getFontName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -13353,7 +13353,7 @@ func
 getFontNameObj : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -13383,7 +13383,7 @@ getFontSize : function (
 getFontName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -19858,7 +19858,7 @@ cc.GLProgram = {
 getFragmentShaderLog : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -19900,7 +19900,7 @@ use : function (
 getVertexShaderLog : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -20318,7 +20318,7 @@ pass
 getName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -20494,7 +20494,7 @@ pass
 getPasses : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -20504,7 +20504,7 @@ getPasses : function (
 getName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -20601,7 +20601,7 @@ long
 getName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -20611,7 +20611,7 @@ getName : function (
 getTechniques : function (
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -20756,7 +20756,7 @@ func
 getDescription : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -20766,7 +20766,7 @@ getDescription : function (
 getCachedTextureInfo : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -20814,7 +20814,7 @@ getTextureFilePath : function (
 texture2d 
 )
 {
-    return ;
+
 },
 
 /**
@@ -21610,7 +21610,7 @@ isSecureTextEntry : function (
 getPlaceHolder : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -21782,7 +21782,7 @@ str
 getObjects : function(
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -21812,7 +21812,7 @@ getProperties : function(
 getGroupName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -22028,7 +22028,7 @@ str
 getLayers : function(
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -22038,7 +22038,7 @@ getLayers : function(
 getTilesets : function(
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -22122,7 +22122,7 @@ getTileProperties : function (
 getObjectGroups : function(
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -22132,7 +22132,7 @@ getObjectGroups : function(
 getTMXFileName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -22232,7 +22232,7 @@ getProperties : function(
 getCurrentString : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -22478,7 +22478,7 @@ size
 getLayerName : function (
 )
 {
-    return ;
+
 },
 
 /**
@@ -22606,7 +22606,7 @@ str
 getObjectGroups : function(
 )
 {
-    return new Array();
+    return [];
 },
 
 /**
@@ -22934,7 +22934,7 @@ init : function (
 getName : function (
 )
 {
-    return ;
+
 },
 
 /**

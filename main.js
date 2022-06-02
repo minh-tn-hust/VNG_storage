@@ -78,24 +78,25 @@
 
 cc.game.onStart = function(){
 
-    cc.view.enableRetina(false);
-    cc.view.adjustViewPort(true);
-    cc.view.setDesignResolutionSize(480,720,cc.ResolutionPolicy.SHOW_ALL);
-    cc.view.resizeWithBrowserSize(true);
-    cc.director.setProjection(cc.Director.PROJECTION_2D);
+    cc.view.enableRetina(false)
+    cc.view.adjustViewPort(true)
+    cc.view.setDesignResolutionSize(800,800,cc.ResolutionPolicy.SHOW_ALL)
+    cc.view.resizeWithBrowserSize(true)
+    cc.director.setProjection(cc.Director.PROJECTION_2D)
 
     if (cc.sys.isNative) {
-        var searchPaths = jsb.fileUtils.getSearchPaths();
-        searchPaths.push('script');
+        var searchPaths = jsb.fileUtils.getSearchPaths()
+        searchPaths.push('script')
         if (cc.sys.os == cc.sys.OS_IOS || cc.sys.os == cc.sys.OS_OSX) {
-            searchPaths.push("res");
-            searchPaths.push("src");
+            searchPaths.push("res")
+            searchPaths.push("src")
         }
-        jsb.fileUtils.setSearchPaths(searchPaths);
+        jsb.fileUtils.setSearchPaths(searchPaths)
     }
 
-    cc.LoaderScene.preload(g_mainmenu, function () {
-        cc.director.runScene(SysMenu.scene());
-    }, this);
+    cc.LoaderScene.preload([], function () {
+        let onGameScene = new OnGameScene()
+        cc.director.runScene(onGameScene)
+    })
 };
 cc.game.run();
