@@ -61,7 +61,8 @@ let GameMap = cc.Class.extend({
             for (let j = 0; j < maxHeight; j ++) {
                 row.push({
                     type : Map.CELL_TYPE.PATH,
-                    weight : 0
+                    weight : 0,
+                    parent : []
                 })
             }
             map.push(row);
@@ -155,18 +156,8 @@ let GameMap = cc.Class.extend({
      * @return {cc.Point[]}
      */
     findingPathFromCell : function(cell) {
-        let path;
-        path= []
         let map = this.getMap()
-        let currentNodeX = cell.x
-        let currentNodeY = cell.y
-        while(map[currentNodeX][currentNodeY].type !== Map.CELL_TYPE.END) {
-            let parentNode = map[currentNodeX][currentNodeY].parent
-            path.push(parentNode)
-            currentNodeX = parentNode.x
-            currentNodeY = parentNode.y
-        }
-        return path
+        return map[cell.x][cell.y].parent
     },
     /**
      * Hàm tìm đường từ node end tới tất cả các node còn lại trong map, hàm này hỗ trợ cho việc tìm đường cho các Sprite
@@ -206,11 +197,13 @@ let GameMap = cc.Class.extend({
                         if (i * j === 0 && (i !== 0 || j !== 0)) {
                             if (nextNodeX !== mapSize.width && nextNodeX >= 0 && nextNodeY !== mapSize.height && nextNodeY >= 0) {
                                 let nextNodeState = map[nextNodeX][nextNodeY].type
-                                if (map[nextNodeX][nextNodeY].parent === undefined){
+                                if (visited[nextNodeX][nextNodeY] === false){
                                     if (nextNodeState === Map.CELL_TYPE.BEGIN || nextNodeState === Map.CELL_TYPE.PATH){
                                         queue.push(cc.p(nextNodeX, nextNodeY))
                                     }
-                                    map[nextNodeX][nextNodeY].parent = cc.p(currentNodeX, currentNodeY)
+                                    let currentNodePath = map[currentNodeX][currentNodeY].parent
+                                    map[nextNodeX][nextNodeY].parent = [...currentNodePath]
+                                    map[nextNodeX][nextNodeY].parent.unshift(cc.p(currentNodeX, currentNodeY))
                                 }
                             }
                         }
