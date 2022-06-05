@@ -2,22 +2,87 @@
  * Lớp cha chứa việc khởi tạo các lớp con cơ bản, khởi tạo các animation ở các hướng
  * @param {number} [health] Số lượng máu cúa quái
  * @param {number} [damage] Lượng damage lên trụ của quái
+ * @param {number} [speed] chir số tốc độ set cho quái hiện tại, được tính bằng thời gian đi từ trung tâm ô này tới trung tâm của ô trong hàng / cốt
  * @param {object} [monsterAsset] một object chứa config về animation của quái
+ * @param {number[][]} [map] Ma trận map hiện tại
  **/
-let Monster = cc.Class.extend({
+let Monster = cc.Sprite.extend({
     _monsterAsset : null,
     _damage : null,
     _speed : null,
     _health : null,
-    _animationDirection : [],
+    _animationDirection : null,
     _direction : cc.p(),
 
+    digitalDirectionToDirection : function(digitalDirection) {
+        if (digitalDirection.x === 0) {
+            if (digitalDirection.y > 0) {
+                return "BOTTOM"
+            } else {
+                return "TOP"
+            }
+        } else {
+            if (digitalDirection.x > 0) {
+                return "RIGHT"
+            } else {
+                return "LEFT"
+            }
+        }
+    },
 
-    ctor : function(health, damage, monsterAsset) {
+    /**
+     * Khởi tạo animation từ đường đi có sẵn của quái
+     * @param {cc.Point[]} path
+     */
+    generateMovingActionByPath : function(path) {
+        let animationSequence;
+        animationSequence = [];
+
+        if (path.length === 0) {
+            let animation = this.createDirectionAnimationFromDirection("TOP")
+            animationSequence.push(animation)
+        } else {
+            // xử lý trở lại node trước để không thực hiện hành động bay chéo
+            let firstNodePosition = Utils.fromMatrixToPosition(path[0])
+            let currentPosition = this.getPosition()
+            let direction = Utils.directionFromTwoPosition(firstNodePosition, currentPosition)
+            let animation = this.createDirectionAnimationFromDirection(this.digitalDirectionToDirection(direction))
+            let moving = cc.moveTo(1, firstNodePosition)
+            let spawn = cc.spawn(animation, moving)
+            animationSequence.push(spawn)
+
+            // xử lý cho chuỗi đường đi đã được cấp sẵn
+            this.stopAllActions()
+            for (let i = 1; i < path.length; i++) {
+                let dx = path[i].x - path[i - 1].x
+                let dy = path[i].y - path[i - 1].y
+                let distance = Math.abs(dx + dy)
+                let direction = cc.p({
+                    x : dx / distance,
+                    y : dy / distance
+                })
+                let animation = this.createDirectionAnimationFromDirection(this.digitalDirectionToDirection(direction))
+                let moving = cc.moveTo(1, Utils.fromMatrixToPosition(path[i]))
+                let spawn = cc.spawn(animation, moving)
+                animationSequence.push(spawn)
+            }
+            animationSequence.push(cc.CallFunc(function() {
+                this.setVisible(false)
+            }, this))
+        }
+        this.runAction(cc.sequence(animationSequence))
+    },
+
+    ctor : function(health, damage, speed, monsterAsset, map) {
+        this._animationDirection = []
+        this._super()
         this.setHealth(health)
         this.setDamage(damage)
+        this.setSpeed(speed)
         this.setMonsterAsset(monsterAsset)
-        this.createDirectionAnimation()
+        this.runAction(this.createDirectionAnimationFromDirection("RIGHT"))
+        let spriteFrame = cc.spriteFrameCache.getSpriteFrame("monster_assassin_run_0000.png")
+        this.setSpriteFrame(spriteFrame)
     },
 
     getDirection : function() {
@@ -74,16 +139,19 @@ let Monster = cc.Class.extend({
     },
 
     /**
-     * Tạo animation cho 8 hướng mà quái có thể sẽ đi được
+     *
+     * @param {string} direction
+     * @returns {cc.Animate}
+     * @example
+     * this.createDirectionAnimationFromDirection(Monster.LEFT)
      */
-    createDirectionAnimation : function () {
-        let monsterAsset = this.getMonsterAsset()
-        for (let direction = Monster.BOTTOM; direction <= Monster.TOP; direction++) {
-            let sequenceIndex = monsterAsset[Monster.assetName[direction]]
-            let directionAnimation = this.createAnimation(sequenceIndex.start, sequenceIndex.end)
-            this.addDirectionAnimation(directionAnimation)
+    createDirectionAnimationFromDirection : function(direction) {
+        if (direction === "LEFT") {
+            direction = "RIGHT"
         }
-        cc.Sprite()
+        let monsterAsset = this.getMonsterAsset()
+        let sequenceIndex = monsterAsset[Monster.assetName[Monster[direction]]]
+        return this.createAnimation(sequenceIndex.start, sequenceIndex.end)
     },
 
     /**
@@ -100,11 +168,12 @@ let Monster = cc.Class.extend({
             let spriteFrame = cc.spriteFrameCache.getSpriteFrame(frameName)
             animation.addSpriteFrame(spriteFrame)
         }
-        animation.setLoops(true)
-        animation.setDelayPerUnit(0.2 / monsterAsset.directionFrame)
-        return cc.RepeatForever(cc.animate(animation))
+        animation.setLoops(4)
+        animation.setDelayPerUnit(0.25 / monsterAsset.directionFrame)
+        return new cc.Animate(animation)
     },
 })
+
 
 Monster.NUMBER_ANIMATION_SPRITE = 10
 Monster.BOTTOM = 0

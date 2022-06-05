@@ -80,8 +80,8 @@ cc.game.onStart = function(){
 
     cc.view.enableRetina(false)
     cc.view.adjustViewPort(true)
-    cc.view.setDesignResolutionSize(800,800,cc.ResolutionPolicy.SHOW_ALL)
-    cc.view.resizeWithBrowserSize(true)
+    cc.view.setDesignResolutionSize(700,1200,cc.ResolutionPolicy.SHOW_ALL)
+    // cc.view.resizeWithBrowserSize(true)
     cc.director.setProjection(cc.Director.PROJECTION_2D)
 
     if (cc.sys.isNative) {

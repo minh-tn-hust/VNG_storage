@@ -14,10 +14,13 @@ let OnGameScene = cc.Scene.extend({
     },
     init : function() {
         let gameLayer = new GameGroundLayer()
-        this.addChild(gameLayer)
+        this.addChild(gameLayer, -1, OnGameScene.backgroundLayer)
 
-
-        let monsterLayer = new MonsterLayer()
-        this.addChild(monsterLayer)
+        let gameMap = gameLayer.getMap()
+        let monsterLayer = new MonsterLayer(gameMap)
+        this.addChild(monsterLayer, 1, OnGameScene.monsterLayer)
     }
 })
+
+OnGameScene.backgroundLayer = 1
+OnGameScene.monsterLayer = 2

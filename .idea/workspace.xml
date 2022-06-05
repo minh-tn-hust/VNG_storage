@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="" />
+    <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layer/BackgroundLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layer/BackgroundLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layer/MonsterLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layer/MonsterLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/maps/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/maps/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/monster/Monster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/monster/Monster.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,6 +74,11 @@
   <component name="JsBuildToolGruntFileManager" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="170" />
@@ -170,7 +185,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Project/lgrc_project/client/HelloJavascript/src/framework/Framework.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/map" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="options.lastSelected" value="web-ide.project.structure" />
@@ -187,11 +202,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\CPU60481-Local\Desktop\team_3_client\res\card" />
+      <recent name="C:\Users\CPU60481-Local\Desktop\team_3_client\res\map" />
       <recent name="C:\Users\minht\Desktop\Minigame2\VNG_storage-main\res\map" />
       <recent name="C:\Users\CPU60481-Local\Desktop\VNG_storage-main (1)\VNG_storage-main\res\map" />
       <recent name="C:\Users\CPU60481-Local\Desktop\VNG_storage-main (1)\VNG_storage-main\res" />
-      <recent name="C:\Users\CPU60481-Local\Desktop\SinhTuMon\VNG_storage-main\res\monsters" />
-      <recent name="C:\Users\CPU60481-Local\Downloads\VNG_storage-main (1)\VNG_storage-main\res" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\CPU60481-Local\Desktop\VNG_storage-main (1)\VNG_storage-main\res\map" />
@@ -201,7 +216,7 @@
       <recent name="D:\Project\TemplateGame\src\framework" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
+  <component name="RunManager" selected="JSBinding.Win32Debug">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -472,8 +487,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JSBinding.Win32Debug" />
+        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.index.html (1)" />
         <item itemvalue="Node.js.InPacketGenerate.js" />
       </list>
@@ -615,6 +630,10 @@
       <workItem from="1654044143506" duration="2629000" />
       <workItem from="1654047649474" duration="28059000" />
       <workItem from="1654101378103" duration="1519000" />
+      <workItem from="1654133170215" duration="15904000" />
+      <workItem from="1654163146440" duration="6751000" />
+      <workItem from="1654220492275" duration="29106000" />
+      <workItem from="1654361510610" duration="15130000" />
     </task>
     <servers />
   </component>
@@ -658,6 +677,18 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
@@ -672,6 +703,11 @@
         <breakpoint enabled="true" log-message="true" type="javascript-exception" />
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="#org.ccdt.lua.launch.CocosJSConfigurationType">
+        <watch expression="visited" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

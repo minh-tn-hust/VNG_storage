@@ -9,7 +9,7 @@
     "cocos2d"
   ],
   "jsList": [
-    "src/res.js",
+    "src/Utils.js",
     "src/layer/BackgroundLayer.js",
     "src/layer/MonsterLayer.js",
     "src/objects/maps/Map.js",
