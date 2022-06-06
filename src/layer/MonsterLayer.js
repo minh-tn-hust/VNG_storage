@@ -21,9 +21,9 @@ const MonsterLayer = cc.Layer.extend({
     init : function() {
         this.generateBatMonster()
         this.schedule(function() {
-            this.generateBatMonster()
+            this.generateRandomMonster()
             this.removeInvisibleMonster()
-        }, 5)
+        }, 0.5)
     },
 
     setMap : function(map) {
@@ -111,7 +111,7 @@ const MonsterLayer = cc.Layer.extend({
             x : 0,
             y : 0,
         })
-        let monster = new Monster( 10, 10, 15, ASSET.MONSTER.ASSASSIN_RUN, this.getMap())
+        let monster = new Monster( 10, 10, 100, ASSET.MONSTER.ASSASSIN_RUN, this.getMap())
         monster.setPosition(Utils.fromMatrixToPosition(cc.p(0, 0)))
         monster.generateMovingActionByPath(path)
         this.addMonster(monster)
@@ -122,7 +122,7 @@ const MonsterLayer = cc.Layer.extend({
             x : 0,
             y : 0,
         })
-        let monster = new Monster( 10, 10, 5, ASSET.MONSTER.DARK_GIANT, this.getMap())
+        let monster = new Monster( 10, 10, 30, ASSET.MONSTER.DARK_GIANT, this.getMap())
         monster.setPosition(Utils.fromMatrixToPosition(cc.p(0, 0)))
         monster.generateMovingActionByPath(path)
         this.addMonster(monster)

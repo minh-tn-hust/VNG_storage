@@ -46,8 +46,6 @@ let Monster = cc.Sprite.extend({
         let direction = cc.p(dx / distance, dy / distance)
         let stringDirection = this.digitalDirectionToDirection(direction)
         let animation
-        cc.log("TIMING : ")
-        cc.log(distance / this.getSpeed())
         if (stringDirection === "LEFT") {
             animation = this.createDirectionAnimationFromDirection("RIGHT", distance / this.getSpeed())
         } else {
@@ -80,9 +78,8 @@ let Monster = cc.Sprite.extend({
         let animationSequence;
         animationSequence = [];
 
+        let currentPosInMatrix = Utils.mappingPositionToMatrix(this.getPosition())
         if (path.length === 0) {
-            let animation = this.createDirectionAnimationFromDirection("TOP")
-            animationSequence.push(animation)
         } else {
             // kiểm tra xem vị trí hiện tại có cần thiết phải đi về trung tâm node hay không
             let firstNodePosition = Utils.fromMatrixToPosition(path[0])
@@ -203,7 +200,6 @@ let Monster = cc.Sprite.extend({
      * @returns {cc.Animate}
      **/
     createAnimation : function(startFrame, endFrame, timing) {
-        cc.log(timing)
         let animation = new cc.Animation()
         let monsterAsset = this.getMonsterAsset()
         for (let i = startFrame; i <= endFrame; i++) {
