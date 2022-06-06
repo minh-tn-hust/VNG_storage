@@ -19,11 +19,11 @@ const MonsterLayer = cc.Layer.extend({
     },
 
     init : function() {
-        let counter = 10
+        this.generateBatMonster()
         this.schedule(function() {
-            this.removeInvisibleMonster()
             this.generateBatMonster()
-        }, 0.5)
+            this.removeInvisibleMonster()
+        }, 5)
     },
 
     setMap : function(map) {
@@ -69,7 +69,7 @@ const MonsterLayer = cc.Layer.extend({
             let drawNode = new cc.DrawNode()
             drawNode.setDrawColor(cc.color(100,100,100,255))
             let prePoint = Utils.fromMatrixToPosition(path[0])
-            for (let i = 1; i < path.length; i++) {
+            for (let i = 0; i < path.length; i++) {
                 if (path[i] === "") {
                     break
                 } else {
@@ -101,7 +101,7 @@ const MonsterLayer = cc.Layer.extend({
             y : 0,
         })
         this.drawPath(path)
-        let monster = new Monster( 10, 10, 10,ASSET.MONSTER.BAT, this.getMap())
+        let monster = new Monster( 10, 10, 77,ASSET.MONSTER.BAT, this.getMap())
         monster.setPosition(Utils.fromMatrixToPosition(cc.p(0, 0)))
         monster.generateMovingActionByPath(path)
         this.addMonster(monster)

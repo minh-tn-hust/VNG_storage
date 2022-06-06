@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/maps/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/maps/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layer/MonsterLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layer/MonsterLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/monster/Monster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/monster/Monster.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -407,13 +408,15 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -626,7 +629,8 @@
       <workItem from="1654133170215" duration="15904000" />
       <workItem from="1654163146440" duration="6751000" />
       <workItem from="1654220492275" duration="29106000" />
-      <workItem from="1654361510610" duration="16247000" />
+      <workItem from="1654361510610" duration="17233000" />
+      <workItem from="1654479576766" duration="7157000" />
     </task>
     <servers />
   </component>
