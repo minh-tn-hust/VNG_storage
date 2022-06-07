@@ -11,6 +11,7 @@ let Monster = cc.Sprite.extend({
     _speed : null,
     _health : null,
     _direction : cc.p(),
+    _path : [],
 
     ctor : function(health, damage, speed, monsterAsset) {
         this._animationDirection = []
@@ -44,6 +45,46 @@ let Monster = cc.Sprite.extend({
             }
         }
     },
+
+    /**
+     * Trả về đường đi hiện tại mà quái đang thực hiện
+     * @returns {object[]}
+     */
+    getPath : function() {
+        return this._path
+
+    },
+    setPath : function(path) {
+        this._path = path
+    },
+
+    /**
+     * Kiểm tra xem đường đi trước khi map update có phù hợp với nó hay không, nếu một ô trong đường đi hiện tại
+     * bị thay đổi thành vật cản thì sẽ trả về true
+     * @param {object[][]} newMap bản đồ hiện tại đang có trên map
+     * @return {boolean}
+     */
+    needChangePath : function(newMap){
+        let path = this.getPath()
+        let beginCheck = false
+        let currentMatrixPos = Utils.mappingPositionToMatrix(this.getPosition())
+        for (let i = 0; i < path.length; i++) {
+            let node = path[i]
+            if (currentMatrixPos.x === node.x && currentMatrixPos.y === node.y) {
+                beginCheck = true
+            }
+
+            if (beginCheck) {
+                if (newMap[node.x][node.y].type === Map.CELL_TYPE.TREE) {
+                    return true
+                }
+            }
+        }
+        return false
+    },
+
+
+
 
     /**
      * Hàm nhận vào vị trí bắt đầu của một node và vị trí kết thúc của một node, thực hiện sinh ra hành động và di chuyển đúng hướng,
@@ -91,10 +132,10 @@ let Monster = cc.Sprite.extend({
      * @param {cc.Point[]} path
      */
     generateMovingActionByPath : function(path) {
+        this.setPath(path)
         let animationSequence;
         animationSequence = [];
 
-        let currentPosInMatrix = Utils.mappingPositionToMatrix(this.getPosition())
         if (path.length === 0) {
         } else {
             // kiểm tra xem vị trí hiện tại có cần thiết phải đi về trung tâm node hay không
@@ -115,8 +156,6 @@ let Monster = cc.Sprite.extend({
 
             // xử lý cho chuỗi đường đi đã được cấp sẵn
             try {
-                this.stopAllActions()
-                // this.removeAllActions()
                 for (let i = 1; i < path.length; i++) {
                     let subSequenceAnimation = this.generateMovingFromNodeToNode(Utils.fromMatrixToPosition(path[i - 1]), Utils.fromMatrixToPosition(path[i]))
                     animationSequence.push(...subSequenceAnimation)

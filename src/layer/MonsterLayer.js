@@ -20,9 +20,8 @@ const MonsterLayer = cc.Layer.extend({
     },
 
     init : function() {
-        this.generateBatMonster()
-        this.schedule(function() {
-            this.generateRandomMonster()
+        this.schedule(function(){
+            this.generateBatMonster()
         }, 0.1)
     },
 
@@ -30,6 +29,9 @@ const MonsterLayer = cc.Layer.extend({
         this._map = map
     },
 
+    /**
+     * @returns {GameMap}
+     */
     getMap : function() {
         return this._map
     },
@@ -49,17 +51,20 @@ const MonsterLayer = cc.Layer.extend({
 
     /**
      * cập nhật lại MonsterLayer và quái sau khi map thay đổi
-     * @param newMap
+     * @param {GameMap} newMap
      */
     updateMap : function(newMap) {
         this.setMap(newMap)
+        let mapMatrix = newMap.getMap()
         let monsterSpawn = this.getSpawnMonster()
         for (let i = 0; i < monsterSpawn.length; i++) {
             if (monsterSpawn[i]) {
                 let currentMatrixPos = Utils.mappingPositionToMatrix(monsterSpawn[i].getPosition())
                 let path = newMap.findingPathFromCell(currentMatrixPos)
-                monsterSpawn[i].generateMovingActionByPath(path)
-                this.drawPath(path)
+                if(monsterSpawn[i].needChangePath(mapMatrix)) {
+                    monsterSpawn[i].generateMovingActionByPath(path)
+                    this.drawPath(path)
+                }
             }
         }
     },
@@ -84,7 +89,6 @@ const MonsterLayer = cc.Layer.extend({
     },
     generateRandomMonster : function() {
         this._numberOfMonster++
-        cc.log(this._numberOfMonster)
         let randomValue = Math.floor(Math.random() * 1000) % 3
         switch (randomValue) {
             case 0 :
@@ -100,6 +104,7 @@ const MonsterLayer = cc.Layer.extend({
 
     },
     generateBatMonster : function() {
+        let newMap = this.getMap()
         let path = this.getMap().findingPathFromCell({
             x : 0,
             y : 0,

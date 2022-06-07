@@ -324,7 +324,6 @@ let GameMap = cc.Class.extend({
         let mapSize = this.getMapSize()
         for (let i = 0; i < mapSize.width; i++) {
             for (let j = 0; j< mapSize.height; j++) {
-                cc.log(i + " " + j)
                 map[i][j].parent = []
             }
         }

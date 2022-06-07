@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagram/themcay.plantuml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/card/card_border_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/card/card_monster_assassin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/card/card_monster_bat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/card/miniature_boss_dark_giant.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layer/BackgroundLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layer/BackgroundLayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layer/MonsterLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layer/MonsterLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layer/UIGameLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layer/UIGameLayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/maps/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/maps/Map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/monster/Monster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/monster/Monster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/OnGameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/OnGameScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -645,7 +638,7 @@
       <workItem from="1654361510610" duration="17233000" />
       <workItem from="1654479576766" duration="9928000" />
       <workItem from="1654495092984" duration="16643000" />
-      <workItem from="1654569089472" duration="6729000" />
+      <workItem from="1654569089472" duration="10796000" />
     </task>
     <servers />
   </component>

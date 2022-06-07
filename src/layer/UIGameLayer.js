@@ -20,7 +20,4 @@ const UIGameLayer = cc.Layer.extend({
         this.addChild(cardButton)
 
     },
-    plantTreeHandle : function() {
-        cc.log("HELLO")
-    }
 })
