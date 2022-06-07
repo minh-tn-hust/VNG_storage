@@ -7,6 +7,7 @@ const MonsterLayer = cc.Layer.extend({
     _spawnMonster : [],
     _map : null,
     _pathFindingMap : null,
+    _numberOfMonster : 0,
 
 
     ctor : function(map) {
@@ -22,8 +23,7 @@ const MonsterLayer = cc.Layer.extend({
         this.generateBatMonster()
         this.schedule(function() {
             this.generateRandomMonster()
-            this.removeInvisibleMonster()
-        }, 0.5)
+        }, 0.1)
     },
 
     setMap : function(map) {
@@ -36,7 +36,7 @@ const MonsterLayer = cc.Layer.extend({
 
     addMonster : function(monster) {
         this._spawnMonster.push(monster)
-        this.addChild(monster)
+        this.addChild(monster, 20, 3)
     },
 
     setSpawnMonster : function(newSpawnMonster) {
@@ -55,10 +55,12 @@ const MonsterLayer = cc.Layer.extend({
         this.setMap(newMap)
         let monsterSpawn = this.getSpawnMonster()
         for (let i = 0; i < monsterSpawn.length; i++) {
-            let currentMatrixPos = Utils.mappingPositionToMatrix(monsterSpawn[i].getPosition())
-            let path = newMap.findingPathFromCell(currentMatrixPos)
-            monsterSpawn[i].generateMovingActionByPath(path)
-            this.drawPath(path)
+            if (monsterSpawn[i]) {
+                let currentMatrixPos = Utils.mappingPositionToMatrix(monsterSpawn[i].getPosition())
+                let path = newMap.findingPathFromCell(currentMatrixPos)
+                monsterSpawn[i].generateMovingActionByPath(path)
+                this.drawPath(path)
+            }
         }
     },
     drawPath : function(path) {
@@ -77,10 +79,12 @@ const MonsterLayer = cc.Layer.extend({
                     prePoint = Utils.fromMatrixToPosition(path[i])
                 }
             }
-            this.addChild(drawNode, 1000, MonsterLayer.drawNode)
+            this.addChild(drawNode, 10, MonsterLayer.drawNode)
         }
     },
     generateRandomMonster : function() {
+        this._numberOfMonster++
+        cc.log(this._numberOfMonster)
         let randomValue = Math.floor(Math.random() * 1000) % 3
         switch (randomValue) {
             case 0 :
@@ -132,6 +136,7 @@ const MonsterLayer = cc.Layer.extend({
      * Xóa những con quái đã tới đích khỏi sự kiểm soát của MonsterLayer
      */
     removeInvisibleMonster : function() {
+        this._numberOfMonster--
         let spawnMonster = this.getSpawnMonster()
         for (let i = 0; i < spawnMonster.length; i++) {
             if (!spawnMonster[i].isVisible()) {

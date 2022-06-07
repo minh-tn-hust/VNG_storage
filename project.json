@@ -12,9 +12,12 @@
     "src/Utils.js",
     "src/layer/BackgroundLayer.js",
     "src/layer/MonsterLayer.js",
+    "src/layer/UIGameLayer.js",
     "src/objects/maps/Map.js",
     "src/objects/monster/Monster.js",
     "src/scenes/OnGameScene.js",
-    "src/GameConfig.js"
+    "src/GameConfig.js",
+    "src/objects/cards/CardSprite.js",
+    "src/objects/cards/CardButton.js"
   ]
 }

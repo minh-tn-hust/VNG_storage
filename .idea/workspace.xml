@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/card/card_border_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/card/card_monster_assassin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/card/card_monster_bat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/card/miniature_boss_dark_giant.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layer/BackgroundLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layer/BackgroundLayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layer/MonsterLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layer/MonsterLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/maps/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/maps/Map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/monster/Monster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/monster/Monster.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/OnGameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/OnGameScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +107,9 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -172,6 +184,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="FullScreen" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -179,7 +192,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Project/lgrc_project/client/HelloJavascript/src/framework/Framework.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/card" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="options.lastSelected" value="web-ide.project.structure" />
@@ -197,10 +210,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\CPU60481-Local\Desktop\team_3_client\res\card" />
+      <recent name="C:\Users\CPU60481-Local\Desktop\team_3_client\res\fonts" />
       <recent name="C:\Users\CPU60481-Local\Desktop\team_3_client\res\map" />
       <recent name="C:\Users\minht\Desktop\Minigame2\VNG_storage-main\res\map" />
       <recent name="C:\Users\CPU60481-Local\Desktop\VNG_storage-main (1)\VNG_storage-main\res\map" />
-      <recent name="C:\Users\CPU60481-Local\Desktop\VNG_storage-main (1)\VNG_storage-main\res" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\CPU60481-Local\Desktop\VNG_storage-main (1)\VNG_storage-main\res\map" />
@@ -631,6 +644,8 @@
       <workItem from="1654220492275" duration="29106000" />
       <workItem from="1654361510610" duration="17233000" />
       <workItem from="1654479576766" duration="9928000" />
+      <workItem from="1654495092984" duration="16643000" />
+      <workItem from="1654569089472" duration="6729000" />
     </task>
     <servers />
   </component>
@@ -693,6 +708,9 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

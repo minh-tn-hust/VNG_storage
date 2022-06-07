@@ -2,7 +2,6 @@
 * Khởi tạo map với hai thuộc tính mapSize và numberOfObstacle
  * @param mapSize : object
  * @param numberOfObstacle : number
- * @type {(mapSize : object, numberOfObstacle : number)}
 **/
 let GameMap = cc.Class.extend({
 
@@ -17,6 +16,10 @@ let GameMap = cc.Class.extend({
         return this._numberOfObstacle
     },
 
+    /**
+     * Thiết lập số lượng vật cản xuất hiện trong map
+     * @param {number} number Số lượng vật cản xuất hiện trong map
+     */
     setNumberOfObstacle : function(number) {
         this._numberOfObstacle = number
     },
@@ -25,6 +28,9 @@ let GameMap = cc.Class.extend({
         return this._mapSize
     },
 
+    /**
+     * @param {cc.Point} mapSize Kích thước map cần set
+     */
     setMapSize : function(mapSize) {
         this._mapSize = mapSize
     },
@@ -37,6 +43,16 @@ let GameMap = cc.Class.extend({
         return this._map
     },
 
+    /**
+     * Set lại map hiện tại
+     * @param {object[][]} map Ma trận chứa trạng thái của map cần được set
+     * @example
+     * Một ô trong ma trận sẽ bao gồm các trường
+     * let mapCell = [{
+     *     type : Map.CELL_TYPE,
+     *     parent : [], // đường đi hiện tại từ ô đó tới ô kết thúc
+     * }]
+     */
     setMap : function(map) {
         this._map = map
     },
@@ -48,8 +64,8 @@ let GameMap = cc.Class.extend({
     },
 
     /**
-     * Hàm tạo map sử dụng tham số đầu vào mapSize, giá trị trả về là ma trận map
-     * @param {cc.Point} mapSize
+     * Hàm tạo map sử dụng tham số đầu vào mapSize, giá trị trả về là ma trận map, khởi tạo mộ map trống
+     * @param {GAME_CONFIG.mapSize} mapSize
      * @returns {number[][]}
      */
     initMap : function(mapSize) {
@@ -283,7 +299,37 @@ let GameMap = cc.Class.extend({
             }
         }
         return false
+    },
+    cellCanPlanTree : function(cell) {
+        let cloneMap = this.getMap()
+        let oldState = cloneMap[cell.x][cell.y].type
+        if (this.isValidCell(oldState)) {
+            return false
+        }
+        cloneMap[cell.x][cell.y].type = Map.CELL_TYPE.TREE
+        if (this.findingPathTest(cloneMap)) {
+            cloneMap[cell.x][cell.y].type = oldState
+            return true
+        } else {
+            cloneMap[cell.x][cell.y].type = oldState
+            return false
+        }
+    },
+    planTreeAtCell : function(cell) {
+        let map = this.getMap()
+        map[cell.x][cell.y].type = Map.CELL_TYPE.TREE
+    },
+    resetParentPath : function() {
+        let map = this.getMap()
+        let mapSize = this.getMapSize()
+        for (let i = 0; i < mapSize.width; i++) {
+            for (let j = 0; j< mapSize.height; j++) {
+                cc.log(i + " " + j)
+                map[i][j].parent = []
+            }
+        }
     }
+
 })
 
 Map.START_PLACE = 0

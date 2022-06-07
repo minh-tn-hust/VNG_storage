@@ -29,6 +29,20 @@ let Utils = ({
             x: dx / distance,
             y: dy / distance
         })
-    }
+    },
+    isValidMatrixPosition : function(cellPosition) {
+        let mapSize = GAME_CONFIG.mapSize
+        if (cellPosition.x < 0 || cellPosition.y < 0) {
+            return false
+        }
+        if (cellPosition.x >= mapSize.width) {
+            return false
+        }
+        if (cellPosition.y >= mapSize.height) {
+            return false
+        }
+        return true
+    },
+
 
 })
