@@ -227,7 +227,7 @@ const GameGroundLayer = cc.Layer.extend({
                         if (map.cellCanPlanTree(currentMatrixPos)) {
                             map.planTreeAtCell(currentMatrixPos)
                             map.resetParentPath()
-                            map.findingPathFromEnd()
+                            map.findingPathFromEnd(map.getMap())
 
                             // update UI
                             self.updateEntitySprite()

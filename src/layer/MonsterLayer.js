@@ -19,11 +19,15 @@ const MonsterLayer = cc.Layer.extend({
         this.init()
     },
 
+    decreaseNumberOfMonster : function(){
+        this._numberOfMonster--
+    },
+
     init : function() {
         this.schedule(function() {
             this.generateRandomMonster()
         }, 0.1)
-        // this.generateBatMonster()
+        // this.generateRandomMonster()
         // this.generateBatMonster()
     },
 
@@ -63,11 +67,11 @@ const MonsterLayer = cc.Layer.extend({
             if (monsterSpawn[i]) {
                 let currentMatrixPos = Utils.mappingPositionToMatrix(monsterSpawn[i].getPosition())
                 let path = newMap.findingPathFromCell(currentMatrixPos)
-                // if(monsterSpawn[i].needChangePath(mapMatrix)) {
+                if (monsterSpawn[i].needChangePath(mapMatrix)) {
                     monsterSpawn[i].setPath(path)
-                    monsterSpawn[i].createFirstThreePath()
+                    monsterSpawn[i].createNumberOfAction()
                     this.drawPath(path)
-                // }
+                }
             }
         }
     },
@@ -91,6 +95,7 @@ const MonsterLayer = cc.Layer.extend({
         }
     },
     generateRandomMonster : function() {
+        cc.log(this._numberOfMonster)
         this._numberOfMonster++
         let randomValue = Math.floor(Math.random() * 1000) % 3
         switch (randomValue) {
@@ -108,7 +113,6 @@ const MonsterLayer = cc.Layer.extend({
     },
     generateBatMonster : function() {
         this._numberOfMonster++
-        cc.log(this._numberOfMonster)
         let newMap = this.getMap()
         let path = this.getMap().findingPathFromCell({
             x : 0,
@@ -119,7 +123,7 @@ const MonsterLayer = cc.Layer.extend({
         monster.setPosition(Utils.fromMatrixToPosition(cc.p(0, 0)))
 
         monster.setPath(path)
-        monster.createFirstThreePath()
+        monster.createNumberOfAction()
         this.addMonster(monster)
     },
     generateAssassinMonster : function() {
@@ -130,7 +134,7 @@ const MonsterLayer = cc.Layer.extend({
         let monster = new Monster( 10, 10, 100, ASSET.MONSTER.ASSASSIN_RUN, this.getMap())
         monster.setPosition(Utils.fromMatrixToPosition(cc.p(0, 0)))
         monster.setPath(path)
-        monster.createFirstThreePath()
+        monster.createNumberOfAction()
         this.addMonster(monster)
 
     },
@@ -142,7 +146,7 @@ const MonsterLayer = cc.Layer.extend({
         let monster = new Monster( 10, 10, 30, ASSET.MONSTER.DARK_GIANT, this.getMap())
         monster.setPosition(Utils.fromMatrixToPosition(cc.p(0, 0)))
         monster.setPath(path)
-        monster.createFirstThreePath()
+        monster.createNumberOfAction()
         this.addMonster(monster)
     },
 

@@ -70,33 +70,35 @@ let Monster = cc.Sprite.extend({
         let currentMatrixPos = Utils.mappingPositionToMatrix(this.getPosition())
         for (let i = 0; i < path.length; i++) {
             let node = path[i]
-            if (currentMatrixPos.x === node.x && currentMatrixPos.y === node.y) {
-                beginCheck = true
-            }
-
-            if (beginCheck) {
-                if (newMap[node.x][node.y].type === Map.CELL_TYPE.TREE) {
-                    return true
-                }
+            if (newMap[node.x][node.y].type === Map.CELL_TYPE.TREE) {
+                return true
             }
         }
         return false
     },
 
-    removeFirstThreePath : function() {
+    removeNumberOfAction: function () {
         let path = this.getPath()
-        path.shift()
-        path.shift()
+        for (let i = 0; i < Monster.numberOfAction; i++) {
+            path.shift()
+        }
     },
 
-    createFirstThreePath : function() {
+    /**
+     * Hàm sử dụng để tạo ra hành động di chuyển + animation cho quái, clone đường đi từ map chính rồi tạo
+     * ra các hành động, cuối các hành động là một hàm call back sử dụng để tạo các hành động tiếp theo và
+     * nhận biết khi nào thì quái tới được đích
+     */
+    createNumberOfAction: function () {
         this.stopAllActions()
+
+        // clone đường đi hiện tại để thực hiện tạo ra 3 action đầu tiên của đường đi
         let path = [...this.getPath()]
         let nextThreeNode = []
         const FRONT = 0
-        let counter = 2
+        let counter = Monster.numberOfAction
 
-        while(counter !== 0 && path.length !== 0) {
+        while (counter !== 0 && path.length !== 0) {
             let node = path[FRONT]
             path.shift()
             nextThreeNode.push(node)
@@ -106,19 +108,23 @@ let Monster = cc.Sprite.extend({
         let animation = []
 
         if (nextThreeNode.length !== 0) {
-            animation = this.generate3MovingAction(nextThreeNode)
+            animation = this.generateMovingAction(nextThreeNode)
         }
 
         let callBack
         if (path.length !== 0) {
-            callBack = cc.CallFunc(function(){
-                this.removeFirstThreePath()
-                this.createFirstThreePath()
+            callBack = cc.CallFunc(function() {
+                this.removeNumberOfAction()
+                this.createNumberOfAction()
             }, this)
         } else {
             callBack = cc.CallFunc(function() {
-                this.removeFirstThreePath()
+                this.removeNumberOfAction()
                 this.setVisible(false)
+                let monsterLayer = this.getParent()
+                monsterLayer.decreaseNumberOfMonster()
+
+
             }, this)
         }
 
@@ -127,7 +133,12 @@ let Monster = cc.Sprite.extend({
         this.runAction(animate)
     },
 
-    generate3MovingAction : function(path) {
+    /**
+     * Hàm nhận vào mảng các nước đi tiêp theo và thực hiện tạo ra animation và movement cho sprite
+     * @param {object[][]} path
+     * @returns {cc.Action[]}
+     */
+    generateMovingAction: function (path) {
         let animationSequence;
         animationSequence = [];
 
@@ -349,3 +360,4 @@ Monster.assetName = [
     "topRightFrameList",
     "topFrameList"
 ]
+Monster.numberOfAction = 1

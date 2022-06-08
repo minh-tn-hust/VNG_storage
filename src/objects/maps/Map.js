@@ -66,7 +66,7 @@ let GameMap = cc.Class.extend({
     /**
      * Hàm tạo map sử dụng tham số đầu vào mapSize, giá trị trả về là ma trận map, khởi tạo mộ map trống
      * @param {GAME_CONFIG.mapSize} mapSize
-     * @returns {number[][]}
+     * @returns {Object[][]}
      */
     initMap : function(mapSize) {
         let maxWidth = mapSize.width
@@ -85,7 +85,7 @@ let GameMap = cc.Class.extend({
         }
         map = this.randomObstacle(map)
         this.setMap(map)
-        let pathMap = this.findingPathFromEnd()
+        let pathMap = this.findingPathFromEnd(map)
         this.setMap(pathMap)
         return pathMap
     },
@@ -178,11 +178,12 @@ let GameMap = cc.Class.extend({
     /**
      * Hàm tìm đường từ node end tới tất cả các node còn lại trong map, hàm này hỗ trợ cho việc tìm đường cho các Sprite
      * sau khi map được update, thực hiện tìm đường từ node End tới node Begin, đơn giản là BFS hết tất cả các nút
+     * @param {Object[][]} map
      * @return {Object[][]}
      */
-    findingPathFromEnd : function() {
+    findingPathFromEnd : function(map) {
         let mapSize = GAME_CONFIG.mapSize
-        let map = this.getMap()
+        // let map = this.getMap()
         let visited;
         visited = [];
         for (let i = 0; i < mapSize.width; i++) {

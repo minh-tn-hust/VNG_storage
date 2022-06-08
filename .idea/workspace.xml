@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layer/BackgroundLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layer/BackgroundLayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layer/MonsterLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layer/MonsterLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/maps/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/maps/Map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/monster/Monster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/monster/Monster.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -411,13 +413,15 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -635,6 +639,8 @@
       <workItem from="1654495092984" duration="16643000" />
       <workItem from="1654569089472" duration="16694000" />
       <workItem from="1654605804178" duration="9037000" />
+      <workItem from="1654647068347" duration="4870000" />
+      <workItem from="1654652012667" duration="100000" />
     </task>
     <servers />
   </component>
