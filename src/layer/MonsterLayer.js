@@ -20,9 +20,11 @@ const MonsterLayer = cc.Layer.extend({
     },
 
     init : function() {
-        this.schedule(function(){
-            this.generateBatMonster()
+        this.schedule(function() {
+            this.generateRandomMonster()
         }, 0.1)
+        // this.generateBatMonster()
+        // this.generateBatMonster()
     },
 
     setMap : function(map) {
@@ -61,10 +63,11 @@ const MonsterLayer = cc.Layer.extend({
             if (monsterSpawn[i]) {
                 let currentMatrixPos = Utils.mappingPositionToMatrix(monsterSpawn[i].getPosition())
                 let path = newMap.findingPathFromCell(currentMatrixPos)
-                if(monsterSpawn[i].needChangePath(mapMatrix)) {
-                    monsterSpawn[i].generateMovingActionByPath(path)
+                // if(monsterSpawn[i].needChangePath(mapMatrix)) {
+                    monsterSpawn[i].setPath(path)
+                    monsterSpawn[i].createFirstThreePath()
                     this.drawPath(path)
-                }
+                // }
             }
         }
     },
@@ -104,6 +107,8 @@ const MonsterLayer = cc.Layer.extend({
 
     },
     generateBatMonster : function() {
+        this._numberOfMonster++
+        cc.log(this._numberOfMonster)
         let newMap = this.getMap()
         let path = this.getMap().findingPathFromCell({
             x : 0,
@@ -112,7 +117,9 @@ const MonsterLayer = cc.Layer.extend({
         this.drawPath(path)
         let monster = new Monster( 10, 10, 77,ASSET.MONSTER.BAT, this.getMap())
         monster.setPosition(Utils.fromMatrixToPosition(cc.p(0, 0)))
-        monster.generateMovingActionByPath(path)
+
+        monster.setPath(path)
+        monster.createFirstThreePath()
         this.addMonster(monster)
     },
     generateAssassinMonster : function() {
@@ -122,7 +129,8 @@ const MonsterLayer = cc.Layer.extend({
         })
         let monster = new Monster( 10, 10, 100, ASSET.MONSTER.ASSASSIN_RUN, this.getMap())
         monster.setPosition(Utils.fromMatrixToPosition(cc.p(0, 0)))
-        monster.generateMovingActionByPath(path)
+        monster.setPath(path)
+        monster.createFirstThreePath()
         this.addMonster(monster)
 
     },
@@ -133,7 +141,8 @@ const MonsterLayer = cc.Layer.extend({
         })
         let monster = new Monster( 10, 10, 30, ASSET.MONSTER.DARK_GIANT, this.getMap())
         monster.setPosition(Utils.fromMatrixToPosition(cc.p(0, 0)))
-        monster.generateMovingActionByPath(path)
+        monster.setPath(path)
+        monster.createFirstThreePath()
         this.addMonster(monster)
     },
 

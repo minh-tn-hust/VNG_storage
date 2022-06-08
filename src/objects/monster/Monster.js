@@ -13,12 +13,24 @@ let Monster = cc.Sprite.extend({
     _direction : cc.p(),
     _path : [],
 
+    /**
+     * Trả về đường đi hiện tại mà quái đang thực hiện
+     * @returns {object[]}
+     */
+    getPath : function() {
+        return this._path
+
+    },
+    setPath : function(path) {
+        this._path = [...path]
+    },
+
     ctor : function(health, damage, speed, monsterAsset) {
-        this._animationDirection = []
         this._super()
         this.setHealth(health)
         this.setDamage(damage)
         this.setSpeed(speed)
+        this.setPath([])
         this.setMonsterAsset(monsterAsset)
         this.runAction(this.createDirectionAnimationFromDirection("RIGHT", 1))
         let spriteFrame = cc.spriteFrameCache.getSpriteFrame("monster_assassin_run_0000.png")
@@ -47,18 +59,6 @@ let Monster = cc.Sprite.extend({
     },
 
     /**
-     * Trả về đường đi hiện tại mà quái đang thực hiện
-     * @returns {object[]}
-     */
-    getPath : function() {
-        return this._path
-
-    },
-    setPath : function(path) {
-        this._path = path
-    },
-
-    /**
      * Kiểm tra xem đường đi trước khi map update có phù hợp với nó hay không, nếu một ô trong đường đi hiện tại
      * bị thay đổi thành vật cản thì sẽ trả về true
      * @param {object[][]} newMap bản đồ hiện tại đang có trên map
@@ -83,8 +83,77 @@ let Monster = cc.Sprite.extend({
         return false
     },
 
+    removeFirstThreePath : function() {
+        let path = this.getPath()
+        path.shift()
+        path.shift()
+    },
 
+    createFirstThreePath : function() {
+        this.stopAllActions()
+        let path = [...this.getPath()]
+        let nextThreeNode = []
+        const FRONT = 0
+        let counter = 2
 
+        while(counter !== 0 && path.length !== 0) {
+            let node = path[FRONT]
+            path.shift()
+            nextThreeNode.push(node)
+            counter--
+        }
+
+        let animation = []
+
+        if (nextThreeNode.length !== 0) {
+            animation = this.generate3MovingAction(nextThreeNode)
+        }
+
+        let callBack
+        if (path.length !== 0) {
+            callBack = cc.CallFunc(function(){
+                this.removeFirstThreePath()
+                this.createFirstThreePath()
+            }, this)
+        } else {
+            callBack = cc.CallFunc(function() {
+                this.removeFirstThreePath()
+                this.setVisible(false)
+            }, this)
+        }
+
+        animation.push(callBack)
+        let animate = cc.sequence(animation)
+        this.runAction(animate)
+    },
+
+    generate3MovingAction : function(path) {
+        let animationSequence;
+        animationSequence = [];
+
+        if (path.length === 0) {
+        } else {
+            // di chuyển về tâm của ô nếu như vị trí tiếp theo không di chuyển tiếp được
+            // animationSequence.push(...this.needToMoveToCenter(path[0]))
+
+            // xử lý cho chuỗi đường đi đã được cấp sẵn
+            try {
+                this.stopAllActions()
+                for (let i = 0; i < path.length; i++) {
+                    let subSequenceAnimation
+                    if (i ===0) {
+                        subSequenceAnimation = this.generateMovingFromNodeToNode(this.getPosition(), Utils.fromMatrixToPosition(path[0]))
+                    } else {
+                        subSequenceAnimation = this.generateMovingFromNodeToNode(Utils.fromMatrixToPosition(path[i - 1]), Utils.fromMatrixToPosition(path[i]))
+                    }
+                    animationSequence.push(...subSequenceAnimation)
+                }
+                return animationSequence
+            } catch (error) {
+                cc.log(JSON.stringify(error))
+            }
+        }
+    },
 
     /**
      * Hàm nhận vào vị trí bắt đầu của một node và vị trí kết thúc của một node, thực hiện sinh ra hành động và di chuyển đúng hướng,
@@ -128,6 +197,30 @@ let Monster = cc.Sprite.extend({
     },
 
     /**
+     * Kiểm tra xem lần di chuyển hiện tại có cần phải đi về trung tâm của cell hay không
+     * @param {cc.Point} nextNode
+     * @returns {[]}
+     */
+    needToMoveToCenter : function(nextNode) {
+        let animationSequence = []
+        let path = this.getPath()
+        let firstNodePosition = Utils.fromMatrixToPosition(nextNode)
+        let currentNodePosition = Utils.fromMatrixToPosition(Utils.mappingPositionToMatrix(this.getPosition()))
+        let currentPosition = this.getPosition()
+        let internalVector = cc.p(currentPosition.x - currentNodePosition.x, currentPosition.y - currentNodePosition.y)
+        let externalVector = cc.p(firstNodePosition.x - currentNodePosition.x, firstNodePosition.y - currentNodePosition.y)
+
+        if (internalVector.x * externalVector.x + internalVector.y * externalVector.y > 0) {
+            let subSequenceAnimation = this.generateMovingFromNodeToNode(currentPosition, firstNodePosition)
+            animationSequence.push(...subSequenceAnimation)
+        } else {
+            let subSequenceAnimation = this.generateMovingFromNodeToNode(currentPosition, currentNodePosition)
+            animationSequence.push(...subSequenceAnimation)
+            path.unshift(Utils.mappingPositionToMatrix(this.getPosition()))
+        }
+        return animationSequence
+    },
+    /**
      * Khởi tạo animation từ đường đi có sẵn của quái
      * @param {cc.Point[]} path
      */
@@ -138,24 +231,12 @@ let Monster = cc.Sprite.extend({
 
         if (path.length === 0) {
         } else {
-            // kiểm tra xem vị trí hiện tại có cần thiết phải đi về trung tâm node hay không
-            let firstNodePosition = Utils.fromMatrixToPosition(path[0])
-            let currentNodePosition = Utils.fromMatrixToPosition(Utils.mappingPositionToMatrix(this.getPosition()))
-            let currentPosition = this.getPosition()
-            let internalVector = cc.p(currentPosition.x - currentNodePosition.x, currentPosition.y - currentNodePosition.y)
-            let externalVector = cc.p(firstNodePosition.x - currentNodePosition.x, firstNodePosition.y - currentNodePosition.y)
-
-            if (internalVector.x * externalVector.x + internalVector.y * externalVector.y > 0) {
-                let subSequenceAnimation = this.generateMovingFromNodeToNode(currentPosition, firstNodePosition)
-                animationSequence.push(...subSequenceAnimation)
-            } else {
-                let subSequenceAnimation = this.generateMovingFromNodeToNode(currentPosition, currentNodePosition)
-                animationSequence.push(...subSequenceAnimation)
-                path.unshift(Utils.mappingPositionToMatrix(this.getPosition()))
-            }
+            // di chuyển về tâm của ô nếu như vị trí tiếp theo không di chuyển tiếp được
+            animationSequence.push(...this.needToMoveToCenter(path[0]))
 
             // xử lý cho chuỗi đường đi đã được cấp sẵn
             try {
+                this.stopAllActions()
                 for (let i = 1; i < path.length; i++) {
                     let subSequenceAnimation = this.generateMovingFromNodeToNode(Utils.fromMatrixToPosition(path[i - 1]), Utils.fromMatrixToPosition(path[i]))
                     animationSequence.push(...subSequenceAnimation)
@@ -251,7 +332,6 @@ let Monster = cc.Sprite.extend({
         return new cc.Animate(animation)
     },
 })
-
 
 Monster.NUMBER_ANIMATION_SPRITE = 10
 Monster.BOTTOM = 0
