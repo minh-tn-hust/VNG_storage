@@ -1,0 +1,44 @@
+@startuml
+skinparam wrapwidth 200
+skinparam classfontname cascadia code
+skinparam classfontsize 16
+skinparam classattributefontname cascadia code
+skinparam classattributefontsize 12
+
+class map {
+    + thực hiện sinh map
+    + thực hiện tìm đường đi có trong map hiện tại
+}
+
+class monster{
+    + có tới 5 loại quái
+    + các chỉ số sinh lực, sức sát thương, có thể chọn làm mục tiêu không, số lượng năng lượng riêng
+    + có thanh máu
+    + có quái có những bước đi đặc biệt
+    + quái được đối phương thả sẽ có vòng tròn màu đỏ dưới chân, quái mình thả sẽ có màu xanh dưới chân
+}
+
+class tower{
+    + năng lượng sử dụng để đặt khác nhau
+    + tháp có khả năng tiến hóa được
+    + hệ thống có nhiều các ưu tiên cho quái lựa chọn
+    + hệ thống đạn bắn - 2 loại
+    + 7 loại trụ, mỗi loại trụ có các loại đạn khác nhau
+    + loại đạn có thể là tầm rộng hoặc là một mục tiêu duy nhất
+    + có thể có trụ không bắn ra đạn - trụ hỗ trợ
+    + có thể hủy tháp đã chọn
+}
+
+class bullet {
+    + mỗi tòa tháp sẽ có một loại đạn riêng
+    + mỗi loại đạn sẽ có các hành vi khách nhau như là nổ lan, gây đống băng, ...
+    + đạn sẽ có các thuộc tính cơ bản như là tốc độ bay, chuỗi animation, và sức sát thương
+}
+
+class maplayer {
+    + chuyển hóa map thành sprite, thực hiện việc quản lý sprite
+    + thực hiện các cập nhật khi map được cập nhật
+}
+
+
+@enduml
