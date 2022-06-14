@@ -1,0 +1,82 @@
+@startuml
+skinparam wrapwidth 200
+skinparam classfontname cascadia code
+skinparam classfontsize 16
+skinparam classattributefontname cascadia code
+skinparam classattributefontsize 12
+left to right direction
+package Battle {
+
+    class BattleController extends cc.Scene {
+        - chứa các layer liên quan tới game
+        - nó sẽ chứa map của 2 người chơi
+        - chứa thông tin của hai người chơi
+        - lớp trực tiếp trao đổi với server
+        - có khả năng gọi một layer nào đó cập nhật trạng thái lại
+    }
+
+    class UILayer extends cc.Layer{
+        - chứa thông tin về các thẻ bài quái tiếp theo sẽ được chọn của người chơi
+        - chứa năng lượng hiện tại của người chơi
+        - hiển thị các thông tin liên quan tới màn chơi
+    }
+
+    class MapView extends cc.Layer{
+        + chứa map hiện tại của người chơi, cập nhật ô đặc biệt, cập nhật trụ
+    }
+
+    class MonsterSpawnerView extends cc.Layer {
+        + thực hiện việc spawn và di chuyển các monster 
+        + thực hiện việc quản lý monster sinh ra
+        + có khả năng cập nhật ngay và luôn vị trí của một monster nào đấy
+    }
+
+    class MapController extends cc.Class{
+        + thực hiện nhận map từ server ()
+        + thực hiện tìm đường đi có trong map hiện tại ()
+        + thực hiện kiểm tra xem một trụ được đặt có hợp lệ hay không ()
+        + thực hiện cập nhật những gì mà server gửi - những nước đi của đối thủ ()
+    }
+
+
+    class Monster extends cc.Sprite {
+        + một loại quái có thể có nhiều con, những con này đều có chung tài nguyên về sprite
+        + có tới 5 loại quái
+        + các chỉ số sinh lực, sức sát thương, có thể chọn làm mục tiêu không, số lượng năng lượng riêng
+        + có thanh máu
+        + có quái có những bước đi đặc biệt
+        + quái được đối phương thả sẽ có vòng tròn màu đỏ dưới chân, quái mình thả sẽ có màu xanh dưới chân
+        + quái có thể tự tương tác với chính nó để thực hiện các skill liên quan tới di  chuyể
+        + quái cũng có thể tương tác với các trụ
+    }
+
+    class Tower extends cc.Class {
+        + năng lượng sử dụng để đặt khác nhau
+        + tháp có khả năng tiến hóa được
+        + hệ thống có nhiều các ưu tiên cho quái lựa chọn
+        + hệ thống đạn bắn - 2 loại
+        + 7 loại trụ, mỗi loại trụ có các loại đạn khác nhau
+        + loại đạn có thể là tầm rộng hoặc là một mục tiêu duy nhất
+        + có thể có trụ không bắn ra đạn - trụ hỗ trợ
+        + có thể hủy tháp đã chọn
+        + có thể có được danh sách quái hiện tại đang ở vị trí nào trên bản đồ
+        + có các phương thức thực hiện các các lựa chọn quái vật khác nhau
+    }
+
+    class TowerManager extends cc.Class {
+        + thực hiện quản lý các trụ hiện tại đang được đặt
+    }
+
+    class Bullet extends cc.Class {
+        + mỗi tòa tháp sẽ có một loại đạn riêng
+        + mỗi loại đạn sẽ có các hành vi khách nhau như là nổ lan, gây đống băng, ...
+        + đạn sẽ có các thuộc tính cơ bản như là tốc độ bay, chuỗi animation, và sức sát thương
+    }
+}
+
+class NetworkRequire {
+    - thực hiện realtime, tức là con quái nào đang ở vị trí nào thì cả hai bên tham gia chơi game đều phải biết
+    - làm thế nào để đồng bộ giữa 2 người chơi, con quái nào bị tấn công, con quái nào chết, trụ nào tấn công con quái nào, cả hai bên đều phải biết
+}
+
+@enduml
