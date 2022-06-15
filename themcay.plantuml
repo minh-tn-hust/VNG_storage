@@ -1,0 +1,378 @@
+@startuml
+skinparam wrapwidth 300
+skinparam classfontname consolas
+skinparam classfontsize 16
+skinparam classattributefontname cascadia code
+skinparam classattributefontsize 12
+left to right direction
+
+package Battle {
+    package Effecting {
+        class Effect {
+            - startingTime : double
+            - effectime : double
+            - effecting()
+            - isEnded() : bool
+        }
+
+        class MonsterEffecting extends Effect{
+            - effecting()
+        }
+
+        class TowerEffecting extends Effect{
+            - effecting()
+        }
+    }
+
+    class BattleController  {
+        - gameState : GameState
+        - uiLayer : UILayer
+        - mapLayer : MapLayer
+        - monsterSpawn : MonsterSpawnLayer
+        - round : int
+        - levelDescription : LevelDescription
+        ---
+        + getGameState() : void 
+        + getLevelDescription() : void
+        + runNextRound() : void
+        + updateGameState(GameState newGameState) : void
+        + updateUILayer() : void
+        + updateMapLayer() : void
+        + udateMonsterLayer() : void
+        + updateTowerLayer() : void
+        + serverListenr() : void
+        ---
+        # chứa các layer liên quan tới game
+        # nó sẽ chứa map của 2 người chơi
+        # chứa thông tin của hai người chơi
+        # lớp trực tiếp trao đổi với server
+        # có khả năng gọi một layer nào đó cập nhật trạng thái lại
+        # chứa các hàm để các layer có thể gọi được update
+        # chứa thông tin hiện tại của cả hai người chơi
+    }
+    
+    package Map {
+
+        class MapLayer {
+            - map : MapController
+            - mapSprite : cc.Sprite[][]
+            - cursorSrite : cc.Sprite
+            ---
+            + updateMapLayer() : void
+            + addTouchListener() : void
+            + cardSelected(Card selectedCard) : void
+            + changeCursorSprite() : void
+            + getPathFromIndex(cc.Point index) : void
+            ---
+            # chứa map hiện tại của người chơi, cập nhật ô đặc biệt, cập nhật trụ
+            # có mối liên hệ với UILayer, khi một người bật card lên, mapLayer sẽ xác định các vị trí mà card có thể đặt được
+        }
+
+        class MapController {
+            - map : Cell[][]
+            ---
+            + pathFinding()
+            + canPlantHere(cc.Point position) : bool
+            + plantTower(cc.Point position) : void
+            + updateMap() : void
+            ---
+            # thực hiện nhận map từ server ()
+            # thực hiện tìm đường đi có trong map hiện tại ()
+            # thực hiện kiểm tra xem một trụ được đặt có hợp lệ hay không ()
+            # thực hiện cập nhật những gì mà server gửi - những nước đi của đối thủ ()
+            # thực hiện giao tiếp với TowerLayer
+        }
+
+        class Cell  {
+            - cellType : CellType
+            - path : cc.Point[]
+            ---
+            + changeCellType(CellType newCellType) : void
+            ---
+            # có danh sách đường đi
+            # có trạng thái hiện tại 
+        }
+
+        MapController "2" --* "1" MapLayer
+        Cell "n" --* "1" MapController
+
+    }
+
+    package Tower {
+        class TowerSpawnLayer  {
+            - towerSequence : Tower[]
+            ---
+            + towerTargeted() : void
+            + addTouchListener() : void
+            + findingTargetForTower(cc.Point position, AttackMode attackMode) : void
+            + canUpdateTowerInIndex(cc.Point index, CardType cardType) : bool
+            + updateTowerWithIndex(cc.Point index)
+            ---
+            # thực hiện hiển thị các trụ lên sân
+            # thực hiện cập nhât và xử lý hình ảnh của các trụ
+            # thực hiện giao tiếp với MonsterLayer để lấy được danh sách quái
+            # thực hiện các cử chỉ với trụ (trong đó bao gồm cả nâng cấp và điều chỉnh chế độ chọn mục tiêu của trụ)
+        }
+
+        class TowerSprite {
+            - index : cc.Point
+            - id : int
+            - range : float
+            - level : int
+            - canAttack : bool
+            - effectd : TowerEffecting[]
+            - type : TowerType
+            ---
+            + fire() : void
+            + createAnimation() : void
+            + changeTarget() : void
+            + updateSprite() : void
+            + update()
+            ---
+            # bắt được danh sách các loại quái hiên tại đang ở trong phạm vi
+            # năng lượng sử dụng để đặt khác nhau
+            # tháp có khả năng tiến hóa được
+            # hệ thống có nhiều các ưu tiên cho quái lựa chọn
+            # hệ thống đạn bắn - 2 loại
+            # 7 loại trụ, mỗi loại trụ có các loại đạn khác nhau
+            # loại đạn có thể là tầm rộng hoặc là một mục tiêu duy nhất
+            # có thể có trụ không bắn ra đạn - trụ hỗ trợ
+            # có thể hủy tháp đã chọn
+            # có thể có được danh sách quái hiện tại đang ở vị trí nào trên bản đồ
+            # có các phương thức thực hiện các các lựa chọn quái vật khác nhau
+        }
+
+        class SupportTower extends TowerSprite {
+            - target : Monster | Tower
+            ---
+            + fire() : void
+        }
+
+        class AttackTower extends TowerSprite {
+            - attackSpeed : float
+            - dame : float
+            - haveTarget : bool
+            - bulletPool : BulletPool
+            - targetId : int
+            - attackMode : AttackMode
+            ---
+            + fire() : void
+            + canTargetOnThis(cc.Point position) : bool
+            + untarget() : void
+        }
+
+        class BulletPool {
+            - bulletPool : BulletSprite[]
+            ---
+            + registerSpriteWithLayer(BulletSprite bulletSprite) : void
+            + getBullet(BulletType bulletType) : BulletSprite
+            + createBullet(BulletType bulletType) : BulletSprite
+            + haveBulletInPool(BulletType bulletType) : BulletSprite
+        }
+
+        class BulletSprite  {
+            - inUsed : bool
+            - speed : int
+            - damage : double
+            - range : double
+            - towerPosition : cc.Point
+            - type : Bullet.PosisionBase | Bullet.TargetBase
+            ---
+            + create() : BulletSprite
+            + animate() : void
+            + createAnimation() : void
+            + effecting() : void
+            + {abstract} exploded() : void
+            ---
+            # mỗi tòa tháp sẽ có một loại đạn riêng, override lại effecting
+            # mỗi loại đạn sẽ có các hành vi khách nhau như là nổ lan, gây đống băng, ...
+            # đạn sẽ có các thuộc tính cơ bản như là tốc độ bay, chuỗi animation, và sức sát thương
+        }
+
+        TowerSpawnLayer "1" *-- "n" TowerSprite
+        AttackTower "1" *-- "1" BulletPool
+        BulletSprite "n" --* "1" BulletPool
+    }
+
+    package Monster {
+
+        class MonsterPool {
+            - monsterPool : MonsterSprite[]
+            ---
+            + registerSpriteWithLayer(MonsterSprite monsterSprite) : void
+            + getMonster(MonsterType monsterType) : MonsterSprite
+            + createMonster(MonsterType monsterType) : MonsterSprite
+            + haveMonsterInPool(MonsterType monsterType) : MonsterSprite
+        }
+
+        class MonsterSpawnerLayer  {
+            - monsterPool : MonsterPool
+            ---
+            - generateMonster(LevelDescription levelDescription) : void
+            - update() : void
+            - collisionTracking() : void 
+            - spawnMonster(MonsterType monsterType) : void
+            - untarget(int monsterId) : void
+            ---
+            + thực hiện việc spawn và di chuyển các monster 
+            + thực hiện việc quản lý monster sinh ra
+            + có khả năng cập nhật ngay và luôn vị trí của một monster nào đấy
+            + kiểm soát hướng đi của các con quái
+            + kiểm soát va chạm giữa các con quái, kiểm soát tốc độ của các con quái
+            + thực hiện tái sử dụng các con quái
+        }
+
+        class Monster {
+            - id : int
+            - health : double
+            - damage : double
+            - speed : double
+            - weight : double
+            - directionVector : cc.Point
+            - inUse : bool
+            - canTagetd : bool
+            - effectd : MonsterEffect[]
+            ---
+            + update() : void
+            + resetState() : void
+            ---
+            # tạo animation theo các hướng đi
+            # thực hiện di chuyển theo vector mà MonsterManager đưa ra cho con quái
+            # có thể thực hiện đẩy các con quái đi chậm hơn
+            # khi tới địa điểm đích tự chuyển trạng thái inUse
+            # nhận cac effect và tự biết kết thúc effect đúng lúc
+            ---
+            # các con quái có thể va chạm với nhau
+            # một loại quái có thể có nhiều con, những con này đều có chung tài nguyên về sprite
+            # có tới 5 loại quái
+            # các chỉ số sinh lực, sức sát thương, có thể chọn làm mục tiêu không, số lượng năng lượng riêng
+            # có thanh máu
+            # có quái có những bước đi đặc biệt
+            # quái được đối phương thả sẽ có vòng tròn màu đỏ dưới chân, quái mình thả sẽ có màu xanh dưới chân
+            # quái có thể tự tương tác với chính nó để thực hiện các skill liên quan tới di  chuyển
+            # quái cũng có thể tương tác với các trụ
+        }
+
+        class MonsterSprite {
+            - monsterAsset : MonsterAsset
+            - monsterDirection : cc.Point
+            - canTageted : bool
+            ---
+            + moving() : void
+            + createAnimationWithDirection() : cc.Animate
+            + updateDirection(cc.Point newDirection) : void
+            ---
+            # thực hiện khởi tọa animation và tạo ra các di chuyển cho các con quái
+        }
+         
+        class "Quạ Xương" extends MonsterSprite {}
+        class "Khổng Lồ" extends MonsterSprite {}
+        class "Kiếm Ma" extends MonsterSprite {}
+        class "Dơi Quỷ" extends MonsterSprite {}
+        class "Xương Độn Thổ" extends MonsterSprite {
+            + createGroundAnimation() : void
+        }
+
+        MonsterSprite --|> Monster
+        MonsterPool "1" *-- "n" MonsterSprite
+        MonsterSpawnerLayer "1" *-- "1" MonsterPool
+    }
+    
+    package SpellCasting {
+
+        class SpellPool {
+            - spellPool : SpellSprite[]
+            ---
+            + registerSpriteWithLayer(SpellSprite spellSprite) : void
+            + getSpell(SpellType spellType) : SpellSprite
+            + createSpell(SpellType spellType) : SpellSprite
+            + haveSpellInPool(SpellType spellType) : SpellSprite
+        }
+
+        class SpellSprite {
+            - id : int
+            - inUse : bool
+            - spellAsset : SpellAsset
+            - targetsId : int[]
+            - timeEffect : double
+            - statingTime : int
+            ---
+            + createAnimation()
+            + effecting()
+            + endEffect()
+            + update()
+        }
+
+        class SpellSpawnLayer {
+            - spellPool : SpellPool
+            ---
+            - castSpell(cc.Point targetPosition, SpellType spellType) : void
+            - effectedMonsterTargetForSpell(cc.Point spellPosition) : int[]
+            - effectedTowerTargetForSpell(cc.Point spellPosition) : int[]
+            
+        }
+
+        class "Cầu Lửa" extends SpellSprite {
+            - damage : double
+            + effecting()
+        }
+        class "Đóng Băng" extends SpellSprite {
+            - damage : double
+            + efecting()
+        }
+        class "Tăng Tốc" extends SpellSprite {
+            - speed : double
+            + effecting()
+        }
+        class "Hồi Máu" extends SpellSprite {
+            - healthSpeed : double
+            + effecting()
+        }
+        class "Sức mạnh" extends SpellSprite {
+            - additionPercent : double
+            + effecting()
+        }
+    }
+
+    package UI {
+        class UILayer {
+            - energy : int
+            - cardSequence : Card[]
+            - cardSpriteSequence : CardSprite[]
+            - nextCard : Card
+            - userInfo : UserInfo
+            - selectedIndex : int
+            ---
+            + usingCard() : void
+            + randomNextCard() : Card
+            + updateEnerge() : void
+            + increaseEnergy(int additionEnergy) : void
+            + foldCardWithIndex(int index) : void
+            + cardSelected(int index) : void
+            ---
+            # chứa thông tin về các thẻ bài quái tiếp theo sẽ được chọn của người chơi
+            # chứa năng lượng hiện tại của người chơi
+            # hiển thị các thông tin liên quan tới màn chơi
+        }
+
+        class Card {
+            - type : CardType
+            - level : int
+            ---
+            + createCardSprite() : void
+            + changeCardType() : void
+        }
+
+        Card "n" --* "1" UILayer
+    }
+
+    BattleController "1" *-- "1" MonsterSpawnerLayer
+    BattleController "1" *-- "1" UILayer
+    BattleController "1" *-- "1" TowerSpawnLayer
+    BattleController "1" *-- "1" MapLayer
+    BattleController "1" *-- "1" SpellSpawnLayer
+    MonsterSprite "1" o-- "n" Effect
+    TowerSprite "1" o-- "n" Effect
+}
+
+@enduml
