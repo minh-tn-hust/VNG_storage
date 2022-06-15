@@ -1,0 +1,6 @@
+Client sẽ thực hiện xử lý các logic của cả hai bên, và thường xuyên cập nhật 
+gamestate lên cho server
+Tại một thời điểm, server sẽ có 2 bản ghi game state cho cả 2 bên người chơi,
+mỗi bên sẽ có
+Server là người sẽ kiểm tra xem sự khác biệt giữa các state do 2 bên tính toán gửi về,
+nếu như nhận thấy vị trí sai lệch quá nhiều thì server sẽ giử trạng thái đúng về cho bên kia để bên kia cập nhật
