@@ -1,0 +1,56 @@
+@startuml
+skinparam wrapwidth 300
+skinparam classfontname consolas
+skinparam classfontsize 16
+skinparam classattributefontname cascadia code
+skinparam classattributefontsize 12
+left to right direction
+package Map {
+
+    class MapLayer {
+        - controller : MapController
+        - mapSprite : cc.Sprite[][]
+        - cursorSrite : cc.Sprite
+        ---
+        + updateMapLayer() : void
+        + addTouchListener() : void
+        + cardSelected(Card selectedCard) : void
+        + changeCursorSprite() : void
+        ---
+        # chứa map hiện tại của người chơi, cập nhật ô đặc biệt, cập nhật trụ
+        # có mối liên hệ với UILayer, khi một người bật card lên, mapLayer sẽ xác định các vị trí mà card có thể đặt được
+    }
+
+    class MapController {
+        - myMap : Cell[][]
+        - enermyMap : Cell[][]
+        - mapLayer : MapLayer
+        ---
+        + pathFinding()
+        + canPlantHere(cc.Point position) : bool
+        + plantTower(cc.Point position) : void
+        + updateMap() : void
+        + getPathFromIndex(cc.Point index) : void
+        ---
+        # thực hiện nhận map từ server ()
+        # thực hiện tìm đường đi có trong map hiện tại ()
+        # thực hiện kiểm tra xem một trụ được đặt có hợp lệ hay không ()
+        # thực hiện cập nhật những gì mà server gửi - những nước đi của đối thủ ()
+        # thực hiện giao tiếp với TowerLayer
+    }
+
+    class Cell  {
+        - cellType : CellType
+        - path : cc.Point[]
+        ---
+        + changeCellType(CellType newCellType) : void
+        ---
+        # có danh sách đường đi
+        # có trạng thái hiện tại 
+    }
+
+    MapController "1" *-- "2" MapLayer
+    Cell "n" --* "1" MapController
+
+}
+@enduml

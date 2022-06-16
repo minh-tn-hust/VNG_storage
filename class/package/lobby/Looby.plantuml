@@ -1,0 +1,51 @@
+@startuml
+
+skinparam wrapwidth 300
+skinparam classfontname consolas
+skinparam classfontsize 16
+skinparam classattributefontname cascadia code
+skinparam classattributefontsize 14
+left to right direction
+
+package Lobby {
+    ' class LobbyScene {
+    '     - currentMainLayer : Lobby.LayerType
+    '     ---
+    '     + changeMainLayer(Lobby.LayerType newLayerType)
+    ' }
+    ' class LobbySceneController {
+
+    ' }
+
+    package CardManager {
+        class CardManagerLayer {
+            - controller : CardManagerLayerController
+        }
+
+        class CardManageLayerController {
+            - cardManagerLayer : CardManagerLayer
+            - battleDeck : Card[]
+        }
+
+    }
+
+
+    ' package UI {
+    '     class UILayer {
+    '         - controller : UILayerController
+    '         ---
+    '         - ctor(UILayerController controller)
+    '     }
+
+    '     class UILayerController {
+    '         - level : int
+    '         - gold : int
+    '         - gem : int
+    '         - uiLayer : UILayer
+    '         - currentTab : Lobby.LayerType
+    '         + changeTabLayer(Lobby.LayerType newLayer)
+    '     }
+    ' }
+}
+
+@enduml

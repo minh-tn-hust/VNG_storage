@@ -1,0 +1,108 @@
+@startuml
+skinparam wrapwidth 300
+skinparam classfontname consolas
+skinparam classfontsize 16
+skinparam classattributefontname cascadia code
+skinparam classattributefontsize 14
+top to bottom direction
+package Monster {
+
+
+    class MonsterLayer  {
+        - controller : MonsterLayerController
+        ---
+        - ctor(MonsterLayerController controller)
+        - update() : void
+        - addChilds(MonsterSprite[])
+        ---
+        # chỉ sử dụng để hiển thị mà thôi
+    }
+
+    class MonsterLayerController {
+        - monsterPool : MonsterPool
+        - layer : MonsterLayer
+        ---
+        - generateMonster(LevelDescription levelDescription) : void
+        - spawnMonster(MonsterType monsterType) : void
+        - collisionTracking() : void 
+        - untarget(int monsterId) : void
+        - update() : void
+        ---
+        # thực hiện việc spawn và di chuyển các monster 
+        # thực hiện việc quản lý monster sinh ra
+        # có khả năng cập nhật ngay và luôn vị trí của một monster nào đấy
+        # kiểm soát hướng đi của các con quái
+        # kiểm soát va chạm giữa các con quái, kiểm soát tốc độ của các con quái
+        # thực hiện tái sử dụng các con quái
+    }
+
+    class MonsterPool {
+        - monsterPool : MonsterSprite[]
+        ---
+        + registerSpriteWithLayer(MonsterSprite monsterSprite) : void
+        + getMonster(MonsterType monsterType) : MonsterSprite
+        + createMonster(MonsterType monsterType) : MonsterSprite
+        + haveMonsterInPool(MonsterType monsterType) : MonsterSprite
+        ---
+        # sinh ra các quái vật và có thể thêm vào MonsterLayer được
+    }
+
+    class Monster {
+        - id : int
+        - health : double
+        - damage : double
+        - speed : double
+        - weight : double
+        - directionVector : cc.Point
+        - inUse : bool
+        - canTagetd : bool
+        - effectd : MonsterEffect[]
+        ---
+        + update() : void
+        + resetState() : void
+        ---
+        # tạo animation theo các hướng đi
+        # thực hiện di chuyển theo vector mà MonsterManager đưa ra cho con quái
+        # có thể thực hiện đẩy các con quái đi chậm hơn
+        # khi tới địa điểm đích tự chuyển trạng thái inUse
+        # nhận cac effect và tự biết kết thúc effect đúng lúc
+        ---
+        # các con quái có thể va chạm với nhau
+        # một loại quái có thể có nhiều con, những con này đều có chung tài nguyên về sprite
+        # có tới 5 loại quái
+        # các chỉ số sinh lực, sức sát thương, có thể chọn làm mục tiêu không, số lượng năng lượng riêng
+        # có thanh máu
+        # có quái có những bước đi đặc biệt
+        # quái được đối phương thả sẽ có vòng tròn màu đỏ dưới chân, quái mình thả sẽ có màu xanh dưới chân
+        # quái có thể tự tương tác với chính nó để thực hiện các skill liên quan tới di  chuyển
+        # quái cũng có thể tương tác với các trụ
+    }
+
+    class MonsterSprite {
+        - monsterAsset : MonsterAsset
+        - monsterDirection : cc.Point
+        - canTageted : bool
+        ---
+        + moving() : void
+        + createAnimationWithDirection() : cc.Animate
+        + setDirection(cc.Point newDirection) : void
+        + update() : void
+        ---
+        # thực hiện khởi tọa animation và tạo ra các di chuyển cho các con quái
+    }
+        
+    class "Quạ Xương" extends MonsterSprite {}
+    class "Khổng Lồ" extends MonsterSprite {}
+    class "Kiếm Ma" extends MonsterSprite {}
+    class "Dơi Quỷ" extends MonsterSprite {}
+    class "Xương Độn Thổ" extends MonsterSprite {
+        + createGroundAnimation() : void
+    }
+
+    MonsterSprite --|> Monster
+    MonsterPool "1" *-- "n" MonsterSprite
+
+    MonsterLayerController "1" *-- "1" MonsterPool
+    MonsterLayerController "1" *-down- "1" MonsterLayer
+}
+@enduml
