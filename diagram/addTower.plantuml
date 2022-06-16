@@ -17,6 +17,4 @@ uiLayer -> mapController : plantTower(position)
 mapController -> mapLayer : updateMapLayer()
 mapLayer -> battleController : updateMapLayer()
 battleController -> server : newGameState
-
-
 @enduml

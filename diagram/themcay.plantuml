@@ -1,6 +1,6 @@
 @startuml
 skinparam wrapwidth 300
-skinparam classfontname cascadia code
+skinparam classfontname consolas
 skinparam classfontsize 16
 skinparam classattributefontname cascadia code
 skinparam classattributefontsize 12
@@ -29,13 +29,18 @@ package Battle {
         - uiLayer : UILayer
         - mapLayer : MapLayer
         - monsterSpawn : MonsterSpawnLayer
+        - round : int
+        - levelDescription : LevelDescription
         ---
-        + getGameState : void 
+        + getGameState() : void 
+        + getLevelDescription() : void
+        + runNextRound() : void
         + updateGameState(GameState newGameState) : void
         + updateUILayer() : void
         + updateMapLayer() : void
         + udateMonsterLayer() : void
         + updateTowerLayer() : void
+        + serverListenr() : void
         ---
         # chứa các layer liên quan tới game
         # nó sẽ chứa map của 2 người chơi
@@ -56,6 +61,8 @@ package Battle {
             + updateMapLayer() : void
             + addTouchListener() : void
             + cardSelected(Card selectedCard) : void
+            + changeCursorSprite() : void
+            + getPathFromIndex(cc.Point index) : void
             ---
             # chứa map hiện tại của người chơi, cập nhật ô đặc biệt, cập nhật trụ
             # có mối liên hệ với UILayer, khi một người bật card lên, mapLayer sẽ xác định các vị trí mà card có thể đặt được
@@ -98,6 +105,8 @@ package Battle {
             + towerTargeted() : void
             + addTouchListener() : void
             + findingTargetForTower(cc.Point position, AttackMode attackMode) : void
+            + canUpdateTowerInIndex(cc.Point index, CardType cardType) : bool
+            + updateTowerWithIndex(cc.Point index)
             ---
             # thực hiện hiển thị các trụ lên sân
             # thực hiện cập nhât và xử lý hình ảnh của các trụ
@@ -106,15 +115,18 @@ package Battle {
         }
 
         class TowerSprite {
+            - index : cc.Point
             - id : int
             - range : float
             - level : int
             - canAttack : bool
             - effectd : TowerEffecting[]
+            - type : TowerType
             ---
             + fire() : void
             + createAnimation() : void
             + changeTarget() : void
+            + updateSprite() : void
             + update()
             ---
             # bắt được danh sách các loại quái hiên tại đang ở trong phạm vi
@@ -196,6 +208,7 @@ package Battle {
         class MonsterSpawnerLayer  {
             - monsterPool : MonsterPool
             ---
+            - generateMonster(LevelDescription levelDescription) : void
             - update() : void
             - collisionTracking() : void 
             - spawnMonster(MonsterType monsterType) : void
@@ -330,6 +343,7 @@ package Battle {
             - userInfo : UserInfo
             - selectedIndex : int
             ---
+            + usingCard() : void
             + randomNextCard() : Card
             + updateEnerge() : void
             + increaseEnergy(int additionEnergy) : void

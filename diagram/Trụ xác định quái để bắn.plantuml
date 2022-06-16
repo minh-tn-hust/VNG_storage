@@ -1,0 +1,22 @@
+@startuml
+
+entity Tower as Tower
+boundary TowerSpawnLayer as TowerLayer
+boundary MonsterSpawnerLayer as MonsterLayer
+
+group Loop 
+Tower -> TowerLayer : getTarget()
+TowerLayer -> MonsterLayer : getTargetFromPosition(index, towerTargetMode)
+MonsterLayer -> TowerLayer : monsterId
+TowerLayer -> Tower : setTarget()
+
+end
+
+@enduml
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+@startuml
+
+actor       ClientA          as ClientA
+control     BattleHandle    as Server
+actor       ClientB          as ClientB
+
+group Khởi tạo game đấu
+    activate Server
+    Server -> Server : khởi tạo trận đấu và cache lại trên RAM
+    Server -> Server : khởi tạo các map
+    Server -> Server : khởi tạo GameState
+    Server -> Server : lấy thông tin từ hai người chơi
+    Server -> ClientA : bắt đầu game vói GameState và hai UserInfo
+    Server -> ClientB : bắt đầu game với GameState và hai UserInfo
+    deactivate Server
+end
+
+@enduml

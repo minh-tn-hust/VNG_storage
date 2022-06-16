@@ -1,0 +1,20 @@
+@startuml
+control Server as Server
+control BattleController as BattleController
+boundary MonsterSpawnLayer as MonsterSpawnLayer
+entity MonsterPool as MonsterPool
+boundary MapLayer as MapLayer
+
+BattleController -> BattleController : runNextRound()
+BattleController -> MonsterSpawnLayer : generateLevel(LevelDescription)
+
+group Loop
+    MonsterSpawnLayer -> MonsterPool : getMonster(monsterType)
+    MonsterPool -> MonsterPool : haveMonsterInPool()
+    MonsterPool -> MonsterSpawnLayer : MonsterSprite
+    MonsterSpawnLayer -> MapLayer : getPathFromIndex()
+    MapLayer -> MonsterSpawnLayer : path[]
+    MonsterSpawnLayer -> MonsterSpawnLayer : update path for MonsterSprite
+end
+
+@enduml
