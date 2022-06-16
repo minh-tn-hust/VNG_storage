@@ -8,44 +8,187 @@ skinparam classattributefontsize 14
 left to right direction
 
 package Lobby {
-    ' class LobbyScene {
-    '     - currentMainLayer : Lobby.LayerType
-    '     ---
-    '     + changeMainLayer(Lobby.LayerType newLayerType)
-    ' }
-    ' class LobbySceneController {
+    class LobbySceneController {
+        - userInfo : UserInfo
 
-    ' }
+        - lobbyScene : LobbyScene
 
-    package CardManager {
-        class CardManagerLayer {
-            - controller : CardManagerLayerController
+        - uiController : UILayerController
+        - cardManageController : CardManageLayerController
+        - popUpController : PopUpLayerController
+
+        - getCurrentTabIndex()
+    }
+
+    class LobbyScene {
+        - controller : LobbySceneController
+        - displayUI() : void
+        - displayCurrentLayer : void
+    }
+
+    package Home {
+        class HomeLayerController {
+            - userInfo : UserInfo
+            - homeLayer : HomeLayer
+            - treasureController : TreasureLayerController
+            - playGameController : PlayGameController
         }
 
-        class CardManageLayerController {
-            - cardManagerLayer : CardManagerLayer
-            - battleDeck : Card[]
+        class HomeLayer {
+            - createPlayGameLayer()
+            - createTreasureLayer()
+            - updatePlayGameLayer()
+            - updateTreasureLayer()
         }
+
+        class PlayGameLayerController {
+
+        }
+
+        class PlayGameLayer {
+
+        }
+
+        class TreasureLayer {
+            - listTreasureButton : cc.Button[]
+            + setPositionForTreasure() : void
+            + setListTreasureSprite() : cc.Sprite[]
+            + renderListTreasure() : void
+            + renderATreasure() : void
+            + addTouchListener() : void
+        }
+
+        class TreasureLayerController {
+            - homeController : HomeLayerController
+
+            - listTreasureInfo : TreasureInfo[]
+            - treasureLayer : TreasureLayer
+            + renderTreasureLayer() : void
+            + setRandomCardForTreasure(TreasureInfo info) : void
+            + setStatusForBox(TreasureInfo info) : void
+            + newTreasure() : TreasureInfo
+            + openATreasure(int index)  : TreasureInfo
+            + requireUpdateCard(CardInfo[] listCard) : void
+        }
+
+        class TreasureInfo {
+            - timeStart : int
+            - timeEnd : int
+            - timeWaiting : int
+            - 1stCard : CardInfo[]
+            - status : int
+        }
+
+        HomeLayerController "1" *-- "1" PlayGameLayerController
+        HomeLayerController "1" *-- "1" TreasureLayerController
+        HomeLayer "1" --* "1" HomeLayerController
+        TreasureInfo "n" --o "1" TreasureLayerController
+        TreasureLayer "1" --* TreasureLayerController
+        PlayGameLayer "1" --* "1" PlayGameLayerController
 
     }
 
+    package PopUp{
+        class PopUpLayer {
+            - cardInfo : CardInfo
+            - controller : PopUpController
+            - cardInfoPopUp : cc.Layer
+            - cardUpdatePopUp : cc.Layer
+            - cardUpdeteFail : cc.Layer
+            - cardUpdateSuccess : cc.Layer
+            - setCardInfo(CardInfo newCardInfo)
+            + showCardInfoPopUp()
+            + showCardUpdatePopUp()
+            + showTreasurePopUp()
+            + showSuccessUpdatePopUp()
+            + updatePopUpLayer()
+        }
 
-    ' package UI {
-    '     class UILayer {
-    '         - controller : UILayerController
-    '         ---
-    '         - ctor(UILayerController controller)
-    '     }
+        class PopUpLayerController {
+            + lobbyController : LobbySceneController
+            + cardController : CardController
+            + popUpLayer : PopUpLayer
+            ---
+            + sử dụng CardController để có thể thực hiện thao tác UpdateCard / SwapCard trực tiếp tại PopUpLayer luôn
+        }
+        PopUpLayer "1" --* PopUpLayerController
+    }
 
-    '     class UILayerController {
-    '         - level : int
-    '         - gold : int
-    '         - gem : int
-    '         - uiLayer : UILayer
-    '         - currentTab : Lobby.LayerType
-    '         + changeTabLayer(Lobby.LayerType newLayer)
-    '     }
-    ' }
+    package CardManagerLayer {
+        class CardInfo {
+            - cardId : int
+            - level : int
+            - pieces : int
+            - requiredEnergy : int
+            ---
+            + getDisplayInfo() : Object
+            --- 
+            + những gì server sẽ trả về()
+        }
+
+        class CardManagerLayer {
+            - controller : CardManagerLayerController
+            - selectingCardInfo : CardInfo
+            ---
+            + createBattleDeck(CardInfo[] battleDeck) : cc.Button[]
+            + createDiscoverDeck(CardInfo[] discoverDeck) : cc.Button[]
+            + selectCard(CardInfo cardInfo)
+        }
+
+        class CardManageLayerController {
+            - lobbyController : LobbySceneController
+
+            - cardManagerLayer : CardManagerLayer
+
+            - battleDeck : CardInfo[]
+            - discoverDeck : CardInfo[]
+            ---
+            + display() : void
+            + canUpdateCard(CardInfo cardInfo) : void
+            + updateCardInfo(CardInfo cardInfo) : void
+            + swapCard(CardInfo battleDeckCard, CardInfo discoverDeckCard) : void
+            ---
+        }
+        CardInfo "n" --o "1" CardManageLayerController
+        CardManageLayerController "1" o-- "1" PopUpLayerController
+        CardManagerLayer --* CardManageLayerController
+    }
+
+
+    package UI {
+        class UILayer {
+            - controller : UILayerController
+            - topBar : cc.Button[]
+            - bottomBar : cc.Button[]
+            - createTopBar(UserInfo userInfo)
+            - createBottomBar()
+            - updateTopbar(UserInfo userInfo)
+            - updateBottomBar()
+        }
+
+        class UILayerController {
+            - lobbyController : LobbyLayerController
+            - uiLayer : UILayer
+            - currentTab : int
+            - currentTab : Lobby.LayerType
+            + changeTabLayer(Lobby.LayerType newLayer)
+        }
+        UILayer "1" --* "1" UILayerController
+    }
+    class UserInfo {
+        - gold : int
+        - gem : int
+        - battleDeck : CardInfo[]
+        - discoverDeck : CardInfo[]
+        - treasure : TreasureInfo[]
+    }
+
+    LobbyScene "1" --* "1" LobbySceneController
+    UserInfo "n" --o LobbySceneController
+    TreasureInfo "n" --o LobbySceneController
+    LobbySceneController "1" *-- "1" UILayerController
+    LobbySceneController "1" *-- "1" CardManageLayerController
+    LobbySceneController "1" *-- "1" PopUpLayerController
 }
 
 @enduml
