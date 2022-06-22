@@ -89,28 +89,47 @@ package Lobby {
     }
 
     package PopUp{
-        class PopUpLayer {
-            - cardInfo : CardInfo
-            - controller : PopUpController
-            - cardInfoPopUp : cc.Layer
-            - cardUpdatePopUp : cc.Layer
-            - cardUpdeteFail : cc.Layer
-            - cardUpdateSuccess : cc.Layer
-            - setCardInfo(CardInfo newCardInfo)
-            + showCardInfoPopUp()
-            + showCardUpdatePopUp()
-            + showTreasurePopUp()
-            + showSuccessUpdatePopUp()
-            + updatePopUpLayer()
-        }
 
         class PopUpLayerController {
-            + lobbyController : LobbySceneController
-            + cardController : CardController
-            + popUpLayer : PopUpLayer
+            - lobbyController : LobbySceneController
+            - cardController : CardController
+            - showController : ShopController
+            - controller : PopUpLayerController
+            - {static} showPopUpWithData(data) : void
             ---
             + sử dụng CardController để có thể thực hiện thao tác UpdateCard / SwapCard trực tiếp tại PopUpLayer luôn
         }
+
+        class PopUpLayer {
+            ---
+            + {static} createPopUpWithData(data) : void
+            + blackBackground() : void
+            + closePopUp() : void
+            + showPopUp() : void
+            + createPopUp() : void
+            + updateObject(newObject : Object) : void
+        }
+
+        class OpenChestPopUp extends PopUpLayer {
+            + createPopUp(data) : void
+        }
+        
+        class CardUpdatePopUp extends PopUpLayer {
+            + createPopUp(data) : void
+        }
+
+        class WarningPopUp extends PopUpLayer {
+            + createPopUp(data) : void
+        }
+
+        class BuyingCardPopUp extends PopUpLayer {
+            + createPopUp(data) : void
+        }
+
+        class BuyingChestPopUp extends PopUpLayer {
+            + createPopUp(data) : void
+        }
+
         PopUpLayer "1" --* PopUpLayerController
     }
 
@@ -152,6 +171,33 @@ package Lobby {
         CardInfo "n" --o "1" CardManageLayerController
         CardManageLayerController "1" o-- "1" PopUpLayerController
         CardManagerLayer --* CardManageLayerController
+    }
+
+    package Shop {
+        class ShopLayer {
+            - createLayer(inputData : PackData)
+            - updateLayer(newData : PackData)
+        }
+
+        class ShopLayerController {
+            - packData : PackData
+            - lobbyController : LobbyLayerController
+            - shopLayer : ShopLayer
+            - currentTab : int
+            - buyingPack(wantedPack : Object) : void
+            - doAPayment(wantedPack : Object) : void
+        }
+
+        class PackData {
+            - loginPack : Object
+            - paymentPack : Object
+            ---
+            # cái này sẽ nhận thông tin từ server để thực hiện hiển thị
+        }
+
+        ShopLayer "1" --* "1" ShopLayerController
+        PackData "1" --* "1" ShopLayerController
+        ShopLayerController "1" --* LobbySceneController
     }
 
 

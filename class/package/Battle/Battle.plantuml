@@ -34,8 +34,52 @@ package Battle {
         + serverListenr() : void
     }
 
+    package Effect {
+        interface Effect {
+            + effectType : EffectType
+            + effecting(destinationObject : cc.Sprite)
+        }
 
+        class EffectFactory {
+            + createEffecting(EffectType effectType) : Effect
+        }
 
+        class MonsterEffecting implements Effect {
+            + effecting(target : MonsterSprite) : void
+        }
+
+        class TowerEffecting implements Effect {
+            + effecting(target : TowerSprite) : void
+        }
+        package EMonster {
+            class Healing extends MonsterEffecting {
+                + type : EffectType.Monster.HEALING
+                + effecting(target : MonsterSprite) : void
+            }
+
+            class SpeedUp extends MonsterEffecting {
+                + type : EffectType.Monster.SPEED_UP
+                + effecting(target : MonsterSprite) : void
+            }
+
+            class MFreeze extends MonsterEffecting {
+                + type : EffectType.Monster.FREEZE
+                + effecting(target : MonsterSprite) : void
+            }
+        }
+
+        package ETower {
+            class TFreeze extends TowerEffecting {
+                + type : EffectType.Tower.FREEZE 
+                + effecting(target : TowerSprite) : void
+            }
+
+            class TSpeedUp extends TowerEffecting {
+                + type : EffectType.Tower.SPEED_UP
+                + effecting(target : TowerSprite) : void
+            }
+        }
+    }
 
     package Monster {
         
@@ -125,19 +169,55 @@ package Battle {
             # thực hiện khởi tọa animation và tạo ra các di chuyển cho các con quái
         }
             
-        class "Quạ Xương" extends MonsterSprite {}
-        class "Khổng Lồ" extends MonsterSprite {}
-        class "Kiếm Ma" extends MonsterSprite {}
-        class "Dơi Quỷ" extends MonsterSprite {}
         class "Xương Độn Thổ" extends MonsterSprite {
             + createGroundAnimation() : void
         }
 
-        MonsterSprite --|> Monster
+        class BossSprite extends MonsterSprite {
+            + usingSkill() : void
+            + surroundingEffect() : void
+            ---
+            # có cách load aniamtion và các thuộc tính cơ bản giống với lớp monster
+            # có thể sử dụng được các skill riêng biệt 
+        }
+
+        class DarkGiant extends BossSprite {
+            + usingSkill() : void
+            + surroundingEffect() : void
+        }
+
+        class ForestGod extends BossSprite {
+            + usingSkill() : void
+            + surroundingEffect() : void
+        }
+
+        class RockMan extends BossSprite {
+            + usingSkill() : void
+            + surroundingEffect() : void
+        }
+
+        class DesertKing extends BossSprite {
+            + usingSkill() : void
+            + surroundingEffect() : void
+        }
+
+        class GiantIce extends BossSprite {
+            + usingSkill() : void
+            + surroundingEffect() : void
+        }
+
+        class WoodMan extends BossSprite {
+            + usingSkill() : void
+            + surroundingEffect() : void
+        }
+
+        MonsterSprite -up-|> Monster
         MonsterPool "1" *-- "n" MonsterSprite
 
         MonsterLayerController "1" *-- "1" MonsterPool
         MonsterLayerController "1" *-down- "1" MonsterLayer
+
+        Effect "n" -left-o "1" MonsterSprite
     }
 
     package SpellCasting {
@@ -287,11 +367,11 @@ package Battle {
             + untarget() : void
         }
 
-        class "Pháo Cú Tower" {}
-        class "Quạ Pháp Sư Tower" {}
-        class "Ếch Đồ Tể Tower" {}
-        class "Thỏ Xả Nhớt Tower" {}
-        class "Gấu Bắc Cực Tower" {}
+        class "Pháo Cú Tower" extends AttackTower {}
+        class "Quạ Pháp Sư Tower" extends AttackTower {}
+        class "Ếch Đồ Tể Tower" extends AttackTower {}
+        class "Thỏ Xả Nhớt Tower" extends AttackTower {}
+        class "Gấu Bắc Cực Tower" extends AttackTower {}
 
         package Bullet {
             
@@ -359,18 +439,13 @@ package Battle {
 
         }
 
-        "Pháo Cú Tower" -right--|> TowerSprite
-        "Quạ Pháp Sư Tower" -right--|> TowerSprite
-        "Ếch Đồ Tể Tower" -right--|> TowerSprite
-        "Thỏ Xả Nhớt Tower" -right--|> TowerSprite
-        "Gấu Bắc Cực Tower" -right--|> TowerSprite
-
-
         TowerLayerController "1" *-- "n" TowerSprite
         TowerLayer "1" -right-* "1" TowerLayerController
 
         AttackTower "1" *-left- "1" BulletPool
         BulletSprite "n" -up-* "1" BulletPool
+
+        Effect "n" -right-o "1" TowerSprite
     }
 
     package UI {
@@ -468,6 +543,35 @@ package Battle {
     MapLayerController "1" --* "1" BattleSceneController
 
     BattleSceneController "1" *-right- "1" BattleScene
+
+    ' package Config {
+    '     package Effect {
+    '         class EffectType.Monster {
+    '             + SPEED_UP : 1
+    '             + HEALING : 2
+    '         }
+
+    '         class EffectType.Tower {
+    '             + FREEZE : 1
+    '         }
+    '     }
+        
+    '     package Monster {
+    '         class MonsterType {
+    '             + GHOST_SWORDER : 1
+    '             + SkELETON_CROW : 2
+    '             + GIANT : 3
+    '             + EVIL_BAT : 4
+    '             + UNDERGROUND_SkELETON : 5
+    '         }
+
+    '         ' class MonsterAsset.GHOST_SWORDER {}
+    '         ' class MonsterAsset.GHOST_SWORDER {}
+    '         ' class MonsterAsset.GHOST_SWORDER {}
+    '         ' class MonsterAsset.GHOST_SWORDER {}
+
+    '     }
+    ' }
 
 }
 
