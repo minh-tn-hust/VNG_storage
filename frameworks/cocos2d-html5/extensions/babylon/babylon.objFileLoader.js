@@ -517,7 +517,7 @@ var BABYLON;
                 var result;
                 //Comment or newLine
                 if (line.length === 0 || line.charAt(0) === '#') {
-
+                    continue;
                 }
                 else if ((result = this.vertexPattern.exec(line)) !== null) {
                     //Create a Vector3 with the position x, y, z

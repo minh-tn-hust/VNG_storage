@@ -1387,7 +1387,6 @@
                     cb(path, type);
                 else{
                     if(path.indexOf(".fnt") == -1) {
-                        cc.log("failed to get spriteFrame: %s", path);
                     }
                     cb(resourcePath + path, 0);
                 }
@@ -1693,6 +1692,7 @@
 
 
     load.registerParser("timeline", "2.*", parser);
+    load.registerParser("timeline", "3.*", parser);
 
 
 })(ccs._load, ccs._parser);

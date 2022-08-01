@@ -67,7 +67,7 @@ function ServerSocket(aPort, flags, c){
       log("asyncListen....");
       debuggerServer = server;
   };
-}
+};
 
 var gRegisteredModules = Object.create(null);
 
@@ -119,7 +119,7 @@ function ModuleAPI() {
       activeGlobalActors = null;
     }
   }
-}
+};
 
 /***
  * Public API

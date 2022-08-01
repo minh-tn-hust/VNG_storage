@@ -1,0 +1,1137 @@
+{
+  "ID": "56dbabe3-4e81-4469-9288-cfecddfd39ca",
+  "Version": "2.3.4",
+  "Name": "OpenChestLayer",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 416,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 168,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.0,
+              "Y": 568.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 783,
+            "ActionTag": 1668074238,
+            "Size": {
+              "X": 640.0,
+              "Y": 1136.0
+            },
+            "Name": "ChestPanel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_panel_background.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 319.9998,
+              "Y": 509.3485
+            },
+            "Scale": {
+              "ScaleX": 1.29,
+              "ScaleY": 1.29
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.4484
+            },
+            "PreSize": {
+              "X": 0.7078,
+              "Y": 0.346
+            },
+            "LeftMargin": 93.4998,
+            "RightMargin": 93.5002,
+            "TopMargin": 430.1515,
+            "BottomMargin": 312.8485,
+            "Tag": 784,
+            "ActionTag": 227756474,
+            "Size": {
+              "X": 453.0,
+              "Y": 393.0
+            },
+            "Name": "Background",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "lobby_asset/treasure/common_treasure_pedestal.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 319.9998,
+              "Y": 755.3654
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.6649
+            },
+            "PreSize": {
+              "X": 0.5281,
+              "Y": 0.1514
+            },
+            "LeftMargin": 150.9998,
+            "RightMargin": 151.0002,
+            "TopMargin": 294.6346,
+            "BottomMargin": 669.3654,
+            "Tag": 786,
+            "ActionTag": -346665700,
+            "Size": {
+              "X": 338.0,
+              "Y": 172.0
+            },
+            "Name": "ChestPedestal",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_treasure.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 319.9998,
+              "Y": 845.1633
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.744
+            },
+            "PreSize": {
+              "X": 0.3438,
+              "Y": 0.1769
+            },
+            "LeftMargin": 209.9998,
+            "RightMargin": 210.0002,
+            "TopMargin": 190.3367,
+            "BottomMargin": 744.6633,
+            "Tag": 785,
+            "ActionTag": 761816304,
+            "Size": {
+              "X": 220.0,
+              "Y": 201.0
+            },
+            "Name": "Chest",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_panel_btn_close.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_panel_btn_close.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_panel_btn_close.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 17,
+            "Scale9Height": 25,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 566.5399,
+              "Y": 718.6306
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8852,
+              "Y": 0.6326
+            },
+            "PreSize": {
+              "X": 0.0734,
+              "Y": 0.0414
+            },
+            "LeftMargin": 543.0399,
+            "RightMargin": 49.9601,
+            "TopMargin": 393.8694,
+            "BottomMargin": 695.1306,
+            "Tag": 800,
+            "ActionTag": 1586213231,
+            "Size": {
+              "X": 47.0,
+              "Y": 47.0
+            },
+            "Name": "ExitButton",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_panel_front.png",
+              "Plist": ""
+            },
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 139,
+            "Scale9OriginY": 38,
+            "Scale9Width": 146,
+            "Scale9Height": 273,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.0,
+              "Y": 540.8496
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.4761
+            },
+            "PercentWidthEnable": true,
+            "PercentWidthEnabled": true,
+            "PreSize": {
+              "X": 0.82,
+              "Y": 0.1972
+            },
+            "LeftMargin": 57.6,
+            "RightMargin": 57.6,
+            "TopMargin": 483.1504,
+            "BottomMargin": 428.8496,
+            "Tag": 803,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Default",
+                  "Path": "Default/Sprite.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 217.9411,
+                  "Y": 56.5743
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.4153,
+                  "Y": 0.2526
+                },
+                "PreSize": {
+                  "X": 0.0877,
+                  "Y": 0.2054
+                },
+                "LeftMargin": 194.9411,
+                "RightMargin": 283.8589,
+                "TopMargin": 144.4258,
+                "BottomMargin": 33.5743,
+                "Tag": 804,
+                "ActionTag": 483236305,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 46.0
+                },
+                "Name": "cardSprite1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "Loại thẻ : ",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Avo bold.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 132.4382,
+                  "Y": 56.5743
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.2524,
+                  "Y": 0.2526
+                },
+                "PreSize": {
+                  "X": 0.1734,
+                  "Y": 0.125
+                },
+                "LeftMargin": 86.9382,
+                "RightMargin": 346.8618,
+                "TopMargin": 153.4257,
+                "BottomMargin": 42.5743,
+                "Tag": 805,
+                "ActionTag": -1183373599,
+                "Size": {
+                  "X": 91.0,
+                  "Y": 28.0
+                },
+                "Name": "CardType",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Default",
+                  "Path": "Default/Sprite.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 280.9469,
+                  "Y": 56.5743
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5353,
+                  "Y": 0.2526
+                },
+                "PreSize": {
+                  "X": 0.0877,
+                  "Y": 0.2054
+                },
+                "LeftMargin": 257.9469,
+                "RightMargin": 220.8531,
+                "TopMargin": 144.4258,
+                "BottomMargin": 33.5743,
+                "Tag": 806,
+                "ActionTag": -879038895,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 46.0
+                },
+                "Name": "cardSprite2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Default",
+                  "Path": "Default/Sprite.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 343.9525,
+                  "Y": 56.5743
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.6554,
+                  "Y": 0.2526
+                },
+                "PreSize": {
+                  "X": 0.0877,
+                  "Y": 0.2054
+                },
+                "LeftMargin": 320.9525,
+                "RightMargin": 157.8475,
+                "TopMargin": 144.4258,
+                "BottomMargin": 33.5743,
+                "Tag": 807,
+                "ActionTag": 477505929,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 46.0
+                },
+                "Name": "cardSprite3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "lobby_asset/treasure/lobby_treasure_info_box.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 168.9332,
+                  "Y": 147.6935
+                },
+                "Scale": {
+                  "ScaleX": 0.84,
+                  "ScaleY": 0.79
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.3219,
+                  "Y": 0.6593
+                },
+                "PreSize": {
+                  "X": 0.4421,
+                  "Y": 0.2188
+                },
+                "LeftMargin": 52.9332,
+                "RightMargin": 239.8668,
+                "TopMargin": 51.8065,
+                "BottomMargin": 123.1935,
+                "Tag": 812,
+                "ActionTag": -624733348,
+                "Size": {
+                  "X": 232.0,
+                  "Y": 49.0
+                },
+                "Name": "lobby_treasure_info_box_30_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 16,
+                "LabelText": "Vàng",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 114.6689,
+                  "Y": 170.9877
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.2185,
+                  "Y": 0.7633
+                },
+                "PreSize": {
+                  "X": 0.1105,
+                  "Y": 0.0982
+                },
+                "LeftMargin": 85.6689,
+                "RightMargin": 381.131,
+                "TopMargin": 42.0123,
+                "BottomMargin": 159.9877,
+                "Tag": 816,
+                "ActionTag": 1767766381,
+                "Size": {
+                  "X": 58.0,
+                  "Y": 22.0
+                },
+                "Name": "GoldTitle",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "lobby_asset/treasure/lobby_treasure_info_box.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 401.4344,
+                  "Y": 147.6935
+                },
+                "Scale": {
+                  "ScaleX": 0.84,
+                  "ScaleY": 0.79
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.7649,
+                  "Y": 0.6593
+                },
+                "PreSize": {
+                  "X": 0.4421,
+                  "Y": 0.2188
+                },
+                "LeftMargin": 285.4344,
+                "RightMargin": 7.3656,
+                "TopMargin": 51.8065,
+                "BottomMargin": 123.1935,
+                "Tag": 809,
+                "ActionTag": 2052231150,
+                "Size": {
+                  "X": 232.0,
+                  "Y": 49.0
+                },
+                "Name": "lobby_treasure_info_box_30_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 16,
+                "LabelText": "Thẻ",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 353.454,
+                  "Y": 170.9877
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.6735,
+                  "Y": 0.7633
+                },
+                "PreSize": {
+                  "X": 0.0857,
+                  "Y": 0.0982
+                },
+                "LeftMargin": 330.954,
+                "RightMargin": 148.8459,
+                "TopMargin": 42.0123,
+                "BottomMargin": 159.9877,
+                "Tag": 817,
+                "ActionTag": 1812652202,
+                "Size": {
+                  "X": 45.0,
+                  "Y": 22.0
+                },
+                "Name": "CardTitle",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "100 - 200",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 158.822,
+                  "Y": 148.8824
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 239,
+                  "G": 217,
+                  "B": 20
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.3026,
+                  "Y": 0.6647
+                },
+                "PreSize": {
+                  "X": 0.2496,
+                  "Y": 0.1205
+                },
+                "LeftMargin": 93.322,
+                "RightMargin": 300.478,
+                "TopMargin": 61.6176,
+                "BottomMargin": 135.3824,
+                "Tag": 818,
+                "ActionTag": -1966956079,
+                "Size": {
+                  "X": 131.0,
+                  "Y": 27.0
+                },
+                "Name": "numberOfGold",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "100 - 200",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 404.763,
+                  "Y": 149.9879
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 94,
+                  "B": 253
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.7713,
+                  "Y": 0.6696
+                },
+                "PreSize": {
+                  "X": 0.2496,
+                  "Y": 0.1205
+                },
+                "LeftMargin": 339.263,
+                "RightMargin": 54.537,
+                "TopMargin": 60.5121,
+                "BottomMargin": 136.4879,
+                "Tag": 819,
+                "ActionTag": -872371755,
+                "Size": {
+                  "X": 131.0,
+                  "Y": 27.0
+                },
+                "Name": "numberOfCard",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "lobby_asset/treasure/common_icon_card_multiple.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 306.4357,
+                  "Y": 147.6937
+                },
+                "Scale": {
+                  "ScaleX": 0.47,
+                  "ScaleY": 0.47
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5839,
+                  "Y": 0.6593
+                },
+                "PreSize": {
+                  "X": 0.2058,
+                  "Y": 0.4732
+                },
+                "LeftMargin": 252.4357,
+                "RightMargin": 164.3643,
+                "TopMargin": 23.3063,
+                "BottomMargin": 94.6937,
+                "Tag": 810,
+                "ActionTag": -419738927,
+                "Size": {
+                  "X": 108.0,
+                  "Y": 106.0
+                },
+                "Name": "common_icon_card_multiple_32",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "common_asset/common_icon_gold.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 65.1205,
+                  "Y": 147.6938
+                },
+                "Scale": {
+                  "ScaleX": 0.47,
+                  "ScaleY": 0.47
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.1241,
+                  "Y": 0.6593
+                },
+                "PreSize": {
+                  "X": 0.1677,
+                  "Y": 0.4821
+                },
+                "LeftMargin": 21.1205,
+                "RightMargin": 415.6795,
+                "TopMargin": 22.3062,
+                "BottomMargin": 93.6938,
+                "Tag": 815,
+                "ActionTag": 953233155,
+                "Size": {
+                  "X": 88.0,
+                  "Y": 108.0
+                },
+                "Name": "common_icon_gold_37",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 1550760358,
+            "Size": {
+              "X": 524.8,
+              "Y": 224.0
+            },
+            "Name": "MainContent",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_btn_green.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_btn_green.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_btn_green.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 31,
+            "Scale9OriginY": 28,
+            "Scale9Width": 124,
+            "Scale9Height": 62,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 317.44,
+              "Y": 349.5472
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.496,
+              "Y": 0.3077
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 0.3031,
+              "Y": 0.0751
+            },
+            "LeftMargin": 220.448,
+            "RightMargin": 225.568,
+            "TopMargin": 743.796,
+            "BottomMargin": 306.8904,
+            "Tag": 820,
+            "Children": [
+              {
+                "FontSize": 20,
+                "LabelText": "Mở rương",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 96.992,
+                  "Y": 42.6568
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.7372,
+                  "Y": 0.3165
+                },
+                "LeftMargin": 25.492,
+                "RightMargin": 25.492,
+                "TopMargin": 29.1568,
+                "BottomMargin": 29.1568,
+                "Tag": 821,
+                "ActionTag": 133067054,
+                "Size": {
+                  "X": 143.0,
+                  "Y": 27.0
+                },
+                "Name": "OpenChestTitle",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -1510094452,
+            "Size": {
+              "X": 193.984,
+              "Y": 85.3136
+            },
+            "Name": "OpenChest",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Size": {
+          "X": 640.0,
+          "Y": 1136.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "../../../common_asset/common_btn_green.png",
+        "../../../common_asset/common_icon_gold.png",
+        "../../../common_asset/common_panel_background.png",
+        "../../../common_asset/common_panel_btn_close.png",
+        "../../../common_asset/common_panel_front.png",
+        "../../../common_asset/common_treasure.png",
+        "../../../Default/Sprite.png",
+        "../../../lobby_asset/treasure/common_icon_card_multiple.png",
+        "../../../lobby_asset/treasure/common_treasure_pedestal.png",
+        "../../../lobby_asset/treasure/lobby_treasure_info_box.png",
+        "../../../SVN-Avo bold.ttf",
+        "../../../SVN-Supercell Magic.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

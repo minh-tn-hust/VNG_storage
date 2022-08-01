@@ -1,0 +1,518 @@
+{
+  "ID": "cea67960-de82-4461-8ca6-a6b6918af7b2",
+  "Version": "3.10.0.0",
+  "Name": "battle_CardItem",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 233,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "battle_asset/battle_card_box.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 35,
+            "Scale9OriginY": 47,
+            "Scale9Width": 38,
+            "Scale9Height": 49,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.5371,
+              "Y": 0.3694
+            },
+            "Scale": {
+              "ScaleX": 1.02,
+              "ScaleY": 1.02
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -68.4629,
+            "RightMargin": -69.5371,
+            "TopMargin": -93.3694,
+            "BottomMargin": -92.6306,
+            "Tag": 379,
+            "ActionTag": 1448407748,
+            "Size": {
+              "X": 138.0,
+              "Y": 186.0
+            },
+            "Name": "CardBox",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "card_asset/card_background_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 0.96,
+              "ScaleY": 0.96
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -59.0,
+            "RightMargin": -59.0,
+            "TopMargin": -82.0,
+            "BottomMargin": -82.0,
+            "Tag": 235,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "card_asset/card_potion_heal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 46,
+                "Scale9OriginY": 45,
+                "Scale9Width": 47,
+                "Scale9Height": 96,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 59.0,
+                  "Y": 82.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.178,
+                  "Y": 1.1341
+                },
+                "LeftMargin": -10.5,
+                "RightMargin": -10.5,
+                "TopMargin": -11.0,
+                "BottomMargin": -11.0,
+                "Tag": 236,
+                "ActionTag": -2060814550,
+                "Size": {
+                  "X": 139.0,
+                  "Y": 186.0
+                },
+                "Name": "MonsterSprite",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "card_asset/card_border_1.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 59.0,
+                  "Y": 82.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.1695,
+                  "Y": 1.1341
+                },
+                "LeftMargin": -10.0,
+                "RightMargin": -10.0,
+                "TopMargin": -11.0,
+                "BottomMargin": -11.0,
+                "Tag": 234,
+                "ActionTag": 1693866690,
+                "Size": {
+                  "X": 138.0,
+                  "Y": 186.0
+                },
+                "Name": "CardBorder",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "common_asset/common_icon_energy.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 59.0,
+                  "Y": 0.66
+                },
+                "Scale": {
+                  "ScaleX": 0.51,
+                  "ScaleY": 0.51
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.004
+                },
+                "PreSize": {
+                  "X": 0.6356,
+                  "Y": 0.5183
+                },
+                "LeftMargin": 21.5,
+                "RightMargin": 21.5,
+                "TopMargin": 120.84,
+                "BottomMargin": -41.84,
+                "Tag": 238,
+                "Children": [
+                  {
+                    "FontSize": 24,
+                    "LabelText": "20",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "SVN-Supercell Magic.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "R": 0,
+                      "G": 0,
+                      "B": 0
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 0,
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "ShadowEnabled": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 37.5,
+                      "Y": 42.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.5867,
+                      "Y": 0.4118
+                    },
+                    "LeftMargin": 15.5,
+                    "RightMargin": 15.5,
+                    "TopMargin": 25.0,
+                    "BottomMargin": 25.0,
+                    "Tag": 239,
+                    "ActionTag": -727902547,
+                    "Size": {
+                      "X": 44.0,
+                      "Y": 35.0
+                    },
+                    "Name": "EnergyLabel",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": -2007999523,
+                "Size": {
+                  "X": 75.0,
+                  "Y": 85.0
+                },
+                "Name": "EnergyRequired",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -148388764,
+            "Size": {
+              "X": 118.0,
+              "Y": 164.0
+            },
+            "Name": "CardBackground",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "FontResource": {
+              "Type": "Default",
+              "Path": "",
+              "Plist": ""
+            },
+            "TextColor": {},
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_btn_red.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_btn_red.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_btn_red.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 164,
+            "Scale9Height": 89,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": -67.4063
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -71.5,
+            "RightMargin": -71.5,
+            "TopMargin": 40.9063,
+            "BottomMargin": -93.9063,
+            "Tag": 130,
+            "Children": [
+              {
+                "FontSize": 16,
+                "LabelText": "Hủy -3",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "R": 0,
+                  "G": 0,
+                  "B": 0
+                },
+                "OutlineEnabled": true,
+                "ShadowColor": {
+                  "R": 45,
+                  "G": 45,
+                  "B": 45
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "ShadowEnabled": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 63.2182,
+                  "Y": 26.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.4421,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.5035,
+                  "Y": 0.4528
+                },
+                "LeftMargin": 27.2182,
+                "RightMargin": 43.7818,
+                "TopMargin": 14.5,
+                "BottomMargin": 14.5,
+                "Tag": 131,
+                "ActionTag": 529426013,
+                "Size": {
+                  "X": 72.0,
+                  "Y": 24.0
+                },
+                "Name": "CancelLabel",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "common_asset/common_icon_energy.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 111.2085,
+                  "Y": 26.5
+                },
+                "Scale": {
+                  "ScaleX": 0.25,
+                  "ScaleY": 0.25
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.7777,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.5245,
+                  "Y": 1.6038
+                },
+                "LeftMargin": 73.7085,
+                "RightMargin": -5.7085,
+                "TopMargin": -16.0,
+                "BottomMargin": -16.0,
+                "Tag": 132,
+                "ActionTag": -913522648,
+                "Size": {
+                  "X": 75.0,
+                  "Y": 85.0
+                },
+                "Name": "EnergyRequired_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -701411513,
+            "Size": {
+              "X": 143.0,
+              "Y": 53.0
+            },
+            "Name": "CancelButton",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "battle_asset/battle_card_box.png",
+        "card_asset/card_background_1.png",
+        "card_asset/card_border_1.png",
+        "card_asset/card_potion_heal.png",
+        "common_asset/common_btn_red.png",
+        "common_asset/common_icon_energy.png",
+        "SVN-Supercell Magic.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

@@ -1,0 +1,550 @@
+{
+  "ID": "3a2b11d8-359b-4223-ad18-9d47157929fb",
+  "Version": "2.3.4",
+  "Name": "OpenningTreasure",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 240,
+        "Children": [
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Tag": 241,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "Button",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Press.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Normal.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 16,
+                "Scale9Height": 14,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -23.0,
+                "RightMargin": -23.0,
+                "TopMargin": -18.0,
+                "BottomMargin": -18.0,
+                "Tag": 250,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "lobby_asset/lobby_home_treasure_opening.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 23.0,
+                      "Y": 18.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 3.1087,
+                      "Y": 5.1111
+                    },
+                    "LeftMargin": -48.5,
+                    "RightMargin": -48.5,
+                    "TopMargin": -74.0,
+                    "BottomMargin": -74.0,
+                    "Tag": 242,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "lobby_asset/lobby_home_treasure_opening_time.png",
+                          "Plist": ""
+                        },
+                        "BlendFunc": {
+                          "Src": 1,
+                          "Dst": 771
+                        },
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 71.5,
+                          "Y": 167.44
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.91
+                        },
+                        "PreSize": {
+                          "X": 0.993,
+                          "Y": 0.1739
+                        },
+                        "LeftMargin": 0.5,
+                        "RightMargin": 0.5,
+                        "TopMargin": 0.56,
+                        "BottomMargin": 151.44,
+                        "Tag": 243,
+                        "Children": [
+                          {
+                            "FontSize": 17,
+                            "LabelText": "15h32m",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "SVN-Supercell Magic.ttf",
+                              "Plist": ""
+                            },
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 78.1,
+                              "Y": 16.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PositionPercentXEnabled": true,
+                            "PrePosition": {
+                              "X": 0.55,
+                              "Y": 0.5
+                            },
+                            "PreSize": {
+                              "X": 0.5915,
+                              "Y": 0.7188
+                            },
+                            "LeftMargin": 36.1,
+                            "RightMargin": 21.9,
+                            "TopMargin": 4.5,
+                            "BottomMargin": 4.5,
+                            "Tag": 247,
+                            "ActionTag": -1034640225,
+                            "Size": {
+                              "X": 84.0,
+                              "Y": 23.0
+                            },
+                            "Name": "remainingTimeLabel",
+                            "ctype": "TextObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "lobby_asset/lobby_stat_icon_time.png",
+                              "Plist": ""
+                            },
+                            "BlendFunc": {
+                              "Src": 1,
+                              "Dst": 771
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 14.2,
+                              "Y": 16.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.8,
+                              "ScaleY": 0.8
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PositionPercentXEnabled": true,
+                            "PositionPercentYEnabled": true,
+                            "PrePosition": {
+                              "X": 0.1,
+                              "Y": 0.5
+                            },
+                            "PreSize": {
+                              "X": 0.331,
+                              "Y": 1.7188
+                            },
+                            "LeftMargin": -9.3,
+                            "RightMargin": 104.3,
+                            "TopMargin": -11.5,
+                            "BottomMargin": -11.5,
+                            "Tag": 248,
+                            "ActionTag": -488032560,
+                            "Size": {
+                              "X": 47.0,
+                              "Y": 55.0
+                            },
+                            "Name": "treasure_open_clock",
+                            "ctype": "SpriteObjectData"
+                          }
+                        ],
+                        "ActionTag": 1130541055,
+                        "Size": {
+                          "X": 142.0,
+                          "Y": 32.0
+                        },
+                        "Name": "lobby_home_treasure_opening_time",
+                        "ctype": "SpriteObjectData"
+                      }
+                    ],
+                    "ActionTag": -149236449,
+                    "Size": {
+                      "X": 143.0,
+                      "Y": 184.0
+                    },
+                    "Name": "lobby_home_treasure_opening",
+                    "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "common_asset/common_treasure.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 23.0,
+                      "Y": 18.0
+                    },
+                    "Scale": {
+                      "ScaleX": 0.35,
+                      "ScaleY": 0.35
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 4.7826,
+                      "Y": 5.5833
+                    },
+                    "LeftMargin": -87.0,
+                    "RightMargin": -87.0,
+                    "TopMargin": -82.5,
+                    "BottomMargin": -82.5,
+                    "Tag": 249,
+                    "ActionTag": 1356085015,
+                    "Size": {
+                      "X": 220.0,
+                      "Y": 201.0
+                    },
+                    "Name": "treasure",
+                    "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "FontSize": 16,
+                    "LabelText": "Open Now",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "SVN-Supercell Magic.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 23.0,
+                      "Y": -10.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": -0.2778
+                    },
+                    "PreSize": {
+                      "X": 2.5652,
+                      "Y": 0.6111
+                    },
+                    "LeftMargin": -36.0,
+                    "RightMargin": -36.0,
+                    "TopMargin": 35.0,
+                    "BottomMargin": -21.0,
+                    "Tag": 252,
+                    "ActionTag": 1472715329,
+                    "Size": {
+                      "X": 118.0,
+                      "Y": 22.0
+                    },
+                    "Name": "openNowLabel",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "common_asset/common_icon_g.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 34.5,
+                      "Y": -40.0
+                    },
+                    "Scale": {
+                      "ScaleX": 0.25,
+                      "ScaleY": 0.25
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.75,
+                      "Y": -1.1111
+                    },
+                    "PreSize": {
+                      "X": 1.9783,
+                      "Y": 2.9722
+                    },
+                    "LeftMargin": -11.0,
+                    "RightMargin": -34.0,
+                    "TopMargin": 22.5,
+                    "BottomMargin": -93.5,
+                    "Tag": 254,
+                    "ActionTag": -789999705,
+                    "Size": {
+                      "X": 91.0,
+                      "Y": 107.0
+                    },
+                    "Name": "gemIcon",
+                    "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "FontSize": 20,
+                    "LabelText": "4",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "SVN-Supercell Magic.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 12.42,
+                      "Y": -40.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.27,
+                      "Y": -1.1111
+                    },
+                    "PreSize": {
+                      "X": 0.4565,
+                      "Y": 0.75
+                    },
+                    "LeftMargin": 1.92,
+                    "RightMargin": 23.08,
+                    "TopMargin": 62.5,
+                    "BottomMargin": -53.5,
+                    "Tag": 255,
+                    "ActionTag": -1389697293,
+                    "Size": {
+                      "X": 21.0,
+                      "Y": 27.0
+                    },
+                    "Name": "nGemRequired",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": 736967237,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 36.0
+                },
+                "Name": "OpenTreasureButton",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": 196967821,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_1",
+            "ctype": "SingleNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../../common_asset/common_icon_g.png",
+        "../../common_asset/common_treasure.png",
+        "../../Default/Button_Disable.png",
+        "../../Default/Button_Normal.png",
+        "../../Default/Button_Press.png",
+        "../../lobby_asset/lobby_home_treasure_opening.png",
+        "../../lobby_asset/lobby_home_treasure_opening_time.png",
+        "../../lobby_asset/lobby_stat_icon_time.png",
+        "../../SVN-Supercell Magic.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

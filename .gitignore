@@ -1,0 +1,8 @@
+*.udf
+server/logs/*
+<<<<<<< HEAD
+
+.idea/workspace.xml
+=======
+.idea/*
+>>>>>>> master

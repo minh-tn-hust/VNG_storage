@@ -1,0 +1,423 @@
+{
+  "ID": "c61f1b73-3d47-472f-a621-2829a682180c",
+  "Version": "2.3.4",
+  "Name": "ItemNode",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 118,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "shop_asset/lobby_shop_item_background.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -78.5,
+            "RightMargin": -78.5,
+            "TopMargin": -101.0,
+            "BottomMargin": -101.0,
+            "Tag": 119,
+            "Children": [
+              {
+                "FontSize": 12,
+                "ButtonText": " ",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "TextColor": {},
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "shop_asset/btn_orange.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "shop_asset/btn_orange.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "shop_asset/btn_orange.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9Width": 194,
+                "Scale9Height": 111,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 79.285,
+                  "Y": 34.34
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.505,
+                  "Y": 0.17
+                },
+                "PreSize": {
+                  "X": 0.9618,
+                  "Y": 0.3119
+                },
+                "LeftMargin": 3.785,
+                "RightMargin": 2.215,
+                "TopMargin": 136.16,
+                "BottomMargin": 2.84,
+                "Tag": 120,
+                "Children": [
+                  {
+                    "FontSize": 16,
+                    "LabelText": "500",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "SVN-Supercell Magic.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 94.6468,
+                      "Y": 31.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.6268,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.3113,
+                      "Y": 0.3492
+                    },
+                    "LeftMargin": 71.1468,
+                    "RightMargin": 32.8532,
+                    "TopMargin": 20.5,
+                    "BottomMargin": 20.5,
+                    "Tag": 121,
+                    "ActionTag": -660564726,
+                    "Size": {
+                      "X": 47.0,
+                      "Y": 22.0
+                    },
+                    "Name": "price",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "shop_asset/common_icon_gold_small.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 52.85,
+                      "Y": 31.5
+                    },
+                    "Scale": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.35,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.3974,
+                      "Y": 1.0159
+                    },
+                    "LeftMargin": 22.85,
+                    "RightMargin": 68.15,
+                    "TopMargin": -0.5,
+                    "BottomMargin": -0.5,
+                    "Tag": 122,
+                    "ActionTag": -1375998283,
+                    "Size": {
+                      "X": 60.0,
+                      "Y": 64.0
+                    },
+                    "Name": "goldIcon",
+                    "ctype": "SpriteObjectData"
+                  }
+                ],
+                "ActionTag": 563178494,
+                "Size": {
+                  "X": 151.0,
+                  "Y": 63.0
+                },
+                "Name": "buyButton",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Default",
+                  "Path": "Default/ImageFile.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 46,
+                "Scale9Height": 46,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 78.5,
+                  "Y": 129.3002
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.6401
+                },
+                "PreSize": {
+                  "X": 0.293,
+                  "Y": 0.2277
+                },
+                "LeftMargin": 55.5,
+                "RightMargin": 55.5,
+                "TopMargin": 49.6998,
+                "BottomMargin": 106.3002,
+                "Tag": 123,
+                "ActionTag": 779541613,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 46.0
+                },
+                "Name": "contentImage",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 16,
+                "LabelText": "Text Label",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 78.5,
+                  "Y": 181.8
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.9
+                },
+                "PreSize": {
+                  "X": 0.7707,
+                  "Y": 0.1089
+                },
+                "LeftMargin": 18.0,
+                "RightMargin": 18.0,
+                "TopMargin": 9.2,
+                "BottomMargin": 170.8,
+                "Tag": 125,
+                "ActionTag": -905807714,
+                "Size": {
+                  "X": 121.0,
+                  "Y": 22.0
+                },
+                "Name": "chestName",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "xDF",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 107.3409,
+                  "Y": 85.8702
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.6837,
+                  "Y": 0.4251
+                },
+                "PreSize": {
+                  "X": 0.3631,
+                  "Y": 0.1337
+                },
+                "LeftMargin": 78.8409,
+                "RightMargin": 21.1591,
+                "TopMargin": 102.6298,
+                "BottomMargin": 72.3702,
+                "Tag": 124,
+                "ActionTag": 1573535434,
+                "Size": {
+                  "X": 57.0,
+                  "Y": 27.0
+                },
+                "Name": "numberOfPieces",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -1238834275,
+            "Size": {
+              "X": 157.0,
+              "Y": 202.0
+            },
+            "Name": "dailyTab",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../../Default/ImageFile.png",
+        "../../shop_asset/btn_orange.png",
+        "../../shop_asset/common_icon_gold_small.png",
+        "../../shop_asset/lobby_shop_item_background.png",
+        "../../SVN-Supercell Magic.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

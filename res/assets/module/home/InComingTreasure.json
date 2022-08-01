@@ -1,0 +1,237 @@
+{
+  "ID": "975c2d38-7313-4eb9-8102-44c37aa4ed13",
+  "Version": "2.3.4",
+  "Name": "InComingTreasure",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 261,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "lobby_asset/lobby_home_treasure_empty.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -71.5,
+            "RightMargin": -71.5,
+            "TopMargin": -92.0,
+            "BottomMargin": -92.0,
+            "Tag": 264,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "common_asset/common_treasure.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 71.5,
+                  "Y": 92.0
+                },
+                "Scale": {
+                  "ScaleX": 0.35,
+                  "ScaleY": 0.35
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.5385,
+                  "Y": 1.0924
+                },
+                "LeftMargin": -38.5,
+                "RightMargin": -38.5,
+                "TopMargin": -8.5,
+                "BottomMargin": -8.5,
+                "Tag": 263,
+                "ActionTag": 1067964711,
+                "Size": {
+                  "X": 220.0,
+                  "Y": 201.0
+                },
+                "Name": "CommonTreasure",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 15,
+                "LabelText": "Holy Forest",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 71.5,
+                  "Y": 35.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.1902
+                },
+                "PreSize": {
+                  "X": 0.9091,
+                  "Y": 0.1087
+                },
+                "LeftMargin": 6.5,
+                "RightMargin": 6.5,
+                "TopMargin": 139.0,
+                "BottomMargin": 25.0,
+                "Tag": 265,
+                "ActionTag": 1894528117,
+                "Size": {
+                  "X": 130.0,
+                  "Y": 20.0
+                },
+                "Name": "Label",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "3H",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.3255,
+                  "ScaleY": 0.2848
+                },
+                "Position": {
+                  "X": 67.3118,
+                  "Y": 145.0506
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.4707,
+                  "Y": 0.7883
+                },
+                "PreSize": {
+                  "X": 0.2587,
+                  "Y": 0.1467
+                },
+                "LeftMargin": 55.2688,
+                "RightMargin": 50.7312,
+                "TopMargin": 19.6392,
+                "BottomMargin": 137.3608,
+                "Tag": 266,
+                "ActionTag": -1938257840,
+                "Size": {
+                  "X": 37.0,
+                  "Y": 27.0
+                },
+                "Name": "remainingTimeLabel",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -1614827391,
+            "Size": {
+              "X": 143.0,
+              "Y": 184.0
+            },
+            "Name": "lobby_home_treasure_empty_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../../common_asset/common_treasure.png",
+        "../../lobby_asset/lobby_home_treasure_empty.png",
+        "../../SVN-Supercell Magic.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

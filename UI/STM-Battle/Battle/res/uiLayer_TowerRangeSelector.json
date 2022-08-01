@@ -1,0 +1,436 @@
+{
+  "ID": "33612573-4804-4aec-910b-4ee3de10ca46",
+  "Version": "3.10.0.0",
+  "Name": "uiLayer_TowerRangeSelector",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 1784,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "battle_asset/UI/ui_circle_frame.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -89.0,
+            "RightMargin": -89.0,
+            "TopMargin": -89.0,
+            "BottomMargin": -89.0,
+            "Tag": 1785,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "uiLayer_TowerItem.json",
+                  "Plist": ""
+                },
+                "StretchWidthEnable": false,
+                "StretchHeightEnable": false,
+                "InnerActionSpeed": 1.0,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 39.1244,
+                  "Y": 157.2986
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": true,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.2198,
+                  "Y": 0.8837
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 39.1244,
+                "RightMargin": 138.8756,
+                "TopMargin": 20.7014,
+                "BottomMargin": 157.2986,
+                "Tag": 1788,
+                "ActionTag": 1665083170,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "Option",
+                "ctype": "ProjectNodeObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "uiLayer_TowerItem.json",
+                  "Plist": ""
+                },
+                "StretchWidthEnable": false,
+                "StretchHeightEnable": false,
+                "InnerActionSpeed": 1.0,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 5.518,
+                  "Y": 68.441
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": true,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.031,
+                  "Y": 0.3845
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 5.518,
+                "RightMargin": 172.482,
+                "TopMargin": 109.559,
+                "BottomMargin": 68.441,
+                "Tag": 1792,
+                "ActionTag": 1680264537,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "Option",
+                "ctype": "ProjectNodeObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "uiLayer_TowerItem.json",
+                  "Plist": ""
+                },
+                "StretchWidthEnable": false,
+                "StretchHeightEnable": false,
+                "InnerActionSpeed": 1.0,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 138.8756,
+                  "Y": 157.2986
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": true,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.7802,
+                  "Y": 0.8837
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 138.8756,
+                "RightMargin": 39.1244,
+                "TopMargin": 20.7014,
+                "BottomMargin": 157.2986,
+                "Tag": 1796,
+                "ActionTag": 1835503364,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "Option",
+                "ctype": "ProjectNodeObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "uiLayer_TowerItem.json",
+                  "Plist": ""
+                },
+                "StretchWidthEnable": false,
+                "StretchHeightEnable": false,
+                "InnerActionSpeed": 1.0,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 161.802,
+                  "Y": 68.441
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": true,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.909,
+                  "Y": 0.3845
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 161.802,
+                "RightMargin": 16.198,
+                "TopMargin": 109.559,
+                "BottomMargin": 68.441,
+                "Tag": 1800,
+                "ActionTag": 1720739351,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "Option",
+                "ctype": "ProjectNodeObjectData"
+              }
+            ],
+            "ActionTag": -1847488697,
+            "Size": {
+              "X": 178.0,
+              "Y": 178.0
+            },
+            "Name": "TowerMenu",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_btn_red.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_btn_red.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "common_asset/common_btn_red.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginY": 10,
+            "Scale9Width": 194,
+            "Scale9Height": 91,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": -80.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -70.5,
+            "RightMargin": -70.5,
+            "TopMargin": 58.0,
+            "BottomMargin": -102.0,
+            "Tag": 1804,
+            "Children": [
+              {
+                "FontSize": 14,
+                "LabelText": "Hủy +6",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "SVN-Supercell Magic.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 62.31,
+                  "Y": 22.3496
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.4419,
+                  "Y": 0.5079
+                },
+                "PreSize": {
+                  "X": 0.4681,
+                  "Y": 0.4318
+                },
+                "LeftMargin": 29.31,
+                "RightMargin": 45.69,
+                "TopMargin": 12.1504,
+                "BottomMargin": 12.8496,
+                "Tag": 1806,
+                "ActionTag": -1556965145,
+                "Size": {
+                  "X": 66.0,
+                  "Y": 19.0
+                },
+                "Name": "Text_1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "common_asset/common_icon_energy.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 104.7899,
+                  "Y": 22.3496
+                },
+                "Scale": {
+                  "ScaleX": 0.19,
+                  "ScaleY": 0.19
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.7432,
+                  "Y": 0.5079
+                },
+                "PreSize": {
+                  "X": 0.5319,
+                  "Y": 1.9318
+                },
+                "LeftMargin": 67.2899,
+                "RightMargin": -1.2899,
+                "TopMargin": -20.8496,
+                "BottomMargin": -20.1504,
+                "Tag": 1807,
+                "ActionTag": 2094213549,
+                "Size": {
+                  "X": 75.0,
+                  "Y": 85.0
+                },
+                "Name": "common_icon_energy_4",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -1661156239,
+            "Size": {
+              "X": 141.0,
+              "Y": 44.0
+            },
+            "Name": "DestroyTower",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "battle_asset/UI/ui_circle_frame.png",
+        "common_asset/common_btn_red.png",
+        "common_asset/common_icon_energy.png",
+        "SVN-Supercell Magic.ttf",
+        "uiLayer_TowerItem.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

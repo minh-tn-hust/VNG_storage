@@ -1,0 +1,125 @@
+{
+  "ID": "a1b45cea-fe45-4dd3-a497-0ef0414ae9cd",
+  "Version": "3.10.0.0",
+  "Name": "map_itemCell",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 189,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "battle_asset/battle_item_cell.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -38.5,
+            "RightMargin": -38.5,
+            "TopMargin": -45.5,
+            "BottomMargin": -45.5,
+            "Tag": 190,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "battle_asset/battle_item_damage.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 38.5,
+                  "Y": 45.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "Tag": 191,
+                "ActionTag": 990552271,
+                "Size": {
+                  "X": 77.0,
+                  "Y": 91.0
+                },
+                "Name": "Item",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 1550239524,
+            "Size": {
+              "X": 77.0,
+              "Y": 91.0
+            },
+            "Name": "Base",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "battle_asset/battle_item_cell.png",
+        "battle_asset/battle_item_damage.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

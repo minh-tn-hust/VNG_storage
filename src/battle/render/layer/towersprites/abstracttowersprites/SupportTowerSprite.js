@@ -1,0 +1,3 @@
+var SupportTowerSprite = TowerSprite.extend({
+
+})

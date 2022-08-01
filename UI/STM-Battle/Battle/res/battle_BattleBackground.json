@@ -1,0 +1,1878 @@
+{
+  "ID": "0ca38345-965c-41b8-a0aa-deb9e389b4d3",
+  "Version": "3.10.0.0",
+  "Name": "battle_BattleBackground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 223,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_background.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 348,
+            "Scale9OriginY": 204,
+            "Scale9Width": 360,
+            "Scale9Height": 212,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 744,
+            "ActionTag": -1730553280,
+            "Size": {
+              "X": 640.0,
+              "Y": 1136.0
+            },
+            "Name": "BattleBackground",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_background_0002.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 208,
+            "Scale9OriginY": 142,
+            "Scale9Width": 220,
+            "Scale9Height": 153,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -6.016,
+              "Y": 679.0548
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": -0.0094,
+              "Y": 0.5978
+            },
+            "PreSize": {
+              "X": 1.0187,
+              "Y": 0.4058
+            },
+            "LeftMargin": -6.016,
+            "RightMargin": -5.984,
+            "TopMargin": -4.0548,
+            "BottomMargin": 679.0548,
+            "Tag": 729,
+            "ActionTag": -1647628013,
+            "Size": {
+              "X": 652.0,
+              "Y": 461.0
+            },
+            "Name": "TopBorder",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_background_0000.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.0,
+              "Y": 872.12
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.7677
+            },
+            "PreSize": {
+              "X": 0.8422,
+              "Y": 0.3389
+            },
+            "LeftMargin": 50.5,
+            "RightMargin": 50.5,
+            "TopMargin": 71.38,
+            "BottomMargin": 679.62,
+            "Tag": 230,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "battle_asset/UI/ui_grid.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 269.5,
+                  "Y": 192.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0037,
+                  "Y": 1.0052
+                },
+                "LeftMargin": -1.0,
+                "RightMargin": -1.0,
+                "TopMargin": -1.0,
+                "BottomMargin": -1.0,
+                "Tag": 229,
+                "ActionTag": 202445628,
+                "Size": {
+                  "X": 541.0,
+                  "Y": 387.0
+                },
+                "Name": "Grid",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 805907971,
+            "Size": {
+              "X": 539.0,
+              "Y": 385.0
+            },
+            "Name": "EnermyField",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": -30.3599,
+              "Y": 934.8949
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewY": 180.0,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0474,
+              "Y": 0.823
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -30.3599,
+            "RightMargin": 670.3599,
+            "TopMargin": 201.1051,
+            "BottomMargin": 934.8949,
+            "Tag": 1684,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_tree_0002.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -31.4799,
+                  "Y": 99.5166
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -103.9799,
+                "RightMargin": -41.0201,
+                "TopMargin": -184.5166,
+                "BottomMargin": 14.5166,
+                "Tag": 1685,
+                "ActionTag": -1861324267,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 170.0
+                },
+                "Name": "LeftTree",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_rock_0001.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 23.0854,
+                  "Y": -95.9588
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -69.9146,
+                "RightMargin": -23.0854,
+                "TopMargin": 44.4588,
+                "BottomMargin": -147.4588,
+                "Tag": 1686,
+                "ActionTag": 1246154040,
+                "Size": {
+                  "X": 93.0,
+                  "Y": 103.0
+                },
+                "Name": "LeftTree",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_tree_0001.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -39.9759,
+                  "Y": 6.9444
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -112.4759,
+                "RightMargin": -32.5241,
+                "TopMargin": -91.9444,
+                "BottomMargin": -78.0556,
+                "Tag": 1687,
+                "ActionTag": -1342449205,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 170.0
+                },
+                "Name": "LeftTree",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_tree_0004.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -26.752,
+                  "Y": -185.6342
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -99.252,
+                "RightMargin": -45.748,
+                "TopMargin": 100.6342,
+                "BottomMargin": -270.6342,
+                "Tag": 1688,
+                "ActionTag": 1396846755,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 170.0
+                },
+                "Name": "LeftTree",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -1909364757,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "EnermyLeftDecoration",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 660.8799,
+              "Y": 895.0992
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewY": 180.0,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.0326,
+              "Y": 0.7879
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 660.8799,
+            "RightMargin": -20.8799,
+            "TopMargin": 240.9008,
+            "BottomMargin": 895.0992,
+            "Tag": 1689,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_rock_0001.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 28.2937,
+                  "Y": -163.4489
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": 64.0817,
+                "RotationSkewY": 64.0828,
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -18.2063,
+                "RightMargin": -74.7937,
+                "TopMargin": 111.9489,
+                "BottomMargin": -214.9489,
+                "Tag": 1690,
+                "ActionTag": 1358418958,
+                "Size": {
+                  "X": 93.0,
+                  "Y": 103.0
+                },
+                "Name": "Rock",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_rock_0001.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 20.5033,
+                  "Y": 114.5789
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -25.9967,
+                "RightMargin": -67.0033,
+                "TopMargin": -166.0789,
+                "BottomMargin": 63.0789,
+                "Tag": 1691,
+                "ActionTag": 1836282789,
+                "Size": {
+                  "X": 93.0,
+                  "Y": 103.0
+                },
+                "Name": "Rock",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_tree_0003.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 33.5012,
+                  "Y": 42.4727
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -38.9988,
+                "RightMargin": -106.0012,
+                "TopMargin": -127.4727,
+                "BottomMargin": -42.5273,
+                "Tag": 1692,
+                "ActionTag": 1738949423,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 170.0
+                },
+                "Name": "Tree",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_rock_0006.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 5.3105,
+                  "Y": -110.4801
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -20.6895,
+                "RightMargin": -31.3105,
+                "TopMargin": 78.9801,
+                "BottomMargin": -141.9801,
+                "Tag": 1693,
+                "ActionTag": -1214761691,
+                "Size": {
+                  "X": 52.0,
+                  "Y": 63.0
+                },
+                "Name": "Roc",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_tree_0004.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 23.5936,
+                  "Y": -43.6438
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -48.9064,
+                "RightMargin": -96.0936,
+                "TopMargin": -41.3562,
+                "BottomMargin": -128.6438,
+                "Tag": 1694,
+                "ActionTag": -1990241223,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 170.0
+                },
+                "Name": "Tree",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 1704130941,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "EnermyRightDecoration",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PercentWidthEnable": true,
+            "PercentWidthEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1761
+            },
+            "TopMargin": 936.0,
+            "Tag": 637,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_river_0000.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9Width": 1018,
+                "Scale9Height": 25,
+                "AnchorPoint": {
+                  "ScaleX": 0.5
+                },
+                "Position": {
+                  "X": 320.0,
+                  "Y": 578.12
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 2.8906
+                },
+                "PercentWidthEnable": true,
+                "PercentWidthEnabled": true,
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.505
+                },
+                "TopMargin": -479.12,
+                "BottomMargin": 578.12,
+                "Tag": 634,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "map_asset/map_river_0001.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 335,
+                    "Scale9OriginY": 68,
+                    "Scale9Width": 348,
+                    "Scale9Height": 71,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 320.0,
+                      "Y": 53.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5248
+                    },
+                    "PercentWidthEnable": true,
+                    "PercentHeightEnable": true,
+                    "PercentWidthEnabled": true,
+                    "PercentHeightEnabled": true,
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    "TopMargin": -2.5,
+                    "BottomMargin": 2.5,
+                    "Tag": 640,
+                    "ActionTag": -1687676438,
+                    "Size": {
+                      "X": 640.0,
+                      "Y": 101.0
+                    },
+                    "Name": "Side",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": -344325478,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 101.0
+                },
+                "Name": "River",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_0001.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -68.197,
+                  "Y": 644.3833
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": -0.1066,
+                  "Y": 3.2219
+                },
+                "PreSize": {
+                  "X": 0.3844,
+                  "Y": 1.405
+                },
+                "LeftMargin": -191.197,
+                "RightMargin": 585.197,
+                "TopMargin": -584.8833,
+                "BottomMargin": 503.8833,
+                "Tag": 635,
+                "ActionTag": -66214101,
+                "Size": {
+                  "X": 246.0,
+                  "Y": 281.0
+                },
+                "Name": "LeftRock",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_0002.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.4321,
+                  "ScaleY": 0.5061
+                },
+                "Position": {
+                  "X": 679.1444,
+                  "Y": 628.7333
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.0612,
+                  "Y": 3.1437
+                },
+                "PreSize": {
+                  "X": 0.4359,
+                  "Y": 1.135
+                },
+                "LeftMargin": 558.5885,
+                "RightMargin": -197.5885,
+                "TopMargin": -540.8486,
+                "BottomMargin": 513.8486,
+                "Tag": 638,
+                "ActionTag": -86456922,
+                "Size": {
+                  "X": 279.0,
+                  "Y": 227.0
+                },
+                "Name": "RightStream",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -1006504897,
+            "Size": {
+              "X": 640.0,
+              "Y": 200.0
+            },
+            "Name": "DecorationLayer",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_monster_gate_enemy.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 510.3398,
+              "Y": 637.9277
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7974,
+              "Y": 0.5616
+            },
+            "PreSize": {
+              "X": 0.2484,
+              "Y": 0.11
+            },
+            "LeftMargin": 430.8398,
+            "RightMargin": 50.1602,
+            "TopMargin": 435.5723,
+            "BottomMargin": 575.4277,
+            "Tag": 1447,
+            "ActionTag": 217900927,
+            "Size": {
+              "X": 159.0,
+              "Y": 125.0
+            },
+            "Name": "EnermyGate",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_background_0003.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 208,
+            "Scale9OriginY": 142,
+            "Scale9Width": 217,
+            "Scale9Height": 149,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 3.52,
+              "Y": 591.3718
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.0055,
+              "Y": 0.5206
+            },
+            "PreSize": {
+              "X": 1.0109,
+              "Y": 0.4049
+            },
+            "LeftMargin": 3.52,
+            "RightMargin": -10.52,
+            "TopMargin": 544.6282,
+            "BottomMargin": 131.3718,
+            "Tag": 704,
+            "ActionTag": 41645355,
+            "Size": {
+              "X": 647.0,
+              "Y": 460.0
+            },
+            "Name": "BottomBorder",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_background_0001.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.0,
+              "Y": 399.1
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.3513
+            },
+            "PreSize": {
+              "X": 0.8422,
+              "Y": 0.3389
+            },
+            "LeftMargin": 50.5,
+            "RightMargin": 50.5,
+            "TopMargin": 544.4,
+            "BottomMargin": 206.6,
+            "Tag": 231,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "battle_asset/UI/ui_grid.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 269.5,
+                  "Y": 192.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0037,
+                  "Y": 1.0052
+                },
+                "LeftMargin": -1.0,
+                "RightMargin": -1.0,
+                "TopMargin": -1.0,
+                "BottomMargin": -1.0,
+                "Tag": 232,
+                "ActionTag": -63564297,
+                "Size": {
+                  "X": 541.0,
+                  "Y": 387.0
+                },
+                "Name": "Grid",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 432833707,
+            "Size": {
+              "X": 539.0,
+              "Y": 385.0
+            },
+            "Name": "OurField",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_monster_gate_player.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 126.7118,
+              "Y": 646.6658
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.198,
+              "Y": 0.5692
+            },
+            "PreSize": {
+              "X": 0.3219,
+              "Y": 0.1356
+            },
+            "LeftMargin": 23.7118,
+            "RightMargin": 410.2882,
+            "TopMargin": 412.3342,
+            "BottomMargin": 569.6658,
+            "Tag": 1428,
+            "ActionTag": 1521612565,
+            "Size": {
+              "X": 206.0,
+              "Y": 154.0
+            },
+            "Name": "PlayerGate",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 27.811,
+              "Y": 444.7204
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0435,
+              "Y": 0.3915
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 27.811,
+            "RightMargin": 612.189,
+            "TopMargin": 691.2796,
+            "BottomMargin": 444.7204,
+            "Tag": 1576,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_tree_0002.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -31.4799,
+                  "Y": 99.5166
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -103.9799,
+                "RightMargin": -41.0201,
+                "TopMargin": -184.5166,
+                "BottomMargin": 14.5166,
+                "Tag": 1499,
+                "ActionTag": -1068432873,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 170.0
+                },
+                "Name": "LeftTree",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_rock_0001.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -23.4146,
+                  "Y": -95.9588
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -69.9146,
+                "RightMargin": -23.0854,
+                "TopMargin": 44.4588,
+                "BottomMargin": -147.4588,
+                "Tag": 1496,
+                "ActionTag": -1192239300,
+                "Size": {
+                  "X": 93.0,
+                  "Y": 103.0
+                },
+                "Name": "LeftTree",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_tree_0001.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -39.9757,
+                  "Y": 5.9395
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -112.4757,
+                "RightMargin": -32.5243,
+                "TopMargin": -90.9395,
+                "BottomMargin": -79.0605,
+                "Tag": 1497,
+                "ActionTag": -305384621,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 170.0
+                },
+                "Name": "LeftTree",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_tree_0004.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -26.752,
+                  "Y": -185.6342
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -99.252,
+                "RightMargin": -45.748,
+                "TopMargin": 100.6342,
+                "BottomMargin": -270.6342,
+                "Tag": 1498,
+                "ActionTag": 1960028446,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 170.0
+                },
+                "Name": "LeftTree",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 1565749270,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "LeftDecoration",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 617.0567,
+              "Y": 401.9144
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9642,
+              "Y": 0.3538
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 617.0567,
+            "RightMargin": 22.9433,
+            "TopMargin": 734.0856,
+            "BottomMargin": 401.9144,
+            "Tag": 1653,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_rock_0001.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 28.2937,
+                  "Y": -163.4489
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": 64.0817,
+                "RotationSkewY": 64.0828,
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -18.2063,
+                "RightMargin": -74.7937,
+                "TopMargin": 111.9489,
+                "BottomMargin": -214.9489,
+                "Tag": 1627,
+                "ActionTag": 1229050034,
+                "Size": {
+                  "X": 93.0,
+                  "Y": 103.0
+                },
+                "Name": "Rock",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_rock_0001.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 20.5033,
+                  "Y": 114.5789
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -25.9967,
+                "RightMargin": -67.0033,
+                "TopMargin": -166.0789,
+                "BottomMargin": 63.0789,
+                "Tag": 1654,
+                "ActionTag": -370540299,
+                "Size": {
+                  "X": 93.0,
+                  "Y": 103.0
+                },
+                "Name": "Rock",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_tree_0003.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 33.5012,
+                  "Y": 42.4727
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -38.9988,
+                "RightMargin": -106.0012,
+                "TopMargin": -127.4727,
+                "BottomMargin": -42.5273,
+                "Tag": 1655,
+                "ActionTag": -13107437,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 170.0
+                },
+                "Name": "Tree",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_rock_0006.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 5.3105,
+                  "Y": -110.4801
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -20.6895,
+                "RightMargin": -31.3105,
+                "TopMargin": 78.9801,
+                "BottomMargin": -141.9801,
+                "Tag": 1656,
+                "ActionTag": -2118295279,
+                "Size": {
+                  "X": 52.0,
+                  "Y": 63.0
+                },
+                "Name": "Roc",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_tree_0004.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 23.5936,
+                  "Y": -43.6438
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -48.9064,
+                "RightMargin": -96.0936,
+                "TopMargin": -41.3562,
+                "BottomMargin": -128.6438,
+                "Tag": 1657,
+                "ActionTag": 1620078150,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 170.0
+                },
+                "Name": "Tree",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -1160079086,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "RightDecoration",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_decoration_grass_0002.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5557,
+              "ScaleY": 0.8716
+            },
+            "Position": {
+              "X": 359.5693,
+              "Y": 1111.2971
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5618,
+              "Y": 0.9783
+            },
+            "PreSize": {
+              "X": 0.0609,
+              "Y": 0.0335
+            },
+            "LeftMargin": 337.8966,
+            "RightMargin": 263.1034,
+            "TopMargin": 19.8248,
+            "BottomMargin": 1078.1752,
+            "Tag": 1734,
+            "ActionTag": -1305753060,
+            "Size": {
+              "X": 39.0,
+              "Y": 38.0
+            },
+            "Name": "map_decoration_grass_0002_192",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_decoration_tree_0002.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 383.4677,
+              "Y": 1140.6271
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5992,
+              "Y": 1.0041
+            },
+            "PreSize": {
+              "X": 0.2266,
+              "Y": 0.1496
+            },
+            "LeftMargin": 310.9677,
+            "RightMargin": 184.0323,
+            "TopMargin": -89.6271,
+            "BottomMargin": 1055.6271,
+            "Tag": 1733,
+            "ActionTag": -273677817,
+            "Size": {
+              "X": 145.0,
+              "Y": 170.0
+            },
+            "Name": "map_decoration_tree_0002_191",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_decoration_rock_0004.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 189.0166,
+              "Y": 1103.6931
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2953,
+              "Y": 0.9716
+            },
+            "PreSize": {
+              "X": 0.1078,
+              "Y": 0.0414
+            },
+            "LeftMargin": 154.5166,
+            "RightMargin": 416.4834,
+            "TopMargin": 8.8069,
+            "BottomMargin": 1080.1931,
+            "Tag": 1735,
+            "ActionTag": -1566488759,
+            "Size": {
+              "X": 69.0,
+              "Y": 47.0
+            },
+            "Name": "map_decoration_rock_0004_193",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_decoration_tree_0003.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 118.4076,
+              "Y": 1152.5771
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.185,
+              "Y": 1.0146
+            },
+            "PreSize": {
+              "X": 0.2266,
+              "Y": 0.1496
+            },
+            "LeftMargin": 45.9076,
+            "RightMargin": 449.0924,
+            "TopMargin": -101.5771,
+            "BottomMargin": 1067.5771,
+            "Tag": 1732,
+            "ActionTag": -1845644098,
+            "Size": {
+              "X": 145.0,
+              "Y": 170.0
+            },
+            "Name": "map_decoration_tree_0003_190",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "map_asset/map_decoration_tree_0001.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 548.5867,
+              "Y": 1144.9722
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8572,
+              "Y": 1.0079
+            },
+            "PreSize": {
+              "X": 0.2266,
+              "Y": 0.1496
+            },
+            "LeftMargin": 476.0867,
+            "RightMargin": 18.9133,
+            "TopMargin": -93.9722,
+            "BottomMargin": 1059.9722,
+            "Tag": 1736,
+            "ActionTag": 1701465777,
+            "Size": {
+              "X": 145.0,
+              "Y": 170.0
+            },
+            "Name": "map_decoration_tree_0001_194",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 640.0,
+          "Y": 1136.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "battle_asset/UI/ui_grid.png",
+        "map_asset/map_background.png",
+        "map_asset/map_background_0000.png",
+        "map_asset/map_background_0001.png",
+        "map_asset/map_background_0002.png",
+        "map_asset/map_background_0003.png",
+        "map_asset/map_decoration_0001.png",
+        "map_asset/map_decoration_0002.png",
+        "map_asset/map_decoration_grass_0002.png",
+        "map_asset/map_decoration_rock_0001.png",
+        "map_asset/map_decoration_rock_0004.png",
+        "map_asset/map_decoration_rock_0006.png",
+        "map_asset/map_decoration_tree_0001.png",
+        "map_asset/map_decoration_tree_0002.png",
+        "map_asset/map_decoration_tree_0003.png",
+        "map_asset/map_decoration_tree_0004.png",
+        "map_asset/map_monster_gate_enemy.png",
+        "map_asset/map_monster_gate_player.png",
+        "map_asset/map_river_0000.png",
+        "map_asset/map_river_0001.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

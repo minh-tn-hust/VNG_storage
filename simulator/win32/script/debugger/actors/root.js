@@ -253,7 +253,7 @@ RootActor.prototype = {
         "from": this.actorID,
         "selected": selected || 0,
         "tabs": [actor.form() for (actor of tabActorList)],
-      }
+      };
 
       /* DebuggerServer.addGlobalActor support: name actors in 'listTabs' reply. */
       this._appendExtraActors(reply);
@@ -299,7 +299,7 @@ RootActor.prototype = {
       return {
         "from": this.actorID,
         "addons": [addonActor.form() for (addonActor of addonActors)]
-      }
+      };
     });
   },
 

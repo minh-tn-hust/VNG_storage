@@ -1214,7 +1214,7 @@
 
   function Emitter(obj) {
     if (obj) return mixin(obj);
-  }
+  };
 
   /**
    * Mixin the emitter properties.
@@ -4846,7 +4846,7 @@
         bb.append(ary[i]);
       }
       return (options.type) ? bb.getBlob(options.type) : bb.getBlob();
-    }
+    };
 
     module.exports = (function() {
       if (blobSupported) {
@@ -5053,7 +5053,7 @@
           return continuationByte & 0x3F;
         }
 
-        // If we end up here, itï¿½ï¿½s not a continuation byte
+        // If we end up here, it¡¯s not a continuation byte
         throw Error('Invalid continuation byte');
       }
 
@@ -6191,8 +6191,8 @@
                   stringify(0) === "0" &&
                     // FF 3.1b1, b2, and JSON 2 serialize wrapped primitives as object
                     // literals.
-                  stringify(Number()) === "0" &&
-                  stringify(String()) == '""' &&
+                  stringify(new Number()) === "0" &&
+                  stringify(new String()) == '""' &&
                     // FF 3.1b1, 2 throw an error if the value is `null`, `undefined`, or
                     // does not define a canonical JSON representation (this applies to
                     // objects with `toJSON` properties as well, *unless* they are nested

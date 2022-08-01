@@ -1548,7 +1548,7 @@ ThreadActor.prototype = {
       let currentDistance = Math.abs(aTargetLocation.column - mapping.columnNumber);
 
       if (currentDistance > closestDistance) {
-
+        continue;
       } else if (currentDistance < closestDistance) {
         closestDistance = currentDistance;
         aScriptsAndOffsetMappings.clear();
@@ -1576,14 +1576,14 @@ ThreadActor.prototype = {
     }
 
     return all([this.sources.sourcesForScript(scriptsByUrl[s])
-                for (s of Object.keys(scriptsByUrl))])
+                for (s of Object.keys(scriptsByUrl))]);
   },
 
   onSources: function TA_onSources(aRequest) {
     return this._discoverSources().then(() => {
       return {
         sources: [s.form() for (s of this.sources.iter())]
-      }
+      };
     });
   },
 
@@ -3304,7 +3304,7 @@ FrameActor.prototype = {
     }
 
     return [this.threadActor.createValueGrip(arg)
-            for each (arg in this.frame.arguments)]
+            for each (arg in this.frame.arguments)];
   },
 
   /**
@@ -3723,7 +3723,7 @@ update(ChromeDebuggerActor.prototype, {
       });
     }
   }
-})
+});
 
 
 /**
@@ -3853,7 +3853,7 @@ ThreadSources.prototype = {
                         sourceMap: aSourceMap,
                         generatedSource: aScript.url })
           for (s of aSourceMap.sources)
-        ]
+        ];
       })
       .then(null, (e) => {
         reportError(e);
@@ -4366,7 +4366,7 @@ function findCssSelector(ele) {
           tagName + ':nth-child(' + index + ')';
 
   return selector;
-}
+};
 
 /**
  * Find the position of [element] in [nodeList].

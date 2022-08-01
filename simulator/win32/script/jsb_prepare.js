@@ -162,7 +162,7 @@ cc.associateWithNative = function( jsobj, superclass_or_instance ) {};
 //
 cc.inherits = function (childCtor, parentCtor) {
     /** @constructor */
-    function tempCtor() {}
+    function tempCtor() {};
     tempCtor.prototype = parentCtor.prototype;
     childCtor.superClass_ = parentCtor.prototype;
     childCtor.prototype = new tempCtor();

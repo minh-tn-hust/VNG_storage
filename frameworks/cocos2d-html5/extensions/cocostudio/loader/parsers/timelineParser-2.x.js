@@ -1349,8 +1349,6 @@
             if (type !== 0) {
                 if (cc.spriteFrameCache.getSpriteFrame(path))
                     cb(path, type);
-                else
-                    cc.log("failed to get spriteFrame: %s", path);
             } else
                 cb(resourcePath + path, type);
         }

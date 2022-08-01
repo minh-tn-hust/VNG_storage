@@ -1,0 +1,102 @@
+{
+  "1": {
+    "visual": "C1",
+    "card_require": 0.0,
+    "coin_require": 0.0
+  },
+  "2": {
+    "visual": "C2",
+    "card_require": 5.0,
+    "coin_require": 50.0
+  },
+  "3": {
+    "visual": "C3",
+    "card_require": 10.0,
+    "coin_require": 100.0
+  },
+  "4": {
+    "visual": "C4",
+    "card_require": 15.0,
+    "coin_require": 200.0
+  },
+  "5": {
+    "visual": "C5",
+    "card_require": 35.0,
+    "coin_require": 300.0
+  },
+  "6": {
+    "visual": "B1",
+    "card_require": 70.0,
+    "coin_require": 500.0
+  },
+  "7": {
+    "visual": "B2",
+    "card_require": 120.0,
+    "coin_require": 1000.0
+  },
+  "8": {
+    "visual": "B3",
+    "card_require": 180.0,
+    "coin_require": 1500.0
+  },
+  "9": {
+    "visual": "B4",
+    "card_require": 260.0,
+    "coin_require": 2000.0
+  },
+  "10": {
+    "visual": "B5",
+    "card_require": 400.0,
+    "coin_require": 2500.0
+  },
+  "11": {
+    "visual": "A1",
+    "card_require": 550.0,
+    "coin_require": 5000.0
+  },
+  "12": {
+    "visual": "A2",
+    "card_require": 700.0,
+    "coin_require": 6000.0
+  },
+  "13": {
+    "visual": "A3",
+    "card_require": 900.0,
+    "coin_require": 7000.0
+  },
+  "14": {
+    "visual": "A4",
+    "card_require": 1150.0,
+    "coin_require": 8000.0
+  },
+  "15": {
+    "visual": "A5",
+    "card_require": 1750.0,
+    "coin_require": 9000.0
+  },
+  "16": {
+    "visual": "S1",
+    "card_require": 2100.0,
+    "coin_require": 10000.0
+  },
+  "17": {
+    "visual": "S2",
+    "card_require": 2500.0,
+    "coin_require": 20000.0
+  },
+  "18": {
+    "visual": "S3",
+    "card_require": 3000.0,
+    "coin_require": 30000.0
+  },
+  "19": {
+    "visual": "S4",
+    "card_require": 3600.0,
+    "coin_require": 40000.0
+  },
+  "20": {
+    "visual": "S5",
+    "card_require": 4200.0,
+    "coin_require": 50000.0
+  }
+}

@@ -154,7 +154,7 @@ jsb.fileUtils = {
      */
     getStringFromFile : function (str)
     {
-
+        return ;
     },
 
     /**
@@ -213,7 +213,7 @@ jsb.fileUtils = {
      */
     getValueVectorFromFile : function (str)
     {
-        return [];
+        return new Array();
     },
 
     /**
@@ -222,7 +222,7 @@ jsb.fileUtils = {
      */
     getSearchPaths : function ()
     {
-        return [];
+        return new Array();
     },
 
     /**
@@ -335,7 +335,7 @@ jsb.fileUtils = {
      */
     fullPathFromRelativeFile : function (str, str1)
     {
-
+        return ;
     },
 
     /**
@@ -354,7 +354,7 @@ jsb.fileUtils = {
      */
     getSearchResolutionsOrder : function ()
     {
-        return [];
+        return new Array();
     },
 
     /**
@@ -383,7 +383,7 @@ jsb.fileUtils = {
      */
     getWritablePath : function ()
     {
-
+        return ;
     }
 };
 
@@ -409,7 +409,7 @@ jsb.EventAssetsManager = cc.Class.extend(/** @lends jsb.EventAssetsManager# */{
     getAssetId : function (
     )
     {
-
+        return ;
     },
 
     /**
@@ -429,7 +429,7 @@ jsb.EventAssetsManager = cc.Class.extend(/** @lends jsb.EventAssetsManager# */{
     getMessage : function (
     )
     {
-
+        return ;
     },
 
     /**
@@ -575,7 +575,7 @@ jsb.AssetsManager = cc.Class.extend(/** @lends jsb.AssetsManager# */{
      */
     getStoragePath : function ()
     {
-
+        return ;
     },
 
     /**
@@ -644,7 +644,7 @@ jsb.Manifest = cc.Class.extend(/** @lends jsb.Manifest# */{
      */
     getManifestFileUrl : function ()
     {
-
+        return ;
     },
 
     /**
@@ -671,7 +671,7 @@ jsb.Manifest = cc.Class.extend(/** @lends jsb.Manifest# */{
      */
     getPackageUrl : function ()
     {
-
+        return ;
     },
 
     /**
@@ -680,7 +680,7 @@ jsb.Manifest = cc.Class.extend(/** @lends jsb.Manifest# */{
      */
     getVersion : function ()
     {
-
+        return ;
     },
 
     /**
@@ -689,7 +689,7 @@ jsb.Manifest = cc.Class.extend(/** @lends jsb.Manifest# */{
      */
     getVersionFileUrl : function ()
     {
-
+        return ;
     }
 });
 

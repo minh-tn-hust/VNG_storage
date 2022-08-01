@@ -71,7 +71,7 @@ core4cc.getDependencies = function(temp){
     var dependencies = [];
     for(var key in temp){
         dependencies.push(key);
-    }
+    };
     return dependencies;
 };
 
@@ -237,7 +237,7 @@ core4cc.getStr4Cmd = function(str){
  */
 core4cc.mergeData = function(data, defData){
     data = data || {};
-    if(defData == null) return data;
+    if(defData == null) return data;;
     for (var key in defData) {
         if(data[key] == null && defData[key] != null) data[key] = defData[key];
     }

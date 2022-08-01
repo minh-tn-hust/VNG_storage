@@ -1,0 +1,126 @@
+{
+  "ID": "3158673c-6b31-4a78-a5fa-fa7c06e7e6a4",
+  "Version": "3.10.0.0",
+  "Name": "TowerFrame",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "tower_asset/frame/wizard_1_2/tower_wizard_attack_0_0000.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -165.0,
+            "RightMargin": -165.0,
+            "TopMargin": -165.0,
+            "BottomMargin": -165.0,
+            "Tag": 5,
+            "ActionTag": 2098582360,
+            "Size": {
+              "X": 330.0,
+              "Y": 330.0
+            },
+            "Name": "tower",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "tower_asset/frame/wizard_1_2/tower_wizard_attack_1_0000.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -165.0,
+            "RightMargin": -165.0,
+            "TopMargin": -165.0,
+            "BottomMargin": -165.0,
+            "Tag": 6,
+            "ActionTag": 910721579,
+            "Size": {
+              "X": 330.0,
+              "Y": 330.0
+            },
+            "Name": "weapon",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "tower_asset/frame/wizard_1_2/tower_wizard_attack_0_0000.png",
+        "tower_asset/frame/wizard_1_2/tower_wizard_attack_1_0000.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

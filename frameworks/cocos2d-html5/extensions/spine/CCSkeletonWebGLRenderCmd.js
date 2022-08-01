@@ -236,7 +236,7 @@ proto._uploadRegionAttachmentData = function(attachment, slot, premultipliedAlph
         nodeB = nodeColor.b,
         nodeA = this._displayedOpacity;
 
-    var vertices = spine.Utils.setArraySize([], 8, 0);
+    var vertices = spine.Utils.setArraySize(new Array(), 8, 0);
     attachment.computeWorldVertices(slot.bone, vertices, 0, 2);
 
     var uvs = attachment.uvs;
@@ -301,7 +301,7 @@ proto._uploadMeshAttachmentData = function(attachment, slot, premultipliedAlpha,
         z = this._node.vertexZ;
     // get the vertex data
     var verticesLength = attachment.worldVerticesLength;
-    var vertices = spine.Utils.setArraySize([], verticesLength, 0);
+    var vertices = spine.Utils.setArraySize(new Array(), verticesLength, 0);
     attachment.computeWorldVertices(slot, 0, verticesLength, vertices, 0, 2);
 
     var uvs = attachment.uvs;
