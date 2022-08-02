@@ -5,6 +5,22 @@ let ActionQueue = cc.Class.extend({
         this._actionList = [
             new UserEvent(20, {}, UserEvent.Type.CREATE_MONSTER, who),
             new UserEvent(60, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(100, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(140, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(180, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(220, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(260, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(300, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(340, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(380, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(420, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(460, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(500, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(540, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(580, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(620, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(660, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(700, {}, UserEvent.Type.CREATE_MONSTER, who),
         ]
         this._usedList = []
     },
