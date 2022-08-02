@@ -13,7 +13,7 @@ let ObjectLayer = cc.Layer.extend({
      * @param {BattleUtil.Who.Enemy | BattleUtil.Who.Mine} who
      */
     addMonsterSprite : function(monster, who) {
-        this.addChild(monster)
+        this.addChild(monster, 0, ObjectLayer.MONSTER_TAG)
     },
 
     /**
@@ -50,3 +50,5 @@ let ObjectLayer = cc.Layer.extend({
     },
 
 })
+
+ObjectLayer.MONSTER_TAG = 0

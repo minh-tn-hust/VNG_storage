@@ -43,8 +43,8 @@ let BattleScene = cc.Scene.extend({
     },
 
     initGameLoop : function(battleInitiator) {
-        this._myGameLoop = new GameLoop(BattleUtil.Who.Mine, battleInitiator.myMap)
-        this._enemyGameLoop = new GameLoop(BattleUtil.Who.Enemy, battleInitiator.eMap)
+        this._myGameLoop = new GameLoop(BattleUtil.Who.Mine, battleInitiator.myMap, false)
+        this._enemyGameLoop = new GameLoop(BattleUtil.Who.Enemy, battleInitiator.eMap, false)
 
         // Lặp GameLoop của sân mình
         this.schedule(function() {
@@ -67,10 +67,10 @@ let BattleScene = cc.Scene.extend({
         this.addChild(mapLayer,  BattleConfig.MapLayer.zOrder, 0)
 
         // Khởi tạo UI dành cho người dùng tương tác
-        let battleUILayer = new BattleUILayer(this.getInfo())
+        let battleUILayer = new BattleUILayer(this.getInfo(), this.getMyGameLoop().getMapController())
         this.addChild(battleUILayer, BattleConfig.UILayer.zOrder, 0)
 
-        // TODO : Khởi tạo ObjectLayer chứa quái và trụ
+        // Khởi tạo ObjectLayer chứa quái và trụ
         let objectLayer = new ObjectLayer()
         this.addChild(objectLayer, BattleConfig.ObjectLayer.zOrder, 0)
         this.setObjectLayer(objectLayer)

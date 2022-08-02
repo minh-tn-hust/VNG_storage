@@ -20,16 +20,23 @@ let MonsterController = cc.Class.extend({
         this.setMonsterPool([])
     },
 
-    createMonster : function(type) {
+    /**
+     * Khởi tạo một con quái, biến isClone sử dụng để phân biệt mình có cập nhật lên màn
+     * hình hay là chỉ tạo ra model
+     * @param {MonsterConfig.Type} type
+     * @param {boolean} isClone
+     */
+    createMonster : function(type, isClone) {
         let who = this.getWho()
         switch (type) {
             case MonsterConfig.Type.CROW_SKELETON:
                 let monsterModel = new Monster(MonsterConfig.CROW_SKELETON, who)
                 this.addMonsterToPool(monsterModel)
-                let monsterDisplay = new MonsterSprite(monsterModel)
-                let battleScene = cc.director.getRunningScene()
-                battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
-                cc.log("CALL")
+                if (isClone !== true) {
+                    let monsterDisplay = new MonsterSprite(monsterModel)
+                    let battleScene = cc.director.getRunningScene()
+                    battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
+                }
                 break
         }
     },

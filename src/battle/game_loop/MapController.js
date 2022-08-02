@@ -11,8 +11,7 @@ let MapController = cc.Class.extend({
     setPath : function(newPathMap) {this._pathMap = newPathMap},
 
     ctor : function(map) {
-        cc.log(JSON.stringify(map))
-        this.setMap(map)
+        this.setMap(JSON.parse(JSON.stringify(map)))
         this.setPath(this.findingPath(this.getMap()))
     },
 

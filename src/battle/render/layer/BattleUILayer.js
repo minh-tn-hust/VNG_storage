@@ -5,22 +5,47 @@ let BattleUILayer = cc.Layer.extend({
     _selectedIndex : null,
     _init : null,
     _canTouch : null,
+    _myMapController : null,
 
     // GETTER
     getLayer : function() {return this._uiLayer},
-    /** @return {Info} */
+
+    /**
+     * Lấy ra thông tin của trận đấu hiện tại
+     * @return {Info} */
     getInfo : function() {return this._info},
-    /** @returns {CardInfo[]} */
+
+    /**
+     * Lấy ra danh sách các thẻ bài đang được hiển thị hiện tại
+     * @returns {CardInfo[]} */
     getCurrentDeck : function() {
         return this.getInfo().getCurrentDeck()
     },
+
+    /**
+     * Lấy ra thẻ bài tiếp theo sẽ được đưa lên bộ bài
+     * @returns {Info._nextCard|null|*}
+     */
     getNextCard : function(){
         return this.getInfo().getNextCard()
     },
+
+    /**
+     * Lấy ra thẻ bài đang được lựa chọn
+     * @returns {null}
+     */
     getSelectedIndex : function(){return this._selectedIndex},
+
+    /**
+     * Lấy ra biến để kiểm tra xem người dùng có được chạm vào thẻ bài hay không
+     * (ngăn người dùng bấm liên tục mà animation hiển thị chưa thực hiện xong)
+     * @returns {null}
+     */
     getCanTouch : function() {return this._canTouch},
+    getMyMapController : function() {return this._myMapController},
 
     // SETTER
+    setMyMapController : function(myMapController) {this._myMapController = myMapController},
     setLayer : function(layer) {this._uiLayer = layer},
     setInfo : function(info) {this._info = info},
     setSelectedIndex : function(index)  {
@@ -43,14 +68,17 @@ let BattleUILayer = cc.Layer.extend({
     _energyBar : null,
     _showNoti : null,
 
-    ctor : function(info) {
+    ctor : function(info, myMapController) {
         this._super()
         this.setInfo(info)
+        this.setMyMapController(myMapController)
+
         let uiLayer = ccs.load(res.battle.UILayer.json).node
         uiLayer.setContentSize(cc.winSize)
         ccui.Helper.doLayout(uiLayer)
         this.addChild(uiLayer)
         this.setLayer(uiLayer)
+
         this._init = true
         this.setCanTouch(true)
 
@@ -183,6 +211,7 @@ let BattleUILayer = cc.Layer.extend({
     addTouchListenerForCard : function(cardNode, index) {
         let cardButton = Util.getChildByName(cardNode, "CardSelectButton")[0]
         cardButton.addTouchEventListener(function(button, eventType){
+            cc.log("CALL")
             if (this.getCanTouch()) {
                 switch (eventType) {
                     // bắt đầu sự kiện người dùng kéo thẻ

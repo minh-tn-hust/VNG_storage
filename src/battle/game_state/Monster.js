@@ -143,7 +143,7 @@ let Monster = cc.Class.extend({
     },
 
     /**
-     * TODO : Hàm tính toán vị trí của vật thể sau mỗi tick của game, mỗi tick
+     * Hàm tính toán vị trí của vật thể sau mỗi tick của game, mỗi tick
      * sẽ được config thời gian cố định BattleConfig.TICK_DURATION
      */
     moving : function() {
