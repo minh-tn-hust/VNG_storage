@@ -73,6 +73,7 @@ let BattleUILayer = cc.Layer.extend({
         this.setInfo(info)
         this.setMyMapController(myMapController)
 
+        // Load UI từ file JSON
         let uiLayer = ccs.load(res.battle.UILayer.json).node
         uiLayer.setContentSize(cc.winSize)
         ccui.Helper.doLayout(uiLayer)
@@ -82,30 +83,41 @@ let BattleUILayer = cc.Layer.extend({
         this._init = true
         this.setCanTouch(true)
 
-        // ghi nhớ các thành phần sẽ được update thường xuyên
+        // Cập nhật các hiển thị của UI từ thông tin trận đấu
         this._showNoti = false
-        this._enemyPointLabel = Util.getChildByName(uiLayer, "Our")[0]
-        this._myPointLabel = Util.getChildByName(uiLayer, "Enermy")[0]
-        this._energyBar = Util.getChildByName(uiLayer, "EnergyBar")[0]
-        this._energyLabel = Util.getChildByName(uiLayer, "EnergyNumber")[0]
         this.updateInfo()
+        this.cheatPanel()
+
+        // khởi tạo thoát khỏi battle scene
+        let endButton = Util.getChildByName(uiLayer, "EndButton")
+        endButton[0].addTouchEventListener(function (button,type){
+            let self = this;
+            Util.uiReact(button,type,function(){
+                // MainController.getInstance().runLobbyScene()
+                let resultLayer = new ResultLayer(self.getInfo())
+                self.addChild(resultLayer, 100000, 1)
+            });
+        }, this)
+
     },
 
     /**
      * Hàm sử dụng để gọi mỗi khi thông tin của trận đấu được cập nhật
      */
     updateInfo : function() {
+        let uiLayer = this.getLayer()
+        let info = this.getInfo()
         // thực hiện đối chiếu với gameState hiện tại để cập nhật thông tin
-        let enemyPoint = 12
-        let myPoint = 3
-        let energy = 50
-        let round = 5
 
-        this._enemyPointLabel.setString(enemyPoint)
-        this._myPointLabel.setString(myPoint)
-        this._energyLabel.setString(energy)
-        cc.log(energy / BattleConfig.MAX_ENERGY)
-        this._energyBar.setPercent(energy / BattleConfig.MAX_ENERGY * 100)
+        let enemyPointLabel = Util.getChildByName(uiLayer, "Our")[0]
+        let myPointLabel = Util.getChildByName(uiLayer, "Enermy")[0]
+        let energyBar = Util.getChildByName(uiLayer, "EnergyBar")[0]
+        let energyLabel = Util.getChildByName(uiLayer, "EnergyNumber")[0]
+
+        enemyPointLabel.setString(info.getEnemyPoint())
+        myPointLabel.setString(info.getPoint())
+        energyLabel.setString(info.getEnergy())
+        energyBar.setPercent(info.getEnergy() / BattleConfig.MAX_ENERGY * 100)
 
         this.updateCardDeckUI()
     },
@@ -134,11 +146,12 @@ let BattleUILayer = cc.Layer.extend({
      * @param {CardInfo} cardData
      */
     loadNextCard : function(nextCardNode, cardData) {
+        cc.log(JSON.stringify(cardData))
         let monsterSprite = Util.getChildByName(nextCardNode, "MonsterSprite")
         monsterSprite[0].setTexture(CardAssetConfig.assetImage[cardData.cardID])
 
         let cardBorder = Util.getChildByName(nextCardNode, "CardBorder")
-        cardBorder[0].setTexture(CardAssetConfig.assetBorder[1])
+        cardBorder[0].setTexture(CardAssetConfig.assetBorder[cardData.rank])
 
         let energyRequired = Util.getChildByName(nextCardNode, "EnergyRequired")
         energyRequired[0].setVisible(false)
@@ -168,7 +181,7 @@ let BattleUILayer = cc.Layer.extend({
         monsterSprite[0].setTexture(CardAssetConfig.assetImage[cardData.cardID])
 
         let cardBorder = Util.getChildByName(cardNode, "CardBorder")
-        cardBorder[0].setTexture(CardAssetConfig.assetBorder[3])
+        cardBorder[0].setTexture(CardAssetConfig.assetBorder[cardData.rank])
 
         let energyLabel = Util.getChildByName(cardNode, "EnergyLabel")
         energyLabel[0].setString(10)
@@ -237,6 +250,24 @@ let BattleUILayer = cc.Layer.extend({
                 this.updateCardDeckUI()
             }
         }, this)
+
+        let cancelButton = Util.getChildByName(cardNode, "CancelButton")
+        cancelButton[0].addTouchEventListener(function(node, eventType){
+            switch (eventType) {
+                // TODO : Card bị bay lên khi bấm liên tục nút hủy, để nghị chỉnh sửa
+                case ccui.Widget.TOUCH_ENDED:
+                    cc.log("FOLD CARD NOW")
+                    if (this.getInfo().foldCard(index) === false) {
+                        this.setSelectedIndex(index)
+                        this.outOfEnergyNoti()
+                        this.updateCardDeckUI()
+                    } else {
+                        this.setSelectedIndex(index)
+                        this.updateInfo()
+                    }
+                    break
+            }
+        }, this)
     },
 
     outOfEnergyNoti : function() {
@@ -255,5 +286,27 @@ let BattleUILayer = cc.Layer.extend({
             let sequence = cc.sequence([moveToAppear, moveToExist, moveToDisapear, callFunc])
             noti[0].runAction(sequence)
         }
+    },
+
+    cheatPanel : function() {
+        let self = this
+        this.createTestButton("Clone Tick 705", function() {
+            cc.director.getRunningScene().getMyGameLoop().cloneTick(705)
+        }, 300)
+    },
+
+    createTestButton : function(title, callBack, position) {
+        let changeDirection = ccui.Button("res/common_asset/common_btn_gray.png")
+        changeDirection.setTitleText(title)
+        changeDirection.setPosition(cc.p(cc.winSize.width / 10, cc.winSize.height / 2 + position))
+        changeDirection.setScale(0.6)
+        changeDirection.setTitleFontSize(20)
+        changeDirection.addTouchEventListener(function(button, event) {
+            switch (event) {
+                case ccui.Widget.TOUCH_ENDED :
+                    callBack()
+            }
+        }, this)
+        this.addChild(changeDirection)
     }
 })

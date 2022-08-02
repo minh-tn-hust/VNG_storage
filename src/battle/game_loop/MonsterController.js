@@ -30,7 +30,7 @@ let MonsterController = cc.Class.extend({
         let who = this.getWho()
         switch (type) {
             case MonsterConfig.Type.CROW_SKELETON:
-                let monsterModel = new Monster(MonsterConfig.CROW_SKELETON, who)
+                let monsterModel = new Monster(MonsterConfig.CROW_SKELETON, who, MonsterConfig.Type.CROW_SKELETON)
                 this.addMonsterToPool(monsterModel)
                 if (isClone !== true) {
                     let monsterDisplay = new MonsterSprite(monsterModel)
@@ -64,5 +64,24 @@ let MonsterController = cc.Class.extend({
             }
         }
     },
+
+    /**
+     * Thực hiện khởi tạo lại các sprite tương ứng với trạng thái hiện tại của các con quái
+     */
+    recreateSprite : function() {
+        let who = this.getWho()
+        let monsterPool = this.getMonsterPool()
+        for (let i = 0; i < monsterPool.length; i++) {
+            let monsterType = monsterPool[i].getType()
+            switch (monsterType) {
+                case MonsterConfig.Type.CROW_SKELETON:
+                    cc.log("RECREATE MONSTER")
+                    let monsterDisplay = new MonsterSprite(monsterPool[i])
+                    let battleScene = cc.director.getRunningScene()
+                    battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
+                    break
+            }
+        }
+    }
 
 })

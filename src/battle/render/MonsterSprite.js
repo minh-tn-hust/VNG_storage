@@ -15,6 +15,7 @@ let MonsterSprite = cc.Sprite.extend({
     getConfig : function()  {return this.getMonster().getConfig()},
     getModelTickPos : function(){return this._modelTickPos},
     getModelTickDirection : function() {return this._modelTickDirection},
+    getWho : function() {return this.getMonster().getWho()},
 
     // SETTER
     setMonsterConfig : function(monsterConfig){this._monsterConfig = monsterConfig},
@@ -32,6 +33,7 @@ let MonsterSprite = cc.Sprite.extend({
         this.setModelTickDirection(JSON.parse(JSON.stringify(this.getMonster().getDirection())))
         this.setMonsterConfig(monster.getConfig())
         this.setPosition(BattleUtil.fromModelPositionToPosition(monster.getPosition(), monster.getWho()))
+        this._id = Date.now()
 
         this.createAnimationCache()
         this.initAnimation(monster.getConfig())
@@ -94,8 +96,9 @@ let MonsterSprite = cc.Sprite.extend({
     },
 
     initAnimation : function(assetConfig) {
-        let aDirection = cc.animationCache.getAnimation("C" + assetConfig.name)
-        this.flippedX = true
+        let direction = Util.fromMonsterDigitalToDirection(this.getDirection())
+        let aDirection = cc.animationCache.getAnimation(direction[0] + assetConfig.name)
+        this.flippedX = (direction.length === 2)
         let aDirectionAnim = cc.animate(aDirection)
         this.runAction(cc.repeatForever(aDirectionAnim))
     },
@@ -107,7 +110,7 @@ let MonsterSprite = cc.Sprite.extend({
      */
     moving : function(dt) {
         if (this.getMonster().isDie()) {
-            this.removeFromParent(true)
+            cc.director.getRunningScene().getObjectLayer().removeMonsterSprite(this)
         } else {
             let modelTickPos =this.getModelTickPos()
             let modelTickDirection = this.getModelTickDirection()

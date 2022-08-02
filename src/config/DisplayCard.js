@@ -34,7 +34,6 @@ let CardAssetConfig = {
         "res/card_asset/card_potion_power.png",
     ],
     assetBorder : [
-        "",
         "res/card_asset/card_border_1.png",
         "res/card_asset/card_border_2.png",
         "res/card_asset/card_border_3.png",

@@ -119,6 +119,7 @@
         "src/battle/render/layer/bulletsprites/WizardBulletSprite.js",
         "src/battle/render/layer/MapLayer.js",
         "src/battle/render/layer/ObjectLayer.js",
+        "src/battle/render/layer/ResultLayer.js",
         "src/battle/render/layer/towersprites/abstracttowersprites/AttackTowerSprite.js",
         "src/battle/render/layer/towersprites/abstracttowersprites/SupportTowerSprite.js",
         "src/battle/render/layer/towersprites/AttackSpeedTowerSprite.js",

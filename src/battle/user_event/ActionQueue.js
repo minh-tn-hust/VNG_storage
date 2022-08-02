@@ -4,7 +4,6 @@ let ActionQueue = cc.Class.extend({
     ctor : function(who) {
         this._actionList = [
             new UserEvent(20, {}, UserEvent.Type.CREATE_MONSTER, who),
-            new UserEvent(60, {}, UserEvent.Type.CREATE_MONSTER, who),
             new UserEvent(100, {}, UserEvent.Type.CREATE_MONSTER, who),
             new UserEvent(140, {}, UserEvent.Type.CREATE_MONSTER, who),
             new UserEvent(180, {}, UserEvent.Type.CREATE_MONSTER, who),

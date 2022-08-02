@@ -221,7 +221,7 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 53.5034,
+                  "X": 53.4989,
                   "Y": 22.0
                 },
                 "Scale": {
@@ -240,8 +240,8 @@
                   "X": 0.3846,
                   "Y": 0.6136
                 },
-                "LeftMargin": 36.0034,
-                "RightMargin": 19.9966,
+                "LeftMargin": 35.9989,
+                "RightMargin": 20.0011,
                 "TopMargin": 8.5,
                 "BottomMargin": 8.5,
                 "Tag": 60,
@@ -413,15 +413,16 @@
             "ctype": "ImageViewObjectData"
           },
           {
+            "IsCustomSize": true,
             "FontSize": 20,
-            "LabelText": "Thien ha uoc mo",
+            "LabelText": "Thien ha uoc mo he hehehe",
             "FontResource": {
               "Type": "Normal",
               "Path": "SVN-Supercell Magic.ttf",
               "Plist": ""
             },
             "HorizontalAlignmentType": "HT_Center",
-            "VerticalAlignmentType": "VT_Center",
+            "VerticalAlignmentType": "VT_Bottom",
             "OutlineColor": {
               "G": 0,
               "B": 0
@@ -435,12 +436,11 @@
             "ShadowOffsetY": -2.0,
             "ShadowEnabled": true,
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.5
             },
             "Position": {
               "X": 0.0,
-              "Y": 203.1763
+              "Y": 189.68
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -462,13 +462,13 @@
             },
             "LeftMargin": -114.5,
             "RightMargin": -114.5,
-            "TopMargin": -216.6763,
-            "BottomMargin": 189.6763,
+            "TopMargin": -253.68,
+            "BottomMargin": 189.68,
             "Tag": 65,
             "ActionTag": -2131056252,
             "Size": {
               "X": 229.0,
-              "Y": 27.0
+              "Y": 64.0
             },
             "Name": "PlayerName",
             "ctype": "TextObjectData"

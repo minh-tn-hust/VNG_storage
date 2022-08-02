@@ -35,7 +35,6 @@ let BattleScene = cc.Scene.extend({
 
     /** @param {BattleInitiator} battleInitiator */
     ctor : function(battleInitiator) {
-        cc.log(JSON.stringify(battleInitiator))
         this._super()
         this.initGameLoop(battleInitiator)
         this.setInfo(new Info(battleInitiator))
@@ -88,3 +87,5 @@ let BattleScene = cc.Scene.extend({
         }
     },
 })
+
+BattleScene.UI_TAG = 1234452

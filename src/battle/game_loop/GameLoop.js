@@ -14,6 +14,7 @@ let GameLoop = cc.Class.extend({
     _monsterController : null,
     _towerController : null,
     _mapController : null,
+    _isRollBack : null,
 
     // GETTER
     getTick : function(){return this._tick;},
@@ -26,6 +27,8 @@ let GameLoop = cc.Class.extend({
     getMonsterController : function() {return this._monsterController},
     getMapController : function() {return this._mapController},
     isClone : function() {return this._isClone},
+    isRollBack : function() {return this._rollBack},
+
 
     /** Trả về map khởi đầu của game đấu (trạng thái bắt đầu của map) */
     getInitMap : function() {return this._initMap},
@@ -57,6 +60,10 @@ let GameLoop = cc.Class.extend({
         let currentTick = this.getTick()
         let isClone = this.isClone()
 
+        // if (this.getWho() === BattleUtil.Who.Mine) {
+        //     cc.log(currentTick)
+        // }
+
         let tickAction = this.getActionQueue().getListActionFromTick(currentTick)
         for (let i = 0; i < tickAction.length; i++) {
             this.fromEventToGameAction(tickAction[i], isClone)
@@ -78,7 +85,6 @@ let GameLoop = cc.Class.extend({
         switch (userEvent.getType()) {
             case UserEvent.Type.CREATE_MONSTER:
                 // TODO : Thực hiện thả quái với thông tin đầu vào
-                cc.log("CREATE MONSTER")
                 this.getMonsterController().createMonster(MonsterConfig.Type.CROW_SKELETON, isClone)
                 break
             case UserEvent.Type.PLACE_TOWER:
@@ -102,11 +108,32 @@ let GameLoop = cc.Class.extend({
 
     // TODO : thực hiện clone lại trạng thái từ initState rồi sau đó diễn lại các cảnh, các controller sẽ được tạo mới
     cloneTick : function(incommingTick) {
-        // TODO : thực hiện khởi tạo gameLoop clone và thực hiện clone tới tick yêu cầu
+        // Thực hiện khởi tạo gameLoop clone và thực hiện clone tới tick yêu cầu
+        let cloneGameLoop = new GameLoop(this.getWho(), this.getInitMap(), true)
+        let cloneActionQueue = cloneGameLoop.getActionQueue()
 
-        // TODO : xóa các hình ảnh đang hiển thị của gameState cũ
+        // Clone lại các hành động của người dùng và chạy lại các GameLoop
+        let userEvents = this.getActionQueue().getActionList()
+        for (let i  = 0; i < userEvents.length; i++) {
+            cloneActionQueue.addToUsedList(userEvents[i])
+        }
+        while(cloneGameLoop.getTick() !== incommingTick) {
+            cloneGameLoop.update()
+        }
+
+        // TODO : Thực hiện gỡ các Sprite của GameState hiện tại khỏi Scene
+        let objectLayer = cc.director.getRunningScene().getObjectLayer()
+        objectLayer.removeMonsterSprites(this.getWho())
+
+
+        // TODO :Thực hiện cập nhật lại trạng thái mới của cloneGameLoop vào gameLoop hiện tại
+        this.setMonsterController(cloneGameLoop.getMonsterController())
+        this.setMapController(cloneGameLoop.getMapController())
+        this.setTick(cloneGameLoop.getTick())
+
 
         // TODO : cập nhật hình ảnh và hiển thị của gameState vừa clone được
-
+        let monsterController = this.getMonsterController()
+        monsterController.recreateSprite()
     },
 })

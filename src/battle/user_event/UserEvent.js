@@ -33,4 +33,5 @@ UserEvent.Type = {
     UPDATE_TOWER : 3,
     REMOVE_TOWER : 4,
     CREATE_MONSTER : 5,
+    ROLL_BACK : 6,
 }

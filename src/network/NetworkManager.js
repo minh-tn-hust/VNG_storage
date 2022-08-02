@@ -212,6 +212,7 @@ NetworkManger.Connector = cc.Class.extend({
                 cc.log(JSON.stringify(packet))
                 let battleDeck = UserInfo.getInstance().getBattleDeck()
                 packet["battleDeck"] = battleDeck
+                cc.log(JSON.stringify(UserInfo.getInstance()))
                 MainController.getInstance().runBattleScene(packet)
                 break
             case gv.CMD.ABORT_MATCHING:
