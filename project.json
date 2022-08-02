@@ -16,7 +16,6 @@
         "src/framework/**/*.js",
         "src/gui/screen/**/*.js",
         "src/UserInfo.js",
-        "src/BattleInfo.js",
         "src/base/Resource.js",
         "src/base/UIFactory.js",
         "src/base/network/GameClient.js",
@@ -53,7 +52,6 @@
     ],
     "jsList": [
         "src/UserInfo.js",
-        "src/BattleInfo.js",
         "src/base/Resource.js",
         "src/base/UIFactory.js",
         "src/base/network/GameClient.js",

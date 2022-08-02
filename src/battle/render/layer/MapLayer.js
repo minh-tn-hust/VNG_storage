@@ -76,9 +76,9 @@ let MapLayer = cc.Layer.extend({
      */
     getMapController : function(who) {
         if (who === BattleUtil.Who.Enemy) {
-            return this._myMapController
-        } else {
             return this._enemyMapController
+        } else {
+            return this._myMapController
         }
     },
 

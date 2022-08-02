@@ -46,12 +46,15 @@ let BattleScene = cc.Scene.extend({
         this._myGameLoop = new GameLoop(BattleUtil.Who.Mine, battleInitiator.myMap)
         this._enemyGameLoop = new GameLoop(BattleUtil.Who.Enemy, battleInitiator.eMap)
 
-        // lặp GameLoop của sân mình
+        // Lặp GameLoop của sân mình
         this.schedule(function() {
             this._myGameLoop.update()
         }.bind(this), BattleConfig.TICK_DURATION)
 
-        // TODO : Lặp GameLoop của sân đối phương
+        // Lặp GameLoop của sân đối phương
+        this.schedule(function() {
+            this._enemyGameLoop.update()
+        }.bind(this), BattleConfig.TICK_DURATION)
     },
 
     initLayer : function() {

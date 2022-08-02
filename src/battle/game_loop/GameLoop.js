@@ -29,7 +29,7 @@ let GameLoop = cc.Class.extend({
     ctor : function(who, initMap) {
         this.setTick(0)
         this.setWho(who)
-        this.setActionQueue(new ActionQueue())
+        this.setActionQueue(new ActionQueue(who))
         this.setMonsterController(new MonsterController(who))
         this.setMapController(new MapController(initMap))
     },
@@ -80,7 +80,6 @@ let GameLoop = cc.Class.extend({
                 break
         }
     },
-
 
     cloneTick : function() {
         // TODO : thực hiện clone lại trạng thái từ initState rồi sau đó diễn lại các cảnh, các controller sẽ được tạo mới

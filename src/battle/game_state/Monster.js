@@ -17,6 +17,8 @@ let Monster = cc.Class.extend({
     _hitRadius : null,
     _gainEnergy : null,
     _dropPoint : null,
+    _timeStamp : null,
+    _isDie : null,
 
 
     // DEBUG
@@ -45,6 +47,7 @@ let Monster = cc.Class.extend({
     /** @return {MonsterConfigInfo} */
     getConfig : function(){return this._monsterConfig},
     getDirection : function() {return this._direction},
+    isDie : function() {return this._isDie},
 
 
     // SETTER
@@ -64,6 +67,7 @@ let Monster = cc.Class.extend({
     setConfig : function(config) {this._monsterConfig = config},
     setPosition : function(newPosition) {this._position = newPosition},
     setDirection : function(direction) {this._direction = direction},
+    setIsDie : function(isDie) {this._isDie = isDie},
 
     /**
      * @param {MonsterConfigInfo} config
@@ -76,12 +80,16 @@ let Monster = cc.Class.extend({
         this.setSpeed(config.speed)
         this.setMaxSpeed(config.speed)
         this.setWeight(config.weight)
-        this.setPosition(MonsterConfig.INIT_POSITION)
-        this.setDirection(MonsterConfig.INIT_DIRECTION)
+        this.setDirection(JSON.parse(JSON.stringify(MonsterConfig.INIT_DIRECTION)))
         this.setWho(who)
+        this.setId(Date.now())
+        this.setIsDie(false)
 
         let mapController = cc.director.getRunningScene().getMapController(who)
         this.setPathToTower(mapController.getPath(cc.p(0, 0)))
+        this.getPathToTower().unshift(cc.p(0, -1))
+        this.getPathToTower().unshift(cc.p(1, -1))
+        this.setPosition(BattleUtil.fromMatrixToModelPosition(this.getPathToTower()[0], who))
         cc.log(JSON.stringify(this.getPathToTower()))
 
         //======================
@@ -102,17 +110,19 @@ let Monster = cc.Class.extend({
     },
 
     update : function() {
+        cc.log(Date.now() - this._timeStamp)
+        this._timeStamp = Date.now()
         this.updateAction()
     },
 
     updateAction : function() {
         let pathToTower = this.getPathToTower()
+        cc.log(this.getId().toString() + " " + JSON.stringify(this.getPosition()) )
         let currentPos = this.getPosition()
 
         // thực hiện các bước di chuyển tới ô tiếp theo của đường đi
         if (pathToTower.length !== 0) {
             let checkNode = BattleUtil.fromMatrixToModelPosition(pathToTower[0], this.getWho())
-
             // kiểm tra xem quái vật đã đi tới ô chỉ định hay chưa
             if (Math.abs(currentPos.x - checkNode.x) <= 5 && Math.abs(currentPos.y - checkNode.y) <= 5 && this._speed !== 0) {
                 pathToTower.shift()
@@ -127,8 +137,8 @@ let Monster = cc.Class.extend({
             }
             // thực hiện di chuyển
             this.moving()
-        } else if(this.isVisible()) {
-            cc.log("MONSTER DIE")
+        } else {
+            this.setIsDie(true)
         }
     },
 
@@ -140,7 +150,6 @@ let Monster = cc.Class.extend({
         let currentPos = this.getPosition()
         let speed = this.getSpeed()
         let direction = this.getDirection()
-        cc.log(JSON.stringify(direction))
         currentPos.x += speed * direction.x * BattleConfig.TICK_DURATION * BattleConfig.Map.cellWidth
         currentPos.y += speed * direction.y * BattleConfig.TICK_DURATION * BattleConfig.Map.cellHeight
         this.setPosition(currentPos)

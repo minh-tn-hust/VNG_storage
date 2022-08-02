@@ -5,6 +5,7 @@ let MonsterController = cc.Class.extend({
     setWho : function(who) {
         this._who = who
     },
+
     getWho : function() {
         return this._who
     },
@@ -21,7 +22,6 @@ let MonsterController = cc.Class.extend({
 
     createMonster : function(type) {
         let who = this.getWho()
-
         switch (type) {
             case MonsterConfig.Type.CROW_SKELETON:
                 let monsterModel = new Monster(MonsterConfig.CROW_SKELETON, who)
@@ -29,6 +29,7 @@ let MonsterController = cc.Class.extend({
                 let monsterDisplay = new MonsterSprite(monsterModel)
                 let battleScene = cc.director.getRunningScene()
                 battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
+                cc.log("CALL")
                 break
         }
     },
@@ -42,10 +43,18 @@ let MonsterController = cc.Class.extend({
 
     },
 
+    /**
+     * Thực hiện việc update quái và kiểm tra xem quái đã chết hay chưa
+     * để thực hiện gỡ quái khỏi pool
+     */
     updateAllMonster : function() {
         let monsterPool = this.getMonsterPool()
         for (let i = 0; i  < monsterPool.length; i++) {
-           monsterPool[i].update()
+            if (monsterPool[i].isDie()) {
+                monsterPool.splice(i, 1)
+            } else {
+                monsterPool[i].update()
+            }
         }
     },
 

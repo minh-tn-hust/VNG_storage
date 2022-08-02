@@ -1,14 +1,10 @@
 let ActionQueue = cc.Class.extend({
     _actionList : null,
     _usedList : null,
-    ctor : function() {
+    ctor : function(who) {
         this._actionList = [
-            // new UserEvent(5, {}, UserEvent.Type.USE_SPELL, BattleUtil.Who.Mine),
-            // new UserEvent(30, {}, UserEvent.Type.PLACE_TOWER, BattleUtil.Who.Mine),
-            new UserEvent(20, {}, UserEvent.Type.CREATE_MONSTER, BattleUtil.Who.Mine),
-            // new UserEvent(4, {}, UserEvent.Type.REMOVE_TOWER, BattleUtil.Who.Mine),
-            // new UserEvent(70, {}, UserEvent.Type.UPDATE_TOWER, BattleUtil.Who.Mine),
-            // new UserEvent(90, {}, UserEvent.Type.USE_SPELL, BattleUtil.Who.Mine),
+            new UserEvent(20, {}, UserEvent.Type.CREATE_MONSTER, who),
+            new UserEvent(60, {}, UserEvent.Type.CREATE_MONSTER, who),
         ]
         this._usedList = []
     },

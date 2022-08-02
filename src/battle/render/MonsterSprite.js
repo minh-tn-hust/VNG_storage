@@ -44,8 +44,6 @@ let MonsterSprite = cc.Sprite.extend({
         this.moving(dt)
     },
 
-
-
     /**
      * Lựa chọn animation phù hợp với hướng đi hiện tại của quái vật
      * @param {boolean} needToChangeAnimation
@@ -103,38 +101,42 @@ let MonsterSprite = cc.Sprite.extend({
     },
 
     /**
-     * TODO : Hàm di chuyển của MonsterSprite, thực hiện di chuyển một đoạn tương úng với, thực hiện cập nhật lại vị trí sau mỗi lần gamelogic update
+     * Hàm di chuyển của MonsterSprite, thực hiện di chuyển một đoạn tương úng với, thực hiện cập nhật lại vị trí sau mỗi lần gamelogic update
      * speed * dt với dt là thời gian giữa 2 lần chờ update của game
      * @param dt
      */
     moving : function(dt) {
-        let modelTickPos =this.getModelTickPos()
-        let modelTickDirection = this.getModelTickDirection()
-
-        let currentModelPos = this.getMonster().getPosition()
-        let currentModelDirection = this.getMonster().getDirection()
-
-        let paramX = (this.getMonster().getWho() === BattleUtil.Who.Mine) ? +1 : -1
-        let paramY = (this.getMonster().getWho() === BattleUtil.Who.Mine) ? -1 : +1
-
-        // nếu như vị trí của Model thay đổi thì thực hiện set theo vị trí của Model
-        if (modelTickPos.x !== currentModelPos.x || modelTickPos.y !== currentModelPos.y) {
-            this.setModelTickPos(JSON.parse(JSON.stringify(currentModelPos)))
-            this.setPosition(BattleUtil.fromModelPositionToPosition(currentModelPos, this.getMonster().getWho()))
+        if (this.getMonster().isDie()) {
+            this.removeFromParent(true)
         } else {
-            // hệ số vector direction khác với hệ số vector của màn hình, vì vậy cần thêm paramX và paramY
-            // để chuyển từ vector của Model -> vector của màn hình
-            let currentPos = this.getPosition()
-            let speed = this.getSpeed()
-            let direction = this.getDirection()
-            currentPos.x += speed * direction.x * dt * BattleConfig.Map.cellWidth * paramX
-            currentPos.y += speed * direction.y * dt * BattleConfig.Map.cellHeight * paramY
-            this.setPosition(currentPos)
-        }
+            let modelTickPos =this.getModelTickPos()
+            let modelTickDirection = this.getModelTickDirection()
 
-        if (Util.fromMonsterDigitalToDirection(currentModelDirection) !== Util.fromMonsterDigitalToDirection(modelTickDirection)) {
-            this.setModelTickDirection(JSON.parse(JSON.stringify(currentModelDirection)))
-            this.runAnimationByDirection(true)
+            let currentModelPos = this.getMonster().getPosition()
+            let currentModelDirection = this.getMonster().getDirection()
+
+            let paramX = (this.getMonster().getWho() === BattleUtil.Who.Mine) ? +1 : -1
+            let paramY = (this.getMonster().getWho() === BattleUtil.Who.Mine) ? -1 : +1
+
+            // nếu như vị trí của Model thay đổi thì thực hiện set theo vị trí của Model
+            if (modelTickPos.x !== currentModelPos.x || modelTickPos.y !== currentModelPos.y) {
+                this.setModelTickPos(JSON.parse(JSON.stringify(currentModelPos)))
+                this.setPosition(BattleUtil.fromModelPositionToPosition(currentModelPos, this.getMonster().getWho()))
+            } else {
+                // hệ số vector direction khác với hệ số vector của màn hình, vì vậy cần thêm paramX và paramY
+                // để chuyển từ vector của Model -> vector của màn hình
+                let currentPos = this.getPosition()
+                let speed = this.getSpeed()
+                let direction = this.getDirection()
+                currentPos.x += speed * direction.x * dt * BattleConfig.Map.cellWidth * paramX
+                currentPos.y += speed * direction.y * dt * BattleConfig.Map.cellHeight * paramY
+                this.setPosition(currentPos)
+            }
+
+            if (Util.fromMonsterDigitalToDirection(currentModelDirection) !== Util.fromMonsterDigitalToDirection(modelTickDirection)) {
+                this.setModelTickDirection(JSON.parse(JSON.stringify(currentModelDirection)))
+                this.runAnimationByDirection(true)
+            }
         }
     },
 })
