@@ -115,7 +115,7 @@ let GameLoop = cc.Class.extend({
         // Clone lại các hành động của người dùng và chạy lại các GameLoop
         let userEvents = this.getActionQueue().getActionList()
         for (let i  = 0; i < userEvents.length; i++) {
-            cloneActionQueue.addToUsedList(userEvents[i])
+            cloneActionQueue.addToActionList(userEvents[i])
         }
         while(cloneGameLoop.getTick() !== incommingTick) {
             cloneGameLoop.update()

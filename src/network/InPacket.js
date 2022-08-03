@@ -359,3 +359,13 @@ NetworkManager.packetMap[gv.CMD.ABORT_MATCHING] = fr.InPacket.extend({
         this.err = this.getError()
     }
 })
+
+NetworkManager.packetMap[gv.CMD.DROP_MONSTER_TEST] =  fr.InPacket.extend({
+    ctor : function() {
+        this._super()
+    },
+    readData : function() {
+        this.comingTick = this.getInt()
+        this.cardId =  this.getInt()
+    }
+})

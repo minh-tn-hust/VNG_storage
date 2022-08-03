@@ -3,35 +3,25 @@ let BattleScene = cc.Scene.extend({
     _enemyGameLoop: null,
     _objectLayer : null,
     _info : null,
+    _serverTick : null,
 
     /** @returns {GameLoop} */
-    getMyGameLoop : function() {
-        return this._myGameLoop
-    },
+    getMyGameLoop : function() {return this._myGameLoop},
 
     /** @returns {GameLoop} */
-    getEnemyGameLoop : function(){
-        return this._enemyGameLoop
-    },
-
-    setObjectLayer : function(objectLayer) {
-        this._objectLayer = objectLayer
-    },
-    getObjectLayer : function() {
-        return this._objectLayer
-    },
+    getEnemyGameLoop : function(){return this._enemyGameLoop },
+    setObjectLayer : function(objectLayer) { this._objectLayer = objectLayer },
+    getObjectLayer : function() { return this._objectLayer },
+    setServerTick : function(value) {this._serverTick = value},
+    getServerTick : function() {return this._serverTick},
 
     /**
      * @param {Info} info
      */
-    setInfo : function(info) {
-        this._info = info
-    },
+    setInfo : function(info) { this._info = info },
 
     /** @returns {Info} */
-    getInfo : function() {
-        return this._info
-    },
+    getInfo : function() { return this._info },
 
     /** @param {BattleInitiator} battleInitiator */
     ctor : function(battleInitiator) {
@@ -39,6 +29,12 @@ let BattleScene = cc.Scene.extend({
         this.initGameLoop(battleInitiator)
         this.setInfo(new Info(battleInitiator))
         this.initLayer()
+        this.scheduleUpdate()
+        this.setServerTick(0)
+
+        this.schedule(function(){
+            this.setServerTick(this.getServerTick() + 1)
+        }.bind(this), 0.1)
     },
 
     initGameLoop : function(battleInitiator) {
@@ -46,14 +42,42 @@ let BattleScene = cc.Scene.extend({
         this._enemyGameLoop = new GameLoop(BattleUtil.Who.Enemy, battleInitiator.eMap, false)
 
         // Lặp GameLoop của sân mình
-        this.schedule(function() {
-            this._myGameLoop.update()
-        }.bind(this), BattleConfig.TICK_DURATION)
+        this.schedule(this.updateMyGameLoop, BattleConfig.TICK_DURATION)
 
         // Lặp GameLoop của sân đối phương
-        this.schedule(function() {
-            this._enemyGameLoop.update()
-        }.bind(this), BattleConfig.TICK_DURATION)
+        this.schedule(this.updateEnemyGameLoop, BattleConfig.TICK_DURATION)
+    },
+
+    update : function() {
+        if (this._enemyGameLoop.getTick() > this.getServerTick()) {
+            this.speedUpGameLoop(BattleUtil.Who.Enemy, 0.1)
+        }
+        if (this._myGameLoop.getTick() > this.getServerTick()) {
+            this.speedUpGameLoop(BattleUtil.Who.Mine, 0.1)
+        }
+    },
+
+    updateMyGameLoop : function() {
+        this._myGameLoop.update()
+    },
+    updateEnemyGameLoop : function() {
+        this._enemyGameLoop.update()
+    },
+
+
+    speedUpGameLoop : function(who, speedDuration) {
+        if (speedDuration === 0.1) {
+            cc.log("SET NORMAL STATE")
+        } else {
+            cc.log("SET SPEED UP STATE")
+        }
+        if (who === BattleUtil.Who.Mine) {
+            this.unschedule(this.updateMyGameLoop)
+            this.schedule(this.updateMyGameLoop, speedDuration)
+        } else {
+            this.unschedule(this.updateEnemyGameLoop)
+            this.schedule(this.updateEnemyGameLoop, speedDuration)
+        }
     },
 
     initLayer : function() {

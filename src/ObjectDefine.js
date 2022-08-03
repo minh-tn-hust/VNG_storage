@@ -21,6 +21,11 @@ let BattleInitiator = cc.Class.extend({
     battleDeck : [CardInfo(),CardInfo(),CardInfo(),CardInfo(), CardInfo(),CardInfo(),CardInfo(),CardInfo()]
 })
 
+let DropMonsterTestInfo = cc.Class.extend({
+    comingTick : 1,
+    cardId : 1,
+})
+
 let MonsterConfigInfo = cc.Class.extend({
     asset : {
         plist : "res/boss_asset/iceman/iceman.plist",

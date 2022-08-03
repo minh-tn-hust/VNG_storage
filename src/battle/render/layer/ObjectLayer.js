@@ -86,7 +86,6 @@ let ObjectLayer = cc.Layer.extend({
     update : function(dt) {
         this.updateMyField()
         this.updateEnemyField()
-        cc.log(this._myField._monsterSprites.length)
     },
 
     // Cập nhật lại trạng thái zOrder trên sân mình

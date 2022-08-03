@@ -221,6 +221,11 @@ NetworkManger.Connector = cc.Class.extend({
                     UserInfo.getInstance().notify(UserInfo.Event.ABORT_MATCH_DONE)
                 }
                 break
+            case gv.CMD.DROP_MONSTER_TEST:
+                cc.log("Drop monster test")
+                this.getBattleHandler().receiveDropMonsterTest(packet)
+                break
+
         }
     },
 });
