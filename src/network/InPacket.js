@@ -329,8 +329,6 @@ NetworkManager.packetMap[gv.CMD.MATCHING] = fr.InPacket.extend({
     },
     readData : function() {
         this.eid = this.getInt()
-        this.name = "A Kiên đạp choai"
-        this.trophy = 1999
         this.roomId = this.getInt()
         this.myMap = []
         for(var i= 0; i<5; i++){
@@ -348,6 +346,8 @@ NetworkManager.packetMap[gv.CMD.MATCHING] = fr.InPacket.extend({
             }
             this.eMap.push(tmp)
         }
+        this.name = "HELLO TESTER"
+        this.trophy = 1999
     }
 })
 
@@ -367,5 +367,16 @@ NetworkManager.packetMap[gv.CMD.DROP_MONSTER_TEST] =  fr.InPacket.extend({
     readData : function() {
         this.comingTick = this.getInt()
         this.cardId =  this.getInt()
+    }
+})
+
+NetworkManger.packetMap[gv.CMD.DROP_MONSTER] = fr.InPacket.extend({
+    ctor : function() {
+        this._super()
+    },
+    readData : function() {
+        this.comingTick = this.getInt()
+        this.cardId = this.getInt()
+        this.error = this.getError()
     }
 })

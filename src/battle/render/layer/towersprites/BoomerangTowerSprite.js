@@ -1,4 +1,4 @@
-var BoomerangTowerSprite = TowerSprite.extend({
+var BoomerangTowerSprite = AttackTowerSprite.extend({
     createBullet: function () {
         var bullet = new BoomerangBulletSprite(this.getWho());
         bullet.retain();
@@ -6,11 +6,11 @@ var BoomerangTowerSprite = TowerSprite.extend({
         return bullet;
     },
 
-    ctor : function(who) {
-        this._super(who,TowerConfig["FROG_BUTCHER"])
+    ctor : function(tower) {
+        this._super(tower,TowerConfigRender["FROG_BUTCHER"])
         this.initAnimation()
-        this.setWho(who)
+        // this.setWho(tower)
         // this.init(this.getAsset());
-        this.schedule(this.fire, 0.6)
+        // this.schedule(this.fire, 0.6)
     },
 })

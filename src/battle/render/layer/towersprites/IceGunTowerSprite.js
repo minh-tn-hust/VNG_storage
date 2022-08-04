@@ -1,4 +1,4 @@
-var IceGunTowerSprite = TowerSprite.extend({
+var IceGunTowerSprite = AttackTowerSprite.extend({
     createBullet: function () {
         var bullet = new IceGunBulletSprite(this.getWho());
         bullet.retain();
@@ -6,11 +6,11 @@ var IceGunTowerSprite = TowerSprite.extend({
         return bullet;
     },
 
-    ctor : function(who) {
-        this._super(who,TowerConfig["BEAR_POLAR"])
+    ctor : function(tower) {
+        this._super(tower,TowerConfigRender["BEAR_POLAR"])
         this.initAnimation()
-        this.setWho(who)
+        // this.setWho(tower)
         // this.init(this.getAsset());
-        this.schedule(this.fire, 0.6)
+        // this.schedule(this.fire, 0.6)
     },
 })

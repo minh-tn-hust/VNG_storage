@@ -1,8 +1,7 @@
 var AttackSpeedTowerSprite = SupportTowerSprite.extend({
-    ctor : function(who) {
-        this._super(who,TowerConfig["SNAKE_RED"]);
+    ctor : function(tower) {
+        this._super(tower,TowerConfigRender["SNAKE_RED"]);
         this.initAnimation()
-        this.setAsset(TowerConfig["SNAKE_RED"])
-        this.setWho(who)
+        this.setWho(tower)
     },
 })

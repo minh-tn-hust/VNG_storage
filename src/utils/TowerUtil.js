@@ -39,25 +39,15 @@ TowerUtil.getNearestMonster = function (monsterPool, towerPosition
         distance:towerRange+1,
         monster: null,
     };
-    // cc.log("monsterPool: ",JSON.stringify(monsterPool));
-    // cc.log("towerPosition: ",JSON.stringify(towerPosition));
-    // cc.log("towerRange: ",towerRange);
-    // cc.log("who: ",who);
     for (var i=0;i<monsterPool.length;i++){
         var distance = Util.distance(towerPosition,monsterPool[i].getPosition());
         if (distance<nearest.distance
-            && monsterPool[i].isVisible()
             && monsterPool[i].getWho()=== who
             && monsterPool[i].getCanTarget()) {
             nearest.distance = distance;
             nearest.monster = monsterPool[i];
         }
     }
-    // if (nearest.monster!==null){
-    //     cc.log("Have Monster");
-    // } else {
-    //     cc.log("No monster");
-    // }
     return nearest.monster;
 }
 
@@ -78,7 +68,6 @@ TowerUtil.getFarthestMonster = function (monsterPool, towerPosition
     for (var i=0;i<monsterPool.length;i++){
         var distance = Util.distance(towerPosition,monsterPool[i].getPosition());
         if (distance<=towerRange && distance>farthest.distance
-            && monsterPool[i].isVisible()
             && monsterPool[i].getWho()=== who
             && monsterPool[i].getCanTarget()) {
             farthest.distance = distance;
@@ -104,7 +93,6 @@ TowerUtil.getHighestBloodMonster = function (monsterPool, towerPosition
     for (var i=0;i<monsterPool.length;i++){
         var distance = Util.distance(towerPosition,monsterPool[i].getPosition());
         if (distance<=towerRange && monsterPool[i].getHp()>highestBlood.blood
-            && monsterPool[i].isVisible()
             && monsterPool[i].getWho()=== who
             && monsterPool[i].getCanTarget()){
             highestBlood.blood = monsterPool[i].getHp();
@@ -116,7 +104,7 @@ TowerUtil.getHighestBloodMonster = function (monsterPool, towerPosition
 
 /**
  * return the lowest blood monster from the monsterPool to a tower
- * @param {list}monsterPool
+ * @param {[]}monsterPool
  * @param {cc.p}towerPosition
  * @param {number}towerRange
  * @param {BattleUtil.Who.Mine,BattleUtil.Who.Enemy} who
@@ -125,14 +113,16 @@ TowerUtil.getLowestBloodMonster = function (
     monsterPool, towerPosition,
     towerRange,who
 ) {
-    var lowestBlood = {};
+    var lowestBlood = {
+        blood:0,
+        monster:null
+    };
     if (monsterPool.length>0){
         lowestBlood.blood = monsterPool[0].getHp();
         lowestBlood.monster = monsterPool[0];
         for (var i=1;i<monsterPool.length;i++){
             var distance = Util.distance(towerPosition,monsterPool[i].getPosition());
             if (distance<=towerRange && monsterPool[i].getHp()<lowestBlood.blood
-                && monsterPool[i].isVisible()
                 && monsterPool[i].getWho()=== who
                 && monsterPool[i].getCanTarget()){
                 lowestBlood.blood = monsterPool[i].getHp();

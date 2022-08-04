@@ -1,15 +1,16 @@
 var AttackTowerSprite=  TowerSprite.extend({
 
-    ctor: function (who,assetConfig) {
-        this._super(who,assetConfig);
-        this.schedule(this.fire,this.getSpeed());
+    ctor: function (tower,assetConfig) {
+        this._super(tower,assetConfig);
+        // this.setModelTargetTick(JSON.parse(JSON.stringify(tower.getTarget())));
+        // this.schedule(this.fire,this.getSpeed());
     },
 
     /**
      * Hàm bắn của trụ, được gọi theo thời gian được thiết lập theo tốc độ bắn của trụ
      */
     fire : function() {
-        let target = this.getTarget()
+        let target = this.getTower().getTarget()
         if (target !== null && target.getCanTarget()) {
 
             // cc.log("Before bullet");

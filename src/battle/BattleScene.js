@@ -4,16 +4,20 @@ let BattleScene = cc.Scene.extend({
     _objectLayer : null,
     _info : null,
     _serverTick : null,
+    _timeStamp : null,
 
     /** @returns {GameLoop} */
     getMyGameLoop : function() {return this._myGameLoop},
-
+    getTimestamp : function() {return this._timeStamp},
     /** @returns {GameLoop} */
     getEnemyGameLoop : function(){return this._enemyGameLoop },
-    setObjectLayer : function(objectLayer) { this._objectLayer = objectLayer },
     getObjectLayer : function() { return this._objectLayer },
-    setServerTick : function(value) {this._serverTick = value},
     getServerTick : function() {return this._serverTick},
+
+    // SETTER
+    setObjectLayer : function(objectLayer) { this._objectLayer = objectLayer },
+    setServerTick : function(value) {this._serverTick = value},
+    setTimeStamp : function(value) {this._timeStamp = value},
 
     /**
      * @param {Info} info
@@ -35,6 +39,25 @@ let BattleScene = cc.Scene.extend({
         this.schedule(function(){
             this.setServerTick(this.getServerTick() + 1)
         }.bind(this), 0.1)
+
+        cc.eventManager.addCustomListener(cc.game.EVENT_HIDE,this.onGameHide.bind(this));
+        cc.eventManager.addCustomListener(cc.game.EVENT_SHOW,this.onGameShow.bind(this));
+    },
+
+    onGameHide : function() {
+        this.setTimeStamp(Date.now())
+    },
+
+    onGameShow : function() {
+        if (this.getTimestamp() !== null) {
+            cc.log("SHOW GAME")
+            let deltaTimeStamp = Date.now() - this.getTimestamp()
+            let deltaTick = Math.round((deltaTimeStamp / 1000) / 0.1)
+            this.setServerTick(this.getServerTick() + deltaTick)
+            this.speedUpGameLoop(BattleUtil.Who.Enemy, 0.01)
+            this.speedUpGameLoop(BattleUtil.Who.Mine, 0.01)
+            this.setTimeStamp(null)
+        }
     },
 
     initGameLoop : function(battleInitiator) {
@@ -55,6 +78,10 @@ let BattleScene = cc.Scene.extend({
         if (this._myGameLoop.getTick() > this.getServerTick()) {
             this.speedUpGameLoop(BattleUtil.Who.Mine, 0.1)
         }
+        if (this.getInfo().getEndGame() === true) {
+            this.unschedule(this.updateMyGameLoop)
+            this.unschedule(this.updateEnemyGameLoop)
+        }
     },
 
     updateMyGameLoop : function() {
@@ -66,11 +93,6 @@ let BattleScene = cc.Scene.extend({
 
 
     speedUpGameLoop : function(who, speedDuration) {
-        if (speedDuration === 0.1) {
-            cc.log("SET NORMAL STATE")
-        } else {
-            cc.log("SET SPEED UP STATE")
-        }
         if (who === BattleUtil.Who.Mine) {
             this.unschedule(this.updateMyGameLoop)
             this.schedule(this.updateMyGameLoop, speedDuration)
@@ -90,7 +112,13 @@ let BattleScene = cc.Scene.extend({
         this.addChild(mapLayer,  BattleConfig.MapLayer.zOrder, 0)
 
         // Khởi tạo UI dành cho người dùng tương tác
-        let battleUILayer = new BattleUILayer(this.getInfo(), this.getMyGameLoop().getMapController())
+        let battleUILayer = new BattleUILayer(
+            this.getInfo(),
+            this.getMyGameLoop().getMapController(),
+            this.getMyGameLoop().getTowerController(),
+            backgroundDecorationLayer
+        )
+
         this.addChild(battleUILayer, BattleConfig.UILayer.zOrder, 0)
 
         // Khởi tạo ObjectLayer chứa quái và trụ
@@ -110,6 +138,18 @@ let BattleScene = cc.Scene.extend({
             return this.getEnemyGameLoop().getMapController()
         }
     },
+
+    /**
+     * @param {BattleUtil.Who.Enemy | BattleUtil.Who.Mine} who
+     * @return {GameLoop}
+     * */
+    getGameLoop: function (who) {
+        if (who === BattleUtil.Who.Mine){
+            return this.getMyGameLoop();
+        } else {
+            return this.getEnemyGameLoop();
+        }
+    }
 })
 
 BattleScene.UI_TAG = 1234452

@@ -1,6 +1,6 @@
 var LockCellBulletSprite = BulletSprite.extend({
     setTargetPosition: function (monster) {
-        this.targetPosition = BattleUtil.fromPositionToMatrix(
+        this.targetPosition = BattleUtil.fromModelPositionToMatrixPosition(
             monster.getPosition(),this.getWho()
         );
         this.targetPosition = BattleUtil.fromMaxtrixToPosition(
@@ -12,8 +12,8 @@ var LockCellBulletSprite = BulletSprite.extend({
         return this.targetPosition;
     },
 
-    ctor: function (who) {
-        this._super(who);
+    ctor: function (bullet) {
+        this._super(bullet);
     },
 
     runAnim: function () {

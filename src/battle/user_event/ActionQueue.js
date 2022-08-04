@@ -51,7 +51,9 @@ let ActionQueue = cc.Class.extend({
         // TODO : Thực hiện lấy ra các sự kiện (kể cả đã dùng rồi) có tick thực hiện === tick
     },
 
-    /** @param {UserEvent} userEvent */
+    /**
+     * @param {UserEvent,PlaceTowerEvent} userEvent
+     */
     addEvent : function(userEvent) {
         this.getActionList().push(userEvent)
     },

@@ -1,19 +1,16 @@
 var BoomerangBulletSprite = LockCellBulletSprite.extend({
-    ctor: function (who) {
+    ctor: function (bullet) {
         this.setAsset(BulletConfigRender.BOOMERANG_BULLET);
         this.setAnimName("BoomerangBullet")
-        this._super(who);
+        this._super(bullet);
     },
 
     createAnimationCache: function (){
         var assetConfig = this.getAsset();
-        cc.log("assetConfig: ",JSON.stringify(assetConfig));
         cc.spriteFrameCache.addSpriteFrames(assetConfig.asset.plist);
-        cc.log("DIT CON ME");
-        var frame;// = cc.spriteFrameCache.getSpriteFrame("tower_oil_gun_bullet_0000.png");
-        var animFrame;// = new cc.AnimationFrame(frame,1);
+        var frame;
+        var animFrame;
         var animFrames = [];
-        // animFrames.push(animFrame);
         for (var i=0;i<assetConfig.picPerAnim;++i){
             cc.log("Pushing pic: ", assetConfig.prefix+"1_000"+i+".png");
             frame = cc.spriteFrameCache.getSpriteFrame(

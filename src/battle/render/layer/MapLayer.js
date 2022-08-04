@@ -22,46 +22,6 @@ let MapLayer = cc.Layer.extend({
 
         // cập nhật hiển thị đường đi
         this.updatePath(BattleUtil.Who.Mine)
-
-        // TODO : DEBUG - quy đổi vị trí click
-        let self = this
-        cc.eventManager.addListener({
-            event : cc.EventListener.TOUCH_ONE_BY_ONE,
-            onTouchBegan : function() {return true},
-            onTouchEnded : function(touch, event) {
-                self.removeChildByTag(1001)
-
-                let who = BattleUtil.Who.Mine
-                let touchPosition = touch.getLocation()
-                let matrixPos = BattleUtil.fromPositionToMatrix(touchPosition, who)
-                let modelPos = BattleUtil.fromPositionToModelPosition(touchPosition, who)
-
-                cc.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-                cc.log("MATRIX POS")
-                cc.log(JSON.stringify(matrixPos))
-
-                cc.log("FROM MATRIX POS TO MODEL POS")
-                cc.log(JSON.stringify(BattleUtil.fromMatrixToModelPosition(matrixPos, who)))
-
-                cc.log("FROM POS TO MODEL POS")
-                cc.log(JSON.stringify(modelPos))
-
-                cc.log("FROM MODEL POS TO POS")
-                cc.log(JSON.stringify(BattleUtil.fromModelPositionToPosition(modelPos, who)))
-                self.drawNode(BattleUtil.fromModelPositionToPosition(modelPos, who), cc.color.RED, 5)
-
-                cc.log("POS")
-                cc.log(JSON.stringify(touchPosition))
-                self.drawNode(touchPosition, cc.color.YELLOW, 10)
-
-                cc.log("FROM MODEL POS TO MATRIX POS")
-                cc.log(JSON.stringify(BattleUtil.fromModelPositionToMatrixPosition(modelPos)))
-
-                cc.log("FROM MATRIX TO POS")
-                cc.log(JSON.stringify(BattleUtil.fromMaxtrixToPosition(modelPos, who)))
-                self.drawNode(BattleUtil.fromMaxtrixToPosition(matrixPos, who), cc.color.BLUE, 15)
-            },
-        }, this)
     },
 
     drawNode : function(position, color, radius) {

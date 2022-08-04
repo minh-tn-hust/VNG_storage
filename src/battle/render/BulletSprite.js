@@ -16,13 +16,8 @@ var BulletSprite = cc.Sprite.extend({
     setTargetPosition: function (target) {},
     getTargetPosition: function () {},
 
-    setAsset : function(asset) {
-        this._assetConfig = asset
-    },
-
-    getAsset : function() {
-        return this._assetConfig
-    },
+    setAsset : function(asset) {this._assetConfig = asset},
+    getAsset : function() {return this._assetConfig},
 
     /**
      * get speed of bullet, unit: cell/second
@@ -46,35 +41,33 @@ var BulletSprite = cc.Sprite.extend({
      * unit: pixel/second
      * @param {number} speed
      */
-    setStepSize: function (speed) {
-        this.stepSize = speed*BattleUtil.cellWidth;
-    },
+    setStepSize: function (speed) {this.stepSize = speed*BattleConfig.Map.cellWidth;},
+    getStepSize: function () {return this.stepSize;},
 
-    getStepSize: function () {
-        return this.stepSize;
-    },
+    setAnimName: function (animName) {this.animName = animName;},
+    getAnimName : function () {return this.animName;},
 
-    setAnimName: function (animName) {
-        this.animName = animName;
-    },
+    setWho: function (who) {this.who = who;},
+    getWho: function () {return this.who;},
 
-    getAnimName : function () {
-        return this.animName;
-    },
+    setBullet: function (bullet) {this.bullet = bullet;},
+    getBullet: function () {return this.bullet},
 
-    setWho: function (who) {
-        this.who = who;
-    },
+    setModelTickPosition: function (modelTickPosition) {this.modelTickPosition = modelTickPosition;},
+    getModelTickPosition: function () {return this.modelTickPosition;},
 
-    getWho: function () {
-        return this.who;
-    },
-
-    ctor: function (who) {
+    ctor: function (bullet) {
         this._super();
-        this.setSpeed(5);
-        this.setWho(who);
+        this.setSpeed(bullet.getSpeed());
+
+        this.setBullet(bullet);
+        this.setWho(bullet.getWho());
+        this.setTarget(bullet.getTarget());
+        this.setModelTickPosition(JSON.parse(JSON.stringify(bullet.getScreenPosition())));
+        this.setPosition(JSON.parse(JSON.stringify(bullet.getScreenPosition())));
         this.createAnimationCache();
+        this.runAnim();
+        this.scheduleUpdate();
     },
 
     onFire: function () {
@@ -87,26 +80,20 @@ var BulletSprite = cc.Sprite.extend({
      */
     update: function (dt) {
         var curPos = this.getPosition();
-        // cc.log("curPos: ",JSON.stringify(curPos));
         var targetPos = this.getTargetPosition();
-        var distance = Util.distance(curPos,targetPos);
-        // cc.log("distance: ",distance);
-        // cc.log("StepSize: ",this.getStepSize());
-        // cc.log("StepSize: ",this.getStepSize()*dt);
-        if (distance<this.getStepSize()*dt){
+        var distance = Util.distance(curPos, targetPos);
+        if (this.getBullet().getIsHit()){
             this.setPosition(this.getTargetPosition());
             this.onCollision();
-            // this.unscheduleUpdate();
+        }
+        if (distance < this.getStepSize() * dt) {
+            this.setPosition(this.getTargetPosition());
         } else {
-            var factor = this.getStepSize() * dt /distance;
+            var factor = this.getStepSize() * dt / distance;
             var delta = (targetPos.x - curPos.x) * factor; // change of x
-            // cc.log("deltaX: ",delta);
-            curPos.x = curPos.x+ delta;
+            curPos.x = curPos.x + delta;
             delta = (targetPos.y - curPos.y) * factor; // change of y
-            // cc.log("deltaY: ",delta);
             curPos.y = curPos.y + delta;
-            // cc.log("PosMon: ",JSON.stringify(targetPos));
-            // cc.log("PosBullet: ",JSON.stringify(curPos));
             this.setPosition(curPos);
         }
     },
@@ -122,7 +109,9 @@ var BulletSprite = cc.Sprite.extend({
      * method called when bullet and target collide
      */
     onCollision: function () {
-
+        this.unscheduleUpdate();
+        // TODO remove from bullet pool in object layer
+        cc.director.getRunningScene().getObjectLayer().removeBulletSprite(this)
     },
 
     runAnim : function () {},

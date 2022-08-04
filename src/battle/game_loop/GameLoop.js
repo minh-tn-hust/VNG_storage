@@ -33,6 +33,7 @@ let GameLoop = cc.Class.extend({
     /** Trả về map khởi đầu của game đấu (trạng thái bắt đầu của map) */
     getInitMap : function() {return this._initMap},
 
+
     // SETTER
     setTick : function(newTick) {this._tick = newTick;},
     setActionQueue : function(newActionQueue) {this._actionQueue = newActionQueue;},
@@ -49,6 +50,9 @@ let GameLoop = cc.Class.extend({
         this.setActionQueue(new ActionQueue(who))
         this.setMonsterController(new MonsterController(who))
         this.setMapController(new MapController(initMap))
+        this.setTowerController(new TowerController(who));
+        this.setInitMap(initMap);
+        this.setIsClone(isClone);
         this.setInitMap(initMap)
         this.setIsClone(isClone)
     },
@@ -73,27 +77,34 @@ let GameLoop = cc.Class.extend({
         this.getMonsterController().updateAllMonster()
 
         // TODO : cập nhật thay đổi cho trụ và các loại đạn (trúng quái, quái mất máu, làm chậm, ..., các sự kiện khác)
+        this.getTowerController().updateAllTower(currentTick);
 
         this.setTick(currentTick + 1)
     },
 
     // TODO : thực hiện các UserEvent có trong tick này
-    /** @param {UserEvent} userEvent
+    /** @param {UserEvent,PlaceTowerEvent} userEvent
      * @param {boolean} isClone
      */
     fromEventToGameAction : function(userEvent, isClone) {
+        cc.log("UserEvent: ",JSON.stringify(userEvent));
         switch (userEvent.getType()) {
             case UserEvent.Type.CREATE_MONSTER:
                 // TODO : Thực hiện thả quái với thông tin đầu vào
-                this.getMonsterController().createMonster(MonsterConfig.Type.CROW_SKELETON, isClone)
+                this.getMonsterController().createMonster(userEvent.getMetaData().cardId, isClone)
                 break
             case UserEvent.Type.PLACE_TOWER:
                 // TODO : Thực hiện đặt trụ với thông tin đầu vào
-                cc.log("PLACE TOWER")
+                this.getTowerController().plantTower(
+                    userEvent.getCID(),
+                    userEvent.getPosition(),
+                    isClone
+                );
+                this.getMapController().plantTowerWithPosition(userEvent.getPosition(),userEvent.getCID());
                 break
             case UserEvent.Type.REMOVE_TOWER:
                 // TODO : Thực hiện hủy trụ với thông tin đầu vào
-                cc.log("REMOVE TOWER")
+                cc.log("REMOVE TOWER ")
                 break
             case UserEvent.Type.UPDATE_TOWER:
                 // TODO : Thực hiện nâng cấp trụ với thông tin đầu vào
@@ -107,7 +118,7 @@ let GameLoop = cc.Class.extend({
     },
 
     // TODO : thực hiện clone lại trạng thái từ initState rồi sau đó diễn lại các cảnh, các controller sẽ được tạo mới
-    cloneTick : function(incommingTick) {
+    cloneTick : function(incomingTick) {
         // Thực hiện khởi tạo gameLoop clone và thực hiện clone tới tick yêu cầu
         let cloneGameLoop = new GameLoop(this.getWho(), this.getInitMap(), true)
         let cloneActionQueue = cloneGameLoop.getActionQueue()
@@ -117,23 +128,28 @@ let GameLoop = cc.Class.extend({
         for (let i  = 0; i < userEvents.length; i++) {
             cloneActionQueue.addToActionList(userEvents[i])
         }
-        while(cloneGameLoop.getTick() !== incommingTick) {
+        while(cloneGameLoop.getTick() !== incomingTick) {
             cloneGameLoop.update()
         }
 
         // TODO : Thực hiện gỡ các Sprite của GameState hiện tại khỏi Scene
         let objectLayer = cc.director.getRunningScene().getObjectLayer()
-        objectLayer.removeMonsterSprites(this.getWho())
+        objectLayer.removeMonsterSprites(this.getWho());
+        objectLayer.removeTowerSprites(this.getWho());
+        objectLayer.removeBulletSprites(this.getWho());
 
 
         // TODO :Thực hiện cập nhật lại trạng thái mới của cloneGameLoop vào gameLoop hiện tại
         this.setMonsterController(cloneGameLoop.getMonsterController())
         this.setMapController(cloneGameLoop.getMapController())
+        this.setTowerController(cloneGameLoop.getTowerController());
         this.setTick(cloneGameLoop.getTick())
 
 
         // TODO : cập nhật hình ảnh và hiển thị của gameState vừa clone được
         let monsterController = this.getMonsterController()
-        monsterController.recreateSprite()
+        monsterController.recreateSprite();
+        let towerController = this.getTowerController();
+        towerController.recreateSprite();
     },
 })

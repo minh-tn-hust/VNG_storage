@@ -2,10 +2,12 @@ let ObjectLayer = cc.Layer.extend({
     _myField : {
         _monsterSprites : null,
         _towerSprites : null,
+        _bulletSprites : null,
     },
     _enemyField : {
         _monsterSprites : null,
         _towerSprites : null,
+        _bulletSprites: null,
     },
 
     getMonsterSprites : function(who) {
@@ -45,14 +47,6 @@ let ObjectLayer = cc.Layer.extend({
         this.resetMonsterSprites(who)
     },
 
-    /**
-     *
-     * @param {Tower} tower
-     * @param {BattleUtil.Who.Enemy | BattleUtil.Who.Mine} who
-     */
-    addTowerSprite : function(tower, who){
-    },
-
     removeMonsterSprite : function(monsterSprite) {
         let monsterSpriteList = this.getMonsterSprites(monsterSprite.getWho())
         for (let i = 0; i < monsterSpriteList.length; i++) {
@@ -65,6 +59,110 @@ let ObjectLayer = cc.Layer.extend({
     },
 
 
+    /**
+     *
+     * @param {Tower} tower
+     * @param {BattleUtil.Who.Enemy | BattleUtil.Who.Mine} who
+     */
+    addTowerSprite : function(tower, who){
+        if (who === BattleUtil.Who.Mine) {
+            this._myField._towerSprites.push(tower);
+        } else {
+            this._enemyField._towerSprites.push(tower);
+        }
+        this.addChild(tower, 0, ObjectLayer.TOWER_TAG)
+    },
+
+    getTowerSprites : function(who) {
+        if (who === BattleUtil.Who.Mine) {
+            return this._myField._towerSprites
+        } else {
+            return this._enemyField._towerSprites
+        }
+    },
+
+    addBulletSprite: function (bullet,who){
+        this.addChild(bullet);
+    },
+
+    resetTowerSprites : function (who) {
+        if (who === BattleUtil.Who.Mine) {
+            this._myField._towerSprites = []
+        } else {
+            this._enemyField._towerSprites = []
+        }
+    },
+
+    removeTowerSprites : function(who) {
+        let towerSprites = this.getTowerSprites(who)
+        for (let i = 0; i < towerSprites.length; i++) {
+            this.removeChild(towerSprites[i])
+        }
+        this.resetTowerSprites(who)
+    },
+
+
+
+    removeTowerSprite : function(towerSprite) {
+        let towerSpriteList = this.getTowerSprites(towerSprite.getWho())
+        for (let i = 0; i < towerSpriteList.length; i++) {
+            let matrixPos = towerSpriteList[i].getTower().getMatrixPosition();
+            let matrixPosOfTowerSprite = towerSprite.getTower().getMatrixPosition();
+            if (matrixPos.x === matrixPosOfTowerSprite.x
+                && matrixPos.y ===matrixPosOfTowerSprite.y) {
+                towerSpriteList.splice(i, 1);
+                break;
+            }
+        }
+        this.removeChild(towerSprite, true);
+    },
+
+
+    addBulletSprite: function (bullet,who){
+        if (who === BattleUtil.Who.Mine) {
+            this._myField._bulletSprites.push(bullet);
+        } else {
+            this._enemyField._bulletSprites.push(bullet);
+        }
+        this.addChild(bullet, 0, ObjectLayer.BULLET_TAG);
+    },
+
+    getBulletSprites : function(who) {
+        if (who === BattleUtil.Who.Mine) {
+            return this._myField._bulletSprites
+        } else {
+            return this._enemyField._bulletSprites
+        }
+    },
+
+
+    resetBulletSprites : function (who) {
+        if (who === BattleUtil.Who.Mine) {
+            this._myField._bulletSprites = []
+        } else {
+            this._enemyField._bulletSprites = []
+        }
+    },
+
+    removeBulletSprites : function(who) {
+        let bulletSprites = this.getBulletSprites(who)
+        for (let i = 0; i < bulletSprites.length; i++) {
+            this.removeChild(bulletSprites[i])
+        }
+        this.resetBulletSprites(who)
+    },
+
+    removeBulletSprite : function(bulletSprite) {
+        let bulletSpriteList = this.getBulletSprites(bulletSprite.getWho())
+        for (let i = 0; i < bulletSpriteList.length; i++) {
+            if (bulletSpriteList[i].getBullet().getID()
+                ===bulletSprite.getBullet().getID()) {
+                bulletSpriteList.splice(i, 1);
+                break;
+            }
+        }
+        this.removeChild(bulletSprite, true)
+    },
 
     ctor : function() {
         this._super()
@@ -75,9 +173,12 @@ let ObjectLayer = cc.Layer.extend({
     initSpritePool : function() {
         this._myField._monsterSprites = []
         this._myField._towerSprites = []
+        this._myField._bulletSprites = []
         this._enemyField._monsterSprites = []
         this._enemyField._towerSprites = []
+        this._enemyField._bulletSprites = []
     },
+
 
     /**
      * Sử dụng để cập nhật lại zOrder của quái và trụ, đối với trụ sẽ cố định zOrder và thực hiện thay đổi
@@ -101,3 +202,5 @@ let ObjectLayer = cc.Layer.extend({
 })
 
 ObjectLayer.MONSTER_TAG = 18928381
+ObjectLayer.TOWER_TAG = 23112000
+ObjectLayer.BULLET_TAG = 19081945

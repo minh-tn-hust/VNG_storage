@@ -55,6 +55,7 @@ var TowerSprite = cc.Sprite.extend({
         this.towerRange = towerRange;
     },
 
+
     getTargetMode: function () {
         return this.targetMode;
     },
@@ -76,20 +77,22 @@ var TowerSprite = cc.Sprite.extend({
         return this.speed;
     },
 
-    ctor : function(who,assetConfig) {
-        // var assetConfig = TowerConfig["OWL_FIRECRACKER"];
+    getTower: function () {return this.tower;},
+    setTower: function (tower) {this.tower= tower;},
+
+    ctor : function(tower,assetConfig) {
         this._super()
         this.initProperty();
         this.initAnimation()
-        this.setAsset(assetConfig)
-        this.setWho(who)
-        this.init(assetConfig)
+        this.setAsset(assetConfig);
+        this.setTower(tower);
+        this.setWho(tower.getWho());
+        this.setPosition(tower.getScreenPosition());
+        this.init(assetConfig);
 
         this.setTargetMode(TowerUtil.TARGET_MODE.NEAREST);
-        this.setTowerRange(100);
+        this.setTowerRange(tower.getRangeSize());
         this.setSpeed();
-
-        // this.schedule(this.fire, this.get)
     },
 
     initAnimation: function (){
@@ -127,10 +130,11 @@ var TowerSprite = cc.Sprite.extend({
     },
 
     update : function(dt) {
-        let target = this.getTarget()
+        let target = this.getTower().getTarget()
         if (target !== null && this.getAsset().numberOfDirection!==1 ) {
-            let targetPosition = target.getPosition()
-            let towerPosition = this.getPosition()
+            let targetPosition = BattleUtil.fromModelPositionToPosition(
+                target.getPosition(),this.getWho());
+            let towerPosition = this.getPosition();
 
             // cập nhất hướng quay hiện tại cho trụ
             let newDirection = cc.p(targetPosition.x - towerPosition.x, targetPosition.y - towerPosition.y)
@@ -158,7 +162,7 @@ var TowerSprite = cc.Sprite.extend({
                 let str = ""
 
                 // load default hiệu ứng tấn công
-                for (let i = assetConfig[TowerConfig.direction[j]].start; i <= assetConfig[TowerConfig.direction[j]].end; i++) {
+                for (let i = assetConfig[TowerConfigRender.direction[j]].start; i <= assetConfig[TowerConfigRender.direction[j]].end; i++) {
                     str = assetConfig.attack[0].prefix + Util.get3DigitNumber(i) + assetConfig.attack[0].suffix
                     frame = cc.spriteFrameCache.getSpriteFrame(str)
                     animFrame = new cc.AnimationFrame(frame, 1)
@@ -166,7 +170,7 @@ var TowerSprite = cc.Sprite.extend({
                 }
 
                 let animation = new cc.Animation(animFrames, 0.05)
-                cc.animationCache.addAnimation(animation, TowerConfig.direction[j] + assetConfig.name)
+                cc.animationCache.addAnimation(animation, TowerConfigRender.direction[j] + assetConfig.name)
             }
 
             // khởi tạo các animation khác dành cho súng
@@ -176,18 +180,15 @@ var TowerSprite = cc.Sprite.extend({
                 let str = ""
 
                 // load default hiệu ứng tấn công
-                for (let i = assetConfig[TowerConfig.direction[j]].start; i <= assetConfig[TowerConfig.direction[j]].end; i++) {
+                for (let i = assetConfig[TowerConfigRender.direction[j]].start; i <= assetConfig[TowerConfigRender.direction[j]].end; i++) {
                     str = assetConfig.attack[1].prefix + Util.get3DigitNumber(i) + assetConfig.attack[1].suffix
-                    cc.log(str)
                     frame = cc.spriteFrameCache.getSpriteFrame(str)
                     animFrame = new cc.AnimationFrame(frame, 1)
                     animFrames.push(animFrame)
 
                 }
-                cc.log(1)
                 let animation = new cc.Animation(animFrames, 0.05)
-                cc.log(2)
-                cc.animationCache.addAnimation(animation, TowerConfig.direction[j] + assetConfig.name + "1")
+                cc.animationCache.addAnimation(animation, TowerConfigRender.direction[j] + assetConfig.name + "1")
             }
         }
     },
@@ -226,7 +227,6 @@ var TowerSprite = cc.Sprite.extend({
                 this.flippedX = false
                 this._gunSprite.flippedX = false
             }
-            cc.log("animDirection: ",direction[0] + assetConfig.name);
             let animDirection = cc.animationCache.getAnimation(direction[0] + assetConfig.name)
             let animDirection1 = cc.animationCache.getAnimation(direction[0] + assetConfig.name + "1")
             animDirection.setDelayPerUnit(0.05)
@@ -239,25 +239,25 @@ var TowerSprite = cc.Sprite.extend({
     clearAnimationCache : function(){
         let assetConfig = this.getAsset()
         for (let i = 0; i < TowerSprite.direction.length; i++) {
-            cc.animationCache.removeAnimation( TowerConfig.direction[i] + assetConfig.name)
+            cc.animationCache.removeAnimation( TowerConfigRender.direction[i] + assetConfig.name)
         }
     },
 })
 
-TowerSprite.createTower = function (cid,who) {
+TowerSprite.createTowerSprite = function (cid,tower) {
     switch (cid) {
         case 0:
-            return new CannonTowerSprite(who);
+            return new CannonTowerSprite(tower);
         case 1:
-            return new WizardTowerSprite(who);
+            return new WizardTowerSprite(tower);
         case 2:
-            return new BoomerangTowerSprite(who);
+            return new BoomerangTowerSprite(tower);
         case 3:
-            return new OilGunTowerSprite(who);
+            return new OilGunTowerSprite(tower);
         case 4:
-            return new IceGunTowerSprite(who);
+            return new IceGunTowerSprite(tower);
         case 5:
         case 6:
-            return new AttackSpeedTowerSprite(who);
+            return new AttackSpeedTowerSprite(tower);
     }
 }

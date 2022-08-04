@@ -1,4 +1,4 @@
-var OilGunTowerSprite = TowerSprite.extend({
+var OilGunTowerSprite = AttackTowerSprite.extend({
     createBullet: function () {
         var bullet = new OilGunBulletSprite(this.getWho());
         bullet.retain();
@@ -6,10 +6,10 @@ var OilGunTowerSprite = TowerSprite.extend({
         return bullet;
     },
 
-    ctor : function(who) {
-        this._super(who,TowerConfig["RABBIT_STICKY"])
+    ctor : function(tower) {
+        this._super(tower,TowerConfigRender["RABBIT_STICKY"])
         this.initAnimation()
-        this.setWho(who)
-        this.schedule(this.fire, 0.6)
+        // this.setWho(tower)
+        // this.schedule(this.fire, 0.6)
     },
 })

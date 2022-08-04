@@ -17,6 +17,7 @@ let MonsterSprite = cc.Sprite.extend({
     getModelTickDirection : function() {return this._modelTickDirection},
     getWho : function() {return this.getMonster().getWho()},
 
+
     // SETTER
     setMonsterConfig : function(monsterConfig){this._monsterConfig = monsterConfig},
     setMonster : function(monster) {this._monster = monster},

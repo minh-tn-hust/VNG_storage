@@ -1,4 +1,4 @@
-var WizardTowerSprite = TowerSprite.extend({
+var WizardTowerSprite = AttackTowerSprite.extend({
     createBullet: function () {
         var bullet = new WizardBulletSprite(this.getWho());
         bullet.retain();
@@ -6,12 +6,11 @@ var WizardTowerSprite = TowerSprite.extend({
         return bullet;
     },
 
-    ctor : function(who) {
-        this._super(who,TowerConfig["CROW_SORCERER"])
+    ctor : function(tower) {
+        this._super(tower,TowerConfigRender["CROW_SORCERER"])
         this.initAnimation()
-        this.setAsset(TowerConfig["CROW_SORCERER"])
-        this.setWho(who)
+        // this.setWho(tower)
         // this.init(this.getAsset());
-        this.schedule(this.fire, 0.6)
+        // this.schedule(this.fire, 0.6)
     },
 })

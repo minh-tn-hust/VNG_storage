@@ -1,8 +1,8 @@
 var OilGunBulletSprite = LockCellBulletSprite.extend({
-    ctor: function (who) {
+    ctor: function (bullet) {
         this.setAsset(BulletConfigRender.OIL_GUN_BULLET);
         this.setAnimName("OilGunBullet")
-        this._super(who);
+        this._super(bullet);
     },
 
     createAnimationCache: function (){

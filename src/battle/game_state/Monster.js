@@ -72,7 +72,7 @@ let Monster = cc.Class.extend({
     /**
      * @param {MonsterConfigInfo} config
      * @param {BattleUtil.Who.Mine | BattleUtil.Who.Enemy} who
-     * @param {BattleConfig.Type} type
+     * @param {MonsterConfig.Type} type
      */
     ctor : function(config, who, type) {
         this.setConfig(config)
@@ -85,6 +85,7 @@ let Monster = cc.Class.extend({
         this.setWho(who)
         this.setId(Date.now())
         this.setIsDie(false)
+        this.setCanTarget(true);
         this.setType(type)
 
         let mapController = cc.director.getRunningScene().getMapController(who)
@@ -93,14 +94,15 @@ let Monster = cc.Class.extend({
         this.getPathToTower().unshift(cc.p(1, -1))
         this.setPosition(BattleUtil.fromMatrixToModelPosition(this.getPathToTower()[0], who))
 
+        // cc.log(JSON.stringify(this.getPathToTower()))
+
         //======================
         this._count = 0
     },
 
-    changeHP : function(newHp){
+    changeHP : function(damage){
 
     },
-
 
     addEffect : function(newEffect) {
 
@@ -111,13 +113,14 @@ let Monster = cc.Class.extend({
     },
 
     update : function() {
+        // cc.log(Date.now() - this._timeStamp)
+        this._timeStamp = Date.now()
         this.updateAction()
     },
 
     updateAction : function() {
         let pathToTower = this.getPathToTower()
         let currentPos = this.getPosition()
-
         // thực hiện các bước di chuyển tới ô tiếp theo của đường đi
         if (pathToTower.length !== 0) {
             let checkNode = BattleUtil.fromMatrixToModelPosition(pathToTower[0], this.getWho())
@@ -136,7 +139,9 @@ let Monster = cc.Class.extend({
             // thực hiện di chuyển
             this.moving()
         } else {
+            this.setCanTarget(false);
             this.setIsDie(true)
+            cc.director.getRunningScene().getInfo().dropPoint(this.getConfig().dropPoint, this.getWho(), this.getConfig().gainEnergy)
         }
     },
 

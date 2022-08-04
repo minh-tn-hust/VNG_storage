@@ -12,6 +12,22 @@ CardUtil.STATUS = {
     DISCOVER:0
 }
 
+CardUtil.Type = {
+    TOWER:10,
+    MONSTER:20,
+    SPELL:30
+}
+
+CardUtil.categorize = function (cardID) {
+    if (cardID<10){
+        return CardUtil.Type.TOWER;
+    } else if (cardID<20){
+        return CardUtil.Type.MONSTER;
+    } else {
+        return CardUtil.Type.SPELL;
+    }
+}
+
 CardUtil.buttonCardMode= {
     MANAGE_MODE_CARD:1,
     SWITCH_MODE_CARD:2,
@@ -170,6 +186,7 @@ CardUtil.getRequirementForLevel = function (level) {
     }
     return CardUtil.requirementForUpdate;
 }
+
 
 CardUtil.upgradeDamagePercent = 0.1
 CardUtil.upgradeHPPercent = 0.1

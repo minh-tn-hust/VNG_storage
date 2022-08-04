@@ -1,8 +1,8 @@
 var CannonBulletSprite = LockMonsterBulletSprite.extend({
-    ctor: function (who) {
+    ctor: function (bullet) {
         this.setAsset(BulletConfigRender.CANNON_BULLET);
         this.setAnimName("CannonBullet")
-        this._super(who);
+        this._super(bullet);
     },
 
     createAnimationCache: function (){

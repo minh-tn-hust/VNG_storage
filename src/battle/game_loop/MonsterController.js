@@ -30,10 +30,55 @@ let MonsterController = cc.Class.extend({
         let who = this.getWho()
         switch (type) {
             case MonsterConfig.Type.CROW_SKELETON:
-                let monsterModel = new Monster(MonsterConfig.CROW_SKELETON, who, MonsterConfig.Type.CROW_SKELETON)
-                this.addMonsterToPool(monsterModel)
+                let crowSkeletonModel = new Monster(MonsterConfig.CROW_SKELETON, who, MonsterConfig.Type.CROW_SKELETON)
+                this.addMonsterToPool(crowSkeletonModel)
                 if (isClone !== true) {
-                    let monsterDisplay = new MonsterSprite(monsterModel)
+                    let monsterDisplay = new MonsterSprite(crowSkeletonModel)
+                    let battleScene = cc.director.getRunningScene()
+                    battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
+                }
+                break
+            case MonsterConfig.Type.EVIL_BAT:
+                let evilBatModel = new Monster(MonsterConfig.EVIL_BAT, who, MonsterConfig.Type.EVIL_BAT)
+                this.addMonsterToPool(evilBatModel)
+                if (isClone !== true) {
+                    let monsterDisplay = new MonsterSprite(evilBatModel)
+                    let battleScene = cc.director.getRunningScene()
+                    battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
+                }
+                break
+            case MonsterConfig.Type.GIANT:
+                let giantModel = new Monster(MonsterConfig.GIANT, who, MonsterConfig.Type.GIANT)
+                this.addMonsterToPool(giantModel)
+                if (isClone !== true) {
+                    let monsterDisplay = new MonsterSprite(giantModel)
+                    let battleScene = cc.director.getRunningScene()
+                    battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
+                }
+                break
+            case MonsterConfig.Type.DARK_GIANT:
+                let darkGiantModel = new Monster(MonsterConfig.DARK_GIANT, who, MonsterConfig.Type.DARK_GIANT)
+                this.addMonsterToPool(darkGiantModel)
+                if (isClone !== true) {
+                    let monsterDisplay = new MonsterSprite(darkGiantModel)
+                    let battleScene = cc.director.getRunningScene()
+                    battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
+                }
+                break
+            case MonsterConfig.Type.NINJA:
+                let ninjaModel = new Monster(MonsterConfig.NINJA, who, MonsterConfig.Type.NINJA)
+                this.addMonsterToPool(ninjaModel)
+                if (isClone !== true) {
+                    let monsterDisplay = new MonsterSprite(ninjaModel)
+                    let battleScene = cc.director.getRunningScene()
+                    battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
+                }
+                break
+            case MonsterConfig.Type.GHOST_SWORDER:
+                let swordModel = new Monster(MonsterConfig.GHOST_SWORDER, who, MonsterConfig.Type.GHOST_SWORDER)
+                this.addMonsterToPool(swordModel)
+                if (isClone !== true) {
+                    let monsterDisplay = new MonsterSprite(swordModel)
                     let battleScene = cc.director.getRunningScene()
                     battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
                 }
@@ -41,8 +86,13 @@ let MonsterController = cc.Class.extend({
         }
     },
 
-    getMonsterForTower : function(mode, position, range) {
-
+    getMonsterForTower : function(mode, position, range, who) {
+        return TowerUtil.getMonsterForTower(
+            mode,
+            this.getMonsterPool(),
+            position,
+            range,
+            who);
     },
 
     // TODO : Thực hiện sinh ra các turn quái
@@ -59,6 +109,7 @@ let MonsterController = cc.Class.extend({
         for (let i = 0; i  < monsterPool.length; i++) {
             if (monsterPool[i].isDie()) {
                 monsterPool.splice(i, 1)
+                i--
             } else {
                 monsterPool[i].update()
             }
@@ -82,6 +133,5 @@ let MonsterController = cc.Class.extend({
                     break
             }
         }
-    }
-
+    },
 })

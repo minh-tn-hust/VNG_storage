@@ -1,20 +1,19 @@
-var IceGunBulletSprite = LockMonsterBulletSprite.extend({
-    ctor: function (who) {
+let IceGunBulletSprite = LockMonsterBulletSprite.extend({
+    ctor: function (bullet) {
         this.setAsset(BulletConfigRender.ICE_GUN_BULLET);
         this.setAnimName("IceGunBullet")
-        this._super(who);
+        this._super(bullet);
     },
 
     createAnimationCache: function (){
-        var assetConfig = this.getAsset();
-        cc.log("assetConfig: ",JSON.stringify(assetConfig));
+        let assetConfig = this.getAsset();
         cc.spriteFrameCache.addSpriteFrames(assetConfig.asset.plist);
         cc.log("DIT CON ME");
-        var frame = cc.spriteFrameCache.getSpriteFrame("tower_ice_gun_bullet_0000.png");
-        var animFrame = new cc.AnimationFrame(frame,1);
-        var animFrames = [];
+        let frame = cc.spriteFrameCache.getSpriteFrame("tower_ice_gun_bullet_0000.png");
+        let animFrame = new cc.AnimationFrame(frame,1);
+        let animFrames = [];
         animFrames.push(animFrame);
-        var animation = new cc.Animation(animFrames,0.05);
+        let animation = new cc.Animation(animFrames,0.05);
         cc.animationCache.addAnimation(animation,this.getAnimName());
     },
 })

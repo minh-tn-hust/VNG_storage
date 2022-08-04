@@ -1,35 +1,12 @@
 var LockMonsterBulletSprite = BulletSprite.extend({
     getTargetPosition: function () {
-        return this.getTarget().getPosition();
+        return BattleUtil.fromModelPositionToPosition(
+            this.getTarget().getPosition(),this.getWho()
+        );
     },
 
-    ctor: function (who) {
-        this._super(who);
-    },
-
-    update: function (dt) {
-        var curPos = this.getPosition();
-        // cc.log("curPos: ",JSON.stringify(curPos));
-        var targetPos = this.getTargetPosition();
-        var distance = Util.distance(curPos,targetPos);
-        // cc.log("distance: ",distance);
-        // cc.log("StepSize: ",this.getStepSize());
-        // cc.log("StepSize: ",this.getStepSize()*dt);
-        if (distance<this.getStepSize()*dt){
-            this.setPosition(this.getTargetPosition());
-            // this.unscheduleUpdate();
-        } else {
-            var factor = this.getStepSize() * dt /distance;
-            var delta = (targetPos.x - curPos.x) * factor; // change of x
-            // cc.log("deltaX: ",delta);
-            curPos.x = curPos.x+ delta;
-            delta = (targetPos.y - curPos.y) * factor; // change of y
-            // cc.log("deltaY: ",delta);
-            curPos.y = curPos.y + delta;
-            // cc.log("PosMon: ",JSON.stringify(targetPos));
-            // cc.log("PosBullet: ",JSON.stringify(curPos));
-            this.setPosition(curPos);
-        }
+    ctor: function (bullet) {
+        this._super(bullet);
     },
 
     runAnim: function () {

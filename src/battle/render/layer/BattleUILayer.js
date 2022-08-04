@@ -6,8 +6,13 @@ let BattleUILayer = cc.Layer.extend({
     _init : null,
     _canTouch : null,
     _myMapController : null,
+    _enemyFieldUI: null,
+    _myFieldUI: null,
+    _backgroundLayer : null,
+
 
     // GETTER
+    getBackroundLayer : function() {return this._backgroundLayer},
     getLayer : function() {return this._uiLayer},
 
     /**
@@ -21,6 +26,14 @@ let BattleUILayer = cc.Layer.extend({
     getCurrentDeck : function() {
         return this.getInfo().getCurrentDeck()
     },
+
+    getMyMapController : function() {return this._myMapController},
+    getMyTowerController: function () {return this.myTowerController;},
+
+    // SETTER
+    setBackgroundLayer : function(layer) {this._backgroundLayer = layer},
+    setMyMapController : function(myMapController) {this._myMapController = myMapController},
+    setMyTowerController: function (myTowerController) {this.myTowerController = myTowerController;},
 
     /**
      * Lấy ra thẻ bài tiếp theo sẽ được đưa lên bộ bài
@@ -42,10 +55,8 @@ let BattleUILayer = cc.Layer.extend({
      * @returns {null}
      */
     getCanTouch : function() {return this._canTouch},
-    getMyMapController : function() {return this._myMapController},
 
     // SETTER
-    setMyMapController : function(myMapController) {this._myMapController = myMapController},
     setLayer : function(layer) {this._uiLayer = layer},
     setInfo : function(info) {this._info = info},
     setSelectedIndex : function(index)  {
@@ -55,11 +66,19 @@ let BattleUILayer = cc.Layer.extend({
             this._selectedIndex = index
         }
     },
+
     setCanTouch : function(canTouch) {
         this._canTouch = canTouch
     },
 
 
+    initBuildImage: function () {
+        this.buildImage= cc.Sprite();
+        this.getBuildImage().retain();
+    },
+    getBuildImage: function () {
+        return this.buildImage;
+    },
 
     // các biến chứa các thành phần UI
     _enemyPointLabel : null,
@@ -68,17 +87,23 @@ let BattleUILayer = cc.Layer.extend({
     _energyBar : null,
     _showNoti : null,
 
-    ctor : function(info, myMapController) {
+    ctor : function(info, myMapController,myTowerController, backgroundLayer) {
+        this.setBackgroundLayer(backgroundLayer)
         this._super()
         this.setInfo(info)
-        this.setMyMapController(myMapController)
+        this.setMyMapController(myMapController);
+        this.setMyTowerController(myTowerController);
 
-        // Load UI từ file JSON
         let uiLayer = ccs.load(res.battle.UILayer.json).node
         uiLayer.setContentSize(cc.winSize)
         ccui.Helper.doLayout(uiLayer)
         this.addChild(uiLayer)
         this.setLayer(uiLayer)
+        this.initBuildImage();
+        this.addChild(this.getBuildImage());
+
+        this._init = true
+        this.setCanTouch(true)
 
         this._init = true
         this.setCanTouch(true)
@@ -99,6 +124,7 @@ let BattleUILayer = cc.Layer.extend({
             });
         }, this)
 
+        this.scheduleUpdate()
     },
 
     /**
@@ -118,8 +144,20 @@ let BattleUILayer = cc.Layer.extend({
         myPointLabel.setString(info.getPoint())
         energyLabel.setString(info.getEnergy())
         energyBar.setPercent(info.getEnergy() / BattleConfig.MAX_ENERGY * 100)
-
         this.updateCardDeckUI()
+    },
+
+    update : function(dt) {
+        let info = this.getInfo()
+        if (info.getNeedUpdate() === true && info.getEndGame() === false) {
+            if (info.getPoint() * info.getEnemyPoint() === 0) {
+                let resultLayer = new ResultLayer(this.getInfo())
+                this.addChild(resultLayer, 100000, 1)
+                info.setEndGame(true)
+            }
+            info.setNeedUpdate(false)
+            this.updateInfo()
+        }
     },
 
     updateCardDeckUI : function() {
@@ -128,7 +166,7 @@ let BattleUILayer = cc.Layer.extend({
         let currentDeck = this.getCurrentDeck()
         for (let i = 0; i < readyCard.length; i++) {
             this.loadCardWithData(readyCard[i], currentDeck[i], i)
-            this.addTouchListenerForCard(readyCard[i],i)
+            this.addTouchListenerForCard(readyCard[i],currentDeck[i],i);
         }
         this.updateNextCardUI()
     },
@@ -146,12 +184,11 @@ let BattleUILayer = cc.Layer.extend({
      * @param {CardInfo} cardData
      */
     loadNextCard : function(nextCardNode, cardData) {
-        cc.log(JSON.stringify(cardData))
         let monsterSprite = Util.getChildByName(nextCardNode, "MonsterSprite")
         monsterSprite[0].setTexture(CardAssetConfig.assetImage[cardData.cardID])
 
         let cardBorder = Util.getChildByName(nextCardNode, "CardBorder")
-        cardBorder[0].setTexture(CardAssetConfig.assetBorder[cardData.rank])
+        cardBorder[0].setTexture(CardAssetConfig.assetBorder[1])
 
         let energyRequired = Util.getChildByName(nextCardNode, "EnergyRequired")
         energyRequired[0].setVisible(false)
@@ -219,35 +256,107 @@ let BattleUILayer = cc.Layer.extend({
 
     /**
      * @param {cc.Node} cardNode
-     * @param index
+     * @param {CardInfo} cardInfo
+     * @param {number}index
      */
-    addTouchListenerForCard : function(cardNode, index) {
+    addTouchListenerForCard : function(cardNode, cardInfo, index) {
         let cardButton = Util.getChildByName(cardNode, "CardSelectButton")[0]
         cardButton.addTouchEventListener(function(button, eventType){
-            cc.log("CALL")
             if (this.getCanTouch()) {
                 switch (eventType) {
                     // bắt đầu sự kiện người dùng kéo thẻ
                     case ccui.Widget.TOUCH_BEGAN:
                         this.setCanTouch(false)
+                        if (CardUtil.categorize(cardInfo.cardID) === CardUtil.Type.MONSTER) {
+                            this.getBackroundLayer().getEnemyFieldUI().setColor(index === this.getSelectedIndex() ? cc.color.WHITE : cc.color("#09d8eb"))
+                        } else {
+                            this.getBackroundLayer().getMyFieldUI().setColor(index === this.getSelectedIndex() ? cc.color.WHITE : cc.color("#09d8eb"))
+                        }
                         this.setSelectedIndex(index)
-                        cc.log("TOUCH_BEGAN" + index.toString())
                         break
 
-                    // sự kiện kéo thả kết thúc
-                    case ccui.Widget.TOUCH_CANCELED:
+                    case ccui.Widget.TOUCH_MOVED:
+                        if (CardUtil.categorize(cardInfo.cardID) === CardUtil.Type.TOWER) {
+                            if (this.getSelectedIndex() !== -1) {
+                                cc.log("On Touch Moved");
+                                let position = BattleUtil.fromPositionToMatrix(button.getTouchMovePosition(), BattleUtil.Who.Mine)
+                                if (position.x > 6) {
+                                    position.x = 6
+                                }
+                                if (position.x < 0) {
+                                    position.x = 0
+                                }
+                                if (position.y > 4) {
+                                    position.y = 4
+                                }
+
+                                this.setTextureForTower(cardInfo.cardID);
+                                this.getBuildImage().setVisible(true);
+                                this.getBuildImage().setPosition(BattleUtil.fromMaxtrixToPosition(position, BattleUtil.Who.Mine))
+
+                                let doesMonsterPathExists = this.getMyMapController().doesMonsterPathExists(position,cardInfo.cardID);
+                                if (doesMonsterPathExists) {
+                                    this.getBuildImage().setColor(cc.color(38, 255, 0))
+                                } else {
+                                    this.getBuildImage().setColor(cc.color(255, 43, 50))
+                                }
+                            }
+                        } else {
+                            this.setTextureForTower(cardInfo.cardID);
+                        }
+                        break
+                    // sự kiện kéo thả kết thúc (sự kiện người chơi hủy không đặt trụ nữa)
+                    case ccui.Widget.TOUCH_ENDED:
                         this.setCanTouch(false)
-                        this.setSelectedIndex(index)
+                        this.setSelectedIndex(index);
+                        this.getBuildImage().setVisible(false);
+                        this.getBackroundLayer().getEnemyFieldUI().setColor(cc.color.WHITE)
+                        this.getBackroundLayer().getMyFieldUI().setColor(cc.color.WHITE)
                         break
 
                     // sự kiện người dùng kéo trở lại deck
-                    case ccui.Widget.TOUCH_ENDED:
+                    case ccui.Widget.TOUCH_CANCELED:
                         this.setCanTouch(false)
                         this.setSelectedIndex(index)
-                        cc.log("TOUCH_ENDED" + index.toString())
+                        this.getBuildImage().setVisible(false);
+                        switch (CardUtil.categorize(cardInfo.cardID)) {
+                            case CardUtil.Type.TOWER:
+                                let position = BattleUtil.fromPositionToMatrix(this.getBuildImage().getPosition(), BattleUtil.Who.Mine);
+                                if (MapUtil.isValidCell(position)) {
+                                    let doesMonsterPathExists = this.getMyMapController().doesMonsterPathExists(position, cardInfo.cardID);
+
+                                    // TODO controller can be towerController, monsterController, spellController
+                                    let controller = this.getMyTowerController();
+                                    if (doesMonsterPathExists) {
+                                        if (controller.plantTower(cardInfo.cardID,position,false)){
+                                            // TODO : push to action queue, send a packet to server
+                                            this.getMyMapController().plantTowerWithPosition(position,cardInfo.cardID);
+                                        }
+                                    }
+                                    this.getInfo().useCard(index)
+                                } else {
+                                    this.outOfEnergyNoti("SAI VỊ TRÍ RỒI")
+                                }
+                                break
+                            case CardUtil.Type.MONSTER:
+                                let monsterPos = BattleUtil.fromPositionToMatrix(button.getTouchEndPosition(), BattleUtil.Who.Enemy);
+                                if (MapUtil.isValidCell(monsterPos)) {
+                                    this.getInfo().useCard(index)
+                                    let myGameLoop = cc.director.getRunningScene().getMyGameLoop()
+                                    let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
+                                    enemyGameLoop.getActionQueue().addToActionList(
+                                        new UserEvent(myGameLoop.getTick() + 10, {cardId : cardInfo.cardID}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
+                                    NetworkManger.Connector.getIntance().getBattleHandler().sendDropMonster(myGameLoop.getTick() + 10, cardInfo.cardID)
+                                } else {
+                                    this.outOfEnergyNoti("SAI VỊ TRÍ RỒI")
+                                }
+                                break
+                        }
+                        this.getBackroundLayer().getEnemyFieldUI().setColor(cc.color.WHITE)
+                        this.getBackroundLayer().getMyFieldUI().setColor(cc.color.WHITE)
                         break
                 }
-                this.updateCardDeckUI()
+                this.updateInfo()
             }
         }, this)
 
@@ -256,24 +365,32 @@ let BattleUILayer = cc.Layer.extend({
             switch (eventType) {
                 // TODO : Card bị bay lên khi bấm liên tục nút hủy, để nghị chỉnh sửa
                 case ccui.Widget.TOUCH_ENDED:
-                    cc.log("FOLD CARD NOW")
                     if (this.getInfo().foldCard(index) === false) {
                         this.setSelectedIndex(index)
-                        this.outOfEnergyNoti()
+                        this.outOfEnergyNoti("HẾT NĂNG LƯỢNG RỒI")
                         this.updateCardDeckUI()
                     } else {
                         this.setSelectedIndex(index)
                         this.updateInfo()
                     }
+                    this.getBackroundLayer().getEnemyFieldUI().setColor(cc.color.WHITE)
+                    this.getBackroundLayer().getMyFieldUI().setColor(cc.color.WHITE)
                     break
             }
         }, this)
     },
 
-    outOfEnergyNoti : function() {
+    setTextureForTower: function (cid){
+        this.getBuildImage().setTexture("res/tower_asset/buildTowerCID"+cid+".png")
+    },
+
+
+    outOfEnergyNoti : function(message) {
         if (this._showNoti === false) {
             let layer = this.getLayer()
             let noti = Util.getChildByName(layer, "OutOfEnergy")
+            let label = Util.getChildByName(noti[0], "Label")[0]
+            label.setString(message)
             noti[0].setVisible(true)
             this._showNoti = true
             let moveToAppear = cc.moveBy(0.4, cc.p(428, 0)).easing(cc.easeBackIn(1.5))
@@ -281,7 +398,7 @@ let BattleUILayer = cc.Layer.extend({
             let moveToDisapear = cc.moveBy(0.3, cc.p(-428, 0)).easing(cc.easeBackIn(2))
             let callFunc = cc.callFunc(function() {
                 noti[0].setVisible(false)
-                this._showNoti(false)
+                this._showNoti =  false
             }, this)
             let sequence = cc.sequence([moveToAppear, moveToExist, moveToDisapear, callFunc])
             noti[0].runAction(sequence)
@@ -293,6 +410,40 @@ let BattleUILayer = cc.Layer.extend({
         this.createTestButton("Clone Tick 705", function() {
             cc.director.getRunningScene().getMyGameLoop().cloneTick(705)
         }, 300)
+
+        this.createTestButton("DROP QUẠ", function() {
+            let currentTick = cc.director.getRunningScene().getMyGameLoop().getTick()
+            NetworkManger.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 10, MonsterConfig.Type.CROW_SKELETON)
+            let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
+            enemyGameLoop.getActionQueue().addToActionList(
+                new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.CROW_SKELETON}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
+        }, 240)
+
+        this.createTestButton("DROP DƠI", function() {
+            let currentTick = cc.director.getRunningScene().getMyGameLoop().getTick()
+            NetworkManger.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 10, MonsterConfig.Type.EVIL_BAT)
+            let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
+            enemyGameLoop.getActionQueue().addToActionList(
+                new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.EVIL_BAT}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
+        }, 180)
+
+        this.createTestButton("DROP GIANT", function() {
+            let currentTick = cc.director.getRunningScene().getMyGameLoop().getTick()
+            NetworkManger.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 10, MonsterConfig.Type.GIANT)
+            let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
+            enemyGameLoop.getActionQueue().addToActionList(
+                new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.GIANT}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
+
+        }, 120)
+
+        this.createTestButton("DROP NINJA", function() {
+            let currentTick = cc.director.getRunningScene().getMyGameLoop().getTick()
+            NetworkManger.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 10, MonsterConfig.Type.NINJA)
+            let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
+            enemyGameLoop.getActionQueue().addToActionList(
+                new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.NINJA}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
+
+        }, 60)
     },
 
     createTestButton : function(title, callBack, position) {
