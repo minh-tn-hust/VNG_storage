@@ -132,7 +132,6 @@ var Tower = cc.Class.extend({
             return false;
         }
     },
-    
     update: function (currentTick) {}
 })
 

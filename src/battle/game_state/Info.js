@@ -44,11 +44,6 @@ let Info = cc.Class.extend({
     setEnemyTrophy : function(  enemyTrophy) {this._enemyTrophy = enemyTrophy},
     setNeedUpdate : function(value) {this._needUpdate = value},
 
-    updateUI : function() {
-        let uiLayer = cc.director.getRunningScene().getChildByTag(BattleScene.UI_TAG)
-        uiLayer.updateInfo()
-    },
-
     /** @param {BattleInitiator} battleInitiator*/
     ctor : function(battleInitiator) {
         this.setCurrentRound(BattleConfig.INIT_ROUND)

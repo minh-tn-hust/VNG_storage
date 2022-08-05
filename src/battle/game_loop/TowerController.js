@@ -45,6 +45,7 @@ var TowerController = cc.Class.extend({
         }
     },
 
+    // TODO : Tạch biệt phần UI ra khỏi Controller
     plantNewUITower: function (cid,tower,timeout) {
         let who = this.getWho();
         setTimeout(function () {

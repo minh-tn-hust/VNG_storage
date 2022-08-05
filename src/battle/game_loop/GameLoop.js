@@ -94,7 +94,7 @@ let GameLoop = cc.Class.extend({
                 this.getMonsterController().createMonster(userEvent.getMetaData().cardId, isClone)
                 break
             case UserEvent.Type.PLACE_TOWER:
-                // TODO : Thực hiện đặt trụ với thông tin đầu vào
+                // TODO : Thực hiện đặt trụ với thông tin đầu vào, kiểm tra các thông tin chính xác rồi mới thực hiện
                 this.getTowerController().plantTower(
                     userEvent.getCID(),
                     userEvent.getPosition(),
@@ -118,6 +118,8 @@ let GameLoop = cc.Class.extend({
     },
 
     // TODO : thực hiện clone lại trạng thái từ initState rồi sau đó diễn lại các cảnh, các controller sẽ được tạo mới
+    // TODO : khi thực hiện clone lại một thời điểm nào đó, buộc phải tạo ra một Info mới chỉ dùng riêng cho GameLoop mới đó
+    // TODO : khi thực hiện clone lại một thời điểm nào đó, buộc phải dùng một map mới
     cloneTick : function(incomingTick) {
         // Thực hiện khởi tạo gameLoop clone và thực hiện clone tới tick yêu cầu
         let cloneGameLoop = new GameLoop(this.getWho(), this.getInitMap(), true)
