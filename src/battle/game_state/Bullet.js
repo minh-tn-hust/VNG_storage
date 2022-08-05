@@ -1,101 +1,59 @@
-var Bullet = cc.Class.extend({
-    /**
-     *
-     * @param {number}id
-     */
+let Bullet = cc.Class.extend({
+    /** @param {number}id */
     setID: function (id) {this.id=id;},
-    getID: function () {return this.id;},
-    /**
-     *
-     * @param {Monster}monster
-     */
+    /** @param {Monster}monster */
     setTarget: function (monster) {
         this.monster = monster;
         this.setTargetPosition(monster)
     },
-    getTarget: function () {return this.monster;},
-
-    /**
-     *
-     * @param {Monster}target
-     */
+    /** @param {Monster}target */
     setTargetPosition: function (target) {},
-    getTargetPosition: function () {},
-
-    /**
-     * position in pixel
-     * @param {cc.Point}position
-     */
+    /** @param {cc.Point}position */
     setPosition: function (position) {
         this.position = position;
-        // cc.log("Init pos at bullet model");
-        // cc.log("Pos: ",JSON.stringify(position));
-        // cc.log("Screen Pos: ",JSON.stringify(BattleUtil.fromModelPositionToPosition(position,this.getWho())));
         this.setScreenPosition(
             BattleUtil.fromModelPositionToPosition(position,this.getWho())
         );
-        // cc.log("Double Check: ",JSON.stringify(this.getScreenPosition()));
     },
-    getPosition: function () {return this.position;},
-    
     setScreenPosition: function (position) {this.screenPosition = position;},
-    getScreenPosition: function () {return this.screenPosition;},
-
-    /**
-     *
-     * @param {BattleUtil.Who.Mine,BattleUtil.Who.Enemy}who
-     */
+    /** @param {BattleUtil.Who.Mine,BattleUtil.Who.Enemy}who */
     setWho: function (who) {this.who=who;},
-    getWho: function(){return this.who;},
-
-    /**
-     *
-     * @param {number}radius
-     */
+    /** @param {number}radius */
     setRadius: function (radius) {this.radius = radius;},
-    getRadius: function () {return this.radius;},
-
-    /**
-     *
-     * @param {number}damage
-     */
-    setDamage: function (damage) {this.damage=damage;},
-    getDamage: function () {return this.damage;},
-
-    /**
-     *
-     * @param {number}speed
-     * unit: cell/second
-     */
+    /** @param {number} speed */
     setSpeed: function (speed) {
         this.speed= speed;
         this.setStepSize(speed);
     },
-    getSpeed: function () {return this.speed;},
-
-    /**
-     * stepSize is speed with pixel/second unit
-     * @param {number}speed
-     */
+    /** @param {number}damage */
+    setDamage: function (damage) {this.damage=damage;},
+    /** @param {number}speed */
     setStepSize: function (speed) {this.stepSize= speed*BattleConfig.Map.cellWidth;},
+    /** @param {boolean} isHit */
+    setIsHit: function (isHit) {this.isHit= isHit;},
+
+    // GETTER
+    getID: function () {return this.id;},
+    getTarget: function () {return this.monster;},
+    getTargetPosition: function () {},
+    getPosition: function () {return this.position;},
+    getScreenPosition: function () {return this.screenPosition;},
+    getWho: function(){return this.who;},
+    getRadius: function () {return this.radius;},
+    getDamage: function () {return this.damage;},
+    getSpeed: function () {return this.speed;},
     getStepSize: function () {return this.stepSize;},
+    getIsHit: function () {return this.isHit;},
 
     /**
-     *
-     * @param {Monster}monster
-     * @param dt
+     * @param {Monster} monster
+     * @param {number} dt
      */
     fire: function (monster,dt) {
         this.setTarget(monster);
         this.update(dt);
     },
 
-    /**
-     * whether this bullet has hit its target
-     * @param {boolean} isHit
-     */
-    setIsHit: function (isHit) {this.isHit= isHit;},
-    getIsHit: function () {return this.isHit;},
 
     // TODO: ctor of bullet
     ctor: function (target,tower,id) {
@@ -113,36 +71,20 @@ var Bullet = cc.Class.extend({
      * @param currentTick
      */
     update: function (currentTick) {
-        var curPos = this.getPosition();
-        // cc.log("curPos: ",JSON.stringify(curPos));
-        var targetPos = this.getTargetPosition();
-        var distance = Util.distance(curPos,targetPos);
-        // cc.log("distance: ",distance);
-        // cc.log("StepSize: ",this.getStepSize());
-        // cc.log("StepSize: ",this.getStepSize()*dt);
+        let curPos = this.getPosition();
+        let targetPos = this.getTargetPosition();
+        let distance = Util.distance(curPos,targetPos);
         // TODO dt -> currentTick ?
-        if (distance<this.getStepSize()*BattleConfig.TICK_DURATION){
-            // cc.log("Distance: ",distance);
-            // cc.log("step at tick duration: ",this.getStepSize()*BattleConfig.TICK_DURATION)
+        if (distance < this.getStepSize() * BattleConfig.TICK_DURATION){
             this.setPosition(this.getTargetPosition());
-            // this.unscheduleUpdate();
             this.setIsHit(true);
+            this.getTarget().changeHP(this.getDamage())
         } else {
-            // cc.log("Distance: ",distance);
-            // cc.log("Step Size: ",this.getStepSize());
-            var factor = this.getStepSize() * BattleConfig.TICK_DURATION /distance;
-            // cc.log("factor: ",factor);
-            var delta = (targetPos.x - curPos.x) * factor; // change of x
-            // cc.log("delta: ",delta)
-            // cc.log("deltaX: ",delta);
+            let factor = this.getStepSize() * BattleConfig.TICK_DURATION /distance;
+            let delta = (targetPos.x - curPos.x) * factor; // change of x
             curPos.x = curPos.x+ delta;
             delta = (targetPos.y - curPos.y) * factor; // change of y
-            // cc.log("deltaY: ",delta);
             curPos.y = curPos.y + delta;
-            // cc.log("x: ",curPos.x);
-            // cc.log("y: ",curPos.y);
-            // cc.log("PosMon: ",JSON.stringify(targetPos));
-            // cc.log("PosBullet: ",JSON.stringify(curPos));
             this.setPosition(curPos);
         }
     }

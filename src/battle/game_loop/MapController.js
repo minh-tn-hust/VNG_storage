@@ -95,7 +95,6 @@ let MapController = cc.Class.extend({
                         if (MapUtil.isValidCell(nextNode) && visitor[nextNode.y][nextNode.x] === false) {
                             visitor[nextNode.y][nextNode.x] = true
                             path[nextNode.y][nextNode.x] = currentNode
-                            cc.log(currentNode.x.toString() + " " + currentNode.y.toString())
                             if (MapUtil.isNormalCell(map[nextNode.y][nextNode.x])) {
                                 queue.push(nextNode)
                             }

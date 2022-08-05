@@ -1,60 +1,37 @@
-var AttackTower = Tower.extend({
+let AttackTower = Tower.extend({
     ID_RANGE: 1000,
+    count : null,
+    bulletPool : null,
+    damage : null,
+    speed : null,
+    minTickBetweenFire : null,
+    bulletSpeed : null,
+    bulletRadius : null,
+    targetMode : null,
+    lastFireTick : null,
+    // SETTER
     /**
      * count bullet
      * use to id bullet
      * @param count
      */
-    setCount: function (count) {this.count=count;},
-    getCount: function () {return this.count;},
-    calIDForBullet: function (count) {
-        let id = this.getMatrixPosition().x*10+this.getMatrixPosition().y;
-        id *= this.ID_RANGE;
-        id += this.getCount();
-        return id;
-    },
-    /**
-     * pool of bullet
-     */
+    setCount: function (count) {this.count = count;},
     setBulletPool: function () {this.bulletPool = [];},
-    getBulletPool: function () {return this.bulletPool;},
-
-    /**
-     *
-     * @param {number} damage
-     */
+    /** @param {number} damage */
     setDamage: function (damage) {this.damage = damage;},
-    getDamage: function () {return this.damage;},
-
-    /**
-     *
-     * @param {number} speed
-     */
+    /** @param {number} speed */
     setSpeed: function (speed) {
         this.speed = speed;
         this.setMinTickBetweenFire(speed/BattleConfig.TICK_DURATION);
     },
-    getSpeed: function () {return this.speed;},
     setMinTickBetweenFire: function (minTickBetweenFire) {this.minTickBetweenFire = minTickBetweenFire;},
-    getMinTickBetweenFire: function () {return this.minTickBetweenFire;},
-
-    /**
-     *
-     * @param {number} bulletRadius
-     */
+    /** @param {number} bulletRadius */
     setBulletRadius: function (bulletRadius) {this.bulletRadius = bulletRadius;},
-    getBulletRadius: function () {return this.bulletRadius;},
-
-    /**
-     *
-     * @param {number} bulletSpeed
-     */
+    /** @param {number} bulletSpeed */
     setBulletSpeed: function (bulletSpeed) {this.bulletSpeed = bulletSpeed;},
-    getBulletSpeed: function () {return this.bulletSpeed;},
-
     setBasicStat: function (level) {
-        var stat = TowerConfig.getTowerInfo(this.getID());
-        cc.log(stat);
+        let stat = TowerConfig.getTowerInfo(this.getID());
+        // cc.log(stat);
         this.setDamage(CardUtil.upgradeFactorToLevel(
             stat[level]["damage"], this.getLevel(),CardUtil.upgradeDamagePercent
         ));
@@ -63,29 +40,43 @@ var AttackTower = Tower.extend({
         this.setBulletRadius(stat[level]["bulletRadius"]);
         this.setBulletSpeed(stat[level]["bulletSpeed"]/10);
     },
-
     /**
-     *
      * @param {TowerUtil.TARGET_MODE.NEAREST,
      * TowerUtil.TARGET_MODE.FARTHEST,
      * TowerUtil.TARGET_MODE.LOWEST_BLOOD,
      * TowerUtil.TARGET_MODE.HIGHEST_BLOOD} targetMode
      */
     setTargetMode: function (targetMode) {this.targetMode = targetMode;},
-    getTargetMode: function () {return this.targetMode;},
-
     /**
      * the last tick that this tower fired
      * @param {number} lastFireTick
      */
     setLastFireTick: function (lastFireTick) {this.lastFireTick = lastFireTick;},
+
+    // GETTER
+    getCount: function () {return this.count;},
+    getBulletPool: function () {return this.bulletPool;},
+    getDamage: function () {return this.damage;},
+    getSpeed: function () {return this.speed;},
+    getMinTickBetweenFire: function () {return this.minTickBetweenFire;},
+    getBulletRadius: function () {return this.bulletRadius;},
+    getBulletSpeed: function () {return this.bulletSpeed;},
+    getTargetMode: function () {return this.targetMode;},
     getLastFireTick: function () {return this.lastFireTick;},
+
     hasWaitEnoughToFire: function (currentTick) {
         return currentTick - this.getLastFireTick() >= this.getMinTickBetweenFire();
     },
 
     createBullet: function (target,id) {},
     createBulletUI: function (bullet) {},
+
+    calIDForBullet: function (count) {
+        let id = this.getMatrixPosition().x*10+this.getMatrixPosition().y;
+        id *= this.ID_RANGE;
+        id += this.getCount();
+        return id;
+    },
 
     ctor: function (who,matrixPosition,isCloned) {
         this.setBulletPool();
@@ -97,7 +88,7 @@ var AttackTower = Tower.extend({
     fire: function (currentTick) {
         let target = this.getTarget();
         if (target !== null && target.getCanTarget()) {
-            var bullet = this.createBullet(target);
+            let bullet = this.createBullet(target);
             // cc.log("After bullet")
             bullet.setTarget(target);
             this.getBulletPool().push(bullet);
@@ -124,7 +115,7 @@ var AttackTower = Tower.extend({
                 bulletPool.splice(i,1);
             }
         }
-        var monster = this.getTarget();
+        let monster = this.getTarget();
         if(monster!==null){
             if (Util.distance(monster.getPosition(),this.getPosition())
                 >this.getRangeSize()

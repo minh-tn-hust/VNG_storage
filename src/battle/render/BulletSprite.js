@@ -41,7 +41,7 @@ var BulletSprite = cc.Sprite.extend({
      * unit: pixel/second
      * @param {number} speed
      */
-    setStepSize: function (speed) {this.stepSize = speed*BattleConfig.Map.cellWidth;},
+    setStepSize: function (speed) {this.stepSize = speed * BattleConfig.Map.cellWidth;},
     getStepSize: function () {return this.stepSize;},
 
     setAnimName: function (animName) {this.animName = animName;},

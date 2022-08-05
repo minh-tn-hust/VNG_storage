@@ -1,7 +1,7 @@
 var IceGunTower = AttackTower.extend({
     // TODO json file let damage = 0, needs to recheck
     setID: function () {
-        this.ID = 4;
+        this._id = 4;
     },
 
     /**

@@ -1,6 +1,6 @@
 var WizardTower = AttackTower.extend({
     setID: function () {
-        this.ID = 1;
+        this._id = 1;
     },
 
     createBullet: function (target,id) {

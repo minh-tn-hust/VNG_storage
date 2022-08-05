@@ -88,8 +88,8 @@ let BattleUILayer = cc.Layer.extend({
     _showNoti : null,
 
     ctor : function(info, myMapController,myTowerController, backgroundLayer) {
-        this.setBackgroundLayer(backgroundLayer)
         this._super()
+        this.setBackgroundLayer(backgroundLayer)
         this.setInfo(info)
         this.setMyMapController(myMapController);
         this.setMyTowerController(myTowerController);
@@ -278,7 +278,7 @@ let BattleUILayer = cc.Layer.extend({
                     case ccui.Widget.TOUCH_MOVED:
                         if (CardUtil.categorize(cardInfo.cardID) === CardUtil.Type.TOWER) {
                             if (this.getSelectedIndex() !== -1) {
-                                cc.log("On Touch Moved");
+                                // cc.log("On Touch Moved");
                                 let position = BattleUtil.fromPositionToMatrix(button.getTouchMovePosition(), BattleUtil.Who.Mine)
                                 if (position.x > 6) {
                                     position.x = 6
@@ -328,12 +328,16 @@ let BattleUILayer = cc.Layer.extend({
                                     // TODO controller can be towerController, monsterController, spellController
                                     let controller = this.getMyTowerController();
                                     if (doesMonsterPathExists) {
-                                        if (controller.plantTower(cardInfo.cardID,position,false)){
+                                        if (controller.canPlantTower(cardInfo.cardID,position)){
                                             // TODO : push to action queue, send a packet to server
-                                            this.getMyMapController().plantTowerWithPosition(position,cardInfo.cardID);
+                                            this.getInfo().useCard(index)
+                                            let currentTick = cc.director.getRunningScene().getMyGameLoop().getTick()
+                                            NetworkManger.Connector.getIntance().getBattleHandler().sendPlantTower(currentTick + 10, cardInfo.cardID, position)
+                                            let myGameLoop = cc.director.getRunningScene().getMyGameLoop()
+                                            myGameLoop.getActionQueue().addToActionList(
+                                                new UserEvent(currentTick + 10, {cardId : cardInfo.cardID, position : position}, UserEvent.Type.PLANT_TOWER, myGameLoop.getWho()))
                                         }
                                     }
-                                    this.getInfo().useCard(index)
                                 } else {
                                     this.outOfEnergyNoti("SAI VỊ TRÍ RỒI")
                                 }
@@ -407,8 +411,12 @@ let BattleUILayer = cc.Layer.extend({
 
     cheatPanel : function() {
         let self = this
-        this.createTestButton("Clone Tick 705", function() {
-            cc.director.getRunningScene().getMyGameLoop().cloneTick(705)
+        this.createTestButton("Plant Tower", function() {
+
+        }, 360)
+
+        this.createTestButton("Clone Tick 200", function() {
+            cc.director.getRunningScene().getMyGameLoop().cloneTick(200)
         }, 300)
 
         this.createTestButton("DROP QUẠ", function() {

@@ -20,10 +20,6 @@ let Monster = cc.Class.extend({
     _timeStamp : null,
     _isDie : null,
 
-
-    // DEBUG
-    _count : null,
-
     // Position này lấy ô đầu tiên của ma trận làm gốc tạo độ, từ đó các ô khác sẽ + / -
     // một lượng bằng với kích thước của một ô trong bản đồ (BattleConfig.Map.cellWidth | BattleConfig.Map.cellHeight)
     _position : null,
@@ -54,7 +50,17 @@ let Monster = cc.Class.extend({
     setInUse : function (inUse) {this._inUse = inUse;},
     setSpeed : function (speed) {this._speed = speed;},
     setMaxSpeed : function(maxSpeed) {this._maxSpeed = maxSpeed},
-    setHp : function (hp) {this._hp = hp;},
+    setHp : function (hp) {
+        if (hp < 0) {
+            this._hp = 0
+            this.setCanTarget(false)
+        } else {
+            this._hp = hp;
+            this.setCanTarget(false);
+            this.setIsDie(true)
+            cc.director.getRunningScene().getInfo().dropPoint(0, this.getWho(), this.getConfig().gainEnergy)
+        }
+    },
     setWeight : function (weight) {this._weight = weight;},
     setType : function(type) {this._type = type;},
     setMaxHp : function(maxHp) {this._maxHp = maxHp;},
@@ -73,8 +79,9 @@ let Monster = cc.Class.extend({
      * @param {MonsterConfigInfo} config
      * @param {BattleUtil.Who.Mine | BattleUtil.Who.Enemy} who
      * @param {MonsterConfig.Type} type
+     * @param {cc.Point[]} pathToTower
      */
-    ctor : function(config, who, type) {
+    ctor : function(config, who, type, pathToTower) {
         this.setConfig(config)
         this.setHp(config.hp)
         this.setMaxHp(config.hp)
@@ -88,20 +95,16 @@ let Monster = cc.Class.extend({
         this.setCanTarget(true);
         this.setType(type)
 
-        let mapController = cc.director.getRunningScene().getMapController(who)
-        this.setPathToTower(mapController.getPath(cc.p(0, 0)))
+        // Khởi tạo với đường đi từ ô (0,0) và thêm vào đường đi 2 ô khởi đầu
+        this.setPathToTower(pathToTower)
         this.getPathToTower().unshift(cc.p(0, -1))
         this.getPathToTower().unshift(cc.p(1, -1))
         this.setPosition(BattleUtil.fromMatrixToModelPosition(this.getPathToTower()[0], who))
-
-        // cc.log(JSON.stringify(this.getPathToTower()))
-
-        //======================
-        this._count = 0
     },
 
     changeHP : function(damage){
-
+        let currentHp = this.getHp()
+        this.setHp(currentHp - damage)
     },
 
     addEffect : function(newEffect) {
@@ -143,6 +146,11 @@ let Monster = cc.Class.extend({
             this.setIsDie(true)
             cc.director.getRunningScene().getInfo().dropPoint(this.getConfig().dropPoint, this.getWho(), this.getConfig().gainEnergy)
         }
+    },
+
+    // TODO : Sử dụng để cập nhật đường đi mới cho quái
+    updateNewPath : function(){
+
     },
 
     /**

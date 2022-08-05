@@ -1,6 +1,6 @@
 var BoomerangTower = AttackTower.extend({
     setID: function (){
-        this.ID = 2;
+        this._id = 2;
     },
 
     createBullet: function (target,id) {

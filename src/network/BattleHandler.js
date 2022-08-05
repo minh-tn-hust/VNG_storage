@@ -31,6 +31,12 @@ let BattleHandler = cc.Class.extend({
         pk.pack(comingTick, cardId)
         this.getGameClient().sendPacket(pk)
     },
+    sendPlantTower : function(comingTick, cardId, position) {
+        cc.log("Battle - Request Plant Tower")
+        var pk = this.getGameClient().getOutPacket(CmdPlantTower)
+        pk.pack(comingTick, cardId, position)
+        this.getGameClient().sendPacket(pk)
+    },
 
     // RECEIVE PACKET HANDLER
     recoveryGameState : function(who,comingTick) {
@@ -57,6 +63,25 @@ let BattleHandler = cc.Class.extend({
         }
 
         battlScene.setServerTick(currentServerTick)
+    },
+    /**
+     * @param {PlantTowerInfo} plantTowerPacket
+     */
+    receivePlantTower : function(plantTowerPacket) {
+        cc.log("BATTLE HANDLER")
+        cc.log(JSON.stringify(plantTowerPacket))
+        let error = plantTowerPacket.error
+        let cardId = plantTowerPacket.cardId
+        let position = plantTowerPacket.position
+        if (error === 10) {
+            let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
+            enemyGameLoop.getActionQueue().addToActionList(
+                new UserEvent(plantTowerPacket.comingTick,
+                    {cardId : cardId, position: position},
+                    UserEvent.Type.PLANT_TOWER, enemyGameLoop.getWho()
+                )
+            )
+        }
     },
     receiveDropMonster : function(dropMonsterPacket) {
         let error = dropMonsterPacket.error

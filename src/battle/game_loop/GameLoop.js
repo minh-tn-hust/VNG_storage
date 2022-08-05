@@ -48,11 +48,16 @@ let GameLoop = cc.Class.extend({
         this.setTick(0)
         this.setWho(who)
         this.setActionQueue(new ActionQueue(who))
-        this.setMonsterController(new MonsterController(who))
+
         this.setMapController(new MapController(initMap))
-        this.setTowerController(new TowerController(who));
+        this.setMonsterController(new MonsterController(who, this.getMapController()))
+        this.setTowerController(new TowerController(who, this.getMapController(), this.getMonsterController()), this);
+
+        // Khởi tạo map khởi đầu, lưu lại sử dụng để clone
         this.setInitMap(initMap);
+
         this.setIsClone(isClone);
+
         this.setInitMap(initMap)
         this.setIsClone(isClone)
     },
@@ -64,9 +69,9 @@ let GameLoop = cc.Class.extend({
         let currentTick = this.getTick()
         let isClone = this.isClone()
 
-        // if (this.getWho() === BattleUtil.Who.Mine) {
-        //     cc.log(currentTick)
-        // }
+        if (this.getWho() === BattleUtil.Who.Mine) {
+            cc.log(currentTick)
+        }
 
         let tickAction = this.getActionQueue().getListActionFromTick(currentTick)
         for (let i = 0; i < tickAction.length; i++) {
@@ -87,20 +92,20 @@ let GameLoop = cc.Class.extend({
      * @param {boolean} isClone
      */
     fromEventToGameAction : function(userEvent, isClone) {
-        cc.log("UserEvent: ",JSON.stringify(userEvent));
         switch (userEvent.getType()) {
             case UserEvent.Type.CREATE_MONSTER:
                 // TODO : Thực hiện thả quái với thông tin đầu vào
                 this.getMonsterController().createMonster(userEvent.getMetaData().cardId, isClone)
                 break
-            case UserEvent.Type.PLACE_TOWER:
+            case UserEvent.Type.PLANT_TOWER:
                 // TODO : Thực hiện đặt trụ với thông tin đầu vào, kiểm tra các thông tin chính xác rồi mới thực hiện
+                cc.log("PLANT TOWER")
                 this.getTowerController().plantTower(
-                    userEvent.getCID(),
-                    userEvent.getPosition(),
+                    userEvent.getMetaData().cardId,
+                    userEvent.getMetaData().position,
                     isClone
                 );
-                this.getMapController().plantTowerWithPosition(userEvent.getPosition(),userEvent.getCID());
+                this.getMapController().plantTowerWithPosition(userEvent.getMetaData().position,userEvent.getMetaData().cardId);
                 break
             case UserEvent.Type.REMOVE_TOWER:
                 // TODO : Thực hiện hủy trụ với thông tin đầu vào

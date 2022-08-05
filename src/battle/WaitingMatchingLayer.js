@@ -16,7 +16,7 @@ let WaitingMatchingLayer = cc.Scene.extend({
         }, this)
 
         UserInfo.getInstance().addEventListener(
-            UserInfo.Event.ABORT_MATCH_DONE, this.runLobbyScene()
+            UserInfo.Event.ABORT_MATCH_DONE, this.runLobbyScene.bind(this)
         )
     },
     runLobbyScene: function (){

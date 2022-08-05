@@ -1,6 +1,6 @@
 var OilGunTower = AttackTower.extend({
     setID: function () {
-        this.ID = 3;
+        this._id = 3;
     },
 
     /**

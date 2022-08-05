@@ -11,74 +11,30 @@ var TowerSprite = cc.Sprite.extend({
         this._gunSprite = null;
     },
 
-    setTarget : function(target) {
-        this._target = target
-    },
-
-    getTarget : function() {
-        return this._target
-    },
-
-    setAsset : function(asset) {
-        this._assetConfig = asset
-    },
-
-    getAsset : function() {
-        return this._assetConfig
-    },
-
-    setDirection : function(direction) {
-        this._direction = direction
-    },
-
-    getDirection : function() {
-        return this._direction
-    },
-
-    setWho : function(who) {
-        this._who = who
-    },
-
-    getWho : function() {
-        return this._who
-    },
-
-    getTowerRange: function () {
-        return this.towerRange;
-    },
-
     /**
-     *
-     * @param {number} towerRange
-     */
-    setTowerRange: function (towerRange) {
-        this.towerRange = towerRange;
-    },
-
-
-    getTargetMode: function () {
-        return this.targetMode;
-    },
-    /**
-     *
      * @param {TowerUtil.TARGET_MODE.NEAREST,
      * TowerUtil.TARGET_MODE.FARTHEST,
      * TowerUtil.TARGET_MODE.HIGHEST_BLOOD,
      * TowerUtil.TARGET_MODE.LOWEST_BLOOD} targetMode
      */
-    setTargetMode: function (targetMode) {
-        this.targetMode = targetMode;
-    },
-
-    setSpeed: function () {
-        this.speed = 0.6;
-    },
-    getSpeed: function () {
-        return this.speed;
-    },
-
-    getTower: function () {return this.tower;},
+    setTargetMode: function (targetMode) { this.targetMode = targetMode; },
+    setTarget : function(target) { this._target = target },
+    setAsset : function(asset) { this._assetConfig = asset },
+    setDirection : function(direction) { this._direction = direction },
+    setWho : function(who) { this._who = who },
+    /** @param {number} towerRange */
+    setTowerRange: function (towerRange) { this.towerRange = towerRange; },
+    setSpeed: function () { this.speed = 0.6; },
     setTower: function (tower) {this.tower= tower;},
+
+    getTarget : function() { return this._target },
+    getAsset : function() { return this._assetConfig },
+    getDirection : function() { return this._direction },
+    getWho : function() { return this._who },
+    getTowerRange: function () { return this.towerRange; },
+    getTargetMode: function () { return this.targetMode; },
+    getSpeed: function () { return this.speed; },
+    getTower: function () {return this.tower;},
 
     ctor : function(tower,assetConfig) {
         this._super()

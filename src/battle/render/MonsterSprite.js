@@ -16,6 +16,7 @@ let MonsterSprite = cc.Sprite.extend({
     getModelTickPos : function(){return this._modelTickPos},
     getModelTickDirection : function() {return this._modelTickDirection},
     getWho : function() {return this.getMonster().getWho()},
+    getHp : function() {return this.getMonster().getHp()},
 
 
     // SETTER
@@ -38,13 +39,42 @@ let MonsterSprite = cc.Sprite.extend({
 
         this.createAnimationCache()
         this.initAnimation(monster.getConfig())
+        this.initHPBar(this.getConfig())
         this.scheduleUpdate()
+    },
+
+    initHPBar : function(assetConfig) {
+        // Khởi tạo thanh máu của quái vật
+        let hpBackgroundSpriteFrame = cc.spriteFrameCache.getSpriteFrame("battle_target_hp_background.png")
+        let hpSpriteFrame = cc.spriteFrameCache.getSpriteFrame("battle_target_hp.png")
+        let hpBackground = cc.Sprite(hpBackgroundSpriteFrame)
+        let hp = cc.Sprite(hpSpriteFrame)
+        hp.setAnchorPoint(0, 0.5)
+        hp.setPosition(0, hpBackground.getContentSize().height / 2) // thực hiện set 2 thanh HP về cùng một chỗ
+        hpBackground.addChild(hp)
+        hpBackground.setPosition(assetConfig.hpPosition)
+        let hpString = new ccui.Text()
+        hpString.setFontName("SVN-Supercell Magic")
+        hpString.setPosition(28, 5)
+        hpString.setString(this.getHp())
+        hpBackground.addChild(hpString)
+        this._hpText = hpString
+        this.addChild(hpBackground)
+        this._hpUI = hp
+    },
+
+    updateHPBar : function() {
+        if (this.getMonster().isDie() === false) {
+            let newHp = this.getHp()
+            this._hpText.setString(newHp)
+        }
     },
 
     // thực hiện cập nhật lại vị trí của con quái, được gọi frame by frame
     // quãng được đi ~ 1 / 6 quản đường mà Model di chuyển
     update : function(dt) {
         this.moving(dt)
+        this.updateHPBar()
     },
 
     /**

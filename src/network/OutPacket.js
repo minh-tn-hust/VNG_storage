@@ -272,3 +272,24 @@ CmdDropMonster = fr.OutPacket.extend({
         this.updateSize()
     }
 })
+
+CmdPlantTower = fr.OutPacket.extend({
+    ctor : function() {
+        this._super()
+        this.initData(100)
+        this.setCmdId(gv.CMD.PLANT_TOWER)
+    },
+    /**
+     * @param {number} commingTick
+     * @param {number} cardId
+     * @param {cc.Point} position
+     */
+    pack : function(commingTick, cardId, position) {
+        this.packHeader()
+        this.putInt(commingTick)
+        this.putInt(cardId)
+        this.putInt(position.x)
+        this.putInt(position.y)
+        this.updateSize()
+    }
+})

@@ -380,3 +380,18 @@ NetworkManger.packetMap[gv.CMD.DROP_MONSTER] = fr.InPacket.extend({
         this.error = this.getError()
     }
 })
+
+NetworkManger.packetMap[gv.CMD.PLANT_TOWER] = fr.InPacket.extend({
+    ctor : function() {
+        this._super()
+    },
+    readData : function() {
+        this.comingTick = this.getInt()
+        this.cardId = this.getInt()
+        let position = cc.p(0,0)
+        position.x = this.getInt()
+        position.y = this.getInt()
+        this.position = position
+        this.error = this.getError()
+    }
+})

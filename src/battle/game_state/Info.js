@@ -104,10 +104,8 @@ let Info = cc.Class.extend({
 
     generateNextCard : function() {
         let inGameCards = this.getInGameCard()
-        cc.log(inGameCards.length)
         let cardCounter = this.getCardCounter() + 1
         this.setCardCounter(cardCounter % 8)
-        cc.log(JSON.stringify(inGameCards[cardCounter % 8]))
         this.setNextCard(JSON.parse(JSON.stringify(inGameCards[cardCounter % 8])))
     },
 })

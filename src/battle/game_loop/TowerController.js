@@ -1,22 +1,55 @@
-var TowerController = cc.Class.extend({
+let TowerController = cc.Class.extend({
+    _towers : null,
+    _mapController : null,
+    _monsterController : null,
+    _gameLoop : null,
+    _who : null,
+
+    // GETTER
+    /** @return {MapController} */
+    getMapController : function() {return this._mapController},
+    /** @return {MonsterController} */
+    getMonsterController : function() {return this._monsterController},
+    getTowers: function (){return this._towers;},
+    getWho: function () {return this._who},
+    getGameLoop : function() {return this._gameLoop},
+
+
+    // SETTER
+    /** @param {MapController} controller */
+    setMapController : function(controller) {this._mapController = controller},
+    /** @param {MonsterController} controller */
+    setMonsterController : function(controller) {this._monsterController = controller},
     setTowers: function () {
-        this.towers = new Array(BattleUtil.NUM_CELL_HEIGHT);
-        for (var i=0;i<BattleUtil.NUM_CELL_HEIGHT;++i){
-            this.towers[i] = new Array(BattleUtil.NUM_CELL_WIDTH);
+        this._towers = new Array(BattleUtil.NUM_CELL_HEIGHT);
+        for (let i = 0; i < BattleUtil.NUM_CELL_HEIGHT; ++i){
+            this._towers[i] = new Array(BattleUtil.NUM_CELL_WIDTH);
         }
     },
-    getTowers: function (){return this.towers;},
+    setWho: function (who) {this._who=who;},
+    setGameLoop : function(gameLoop) {this._gameLoop = gameLoop},
 
-    setWho: function (who) {this.who=who;},
-    getWho: function () {return this.who},
-
-    ctor: function (who) {
-        this.setTowers();
-        this.setWho(who);
+    /**
+     * @param {BattleUtil.Who} who
+     * @param {MapController} mapController
+     * @param {MonsterController} monsterController
+     * @param {GameLoop} gameLoop
+     */
+    ctor: function (who, mapController, monsterController, gameLoop) {
+        this.setTowers()
+        this.setWho(who)
+        this.setMapController(mapController)
+        this.setMonsterController(monsterController)
+        this.setGameLoop(gameLoop)
     },
 
-    canPlantTower: function (cid,position) {
-        var tower = this.towers[position.y][position.x];
+    /**
+     * @param {number} cid
+     * @param {cc.Point} position
+     * @returns {boolean}
+     */
+    canPlantTower: function (cid, position) {
+        let tower = this.getTowers()[position.y][position.x];
         if (tower!==undefined){
             return !!(tower.getID() === cid && tower.canUpgrade());
         } else {
@@ -26,27 +59,29 @@ var TowerController = cc.Class.extend({
 
     /**
      * plant towers (cid) at position
-     * @param {number}cid
-     * @param {cc.Point}position
+     * @param {number} cid
+     * @param {cc.Point} position
      * @param {boolean} isCloned
      */
     plantTower: function (cid, position,isCloned) {
-        var tower = this.towers[position.y][position.x];
+        cc.log("TOWER CONRTOLLER - plantTower")
+        cc.log(cid)
+        cc.log(JSON.stringify(position))
+        let tower = this.getTowers()[position.y][position.x];
         if (tower!==undefined){
             return !!(tower.getID() === cid && tower.upgrade());
         } else {
-            this.towers[position.y][position.x] = Tower.createTower(
+            this.getTowers()[position.y][position.x] = Tower.createTower(
                 cid,this.getWho(),position,false);
-            if (isCloned!==true){
-                this.plantNewUITower(cid,this.towers[position.y][position.x],0);
-                // TODO add ui to tower pool in ObjectLayer
+            if (isCloned !== true) {
+                this.plantNewUITower(cid,this.getTowers()[position.y][position.x],0);
             }
             return true;
         }
     },
 
     // TODO : Tạch biệt phần UI ra khỏi Controller
-    plantNewUITower: function (cid,tower,timeout) {
+    plantNewUITower: function (cid, tower, timeout) {
         let who = this.getWho();
         setTimeout(function () {
             let towerSprite = TowerSprite.createTowerSprite(cid,tower);
@@ -56,15 +91,13 @@ var TowerController = cc.Class.extend({
     },
 
     /**
-     *
-     * @param {number}currentTick
+     * @param {number} currentTick
      */
     updateAllTower: function (currentTick) {
         let towers= this.getTowers();
         let tower;
-        let battleScene = cc.director.getRunningScene();
         try {
-            let monsterController = battleScene.getGameLoop(this.getWho()).getMonsterController();
+            let monsterController = this.getMonsterController()
             for (let i=0;i<BattleUtil.NUM_CELL_HEIGHT;++i){
                 for (let j=0;j<BattleUtil.NUM_CELL_WIDTH;++j){
                     tower = towers[i][j];
@@ -89,10 +122,9 @@ var TowerController = cc.Class.extend({
 
     recreateSprite: function () {
         let towers = this.getTowers();
-        for (let i=0;i<BattleUtil.NUM_CELL_HEIGHT;++i) {
+        for (let i = 0; i < BattleUtil.NUM_CELL_HEIGHT; ++i) {
             for (let j = 0; j < BattleUtil.NUM_CELL_WIDTH; ++j) {
-                if (towers[i][j]!==null && towers[i][j]!== undefined){
-                    cc.log("Recreate tower at: ",i+", "+j);
+                if (towers[i][j] !== null && towers[i][j] !== undefined){
                     this.plantNewUITower(
                         towers[i][j].getID(),
                         towers[i][j],

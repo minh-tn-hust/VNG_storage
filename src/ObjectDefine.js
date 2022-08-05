@@ -51,4 +51,11 @@ let MonsterConfigInfo = cc.Class.extend({
     E : {start : 96, end: 119},
 })
 
+let PlantTowerInfo = cc.Class.extend({
+    comingTick : 23,
+    cardId:0,
+    position:cc.p({x:1,y:1}),
+    error:10
+})
+
 

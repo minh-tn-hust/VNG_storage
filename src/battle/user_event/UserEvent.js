@@ -28,7 +28,7 @@ let UserEvent = cc.Class.extend({
 })
 
 UserEvent.Type = {
-    PLACE_TOWER : 1,
+    PLANT_TOWER : 1,
     USE_SPELL : 2,
     UPDATE_TOWER : 3,
     REMOVE_TOWER : 4,
