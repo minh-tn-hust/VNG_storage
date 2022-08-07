@@ -68,6 +68,9 @@ let GameLoop = cc.Class.extend({
     update : function() {
         let currentTick = this.getTick()
         let isClone = this.isClone()
+        if (currentTick % 230 === 0 && currentTick !== 0)  {
+            this.getMonsterController().generateMonsterRound(this.getTick())
+        }
 
         let tickAction = this.getActionQueue().getListActionFromTick(currentTick)
         for (let i = 0; i < tickAction.length; i++) {

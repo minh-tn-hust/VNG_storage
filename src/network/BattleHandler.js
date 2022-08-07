@@ -45,7 +45,7 @@ let BattleHandler = cc.Class.extend({
 
     /** @param {DropMonsterTestInfo} dropMonsterTestPacket */
     receiveDropMonsterTest : function(dropMonsterTestPacket) {
-        let currentServerTick = dropMonsterTestPacket.comingTick
+        let currentServerTick = dropMonsterTestPacket.comingTick - 10
         let myGameLoop = cc.director.getRunningScene().getMyGameLoop()
         let battlScene = cc.director.getRunningScene()
         if (myGameLoop.getTick() < currentServerTick) {
@@ -54,14 +54,12 @@ let BattleHandler = cc.Class.extend({
             myGameLoop.cloneTick(currentServerTick)
         }
 
-
         let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
         if (enemyGameLoop.getTick() < currentServerTick) {
             battlScene.speedUpGameLoop(BattleUtil.Who.Enemy, 0.02)
         } else {
             enemyGameLoop.cloneTick(currentServerTick)
         }
-
         battlScene.setServerTick(currentServerTick)
     },
     /**

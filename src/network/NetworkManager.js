@@ -226,6 +226,9 @@ NetworkManger.Connector = cc.Class.extend({
                 this.getBattleHandler().receiveDropMonster(packet)
                 cc.log(JSON.stringify(packet))
                 break
+            // case gv.CMD.DROP_MONSTER_TEST:
+            //     this.getBattleHandler().receiveDropMonsterTest(packet)
+            //     break
             case gv.CMD.PLANT_TOWER:
                 cc.log("PLANT TOWER NOW")
                 this.getBattleHandler().receivePlantTower(packet)

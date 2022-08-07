@@ -76,8 +76,23 @@ let MonsterController = cc.Class.extend({
     },
 
     // TODO : Thực hiện sinh ra các turn quái
-    generateMonsterRound : function() {
+    generateMonsterRound : function(currentTick) {
+        let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
+        NetworkManager.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 10, MonsterConfig.Type.CROW_SKELETON)
+        enemyGameLoop.getActionQueue().addToActionList(
+            new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.CROW_SKELETON}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
 
+        NetworkManager.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 20, MonsterConfig.Type.GIANT)
+        enemyGameLoop.getActionQueue().addToActionList(
+            new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.GIANT}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
+
+        NetworkManager.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 30, MonsterConfig.Type.EVIL_BAT)
+        enemyGameLoop.getActionQueue().addToActionList(
+            new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.EVIL_BAT}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
+
+        NetworkManager.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 40, MonsterConfig.Type.ICE_MAN)
+        enemyGameLoop.getActionQueue().addToActionList(
+            new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.GHOST_SWORDER}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
     },
 
     /**
