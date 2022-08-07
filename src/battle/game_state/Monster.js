@@ -54,11 +54,10 @@ let Monster = cc.Class.extend({
         if (hp < 0) {
             this._hp = 0
             this.setCanTarget(false)
-        } else {
-            this._hp = hp;
-            this.setCanTarget(false);
             this.setIsDie(true)
             cc.director.getRunningScene().getInfo().dropPoint(0, this.getWho(), this.getConfig().gainEnergy)
+        } else {
+            this._hp = hp;
         }
     },
     setWeight : function (weight) {this._weight = weight;},
@@ -124,6 +123,7 @@ let Monster = cc.Class.extend({
     updateAction : function() {
         let pathToTower = this.getPathToTower()
         let currentPos = this.getPosition()
+        cc.log(JSON.stringify(currentPos))
         // thực hiện các bước di chuyển tới ô tiếp theo của đường đi
         if (pathToTower.length !== 0) {
             let checkNode = BattleUtil.fromMatrixToModelPosition(pathToTower[0], this.getWho())

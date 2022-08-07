@@ -31,7 +31,6 @@ let AttackTower = Tower.extend({
     setBulletSpeed: function (bulletSpeed) {this.bulletSpeed = bulletSpeed;},
     setBasicStat: function (level) {
         let stat = TowerConfig.getTowerInfo(this.getID());
-        // cc.log(stat);
         this.setDamage(CardUtil.upgradeFactorToLevel(
             stat[level]["damage"], this.getLevel(),CardUtil.upgradeDamagePercent
         ));
@@ -118,7 +117,7 @@ let AttackTower = Tower.extend({
         let monster = this.getTarget();
         if(monster!==null){
             if (Util.distance(monster.getPosition(),this.getPosition())
-                >this.getRangeSize()
+                > this.getRangeSize()
                 || !monster.getCanTarget()){
                 this.setTarget(null);
             }

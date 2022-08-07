@@ -49,6 +49,7 @@ let Tower = cc.Class.extend({
     setSpecialStat: function (level){},
     /** @param {boolean} isCloned */
     setIsCloned: function (isCloned) {this._isCloned = isCloned;},
+    setCount: function (count) {this.count = count;},
 
     // GETTER
     getMatrixPosition: function () {return this._matrixPosition;},

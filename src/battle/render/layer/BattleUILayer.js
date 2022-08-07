@@ -278,7 +278,6 @@ let BattleUILayer = cc.Layer.extend({
                     case ccui.Widget.TOUCH_MOVED:
                         if (CardUtil.categorize(cardInfo.cardID) === CardUtil.Type.TOWER) {
                             if (this.getSelectedIndex() !== -1) {
-                                // cc.log("On Touch Moved");
                                 let position = BattleUtil.fromPositionToMatrix(button.getTouchMovePosition(), BattleUtil.Who.Mine)
                                 if (position.x > 6) {
                                     position.x = 6

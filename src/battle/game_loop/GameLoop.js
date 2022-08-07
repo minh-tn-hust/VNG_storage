@@ -69,10 +69,6 @@ let GameLoop = cc.Class.extend({
         let currentTick = this.getTick()
         let isClone = this.isClone()
 
-        if (this.getWho() === BattleUtil.Who.Mine) {
-            cc.log(currentTick)
-        }
-
         let tickAction = this.getActionQueue().getListActionFromTick(currentTick)
         for (let i = 0; i < tickAction.length; i++) {
             this.fromEventToGameAction(tickAction[i], isClone)

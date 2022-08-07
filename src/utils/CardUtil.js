@@ -198,5 +198,5 @@ CardUtil.upgradeHPPercent = 0.1
  * @returns {number}
  */
 CardUtil.upgradeFactorToLevel = function (damage,level,percent) {
-    return damage*Math.pow(1+percent,level);
+    return damage*Math.pow(1 + percent,level);
 }

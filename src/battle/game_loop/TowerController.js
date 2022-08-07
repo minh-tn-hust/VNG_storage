@@ -65,12 +65,13 @@ let TowerController = cc.Class.extend({
      */
     plantTower: function (cid, position,isCloned) {
         cc.log("TOWER CONRTOLLER - plantTower")
-        cc.log(cid)
-        cc.log(JSON.stringify(position))
         let tower = this.getTowers()[position.y][position.x];
-        if (tower!==undefined){
+        // nếu như tại đó đã tồn tại trụ rồi
+        if (tower !== undefined){
+            cc.log("Tower Controller - Upgrade Tower")
             return !!(tower.getID() === cid && tower.upgrade());
         } else {
+            // Nếu như tại đó chưa tồn tại trụ
             this.getTowers()[position.y][position.x] = Tower.createTower(
                 cid,this.getWho(),position,false);
             if (isCloned !== true) {

@@ -31,23 +31,23 @@ let MapController = cc.Class.extend({
         return path
     },
 
-    isValidCell : function() {
-
-    },
-
     /**
      * check if a tower is put at position, all monster's path is blocked
      * @param position
      * @param {number} cardID
      */
     doesMonsterPathExists : function(position, cardID) {
-        if (CardUtil.categorize(cardID)===CardUtil.Type.TOWER) {
+        if (CardUtil.categorize(cardID) === CardUtil.Type.TOWER) {
+            // Kiểm tra vị trí đầu vào quái và đầu ra quái
             if ((position.x === 0 && position.y === 0) || (position.x === 6 && position.y === 4)) {
                 return false;
             } else if (position.y < 0) {
                 return true;
             }
+
             let map = this.getMap();
+
+            // Nếu như ô hiện tại là một ô bình thường
             if (MapUtil.isNormalCell(map[position.y][position.x])) {
                 let tempCell = map[position.y][position.x];
                 map[position.y][position.x] = cardID;
@@ -58,6 +58,14 @@ let MapController = cc.Class.extend({
                 } else {
                     map[position.y][position.x] = tempCell;
                     return true;
+                }
+            } else {
+                // TODO : Kiểm tra xem vị trí đó có trụ tùng với nó hay không
+                let map = this.getMap()
+                if (cardID === map[position.y][position.x]) {
+                    return true
+                } else {
+                    return false
                 }
             }
         } else {
@@ -116,8 +124,7 @@ let MapController = cc.Class.extend({
     plantTowerWithPosition : function(position, cid) {
         let map = this.getMap();
         map[position.y][position.x] = cid
-
-        // TODO update path
+        // TODO : Cập nhật đường đi cho quái (CẦN THIẾT)
     },
 
 })
