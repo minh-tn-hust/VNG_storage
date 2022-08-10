@@ -102,8 +102,8 @@ BattleUtil.fromMatrixToModelPosition = function(matrixPos, who) {
  */
 BattleUtil.fromModelPositionToMatrixPosition= function(modelPos, who) {
     let matrixPos = BattleUtil.fromMaxtrixToPosition(cc.p(0, 0), who)
-    matrixPos.x = modelPos.x / BattleConfig.Map.cellWidth
-    matrixPos.y = modelPos.y / BattleConfig.Map.cellHeight
+    matrixPos.x = Math.round(modelPos.x / BattleConfig.Map.cellWidth)
+    matrixPos.y = Math.round(modelPos.y / BattleConfig.Map.cellHeight)
     return matrixPos
 }
 
@@ -112,6 +112,20 @@ BattleUtil.getImageOnSelectingCard = function (cardJSObject) {
     cardImage.setScale(1.5);
     cardImage.retain();
     return cardImage;
+}
+
+BattleUtil.fromTowerLevelToMultiple = function(towerLevel) {
+    if (towerLevel < 5) {
+        return 1;
+    } else if (towerLevel < 10) {
+        return 2;
+    } else if (towerLevel < 20) {
+        return 3;
+    } else if (towerLevel < 30) {
+        return 4;
+    } else {
+        return 5;
+    }
 }
 
 BattleUtil.Who = {

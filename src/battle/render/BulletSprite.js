@@ -110,8 +110,21 @@ var BulletSprite = cc.Sprite.extend({
      */
     onCollision: function () {
         this.unscheduleUpdate();
+        this.runEffectOnCollision();
         // TODO remove from bullet pool in object layer
+        // this.runAction(cc.sequence(
+        //     cc.delayTime(2),
+        //     cc.callFunc(function () {
+        //         cc.log("Now remove");
+        //         cc.director.getRunningScene().
+        //         getObjectLayer().removeBulletSprite(this);
+        //     }.bind(this))
+        // ))
         cc.director.getRunningScene().getObjectLayer().removeBulletSprite(this)
+    },
+
+    runEffectOnCollision: function () {
+
     },
 
     runAnim : function () {},

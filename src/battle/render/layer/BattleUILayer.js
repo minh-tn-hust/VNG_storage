@@ -9,9 +9,11 @@ let BattleUILayer = cc.Layer.extend({
     _enemyFieldUI: null,
     _myFieldUI: null,
     _backgroundLayer : null,
+    _myGameLoop : null,
 
 
     // GETTER
+    getMyGameLoop : function(){return this._myGameLoop},
     getBackroundLayer : function() {return this._backgroundLayer},
     getLayer : function() {return this._uiLayer},
 
@@ -34,6 +36,7 @@ let BattleUILayer = cc.Layer.extend({
     setBackgroundLayer : function(layer) {this._backgroundLayer = layer},
     setMyMapController : function(myMapController) {this._myMapController = myMapController},
     setMyTowerController: function (myTowerController) {this.myTowerController = myTowerController;},
+    setMyGameLoop : function(gameLoop) {this._myGameLoop = gameLoop},
 
     /**
      * Lấy ra thẻ bài tiếp theo sẽ được đưa lên bộ bài
@@ -87,12 +90,13 @@ let BattleUILayer = cc.Layer.extend({
     _energyBar : null,
     _showNoti : null,
 
-    ctor : function(info, myMapController,myTowerController, backgroundLayer) {
+    ctor : function(info, myMapController, myTowerController, backgroundLayer, myGameLoop) {
         this._super()
         this.setBackgroundLayer(backgroundLayer)
         this.setInfo(info)
         this.setMyMapController(myMapController);
         this.setMyTowerController(myTowerController);
+        this.setMyGameLoop(myGameLoop)
 
         let uiLayer = ccs.load(res.battle.UILayer.json).node
         uiLayer.setContentSize(cc.winSize)
@@ -123,8 +127,72 @@ let BattleUILayer = cc.Layer.extend({
                 self.addChild(resultLayer, 100000, 1)
             });
         }, this)
+        this.initTimer()
 
         this.scheduleUpdate()
+
+        // DEBUG TOWER INFO
+        let towerDebugLabel = ccui.Text("Some thing","res/SVN-SupercellMagic.ttf", 14)
+        towerDebugLabel.setColor(cc.color.BLACK)
+        towerDebugLabel.setPosition(cc.winSize.width / 2, cc.winSize.height / 2)
+        this.towerDebugLabel = towerDebugLabel
+        this.addChild(towerDebugLabel)
+
+        let self = this
+        cc.eventManager.addListener({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            onTouchBegan: function(touch, event){return true;},
+            onTouchEnded: function(touch, event){
+                let matrixPos = BattleUtil.fromPositionToMatrix(touch.getLocation(), BattleUtil.Who.Mine)
+                if (MapUtil.isValidCell(matrixPos)) {
+                    let towers = self.getMyTowerController().getTowers()
+                    if (towers[matrixPos.y][matrixPos.x]) {
+                        let tower = towers[matrixPos.y][matrixPos.x]
+                        let logString = "maxEvo : " + tower.getMaxEvoLevel().toString() + "\n range : " + tower.getRange().toString() + "\n damage : " + tower.getDamage().toString();
+                        self.towerDebugLabel.setString(logString)
+                    } else {
+                        self.towerDebugLabel.setString("No Tower Here")
+                    }
+                } else {
+                    self.towerDebugLabel.setString("Out of map")
+                }
+            }
+        }, this);
+    },
+
+
+    initTimer : function() {
+        let uiLayer = this.getLayer()
+        let layerSize = uiLayer.getContentSize()
+        let timerBackground = Util.getChildByName(uiLayer, "RemainingTimeBackground")[0]
+        let timer = Util.getChildByName(uiLayer, "Timer")[0]
+        let timerLabel = timer.getChildByName("TimerLabel")
+        let contentSize = timerBackground.getContentSize()
+        let radialCounter = new cc.ProgressTimer(timerBackground)
+        radialCounter.x = timerBackground.width / 2
+        radialCounter.y = timerBackground.height / 2
+        radialCounter.type = cc.ProgressTimer.TYPE_RADIAL
+        radialCounter.setPercentage(0)
+        timerLabel.setString(0)
+        radialCounter.setPosition(timer.getContentSize().width / 2, timer.getContentSize().height / 2)
+        timer.addChild(radialCounter, 10, 1)
+        timerLabel.setZOrder(11)
+        this._timer = radialCounter
+        this._timerText = timerLabel
+    },
+
+    updateTimer : function() {
+        let tick = this.getMyGameLoop().getTick()
+        let prevRoundTick = 0
+        let maxTick = 50
+        if (tick < 50) {
+            prevRoundTick = 0
+        } else {
+            maxTick = 200
+            prevRoundTick = Math.floor((tick - 50) / 200) * 200 + 50
+        }
+        this._timer.setPercentage((tick - prevRoundTick) / maxTick * 100)
+        this._timerText.setString(maxTick / 10 - Math.floor((tick - prevRoundTick) / 10))
     },
 
     /**
@@ -148,16 +216,16 @@ let BattleUILayer = cc.Layer.extend({
     },
 
     update : function(dt) {
+        this.updateTimer()
         let info = this.getInfo()
         if (info.getNeedUpdate() === true && info.getEndGame() === false) {
             if (info.getPoint() * info.getEnemyPoint() === 0) {
-                let resultLayer = new ResultLayer(this.getInfo())
-                this.addChild(resultLayer, 100000, 1)
-                info.setEndGame(true)
+                this.getMyGameLoop().getActionQueue().addToActionList(new UserEvent(this.getMyGameLoop().getTick() + 1, {}, UserEvent.Type.END_GAME, 0))
             }
             info.setNeedUpdate(false)
             this.updateInfo()
         }
+
     },
 
     updateCardDeckUI : function() {
@@ -331,10 +399,16 @@ let BattleUILayer = cc.Layer.extend({
                                             // TODO : push to action queue, send a packet to server
                                             this.getInfo().useCard(index)
                                             let currentTick = cc.director.getRunningScene().getMyGameLoop().getTick()
-                                            NetworkManger.Connector.getIntance().getBattleHandler().sendPlantTower(currentTick + 10, cardInfo.cardID, position)
+                                            NetworkManger.Connector.getIntance().getBattleHandler().sendPlantTower(currentTick + 10, cardInfo.cardID, position, cardInfo.level)
                                             let myGameLoop = cc.director.getRunningScene().getMyGameLoop()
                                             myGameLoop.getActionQueue().addToActionList(
-                                                new UserEvent(currentTick + 10, {cardId : cardInfo.cardID, position : position}, UserEvent.Type.PLANT_TOWER, myGameLoop.getWho()))
+                                                new UserEvent(currentTick + 10,
+                                                    {
+                                                        cardId : cardInfo.cardID,
+                                                        position : position,
+                                                        cardLevel: cardInfo.level
+                                                    },
+                                                    UserEvent.Type.PLANT_TOWER, myGameLoop.getWho()))
                                         }
                                     }
                                 } else {
@@ -410,13 +484,6 @@ let BattleUILayer = cc.Layer.extend({
 
     cheatPanel : function() {
         let self = this
-        this.createTestButton("Plant Tower", function() {
-
-        }, 360)
-
-        this.createTestButton("Clone Tick 200", function() {
-            cc.director.getRunningScene().getMyGameLoop().cloneTick(200)
-        }, 300)
 
         this.createTestButton("DROP QUẠ", function() {
             let currentTick = cc.director.getRunningScene().getMyGameLoop().getTick()
@@ -443,14 +510,46 @@ let BattleUILayer = cc.Layer.extend({
 
         }, 120)
 
-        this.createTestButton("DROP NINJA", function() {
+        this.createTestButton("DROP SWORDER", function() {
             let currentTick = cc.director.getRunningScene().getMyGameLoop().getTick()
-            NetworkManger.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 10, MonsterConfig.Type.NINJA)
+            NetworkManger.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 10, MonsterConfig.Type.GHOST_SWORDER)
             let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
             enemyGameLoop.getActionQueue().addToActionList(
-                new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.NINJA}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
+                new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.GHOST_SWORDER}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
 
         }, 60)
+
+        this.createTestButton("HEALING EFFECT", function() {
+            let monsterController = cc.director.getRunningScene().getMyGameLoop().getMonsterController()
+            let monsterPool = monsterController.getMonsterPool()
+            for (let i = 0; i < monsterPool.length; i++) {
+                monsterPool[i].addEffect(new MonsterHeal(20, DefaultEffectConfig.HEAL))
+            }
+        }, 0)
+
+        this.createTestButton("SPEED UP EFFECT", function() {
+            let monsterController = cc.director.getRunningScene().getMyGameLoop().getMonsterController()
+            let monsterPool = monsterController.getMonsterPool()
+            for (let i = 0; i < monsterPool.length; i++) {
+                monsterPool[i].addEffect(new MonsterSpeed(20, DefaultEffectConfig.SPEED))
+            }
+        }, -60)
+
+        this.createTestButton("FREEZE EFFECT", function() {
+            let monsterController = cc.director.getRunningScene().getMyGameLoop().getMonsterController()
+            let monsterPool = monsterController.getMonsterPool()
+            for (let i = 0; i < monsterPool.length; i++) {
+                monsterPool[i].addEffect(new MonsterFreeze(20, DefaultEffectConfig.FROZEN))
+            }
+        }, -120)
+
+        this.createTestButton("STUN EFFECT", function() {
+            let monsterController = cc.director.getRunningScene().getMyGameLoop().getMonsterController()
+            let monsterPool = monsterController.getMonsterPool()
+            for (let i = 0; i < monsterPool.length; i++) {
+                monsterPool[i].addEffect(new MonsterStun(20, DefaultEffectConfig.STUN))
+            }
+        }, -180)
     },
 
     createTestButton : function(title, callBack, position) {

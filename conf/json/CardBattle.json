@@ -1,0 +1,73 @@
+[
+  {
+    "cid": 0,
+    "require":8
+  },
+  {
+    "cid": 1,
+    "require": 12
+  },
+  {
+    "cid": 2,
+    "require":10
+  },
+  {
+    "cid": 3,
+    "require":12
+  },
+  {
+    "cid": 4,
+    "require":10
+  },
+  {
+    "cid": 5,
+    "require":12
+  },{
+  "cid": 6,
+  "require":12
+  },
+  {
+    "cid": 10,
+    "require":1
+  },
+  {
+    "cid": 11,
+    "require":1
+  },
+  {
+    "cid": 12,
+    "require":3
+  },
+  {
+    "cid": 13,
+    "require":2
+  },
+  {
+    "cid": 14,
+    "require":1
+  },
+  {
+    "cid": 20,
+    "require":8
+  },
+  {
+    "cid": 21,
+    "require":8
+  },
+  {
+    "cid": 22,
+    "require":12
+  },
+  {
+    "cid": 23,
+    "require":12
+  },
+  {
+    "cid": 24,
+    "require":6
+  },
+  {
+    "cid": 25,
+    "require":10
+  }
+]

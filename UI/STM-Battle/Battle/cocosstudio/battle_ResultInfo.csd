@@ -44,10 +44,10 @@
                 <FileData Type="Normal" Path="common_asset/common_icon_house.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
-              <AbstractNodeData Name="HealthTitle" ActionTag="-2088524124" Tag="60" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="36.0034" RightMargin="19.9966" TopMargin="8.5000" BottomMargin="8.5000" FontSize="20" LabelText="29" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="HealthTitle" ActionTag="-2088524124" Tag="60" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="35.9989" RightMargin="20.0011" TopMargin="8.5000" BottomMargin="8.5000" FontSize="20" LabelText="29" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="35.0000" Y="27.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="53.5034" Y="22.0000" />
+                <Position X="53.4989" Y="22.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5879" Y="0.5000" />
@@ -100,10 +100,10 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="battle_result_asset/battle_result_health_box.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="PlayerName" ActionTag="-2131056252" Tag="65" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-114.5000" RightMargin="-114.5000" TopMargin="-216.6763" BottomMargin="189.6763" FontSize="20" LabelText="Thien ha uoc mo" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ShadowEnabled="True" ctype="TextObjectData">
-            <Size X="229.0000" Y="27.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position Y="203.1763" />
+          <AbstractNodeData Name="PlayerName" ActionTag="-2131056252" Tag="65" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-114.5000" RightMargin="-114.5000" TopMargin="-253.6800" BottomMargin="189.6800" IsCustomSize="True" FontSize="20" LabelText="Thien ha uoc mo he hehehe" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Bottom" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ShadowEnabled="True" ctype="TextObjectData">
+            <Size X="229.0000" Y="64.0000" />
+            <AnchorPoint ScaleX="0.5000" />
+            <Position Y="189.6800" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="241" G="255" B="0" />
             <PrePosition />

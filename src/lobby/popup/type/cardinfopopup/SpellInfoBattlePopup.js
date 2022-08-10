@@ -50,6 +50,7 @@ var SpellInfoBattlePopup = TowerInfoBattlePopup.extend({
 
             cc.log("statImage: ",statImage);
             statImage.loadTexture(configStat.image);
+            statName.ignoreContentAdaptWithSize(true);
             statName.setString(configStat.name);
             statValue.setString(this.stat[key]+configStat.unit);
             i++;

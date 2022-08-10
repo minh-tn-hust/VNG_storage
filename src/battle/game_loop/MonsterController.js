@@ -26,7 +26,7 @@ let MonsterController = cc.Class.extend({
 
     /**
      *
-     * @param {MonsterConfigInfo} config
+     * @param {{A: {start: number, end: number}, hpPosition: *, B: {start: number, end: number}, C: {start: number, end: number}, D: {start: number, end: number}, E: {start: number, end: number}, prefix: string, hp: number, weight: number, picPerDirection: number, hitRadius: number, suffix: string, speed: number, dropPoint: number, name: string, gainEnergy: number, ability: number, centroidPosition: *, asset: {plist: string, png: string}}} config
      * @param {BattleUtil.Who} who
      * @param {MonsterConfig.Type} type
      * @param {boolean} isClone
@@ -41,6 +41,7 @@ let MonsterController = cc.Class.extend({
             let battleScene = cc.director.getRunningScene()
             battleScene.getObjectLayer().addMonsterSprite(monsterDisplay, who)
         }
+        return monsterModel
     },
 
     /**
@@ -48,22 +49,26 @@ let MonsterController = cc.Class.extend({
      * hình hay là chỉ tạo ra model
      * @param {MonsterConfig.Type} type
      * @param {boolean} isClone
+     * @param {number} multiple - hệ số nhân máu tính từ cấp trụ
      */
-    createMonster : function(type, isClone) {
+    createMonster : function(type, isClone, multiple) {
         let who = this.getWho()
+        let monster
         if (type === MonsterConfig.Type.CROW_SKELETON) {
-            this.createMonsterWithConfig(MonsterConfig.CROW_SKELETON, who, MonsterConfig.Type.CROW_SKELETON, isClone)
+            monster = this.createMonsterWithConfig(MonsterConfig.CROW_SKELETON, who, MonsterConfig.Type.CROW_SKELETON, isClone)
         } else if (type === MonsterConfig.Type.EVIL_BAT) {
-            this.createMonsterWithConfig(MonsterConfig.EVIL_BAT, who, MonsterConfig.Type.EVIL_BAT, isClone)
+            monster = this.createMonsterWithConfig(MonsterConfig.EVIL_BAT, who, MonsterConfig.Type.EVIL_BAT, isClone)
         } else if (type === MonsterConfig.Type.GIANT) {
-            this.createMonsterWithConfig(MonsterConfig.GIANT, who, MonsterConfig.Type.GIANT, isClone)
+            monster = this.createMonsterWithConfig(MonsterConfig.GIANT, who, MonsterConfig.Type.GIANT, isClone)
         } else if (type === MonsterConfig.Type.DARK_GIANT) {
-            this.createMonsterWithConfig(MonsterConfig.DARK_GIANT, who, MonsterConfig.Type.DARK_GIANT, isClone)
+            monster = this.createMonsterWithConfig(MonsterConfig.DARK_GIANT, who, MonsterConfig.Type.DARK_GIANT, isClone)
         } else if (type === MonsterConfig.Type.NINJA) {
-            this.createMonsterWithConfig(MonsterConfig.NINJA, who, MonsterConfig.Type.NINJA, isClone)
+            monster = this.createMonsterWithConfig(MonsterConfig.NINJA, who, MonsterConfig.Type.NINJA, isClone)
         } else if (type === MonsterConfig.Type.GHOST_SWORDER) {
-            this.createMonsterWithConfig(MonsterConfig.GHOST_SWORDER, who, MonsterConfig.Type.GHOST_SWORDER, isClone)
+            monster = this.createMonsterWithConfig(MonsterConfig.GHOST_SWORDER, who, MonsterConfig.Type.GHOST_SWORDER, isClone)
         }
+        // monster.setMaxHp(monster.getMaxHp() * multiple)
+        // monster.setHp(monster.getHp() * multiple)
     },
 
     getMonsterForTower : function(mode, position, range, who) {
@@ -73,26 +78,6 @@ let MonsterController = cc.Class.extend({
             position,
             range,
             who);
-    },
-
-    // TODO : Thực hiện sinh ra các turn quái
-    generateMonsterRound : function(currentTick) {
-        let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
-        NetworkManager.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 10, MonsterConfig.Type.CROW_SKELETON)
-        enemyGameLoop.getActionQueue().addToActionList(
-            new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.CROW_SKELETON}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
-
-        NetworkManager.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 20, MonsterConfig.Type.GIANT)
-        enemyGameLoop.getActionQueue().addToActionList(
-            new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.GIANT}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
-
-        NetworkManager.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 30, MonsterConfig.Type.EVIL_BAT)
-        enemyGameLoop.getActionQueue().addToActionList(
-            new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.EVIL_BAT}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
-
-        NetworkManager.Connector.getIntance().getBattleHandler().sendDropMonster(currentTick + 40, MonsterConfig.Type.ICE_MAN)
-        enemyGameLoop.getActionQueue().addToActionList(
-            new UserEvent(currentTick + 10, {cardId : MonsterConfig.Type.GHOST_SWORDER}, UserEvent.Type.CREATE_MONSTER, enemyGameLoop.getWho()))
     },
 
     /**

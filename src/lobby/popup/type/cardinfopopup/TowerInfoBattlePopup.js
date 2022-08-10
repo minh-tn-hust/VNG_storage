@@ -70,9 +70,10 @@ let TowerInfoBattlePopup = PopupLayer.extend({
         let exitButton = Util.getChildByName(this.layer,"ExitButton")[0];
         this.initCloseButton(exitButton);
 
-        var nodeCardIcon = Util.getChildByName(this.layer,"CardIcon")[0];
+        // var nodeCardIcon = Util.getChildByName(this.layer,"CardIcon")[0];
         var card = UserInfo.getInstance().getCardByID(this.cardID)
-        CardUtil.setCardUI(nodeCardIcon,card);
+        // CardUtil.setCardUI(nodeCardIcon,card);
+        this.setupCardIcon(card);
 
         this.requirementForUpdate = CardUtil.getRequirementForLevel(card.getLevel()+1);
 
@@ -80,6 +81,11 @@ let TowerInfoBattlePopup = PopupLayer.extend({
         this.setStat(card);
         this.displayStat(this.getCurrentDisplayLevel());
         this.setupButton();
+    },
+
+    setupCardIcon: function (card) {
+        var nodeCardIcon = Util.getChildByName(this.layer,"CardIcon")[0];
+        CardUtil.setCardUI(nodeCardIcon,card);
     },
 
     setStatNode: function () {
@@ -128,6 +134,7 @@ let TowerInfoBattlePopup = PopupLayer.extend({
 
             cc.log("statImage: ",statImage);
             statImage.loadTexture(configStat.image);
+            statName.ignoreContentAdaptWithSize(true);
             statName.setString(configStat.name);
             statValue.setString(this.stat[level][key]+configStat.unit);
             i++;
@@ -151,7 +158,7 @@ let TowerInfoBattlePopup = PopupLayer.extend({
         var goldText = Util.getChildByName(upgradeButton,"GoldText")[0];
         goldText.setString(this.getRequiredCoin());
         if (UserInfo.getInstance().getGold()<this.getRequiredCoin()){
-            // goldText.setTextColor(cc.Color.RED);
+            goldText.setTextColor(cc.color("#FF0000"));
         }
 
         var skillButton = Util.getChildByName(this.layer,"SkillButton")[0];
@@ -183,6 +190,16 @@ let TowerInfoBattlePopup = PopupLayer.extend({
 
     upgradeSuccess: function () {
         this.openAnotherPopup(PopupLayerController.TYPE.CARD_UPGRADE_SUCCESS);
+        var card = UserInfo.getInstance().getCardByID(this.cardID)
+        // CardUtil.setCardUI(nodeCardIcon,card);
+        this.setupCardIcon(card);
+        this.requirementForUpdate = CardUtil.getRequirementForLevel(card.getLevel()+1);
+        var upgradeButton = Util.getChildByName(this.layer,"UpgradeButton")[0];
+        var goldText = Util.getChildByName(upgradeButton,"GoldText")[0];
+        goldText.setString(this.getRequiredCoin());
+        if (UserInfo.getInstance().getGold()<this.getRequiredCoin()){
+            goldText.setTextColor(cc.color("#FF0000"));
+        }
     },
 
     cannotUpgradeCardPopup: function (status) {

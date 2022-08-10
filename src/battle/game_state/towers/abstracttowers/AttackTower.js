@@ -32,8 +32,9 @@ let AttackTower = Tower.extend({
     setBasicStat: function (level) {
         let stat = TowerConfig.getTowerInfo(this.getID());
         this.setDamage(CardUtil.upgradeFactorToLevel(
-            stat[level]["damage"], this.getLevel(),CardUtil.upgradeDamagePercent
+            stat[level]["damage"], this.getCardLevel(),CardUtil.upgradeDamagePercent
         ));
+        cc.log("Damage: ",this.getDamage());
         this.setSpeed(stat[level]["attackSpeed"]/Tower.SPEED_UNIT);
         this.setRange(stat[level]["range"]);
         this.setBulletRadius(stat[level]["bulletRadius"]);
@@ -77,26 +78,28 @@ let AttackTower = Tower.extend({
         return id;
     },
 
-    ctor: function (who,matrixPosition,isCloned) {
+    ctor: function (who,matrixPosition,cardLevel,isCloned) {
         this.setBulletPool();
         this.setTargetMode(TowerUtil.TARGET_MODE.NEAREST);
         this.setLastFireTick(-20);
-        this._super(who,matrixPosition,isCloned);
+        this._super(who,matrixPosition,cardLevel,isCloned);
     },
 
     fire: function (currentTick) {
         let target = this.getTarget();
         if (target !== null && target.getCanTarget()) {
             let bullet = this.createBullet(target);
-            // cc.log("After bullet")
             bullet.setTarget(target);
             this.getBulletPool().push(bullet);
             this.setLastFireTick(currentTick);
+
             if (this.getIsCloned() !== true) {
                 // TODO add bullet sprite to bullet pool
                 let bulletDisplay = this.createBulletUI(bullet);
                 let battleScene = cc.director.getRunningScene();
-                battleScene.getObjectLayer().addBulletSprite(bulletDisplay, this.getWho());
+                battleScene.getObjectLayer().addBulletSprite(
+                    bulletDisplay, this.getWho());
+                this.getTowerSprite().runAttackAnimation();
             }
         }
     },

@@ -28,7 +28,7 @@ let ObjectLayer = cc.Layer.extend({
         } else {
             this._enemyField._monsterSprites.push(monster)
         }
-        this.addChild(monster, 0, ObjectLayer.MONSTER_TAG)
+        this.addChild(monster, 100, ObjectLayer.MONSTER_TAG)
     },
 
     resetMonsterSprites : function (who) {
@@ -42,7 +42,7 @@ let ObjectLayer = cc.Layer.extend({
     removeMonsterSprites : function(who) {
         let monsterSprites = this.getMonsterSprites(who)
         for (let i = 0; i < monsterSprites.length; i++) {
-            this.removeChild(monsterSprites[i])
+            this.removeChild(monsterSprites[i], true)
         }
         this.resetMonsterSprites(who)
     },
@@ -70,7 +70,7 @@ let ObjectLayer = cc.Layer.extend({
         } else {
             this._enemyField._towerSprites.push(tower);
         }
-        this.addChild(tower, 0, ObjectLayer.TOWER_TAG)
+        this.addChild(tower, 99, ObjectLayer.TOWER_TAG)
     },
 
     getTowerSprites : function(who) {

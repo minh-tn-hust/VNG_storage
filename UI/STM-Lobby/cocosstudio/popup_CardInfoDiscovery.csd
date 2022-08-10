@@ -132,7 +132,7 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="StatBackground" ActionTag="-1418410056" VisibleForFrame="False" Tag="2115" IconVisible="False" LeftMargin="-65.7555" RightMargin="-191.2445" TopMargin="5.9200" BottomMargin="-79.9200" LeftEage="84" RightEage="84" TopEage="24" BottomEage="24" Scale9OriginX="84" Scale9OriginY="24" Scale9Width="89" Scale9Height="26" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="StatBackground" ActionTag="-1418410056" Tag="2115" IconVisible="False" LeftMargin="-65.7555" RightMargin="-191.2445" TopMargin="5.9200" BottomMargin="-79.9200" LeftEage="84" RightEage="84" TopEage="24" BottomEage="24" Scale9OriginX="84" Scale9OriginY="24" Scale9Width="89" Scale9Height="26" ctype="ImageViewObjectData">
                     <Size X="257.0000" Y="74.0000" />
                     <Children>
                       <AbstractNodeData Name="StatImage" ActionTag="-160134739" Tag="2116" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="14.5500" RightMargin="194.4500" TopMargin="11.5000" BottomMargin="11.5000" LeftEage="15" RightEage="15" TopEage="16" BottomEage="16" Scale9OriginX="15" Scale9OriginY="16" Scale9Width="18" Scale9Height="19" ctype="ImageViewObjectData">
@@ -145,7 +145,7 @@
                         <PreSize X="0.1868" Y="0.6892" />
                         <FileData Type="Normal" Path="card_asset/stat_icon/stat_icon_damage.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="StatName" ActionTag="-1840537922" Tag="2117" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="64.9182" RightMargin="70.0818" TopMargin="5.3016" BottomMargin="49.6984" FontSize="14" LabelText="Sát thương:" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                      <AbstractNodeData Name="StatName" ActionTag="-1840537922" Tag="2117" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="64.9182" RightMargin="70.0818" TopMargin="5.3016" BottomMargin="49.6984" IsCustomSize="True" FontSize="14" LabelText="Sát thương:" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="122.0000" Y="19.0000" />
                         <AnchorPoint />
                         <Position X="64.9182" Y="49.6984" />
@@ -178,7 +178,7 @@
                     <PreSize X="0.0000" Y="0.0000" />
                     <FileData Type="Normal" Path="lobby_asset/lobby_card_panel_stat.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="StatBackground" ActionTag="-387663321" VisibleForFrame="False" Tag="2119" IconVisible="False" LeftMargin="117.9185" RightMargin="-374.9185" TopMargin="5.3736" BottomMargin="-79.3736" LeftEage="84" RightEage="84" TopEage="24" BottomEage="24" Scale9OriginX="84" Scale9OriginY="24" Scale9Width="89" Scale9Height="26" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="StatBackground" ActionTag="-387663321" Tag="2119" IconVisible="False" LeftMargin="117.9185" RightMargin="-374.9185" TopMargin="5.3736" BottomMargin="-79.3736" LeftEage="84" RightEage="84" TopEage="24" BottomEage="24" Scale9OriginX="84" Scale9OriginY="24" Scale9Width="89" Scale9Height="26" ctype="ImageViewObjectData">
                     <Size X="257.0000" Y="74.0000" />
                     <Children>
                       <AbstractNodeData Name="StatImage" ActionTag="735754599" Tag="2120" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="20.5500" RightMargin="200.4500" TopMargin="11.0000" BottomMargin="11.0000" LeftEage="15" RightEage="15" TopEage="16" BottomEage="16" Scale9OriginX="15" Scale9OriginY="16" Scale9Width="6" Scale9Height="20" ctype="ImageViewObjectData">
@@ -224,7 +224,7 @@
                     <PreSize X="0.0000" Y="0.0000" />
                     <FileData Type="Normal" Path="lobby_asset/lobby_card_panel_stat.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="StatBackground" ActionTag="535267706" VisibleForFrame="False" Tag="2123" IconVisible="False" LeftMargin="-65.7555" RightMargin="-191.2445" TopMargin="59.8616" BottomMargin="-133.8616" LeftEage="84" RightEage="84" TopEage="24" BottomEage="24" Scale9OriginX="84" Scale9OriginY="24" Scale9Width="89" Scale9Height="26" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="StatBackground" ActionTag="535267706" Tag="2123" IconVisible="False" LeftMargin="-65.7555" RightMargin="-191.2445" TopMargin="59.8616" BottomMargin="-133.8616" LeftEage="84" RightEage="84" TopEage="24" BottomEage="24" Scale9OriginX="84" Scale9OriginY="24" Scale9Width="89" Scale9Height="26" ctype="ImageViewObjectData">
                     <Size X="257.0000" Y="74.0000" />
                     <Children>
                       <AbstractNodeData Name="StatImage" ActionTag="-1175003975" Tag="2124" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="14.0500" RightMargin="193.9500" TopMargin="12.5000" BottomMargin="12.5000" LeftEage="15" RightEage="15" TopEage="16" BottomEage="16" Scale9OriginX="15" Scale9OriginY="16" Scale9Width="19" Scale9Height="17" ctype="ImageViewObjectData">
@@ -270,7 +270,7 @@
                     <PreSize X="0.0000" Y="0.0000" />
                     <FileData Type="Normal" Path="lobby_asset/lobby_card_panel_stat.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="StatBackground" ActionTag="-725244284" VisibleForFrame="False" Tag="2127" IconVisible="False" LeftMargin="117.9185" RightMargin="-374.9185" TopMargin="59.8616" BottomMargin="-133.8616" LeftEage="84" RightEage="84" TopEage="24" BottomEage="24" Scale9OriginX="84" Scale9OriginY="24" Scale9Width="89" Scale9Height="26" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="StatBackground" ActionTag="-725244284" Tag="2127" IconVisible="False" LeftMargin="117.9185" RightMargin="-374.9185" TopMargin="59.8616" BottomMargin="-133.8616" LeftEage="84" RightEage="84" TopEage="24" BottomEage="24" Scale9OriginX="84" Scale9OriginY="24" Scale9Width="89" Scale9Height="26" ctype="ImageViewObjectData">
                     <Size X="257.0000" Y="74.0000" />
                     <Children>
                       <AbstractNodeData Name="StatImage" ActionTag="-1829946218" Tag="2128" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="12.5500" RightMargin="192.4500" TopMargin="9.5000" BottomMargin="9.5000" LeftEage="15" RightEage="15" TopEage="16" BottomEage="16" Scale9OriginX="15" Scale9OriginY="16" Scale9Width="22" Scale9Height="23" ctype="ImageViewObjectData">
@@ -316,7 +316,7 @@
                     <PreSize X="0.0000" Y="0.0000" />
                     <FileData Type="Normal" Path="lobby_asset/lobby_card_panel_stat.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="StatBackground" ActionTag="-208061374" VisibleForFrame="False" Tag="2131" IconVisible="False" LeftMargin="-65.7555" RightMargin="-191.2445" TopMargin="114.6789" BottomMargin="-188.6789" LeftEage="84" RightEage="84" TopEage="24" BottomEage="24" Scale9OriginX="84" Scale9OriginY="24" Scale9Width="89" Scale9Height="26" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="StatBackground" ActionTag="-208061374" Tag="2131" IconVisible="False" LeftMargin="-65.7555" RightMargin="-191.2445" TopMargin="114.6789" BottomMargin="-188.6789" LeftEage="84" RightEage="84" TopEage="24" BottomEage="24" Scale9OriginX="84" Scale9OriginY="24" Scale9Width="89" Scale9Height="26" ctype="ImageViewObjectData">
                     <Size X="257.0000" Y="74.0000" />
                     <Children>
                       <AbstractNodeData Name="StatImage" ActionTag="397389060" Tag="2132" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="15.5500" RightMargin="195.4500" TopMargin="10.5000" BottomMargin="10.5000" LeftEage="15" RightEage="15" TopEage="16" BottomEage="16" Scale9OriginX="15" Scale9OriginY="16" Scale9Width="16" Scale9Height="21" ctype="ImageViewObjectData">

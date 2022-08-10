@@ -34,4 +34,7 @@ UserEvent.Type = {
     REMOVE_TOWER : 4,
     CREATE_MONSTER : 5,
     ROLL_BACK : 6,
+    SYSTEM_MONSTER : 7,
+    SYSTEM_CREATE_MONSTER : 8,
+    END_GAME : 9,
 }

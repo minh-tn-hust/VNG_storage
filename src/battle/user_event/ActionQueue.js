@@ -1,8 +1,22 @@
 let ActionQueue = cc.Class.extend({
     _actionList : null,
+    _who : null,
     ctor : function(who) {
         this._actionList = []
         this._usedList = []
+        this.setWho(who)
+    },
+
+    getWho : function() {return this._who},
+    setWho : function(who) {this._who = who},
+
+    initActionList : function() {
+        let actionList = this.getActionList()
+        let who = this.getWho()
+        for (let i = 0; i < 20; i++) {
+            actionList.push(new UserEvent(50 + i * 200, {round : i + 1}, UserEvent.Type.SYSTEM_MONSTER, who))
+        }
+        cc.log(JSON.stringify(actionList))
     },
 
     /** @returns {UserEvent[]}*/
@@ -52,7 +66,7 @@ let ActionQueue = cc.Class.extend({
     },
 
     /**
-     * @param {UserEvent,PlaceTowerEvent} userEvent
+     * @param {UserEvent} userEvent
      */
     addEvent : function(userEvent) {
         this.getActionList().push(userEvent)

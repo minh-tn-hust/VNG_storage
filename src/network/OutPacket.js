@@ -283,13 +283,15 @@ CmdPlantTower = fr.OutPacket.extend({
      * @param {number} commingTick
      * @param {number} cardId
      * @param {cc.Point} position
+     * @param {number} level
      */
-    pack : function(commingTick, cardId, position) {
+    pack : function(commingTick, cardId, position, level) {
         this.packHeader()
         this.putInt(commingTick)
         this.putInt(cardId)
         this.putInt(position.x)
         this.putInt(position.y)
+        this.putInt(level)
         this.updateSize()
     }
 })

@@ -392,6 +392,7 @@ NetworkManger.packetMap[gv.CMD.PLANT_TOWER] = fr.InPacket.extend({
         position.x = this.getInt()
         position.y = this.getInt()
         this.position = position
+        this.level = this.getInt()
         this.error = this.getError()
     }
 })

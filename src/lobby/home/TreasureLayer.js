@@ -42,6 +42,7 @@ var TreasureLayer = cc.Layer.extend({
             time -=second;
             this.countingObject.button.getUserData().setRemainingTime(time);
             // cc.log("Cross Check: ",this.getTreasureLayerController().listTreasureInfo[1])
+            this.countingObject.timeLabel.ignoreContentAdaptWithSize(true);
             this.countingObject.timeLabel.setString(Util.convertSecondToString(time));
             this.countingObject.nGem.setString(Math.ceil(
                 time/(TreasureLayerController.TIME_TO_DISCOUNT_GEM*60)));

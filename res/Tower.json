@@ -48,21 +48,21 @@
           "damage": 5.0,
           "attackSpeed": 2200,
           "range": 1.5,
-          "bulletRadius": 1.0,
+          "bulletRadius": 2.0,
           "bulletSpeed": 30
         },
         "2": {
           "damage": 8.0,
           "attackSpeed": 2000,
           "range": 1.7,
-          "bulletRadius": 1.0,
+          "bulletRadius": 2.0,
           "bulletSpeed": 30
         },
         "3": {
           "damage": 20.0,
           "attackSpeed": 1800,
           "range": 2.0,
-          "bulletRadius": 1.0,
+          "bulletRadius": 2.0,
           "bulletSpeed": 30
         }
       }
@@ -81,21 +81,21 @@
           "damage": 3.0,
           "attackSpeed": 1500,
           "range": 2.0,
-          "bulletRadius": 0.0,
+          "bulletRadius": 0.6,
           "bulletSpeed": 30
         },
         "2": {
           "damage": 5.0,
           "attackSpeed": 1300,
           "range": 2.3,
-          "bulletRadius": 0.0,
+          "bulletRadius": 0.6,
           "bulletSpeed": 30
         },
         "3": {
           "damage": 8.0,
           "attackSpeed": 1000,
           "range": 2.8,
-          "bulletRadius": 0.0,
+          "bulletRadius": 0.6,
           "bulletSpeed": 30
         }
       }
@@ -111,27 +111,27 @@
       "shootAnimationTime": 297,
       "stat": {
         "1": {
-          "damage": 0.0,
+          "damage": 4.0,
           "attackSpeed": 2000,
           "range": 1.5,
-          "bulletRadius": 0.6,
-          "bulletSpeed": 40,
+          "bulletRadius": 1.5,
+          "bulletSpeed": 25,
           "effectSlowTime": 3
         },
         "2": {
-          "damage": 0.0,
+          "damage": 6.0,
           "attackSpeed": 1800,
           "range": 1.6,
-          "bulletRadius": 0.8,
-          "bulletSpeed": 40,
+          "bulletRadius": 1.5,
+          "bulletSpeed": 25,
           "effectSlowTime": 3
         },
         "3": {
-          "damage": 0.0,
+          "damage": 8.0,
           "attackSpeed": 1600,
           "range": 1.7,
-          "bulletRadius": 1.0,
-          "bulletSpeed": 40,
+          "bulletRadius": 1.5,
+          "bulletSpeed": 25,
           "effectSlowTime": 3
         }
       }
@@ -147,27 +147,27 @@
       "shootAnimationTime": 33,
       "stat": {
         "1": {
-          "damage": 0.0,
+          "damage": 8.0,
           "attackSpeed": 3400,
-          "range": 1.8,
+          "range": 1.5,
           "bulletRadius": 0.0,
-          "bulletSpeed": 60,
+          "bulletSpeed": 40,
           "effectFreezeTime": 1.5
         },
         "2": {
-          "damage": 0.0,
+          "damage": 10.0,
           "attackSpeed": 3200,
-          "range": 2.0,
+          "range": 1.7,
           "bulletRadius": 0.0,
-          "bulletSpeed": 60,
+          "bulletSpeed": 40,
           "effectFreezeTime": 1.8
         },
         "3": {
-          "damage": 0.0,
+          "damage": 12.0,
           "attackSpeed": 3000,
-          "range": 2.2,
+          "range": 1.9,
           "bulletRadius": 0.0,
-          "bulletSpeed": 60,
+          "bulletSpeed": 40,
           "effectFreezeTime": 2.2
         }
       }

@@ -5023,6 +5023,7 @@
         <Project Name="battle_Timer.csd" Type="Node" />
         <Project Name="battle_Tower.csd" Type="Node" />
         <Project Name="battle_uiLayer.csd" Type="Layer" />
+        <Project Name="battle_UILayer.csd" Type="Layer" />
         <Project Name="battle_uiLayer_TowerItem.csd" Type="Node" />
         <Project Name="battle_uiLayer_TowerRangeSelector.csd" Type="Node" />
         <Project Name="MainScene.csd" Type="Scene" />

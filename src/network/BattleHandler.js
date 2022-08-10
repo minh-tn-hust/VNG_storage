@@ -31,10 +31,10 @@ let BattleHandler = cc.Class.extend({
         pk.pack(comingTick, cardId)
         this.getGameClient().sendPacket(pk)
     },
-    sendPlantTower : function(comingTick, cardId, position) {
+    sendPlantTower : function(comingTick, cardId, position, level) {
         cc.log("Battle - Request Plant Tower")
         var pk = this.getGameClient().getOutPacket(CmdPlantTower)
-        pk.pack(comingTick, cardId, position)
+        pk.pack(comingTick, cardId, position, level)
         this.getGameClient().sendPacket(pk)
     },
 
@@ -71,17 +71,19 @@ let BattleHandler = cc.Class.extend({
         let error = plantTowerPacket.error
         let cardId = plantTowerPacket.cardId
         let position = plantTowerPacket.position
+        let cardLevel = plantTowerPacket.level
         if (error === 10) {
             let enemyGameLoop = cc.director.getRunningScene().getEnemyGameLoop()
             enemyGameLoop.getActionQueue().addToActionList(
                 new UserEvent(plantTowerPacket.comingTick,
-                    {cardId : cardId, position: position},
+                    {cardId : cardId, position: position,cardLevel:cardLevel},
                     UserEvent.Type.PLANT_TOWER, enemyGameLoop.getWho()
                 )
             )
         }
     },
     receiveDropMonster : function(dropMonsterPacket) {
+        cc.log("CALLING CREATE MONSTER")
         let error = dropMonsterPacket.error
         let cardId = dropMonsterPacket.cardId
         if (error === 10) {

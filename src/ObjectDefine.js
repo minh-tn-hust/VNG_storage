@@ -55,6 +55,7 @@ let PlantTowerInfo = cc.Class.extend({
     comingTick : 23,
     cardId:0,
     position:cc.p({x:1,y:1}),
+    level:0,
     error:10
 })
 

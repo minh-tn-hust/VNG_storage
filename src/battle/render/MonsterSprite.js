@@ -6,6 +6,8 @@ let MonsterSprite = cc.Sprite.extend({
     // xem có cần phải thay đổi hay không
     _modelTickPos : null,
     _modelTickDirection : null,
+    _hpUI : null,
+    _hpText : null,
 
     // GETTER
     getMonster : function() {return this._monster},
@@ -33,13 +35,13 @@ let MonsterSprite = cc.Sprite.extend({
         this.setMonster(monster)
         this.setModelTickPos(JSON.parse(JSON.stringify(monster.getPosition())))
         this.setModelTickDirection(JSON.parse(JSON.stringify(this.getMonster().getDirection())))
-        this.setMonsterConfig(monster.getConfig())
+        this.setMonsterConfig(JSON.parse(JSON.stringify(monster.getConfig())))
         this.setPosition(BattleUtil.fromModelPositionToPosition(monster.getPosition(), monster.getWho()))
         this._id = Date.now()
 
         this.createAnimationCache()
         this.initAnimation(monster.getConfig())
-        this.initHPBar(this.getConfig())
+        this.initHPBar(this.getMonsterConfig())
         this.scheduleUpdate()
     },
 
@@ -47,16 +49,19 @@ let MonsterSprite = cc.Sprite.extend({
         // Khởi tạo thanh máu của quái vật
         let hpBackgroundSpriteFrame = cc.spriteFrameCache.getSpriteFrame("battle_target_hp_background.png")
         let hpSpriteFrame = cc.spriteFrameCache.getSpriteFrame("battle_target_hp.png")
-        let hpBackground = cc.Sprite(hpBackgroundSpriteFrame)
-        let hp = cc.Sprite(hpSpriteFrame)
+        let hpBackground = new cc.Sprite(hpBackgroundSpriteFrame)
+        let hp = new cc.Sprite(hpSpriteFrame)
         hp.setAnchorPoint(0, 0.5)
         hp.setPosition(0, hpBackground.getContentSize().height / 2) // thực hiện set 2 thanh HP về cùng một chỗ
         hpBackground.addChild(hp)
-        hpBackground.setPosition(assetConfig.hpPosition)
+        hpBackground.setPosition(JSON.parse(JSON.stringify(assetConfig.hpPosition)))
         let hpString = new ccui.Text()
-        hpString.setFontName("SVN-Supercell Magic")
+        hpString.setFontName("res/SVN-SupercellMagic.ttf")
         hpString.setPosition(28, 5)
         hpString.setString(this.getHp())
+        if (this.getWho() === BattleUtil.Who.Mine){
+            hpString.setColor(cc.color.BLUE)
+        }
         hpBackground.addChild(hpString)
         this._hpText = hpString
         this.addChild(hpBackground)
@@ -65,8 +70,8 @@ let MonsterSprite = cc.Sprite.extend({
 
     updateHPBar : function() {
         if (this.getMonster().isDie() === false) {
-            let newHp = this.getHp()
-            this._hpText.setString(newHp)
+            this._hpUI.setScaleX(this.getMonster().getHp() / this.getMonster().getMaxHp())
+            this._hpText.setString(this.getMonster().getHp().toFixed(2))
         }
     },
 
@@ -75,6 +80,21 @@ let MonsterSprite = cc.Sprite.extend({
     update : function(dt) {
         this.moving(dt)
         this.updateHPBar()
+        this.runEffect()
+        if (this.getMonster()._needUpdateAnimation) {
+            this.runAnimationByDirection(true)
+            this.getMonster()._needUpdateAnimation = false
+        }
+    },
+
+    runEffect : function() {
+        let monsterModel = this.getMonster()
+        let effects = monsterModel.getEffects()
+        for (let i = 0; i < effects.length; i++) {
+            if (!effects[i].animation) {
+                effects[i].initAnimation(this)
+            }
+        }
     },
 
     /**

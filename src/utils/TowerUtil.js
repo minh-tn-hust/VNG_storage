@@ -136,8 +136,8 @@ TowerUtil.getLowestBloodMonster = function (
 }
 
 TowerUtil.MAX_EVOL_LEVEL = {
-    C:1,
-    B:2,
-    A:3,
-    S:3
+    0:1,
+    1:2,
+    2:3,
+    3:3
 }

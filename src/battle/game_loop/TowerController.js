@@ -13,6 +13,17 @@ let TowerController = cc.Class.extend({
     getTowers: function (){return this._towers;},
     getWho: function () {return this._who},
     getGameLoop : function() {return this._gameLoop},
+    getTowerLevel : function() {
+            let sumLevel=0;
+            for (let i=0;i<BattleUtil.NUM_CELL_HEIGHT;++i) {
+                for (let j = 0; j < BattleUtil.NUM_CELL_WIDTH; ++j) {
+                    if (this.getTowers()[i][j]!==undefined){
+                        sumLevel +=  this.getTowers()[i][j].getCardLevel()/5|0;
+                    }
+                }
+            }
+            return sumLevel;
+        },
 
 
     // SETTER
@@ -61,34 +72,41 @@ let TowerController = cc.Class.extend({
      * plant towers (cid) at position
      * @param {number} cid
      * @param {cc.Point} position
+     * @param {number} cardLevel 1-20 // TODO or 0-19
      * @param {boolean} isCloned
      */
-    plantTower: function (cid, position,isCloned) {
-        cc.log("TOWER CONRTOLLER - plantTower")
+    plantTower: function (cid, position,cardLevel,isCloned) {
+        cc.log("TOWER CONTROLLER - plantTower")
         let tower = this.getTowers()[position.y][position.x];
         // nếu như tại đó đã tồn tại trụ rồi
         if (tower !== undefined){
             cc.log("Tower Controller - Upgrade Tower")
-            return !!(tower.getID() === cid && tower.upgrade());
+            if (tower.getID()===cid){
+                tower.upgrade();
+            }
         } else {
             // Nếu như tại đó chưa tồn tại trụ
             this.getTowers()[position.y][position.x] = Tower.createTower(
-                cid,this.getWho(),position,false);
+                cid,this.getWho(),position,cardLevel,false);
             if (isCloned !== true) {
-                this.plantNewUITower(cid,this.getTowers()[position.y][position.x],0);
+                var towerSprite = this.plantNewUITower(
+                    cid,this.getTowers()[position.y][position.x],0
+                );
+                this.getTowers()[position.y][position.x].setTowerSprite(towerSprite);
             }
-            return true;
         }
     },
 
     // TODO : Tạch biệt phần UI ra khỏi Controller
     plantNewUITower: function (cid, tower, timeout) {
         let who = this.getWho();
+        let towerSprite = TowerSprite.createTowerSprite(cid,tower);
+        towerSprite.retain();
+        let battleScene = cc.director.getRunningScene();
         setTimeout(function () {
-            let towerSprite = TowerSprite.createTowerSprite(cid,tower);
-            let battleScene = cc.director.getRunningScene();
             battleScene.getObjectLayer().addTowerSprite(towerSprite,who)
         },timeout);
+        return towerSprite;
     },
 
     /**

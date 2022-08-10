@@ -160,7 +160,7 @@
               <AbstractNodeData Name="progressBar" ActionTag="1716894360" Tag="2063" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="3.0000" RightMargin="3.0000" TopMargin="3.0000" BottomMargin="3.0000" ProgressInfo="74" ctype="LoadingBarObjectData">
                 <Size X="120.0000" Y="24.0000" />
                 <Children>
-                  <AbstractNodeData Name="progressText" ActionTag="-806375773" Tag="864" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="35.0000" RightMargin="35.0000" TopMargin="1.8000" BottomMargin="4.2000" FontSize="13" LabelText="0/20" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="progressText" ActionTag="-806375773" Tag="864" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="35.0000" RightMargin="35.0000" TopMargin="1.8000" BottomMargin="4.2000" FontSize="13" LabelText="0/20" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="50.0000" Y="18.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="60.0000" Y="13.2000" />

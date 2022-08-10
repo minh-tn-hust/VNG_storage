@@ -731,6 +731,7 @@
                       "Path": "SVN-Supercell Magic.ttf",
                       "Plist": ""
                     },
+                    "HorizontalAlignmentType": "HT_Center",
                     "OutlineColor": {
                       "G": 0,
                       "B": 0

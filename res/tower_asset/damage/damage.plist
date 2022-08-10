@@ -7,7 +7,7 @@
             <key>tower_damage_attack_0_0000.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{268,628},{36,50}}</string>
+                <string>{{536,986},{36,50}}</string>
                 <key>offset</key>
                 <string>{0,19}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>tower_damage_attack_0_0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{38,780},{34,48}}</string>
+                <string>{{596,872},{34,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>tower_damage_attack_0_0002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{320,630},{34,50}}</string>
+                <string>{{484,988},{34,50}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -46,11 +46,11 @@
             <key>tower_damage_attack_0_0003.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,634},{34,52}}</string>
+                <string>{{484,934},{34,52}}</string>
                 <key>offset</key>
                 <string>{3,21}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{151,118},{34,52}}</string>
                 <key>sourceSize</key>
@@ -59,11 +59,11 @@
             <key>tower_damage_attack_0_0004.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{78,630},{34,52}}</string>
+                <string>{{504,740},{34,52}}</string>
                 <key>offset</key>
                 <string>{3,21}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{151,118},{34,52}}</string>
                 <key>sourceSize</key>
@@ -72,11 +72,11 @@
             <key>tower_damage_attack_0_0005.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{162,628},{36,52}}</string>
+                <string>{{496,826},{36,52}}</string>
                 <key>offset</key>
                 <string>{4,23}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{151,116},{36,52}}</string>
                 <key>sourceSize</key>
@@ -85,11 +85,11 @@
             <key>tower_damage_attack_0_0006.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{324,590},{38,54}}</string>
+                <string>{{478,580},{38,54}}</string>
                 <key>offset</key>
                 <string>{5,24}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{151,114},{38,54}}</string>
                 <key>sourceSize</key>
@@ -98,11 +98,11 @@
             <key>tower_damage_attack_0_0007.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{434,590},{38,52}}</string>
+                <string>{{484,880},{38,52}}</string>
                 <key>offset</key>
                 <string>{5,23}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{151,116},{38,52}}</string>
                 <key>sourceSize</key>
@@ -111,11 +111,11 @@
             <key>tower_damage_attack_0_0008.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{380,590},{38,52}}</string>
+                <string>{{456,826},{38,52}}</string>
                 <key>offset</key>
                 <string>{3,22}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{149,117},{38,52}}</string>
                 <key>sourceSize</key>
@@ -124,11 +124,11 @@
             <key>tower_damage_attack_0_0009.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{216,628},{36,50}}</string>
+                <string>{{520,934},{36,50}}</string>
                 <key>offset</key>
                 <string>{2,21}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{149,119},{36,50}}</string>
                 <key>sourceSize</key>
@@ -137,11 +137,11 @@
             <key>tower_damage_attack_0_0010.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{38,730},{34,48}}</string>
+                <string>{{584,836},{34,48}}</string>
                 <key>offset</key>
                 <string>{0,20}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{148,121},{34,48}}</string>
                 <key>sourceSize</key>
@@ -150,7 +150,7 @@
             <key>tower_damage_attack_0_0011.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{38,680},{34,48}}</string>
+                <string>{{570,786},{34,48}}</string>
                 <key>offset</key>
                 <string>{0,19}</string>
                 <key>rotated</key>
@@ -163,11 +163,11 @@
             <key>tower_damage_attack_0_0012.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,980},{34,48}}</string>
+                <string>{{540,736},{34,48}}</string>
                 <key>offset</key>
                 <string>{0,19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{148,122},{34,48}}</string>
                 <key>sourceSize</key>
@@ -176,7 +176,7 @@
             <key>tower_damage_attack_0_0013.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,930},{34,48}}</string>
+                <string>{{512,686},{34,48}}</string>
                 <key>offset</key>
                 <string>{0,19}</string>
                 <key>rotated</key>
@@ -189,7 +189,7 @@
             <key>tower_damage_attack_0_0014.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,880},{34,48}}</string>
+                <string>{{512,636},{34,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -202,11 +202,11 @@
             <key>tower_damage_attack_1_0000.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,378},{52,80}}</string>
+                <string>{{248,844},{52,80}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{132,108},{52,80}}</string>
                 <key>sourceSize</key>
@@ -215,11 +215,11 @@
             <key>tower_damage_attack_1_0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{164,528},{50,78}}</string>
+                <string>{{382,912},{50,78}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,109},{50,78}}</string>
                 <key>sourceSize</key>
@@ -228,11 +228,11 @@
             <key>tower_damage_attack_1_0002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{162,580},{46,74}}</string>
+                <string>{{464,664},{46,74}}</string>
                 <key>offset</key>
                 <string>{-6,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{136,111},{46,74}}</string>
                 <key>sourceSize</key>
@@ -241,11 +241,11 @@
             <key>tower_damage_attack_1_0003.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,586},{46,74}}</string>
+                <string>{{456,750},{46,74}}</string>
                 <key>offset</key>
                 <string>{-5,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{137,110},{46,74}}</string>
                 <key>sourceSize</key>
@@ -254,11 +254,11 @@
             <key>tower_damage_attack_1_0004.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{248,474},{52,78}}</string>
+                <string>{{378,334},{52,78}}</string>
                 <key>offset</key>
                 <string>{-3,20}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{136,106},{52,78}}</string>
                 <key>sourceSize</key>
@@ -267,11 +267,11 @@
             <key>tower_damage_attack_1_0005.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,320},{56,80}}</string>
+                <string>{{380,2},{56,80}}</string>
                 <key>offset</key>
                 <string>{-2,21}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{135,104},{56,80}}</string>
                 <key>sourceSize</key>
@@ -280,11 +280,11 @@
             <key>tower_damage_attack_1_0006.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{432,62},{58,78}}</string>
+                <string>{{354,672},{58,78}}</string>
                 <key>offset</key>
                 <string>{-2,21}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{134,105},{58,78}}</string>
                 <key>sourceSize</key>
@@ -293,11 +293,11 @@
             <key>tower_damage_attack_1_0007.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{432,122},{56,78}}</string>
+                <string>{{370,590},{56,78}}</string>
                 <key>offset</key>
                 <string>{-2,22}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{135,104},{56,78}}</string>
                 <key>sourceSize</key>
@@ -306,11 +306,11 @@
             <key>tower_damage_attack_1_0008.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{330,432},{54,78}}</string>
+                <string>{{376,420},{54,78}}</string>
                 <key>offset</key>
                 <string>{-3,22}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{135,104},{54,78}}</string>
                 <key>sourceSize</key>
@@ -319,11 +319,11 @@
             <key>tower_damage_attack_1_0009.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{84,372},{52,80}}</string>
+                <string>{{248,762},{52,80}}</string>
                 <key>offset</key>
                 <string>{-5,19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{134,106},{52,80}}</string>
                 <key>sourceSize</key>
@@ -332,11 +332,11 @@
             <key>tower_damage_attack_1_0010.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{166,370},{52,80}}</string>
+                <string>{{248,680},{52,80}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{132,108},{52,80}}</string>
                 <key>sourceSize</key>
@@ -345,11 +345,11 @@
             <key>tower_damage_attack_1_0011.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{166,314},{54,80}}</string>
+                <string>{{372,252},{54,80}}</string>
                 <key>offset</key>
                 <string>{-10,14}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{128,111},{54,80}}</string>
                 <key>sourceSize</key>
@@ -358,11 +358,11 @@
             <key>tower_damage_attack_1_0012.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{432,2},{58,78}}</string>
+                <string>{{322,926},{58,78}}</string>
                 <key>offset</key>
                 <string>{-12,15}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{124,111},{58,78}}</string>
                 <key>sourceSize</key>
@@ -371,11 +371,11 @@
             <key>tower_damage_attack_1_0013.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{412,430},{54,78}}</string>
+                <string>{{374,504},{54,78}}</string>
                 <key>offset</key>
                 <string>{-9,16}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{129,110},{54,78}}</string>
                 <key>sourceSize</key>
@@ -384,11 +384,11 @@
             <key>tower_damage_attack_1_0014.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{248,368},{52,80}}</string>
+                <string>{{380,166},{52,80}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{132,108},{52,80}}</string>
                 <key>sourceSize</key>
@@ -397,11 +397,11 @@
             <key>tower_damage_attack_2_0000.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{346,64},{60,84}}</string>
+                <string>{{66,176},{60,84}}</string>
                 <key>offset</key>
                 <string>{-4,19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,104},{60,84}}</string>
                 <key>sourceSize</key>
@@ -410,11 +410,11 @@
             <key>tower_damage_attack_2_0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{86,134},{60,82}}</string>
+                <string>{{188,430},{60,82}}</string>
                 <key>offset</key>
                 <string>{-4,19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,105},{60,82}}</string>
                 <key>sourceSize</key>
@@ -423,11 +423,11 @@
             <key>tower_damage_attack_2_0002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{84,314},{56,80}}</string>
+                <string>{{378,84},{56,80}}</string>
                 <key>offset</key>
                 <string>{-2,20}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{135,105},{56,80}}</string>
                 <key>sourceSize</key>
@@ -436,11 +436,11 @@
             <key>tower_damage_attack_2_0003.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{84,256},{56,80}}</string>
+                <string>{{322,2},{56,80}}</string>
                 <key>offset</key>
                 <string>{-2,21}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{135,104},{56,80}}</string>
                 <key>sourceSize</key>
@@ -449,11 +449,11 @@
             <key>tower_damage_attack_2_0004.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,134},{60,82}}</string>
+                <string>{{148,934},{60,82}}</string>
                 <key>offset</key>
                 <string>{0,22}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{135,102},{60,82}}</string>
                 <key>sourceSize</key>
@@ -462,11 +462,11 @@
             <key>tower_damage_attack_2_0005.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{64,84}}</string>
+                <string>{{66,2},{64,84}}</string>
                 <key>offset</key>
                 <string>{0,23}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,100},{64,84}}</string>
                 <key>sourceSize</key>
@@ -475,11 +475,11 @@
             <key>tower_damage_attack_2_0006.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{172,66},{64,82}}</string>
+                <string>{{128,172},{64,82}}</string>
                 <key>offset</key>
                 <string>{1,23}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{134,101},{64,82}}</string>
                 <key>sourceSize</key>
@@ -488,11 +488,11 @@
             <key>tower_damage_attack_2_0007.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{420,364},{64,80}}</string>
+                <string>{{310,422},{64,80}}</string>
                 <key>offset</key>
                 <string>{0,23}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,102},{64,80}}</string>
                 <key>sourceSize</key>
@@ -501,11 +501,11 @@
             <key>tower_damage_attack_2_0008.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,256},{62,80}}</string>
+                <string>{{316,170},{62,80}}</string>
                 <key>offset</key>
                 <string>{-1,23}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,102},{62,80}}</string>
                 <key>sourceSize</key>
@@ -514,11 +514,11 @@
             <key>tower_damage_attack_2_0009.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{174,2},{62,84}}</string>
+                <string>{{2,348},{62,84}}</string>
                 <key>offset</key>
                 <string>{-3,20}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,103},{62,84}}</string>
                 <key>sourceSize</key>
@@ -527,11 +527,11 @@
             <key>tower_damage_attack_2_0010.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{88,2},{62,84}}</string>
+                <string>{{2,262},{62,84}}</string>
                 <key>offset</key>
                 <string>{-5,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{129,105},{62,84}}</string>
                 <key>sourceSize</key>
@@ -540,11 +540,11 @@
             <key>tower_damage_attack_2_0011.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,68},{64,82}}</string>
+                <string>{{66,346},{64,82}}</string>
                 <key>offset</key>
                 <string>{-7,16}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{126,108},{64,82}}</string>
                 <key>sourceSize</key>
@@ -553,11 +553,11 @@
             <key>tower_damage_attack_2_0012.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{338,310},{68,80}}</string>
+                <string>{{248,598},{68,80}}</string>
                 <key>offset</key>
                 <string>{-9,16}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{122,109},{68,80}}</string>
                 <key>sourceSize</key>
@@ -566,11 +566,11 @@
             <key>tower_damage_attack_2_0013.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{88,66},{66,82}}</string>
+                <string>{{66,262},{66,82}}</string>
                 <key>offset</key>
                 <string>{-7,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{125,106},{66,82}}</string>
                 <key>sourceSize</key>
@@ -579,11 +579,206 @@
             <key>tower_damage_attack_2_0014.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{260,64},{60,84}}</string>
+                <string>{{64,434},{60,84}}</string>
                 <key>offset</key>
                 <string>{-4,19}</string>
                 <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{131,104},{60,84}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0000.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,864},{60,84}}</string>
+                <key>offset</key>
+                <string>{-4,19}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{131,104},{60,84}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0001.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{126,850},{60,82}}</string>
+                <key>offset</key>
+                <string>{-4,19}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{131,105},{60,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0002.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{320,86},{56,80}}</string>
+                <key>offset</key>
+                <string>{-3,19}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{134,106},{56,80}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0003.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{316,252},{54,80}}</string>
+                <key>offset</key>
+                <string>{-1,21}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{137,104},{54,80}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0004.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{126,766},{60,82}}</string>
+                <key>offset</key>
+                <string>{0,22}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{135,102},{60,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0005.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,90},{64,84}}</string>
+                <key>offset</key>
+                <string>{0,23}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{133,100},{64,84}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0006.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{132,2},{66,82}}</string>
+                <key>offset</key>
+                <string>{0,23}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{132,101},{66,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0007.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{308,508},{64,80}}</string>
+                <key>offset</key>
+                <string>{0,23}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{133,102},{64,80}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0008.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{314,338},{62,80}}</string>
+                <key>offset</key>
+                <string>{-1,23}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{133,102},{62,80}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0009.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{62,86}}</string>
+                <key>offset</key>
+                <string>{-3,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{131,104},{62,86}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0010.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,176},{62,84}}</string>
+                <key>offset</key>
+                <string>{-5,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{129,105},{62,84}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0011.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{136,86},{62,82}}</string>
+                <key>offset</key>
+                <string>{-6,16}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{128,108},{62,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0012.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,950},{70,82}}</string>
+                <key>offset</key>
+                <string>{-10,16}</string>
+                <key>rotated</key>
                 <true/>
+                <key>sourceColorRect</key>
+                <string>{{120,108},{70,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0013.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{68,88},{66,82}}</string>
+                <key>offset</key>
+                <string>{-7,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{125,106},{66,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_attack_3_0014.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,778},{60,84}}</string>
+                <key>offset</key>
+                <string>{-4,19}</string>
+                <key>rotated</key>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,104},{60,84}}</string>
                 <key>sourceSize</key>
@@ -592,7 +787,7 @@
             <key>tower_damage_idle_0_0000.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,830},{34,48}}</string>
+                <string>{{594,930},{34,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -605,7 +800,7 @@
             <key>tower_damage_idle_0_0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,780},{34,48}}</string>
+                <string>{{560,880},{34,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -618,11 +813,11 @@
             <key>tower_damage_idle_0_0002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,730},{34,48}}</string>
+                <string>{{534,844},{34,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{149,122},{34,48}}</string>
                 <key>sourceSize</key>
@@ -631,7 +826,7 @@
             <key>tower_damage_idle_0_0003.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,680},{34,48}}</string>
+                <string>{{534,794},{34,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -644,7 +839,7 @@
             <key>tower_damage_idle_0_0004.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{74,730},{32,48}}</string>
+                <string>{{480,246},{32,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -657,11 +852,11 @@
             <key>tower_damage_idle_0_0005.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{472,630},{34,48}}</string>
+                <string>{{588,980},{34,48}}</string>
                 <key>offset</key>
                 <string>{0,19}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{148,122},{34,48}}</string>
                 <key>sourceSize</key>
@@ -670,7 +865,7 @@
             <key>tower_damage_idle_0_0006.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{74,680},{32,48}}</string>
+                <string>{{466,328},{32,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -683,11 +878,11 @@
             <key>tower_damage_idle_0_0007.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{102,980},{32,48}}</string>
+                <string>{{432,428},{32,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{150,122},{32,48}}</string>
                 <key>sourceSize</key>
@@ -696,7 +891,7 @@
             <key>tower_damage_idle_0_0008.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{72,930},{32,48}}</string>
+                <string>{{432,378},{32,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -709,11 +904,11 @@
             <key>tower_damage_idle_0_0009.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{422,630},{34,48}}</string>
+                <string>{{558,930},{34,48}}</string>
                 <key>offset</key>
                 <string>{0,19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{148,122},{34,48}}</string>
                 <key>sourceSize</key>
@@ -722,7 +917,7 @@
             <key>tower_damage_idle_0_0010.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{72,880},{32,48}}</string>
+                <string>{{432,328},{32,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -735,7 +930,7 @@
             <key>tower_damage_idle_0_0011.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{72,830},{32,48}}</string>
+                <string>{{672,972},{32,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -748,11 +943,11 @@
             <key>tower_damage_idle_0_0012.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{52,980},{32,48}}</string>
+                <string>{{664,922},{32,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{150,122},{32,48}}</string>
                 <key>sourceSize</key>
@@ -761,7 +956,7 @@
             <key>tower_damage_idle_0_0013.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{38,930},{32,48}}</string>
+                <string>{{638,972},{32,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -774,7 +969,7 @@
             <key>tower_damage_idle_0_0014.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{38,880},{32,48}}</string>
+                <string>{{632,872},{32,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -787,7 +982,7 @@
             <key>tower_damage_idle_0_0015.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{38,830},{32,48}}</string>
+                <string>{{630,922},{32,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
@@ -800,11 +995,11 @@
             <key>tower_damage_idle_0_0016.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{372,630},{34,48}}</string>
+                <string>{{524,880},{34,48}}</string>
                 <key>offset</key>
                 <string>{1,19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{149,122},{34,48}}</string>
                 <key>sourceSize</key>
@@ -813,11 +1008,11 @@
             <key>tower_damage_idle_1_0000.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,432},{50,80}}</string>
+                <string>{{302,844},{50,80}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,108},{50,80}}</string>
                 <key>sourceSize</key>
@@ -826,11 +1021,11 @@
             <key>tower_damage_idle_1_0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{408,538},{50,78}}</string>
+                <string>{{354,832},{50,78}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,109},{50,78}}</string>
                 <key>sourceSize</key>
@@ -839,11 +1034,11 @@
             <key>tower_damage_idle_1_0002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{328,488},{50,78}}</string>
+                <string>{{354,752},{50,78}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,109},{50,78}}</string>
                 <key>sourceSize</key>
@@ -852,11 +1047,11 @@
             <key>tower_damage_idle_1_0003.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{410,486},{50,78}}</string>
+                <string>{{438,2},{50,78}}</string>
                 <key>offset</key>
                 <string>{-8,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{132,109},{50,78}}</string>
                 <key>sourceSize</key>
@@ -865,11 +1060,11 @@
             <key>tower_damage_idle_1_0004.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,484},{50,78}}</string>
+                <string>{{436,84},{50,78}}</string>
                 <key>offset</key>
                 <string>{-8,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{132,109},{50,78}}</string>
                 <key>sourceSize</key>
@@ -878,11 +1073,11 @@
             <key>tower_damage_idle_1_0005.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{82,580},{48,78}}</string>
+                <string>{{434,912},{48,78}}</string>
                 <key>offset</key>
                 <string>{-8,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,109},{48,78}}</string>
                 <key>sourceSize</key>
@@ -891,11 +1086,11 @@
             <key>tower_damage_idle_1_0006.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{244,578},{48,78}}</string>
+                <string>{{430,500},{48,78}}</string>
                 <key>offset</key>
                 <string>{-8,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,109},{48,78}}</string>
                 <key>sourceSize</key>
@@ -904,11 +1099,11 @@
             <key>tower_damage_idle_1_0007.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{324,540},{48,78}}</string>
+                <string>{{428,584},{48,78}}</string>
                 <key>offset</key>
                 <string>{-8,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,109},{48,78}}</string>
                 <key>sourceSize</key>
@@ -917,11 +1112,11 @@
             <key>tower_damage_idle_1_0008.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{244,528},{48,78}}</string>
+                <string>{{414,670},{48,78}}</string>
                 <key>offset</key>
                 <string>{-8,16}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,110},{48,78}}</string>
                 <key>sourceSize</key>
@@ -930,11 +1125,11 @@
             <key>tower_damage_idle_1_0009.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,536},{48,78}}</string>
+                <string>{{406,832},{48,78}}</string>
                 <key>offset</key>
                 <string>{-8,16}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,110},{48,78}}</string>
                 <key>sourceSize</key>
@@ -943,11 +1138,11 @@
             <key>tower_damage_idle_1_0010.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{82,530},{48,78}}</string>
+                <string>{{406,752},{48,78}}</string>
                 <key>offset</key>
                 <string>{-8,16}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,110},{48,78}}</string>
                 <key>sourceSize</key>
@@ -956,11 +1151,11 @@
             <key>tower_damage_idle_1_0011.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{84,478},{50,78}}</string>
+                <string>{{434,166},{50,78}}</string>
                 <key>offset</key>
                 <string>{-8,16}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{132,110},{50,78}}</string>
                 <key>sourceSize</key>
@@ -969,11 +1164,11 @@
             <key>tower_damage_idle_1_0012.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{166,476},{50,78}}</string>
+                <string>{{428,248},{50,78}}</string>
                 <key>offset</key>
                 <string>{-8,16}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{132,110},{50,78}}</string>
                 <key>sourceSize</key>
@@ -982,11 +1177,11 @@
             <key>tower_damage_idle_1_0013.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{84,426},{50,80}}</string>
+                <string>{{302,762},{50,80}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,108},{50,80}}</string>
                 <key>sourceSize</key>
@@ -995,11 +1190,11 @@
             <key>tower_damage_idle_1_0014.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{166,424},{50,80}}</string>
+                <string>{{318,590},{50,80}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,108},{50,80}}</string>
                 <key>sourceSize</key>
@@ -1008,11 +1203,11 @@
             <key>tower_damage_idle_1_0015.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{248,422},{50,80}}</string>
+                <string>{{302,680},{50,80}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,108},{50,80}}</string>
                 <key>sourceSize</key>
@@ -1021,11 +1216,11 @@
             <key>tower_damage_idle_1_0016.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{330,380},{50,80}}</string>
+                <string>{{270,926},{50,80}}</string>
                 <key>offset</key>
                 <string>{-7,17}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{133,108},{50,80}}</string>
                 <key>sourceSize</key>
@@ -1034,11 +1229,11 @@
             <key>tower_damage_idle_2_0000.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{424,242},{60,82}}</string>
+                <string>{{126,682},{60,82}}</string>
                 <key>offset</key>
                 <string>{-4,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,106},{60,82}}</string>
                 <key>sourceSize</key>
@@ -1047,11 +1242,11 @@
             <key>tower_damage_idle_2_0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{340,188},{60,82}}</string>
+                <string>{{126,598},{60,82}}</string>
                 <key>offset</key>
                 <string>{-4,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,106},{60,82}}</string>
                 <key>sourceSize</key>
@@ -1060,11 +1255,11 @@
             <key>tower_damage_idle_2_0002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{256,188},{60,82}}</string>
+                <string>{{126,514},{60,82}}</string>
                 <key>offset</key>
                 <string>{-5,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{130,106},{60,82}}</string>
                 <key>sourceSize</key>
@@ -1073,11 +1268,11 @@
             <key>tower_damage_idle_2_0003.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{424,180},{60,82}}</string>
+                <string>{{200,86},{60,82}}</string>
                 <key>offset</key>
                 <string>{-5,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{130,106},{60,82}}</string>
                 <key>sourceSize</key>
@@ -1086,11 +1281,11 @@
             <key>tower_damage_idle_2_0004.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{340,126},{60,82}}</string>
+                <string>{{200,2},{60,82}}</string>
                 <key>offset</key>
                 <string>{-6,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{129,106},{60,82}}</string>
                 <key>sourceSize</key>
@@ -1099,11 +1294,11 @@
             <key>tower_damage_idle_2_0005.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{422,304},{58,82}}</string>
+                <string>{{262,2},{58,82}}</string>
                 <key>offset</key>
                 <string>{-6,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{130,106},{58,82}}</string>
                 <key>sourceSize</key>
@@ -1112,11 +1307,11 @@
             <key>tower_damage_idle_2_0006.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{338,250},{58,82}}</string>
+                <string>{{256,254},{58,82}}</string>
                 <key>offset</key>
                 <string>{-6,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{130,106},{58,82}}</string>
                 <key>sourceSize</key>
@@ -1125,11 +1320,11 @@
             <key>tower_damage_idle_2_0007.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{254,310},{56,82}}</string>
+                <string>{{262,86},{56,82}}</string>
                 <key>offset</key>
                 <string>{-6,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,106},{56,82}}</string>
                 <key>sourceSize</key>
@@ -1138,11 +1333,11 @@
             <key>tower_damage_idle_2_0008.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{170,254},{58,82}}</string>
+                <string>{{256,170},{58,82}}</string>
                 <key>offset</key>
                 <string>{-7,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{129,106},{58,82}}</string>
                 <key>sourceSize</key>
@@ -1151,11 +1346,11 @@
             <key>tower_damage_idle_2_0009.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{254,250},{58,82}}</string>
+                <string>{{254,338},{58,82}}</string>
                 <key>offset</key>
                 <string>{-6,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{130,106},{58,82}}</string>
                 <key>sourceSize</key>
@@ -1164,11 +1359,11 @@
             <key>tower_damage_idle_2_0010.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{86,196},{58,82}}</string>
+                <string>{{250,424},{58,82}}</string>
                 <key>offset</key>
                 <string>{-6,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{130,106},{58,82}}</string>
                 <key>sourceSize</key>
@@ -1177,11 +1372,11 @@
             <key>tower_damage_idle_2_0011.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,196},{58,82}}</string>
+                <string>{{248,514},{58,82}}</string>
                 <key>offset</key>
                 <string>{-5,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,106},{58,82}}</string>
                 <key>sourceSize</key>
@@ -1190,11 +1385,11 @@
             <key>tower_damage_idle_2_0012.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{170,194},{58,82}}</string>
+                <string>{{210,934},{58,82}}</string>
                 <key>offset</key>
                 <string>{-5,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,106},{58,82}}</string>
                 <key>sourceSize</key>
@@ -1203,11 +1398,11 @@
             <key>tower_damage_idle_2_0013.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{172,132},{60,82}}</string>
+                <string>{{194,170},{60,82}}</string>
                 <key>offset</key>
                 <string>{-5,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{130,106},{60,82}}</string>
                 <key>sourceSize</key>
@@ -1216,11 +1411,11 @@
             <key>tower_damage_idle_2_0014.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{256,126},{60,82}}</string>
+                <string>{{134,256},{60,82}}</string>
                 <key>offset</key>
                 <string>{-5,18}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{130,106},{60,82}}</string>
                 <key>sourceSize</key>
@@ -1229,11 +1424,11 @@
             <key>tower_damage_idle_2_0015.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{346,2},{60,84}}</string>
+                <string>{{2,692},{60,84}}</string>
                 <key>offset</key>
                 <string>{-4,19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,104},{60,84}}</string>
                 <key>sourceSize</key>
@@ -1242,11 +1437,232 @@
             <key>tower_damage_idle_2_0016.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{260,2},{60,84}}</string>
+                <string>{{2,606},{60,84}}</string>
                 <key>offset</key>
                 <string>{-4,19}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{131,104},{60,84}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0000.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{132,346},{60,82}}</string>
+                <key>offset</key>
+                <string>{-4,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{131,106},{60,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0001.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{126,430},{60,82}}</string>
+                <key>offset</key>
+                <string>{-4,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{131,106},{60,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0002.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{86,940},{60,82}}</string>
+                <key>offset</key>
+                <string>{-5,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{130,106},{60,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0003.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{64,856},{60,82}}</string>
+                <key>offset</key>
+                <string>{-5,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{130,106},{60,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0004.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{64,772},{60,82}}</string>
+                <key>offset</key>
+                <string>{-6,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{129,106},{60,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0005.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{188,850},{58,82}}</string>
+                <key>offset</key>
+                <string>{-6,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{130,106},{58,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0006.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{188,766},{58,82}}</string>
+                <key>offset</key>
+                <string>{-6,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{130,106},{58,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0007.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{188,682},{58,82}}</string>
+                <key>offset</key>
+                <string>{-7,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{129,106},{58,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0008.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{188,598},{58,82}}</string>
+                <key>offset</key>
+                <string>{-7,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{129,106},{58,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0009.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{188,514},{58,82}}</string>
+                <key>offset</key>
+                <string>{-6,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{130,106},{58,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0010.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{196,254},{58,82}}</string>
+                <key>offset</key>
+                <string>{-6,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{130,106},{58,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0011.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{64,688},{60,82}}</string>
+                <key>offset</key>
+                <string>{-6,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{129,106},{60,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0012.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{194,340},{58,82}}</string>
+                <key>offset</key>
+                <string>{-5,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{131,106},{58,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0013.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{64,604},{60,82}}</string>
+                <key>offset</key>
+                <string>{-5,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{130,106},{60,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0014.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{64,520},{60,82}}</string>
+                <key>offset</key>
+                <string>{-5,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{130,106},{60,82}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0015.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,520},{60,84}}</string>
+                <key>offset</key>
+                <string>{-4,19}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{131,104},{60,84}}</string>
+                <key>sourceSize</key>
+                <string>{330,330}</string>
+            </dict>
+            <key>tower_damage_idle_3_0016.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,434},{60,84}}</string>
+                <key>offset</key>
+                <string>{-4,19}</string>
+                <key>rotated</key>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{131,104},{60,84}}</string>
                 <key>sourceSize</key>
@@ -1260,9 +1676,9 @@
             <key>realTextureFileName</key>
             <string>damage.png</string>
             <key>size</key>
-            <string>{512,1024}</string>
+            <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:4627119e98ba7427c27c7e72e09c6a7a:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:9bb0a469be0a64bbccc6b7c9908f9ca1:1/1$</string>
             <key>textureFileName</key>
             <string>damage.png</string>
         </dict>

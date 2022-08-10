@@ -16,7 +16,6 @@ let ResultLayer = cc.Layer.extend({
     ctor: function (info) {
         this._super()
         this.setInfo(info)
-        info.setPoint(1)
         if (info.getPoint() === info.getEnemyPoint()) {
             this.setType(BattleConfig.Drawing)
         } else if (info.getPoint() < info.getEnemyPoint()) {

@@ -49,8 +49,9 @@ let GameLoop = cc.Class.extend({
         this.setWho(who)
         this.setActionQueue(new ActionQueue(who))
 
-        this.setMapController(new MapController(initMap))
+        this.setMapController(new MapController(initMap, who))
         this.setMonsterController(new MonsterController(who, this.getMapController()))
+        this.getMapController().setMonsterController(this.getMonsterController())
         this.setTowerController(new TowerController(who, this.getMapController(), this.getMonsterController()), this);
 
         // Khởi tạo map khởi đầu, lưu lại sử dụng để clone
@@ -60,6 +61,9 @@ let GameLoop = cc.Class.extend({
 
         this.setInitMap(initMap)
         this.setIsClone(isClone)
+        if (isClone === false) {
+            this.getActionQueue().initActionList()
+        }
     },
 
     /**
@@ -68,9 +72,6 @@ let GameLoop = cc.Class.extend({
     update : function() {
         let currentTick = this.getTick()
         let isClone = this.isClone()
-        if (currentTick % 230 === 0 && currentTick !== 0)  {
-            this.getMonsterController().generateMonsterRound(this.getTick())
-        }
 
         let tickAction = this.getActionQueue().getListActionFromTick(currentTick)
         for (let i = 0; i < tickAction.length; i++) {
@@ -87,21 +88,22 @@ let GameLoop = cc.Class.extend({
     },
 
     // TODO : thực hiện các UserEvent có trong tick này
-    /** @param {UserEvent,PlaceTowerEvent} userEvent
+    /** @param {UserEvent} userEvent
      * @param {boolean} isClone
      */
     fromEventToGameAction : function(userEvent, isClone) {
         switch (userEvent.getType()) {
             case UserEvent.Type.CREATE_MONSTER:
                 // TODO : Thực hiện thả quái với thông tin đầu vào
-                this.getMonsterController().createMonster(userEvent.getMetaData().cardId, isClone)
+                let towerLevel = this.getTowerController().getTowerLevel()
+                this.getMonsterController().createMonster(userEvent.getMetaData().cardId, isClone, towerLevel)
                 break
             case UserEvent.Type.PLANT_TOWER:
                 // TODO : Thực hiện đặt trụ với thông tin đầu vào, kiểm tra các thông tin chính xác rồi mới thực hiện
-                cc.log("PLANT TOWER")
                 this.getTowerController().plantTower(
                     userEvent.getMetaData().cardId,
                     userEvent.getMetaData().position,
+                    userEvent.getMetaData().cardLevel,
                     isClone
                 );
                 this.getMapController().plantTowerWithPosition(userEvent.getMetaData().position,userEvent.getMetaData().cardId);
@@ -117,6 +119,20 @@ let GameLoop = cc.Class.extend({
             case UserEvent.Type.USE_SPELL:
                 // TODO : Thực hiện sử dụng spell với thông tin đầu vào
                 cc.log("USE SPELL")
+                break
+            case UserEvent.Type.SYSTEM_MONSTER:
+                cc.log("GEN MONSTER GEN MONSTER")
+                let actionQueue = this.getActionQueue().getActionList()
+                actionQueue.push(new UserEvent(this.getTick() + 1, {cardId : MonsterConfig.Type.CROW_SKELETON}, UserEvent.Type.CREATE_MONSTER, this.getWho()))
+                actionQueue.push(new UserEvent(this.getTick() + 6, {cardId : MonsterConfig.Type.EVIL_BAT}, UserEvent.Type.CREATE_MONSTER, this.getWho()))
+                actionQueue.push(new UserEvent(this.getTick() + 11, {cardId : MonsterConfig.Type.GIANT}, UserEvent.Type.CREATE_MONSTER, this.getWho()))
+                actionQueue.push(new UserEvent(this.getTick() + 16, {cardId : MonsterConfig.Type.GHOST_SWORDER}, UserEvent.Type.CREATE_MONSTER, this.getWho()))
+                break
+            case UserEvent.Type.END_GAME:
+                let info = cc.director.getRunningScene().getInfo()
+                let resultLayer = new ResultLayer(info)
+                cc.director.getRunningScene().addChild(resultLayer, 100000, 1)
+                info.setEndGame(true)
                 break
         }
     },

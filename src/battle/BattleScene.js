@@ -5,6 +5,7 @@ let BattleScene = cc.Scene.extend({
     _info : null,
     _serverTick : null,
     _timeStamp : null,
+    _mapLayer : null,
 
     /** @returns {GameLoop} */
     getMyGameLoop : function() {return this._myGameLoop},
@@ -13,19 +14,19 @@ let BattleScene = cc.Scene.extend({
     getEnemyGameLoop : function(){return this._enemyGameLoop },
     getObjectLayer : function() { return this._objectLayer },
     getServerTick : function() {return this._serverTick},
+    getMapLayer : function() {return this._mapLayer},
+    /** @returns {Info} */
+    getInfo : function() { return this._info },
 
     // SETTER
     setObjectLayer : function(objectLayer) { this._objectLayer = objectLayer },
     setServerTick : function(value) {this._serverTick = value},
     setTimeStamp : function(value) {this._timeStamp = value},
-
+    setMapLayer : function(mapLayer) {this._mapLayer = mapLayer},
     /**
      * @param {Info} info
      */
     setInfo : function(info) { this._info = info },
-
-    /** @returns {Info} */
-    getInfo : function() { return this._info },
 
     /** @param {BattleInitiator} battleInitiator */
     ctor : function(battleInitiator) {
@@ -52,10 +53,10 @@ let BattleScene = cc.Scene.extend({
         if (this.getTimestamp() !== null) {
             cc.log("SHOW GAME")
             let deltaTimeStamp = Date.now() - this.getTimestamp()
-            let deltaTick = Math.round((deltaTimeStamp / 1000) / 0.1)
+            let deltaTick = Math.round((deltaTimeStamp / 1000) / BattleConfig.TICK_DURATION)
             this.setServerTick(this.getServerTick() + deltaTick)
-            this.speedUpGameLoop(BattleUtil.Who.Enemy, 0.01)
-            this.speedUpGameLoop(BattleUtil.Who.Mine, 0.01)
+            this.speedUpGameLoop(BattleUtil.Who.Enemy, BattleConfig.TICK_DURATION / 10)
+            this.speedUpGameLoop(BattleUtil.Who.Mine, BattleConfig.TICK_DURATION / 10)
             this.setTimeStamp(null)
         }
     },
@@ -73,10 +74,10 @@ let BattleScene = cc.Scene.extend({
 
     update : function() {
         if (this._enemyGameLoop.getTick() > this.getServerTick()) {
-            this.speedUpGameLoop(BattleUtil.Who.Enemy, 0.1)
+            this.speedUpGameLoop(BattleUtil.Who.Enemy, BattleConfig.TICK_DURATION)
         }
         if (this._myGameLoop.getTick() > this.getServerTick()) {
-            this.speedUpGameLoop(BattleUtil.Who.Mine, 0.1)
+            this.speedUpGameLoop(BattleUtil.Who.Mine, BattleConfig.TICK_DURATION)
         }
         if (this.getInfo().getEndGame() === true) {
             this.unschedule(this.updateMyGameLoop)
@@ -109,6 +110,7 @@ let BattleScene = cc.Scene.extend({
 
         // Khởi tạo Map
         let mapLayer = new MapLayer(this._myGameLoop.getMapController(), this._enemyGameLoop.getMapController())
+        this.setMapLayer(mapLayer)
         this.addChild(mapLayer,  BattleConfig.MapLayer.zOrder, 0)
 
         // Khởi tạo UI dành cho người dùng tương tác
@@ -116,7 +118,8 @@ let BattleScene = cc.Scene.extend({
             this.getInfo(),
             this.getMyGameLoop().getMapController(),
             this.getMyGameLoop().getTowerController(),
-            backgroundDecorationLayer
+            backgroundDecorationLayer,
+            this.getMyGameLoop()
         )
 
         this.addChild(battleUILayer, BattleConfig.UILayer.zOrder, 0)

@@ -1,0 +1,10 @@
+{
+  "name": "normal",
+  "minGold": 10,
+  "maxGold": 20,
+  "minFragment": 10,
+  "maxFragment": 20,
+  "cardSlots": 2,
+  "unlockDuration": 10800,
+  "secondPerCoin": 600
+}

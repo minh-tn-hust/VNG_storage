@@ -1,18 +1,25 @@
 let MapController = cc.Class.extend({
     _map : null,
     _pathMap : null,
+    _monsterController : null,
+    _who : null,
 
     // GETTER
     getMap : function() {return this._map},
     getPathMap : function() {return this._pathMap},
+    getMonsterController : function() {return this._monsterController},
+    getWho : function() {return this._who},
 
     // SETTER
     setMap : function(newMap) {this._map = newMap},
     setPath : function(newPathMap) {this._pathMap = newPathMap},
+    setMonsterController : function(controller) {this._monsterController = controller},
+    setWho : function(value) {this._who = value},
 
-    ctor : function(map) {
+    ctor : function(map, who) {
         this.setMap(JSON.parse(JSON.stringify(map)))
         this.setPath(this.findingPath(this.getMap()))
+        this.setWho(who)
     },
 
     /**
@@ -122,9 +129,31 @@ let MapController = cc.Class.extend({
      *
      */
     plantTowerWithPosition : function(position, cid) {
+        cc.log("PLANT TOWER")
+        cc.log(Date.now())
         let map = this.getMap();
+        cc.log(JSON.stringify(map))
         map[position.y][position.x] = cid
-        // TODO : Cập nhật đường đi cho quái (CẦN THIẾT)
+        cc.log(JSON.stringify(this.getMap()))
+
+        // Cập nhật lại đường đi mới cho bản đồ hiện tại
+        this.setPath(this.findingPath(this.getMap()))
+        let monsterController = this.getMonsterController()
+        let monsterPool = monsterController.getMonsterPool()
+        for (let i =  0; i < monsterPool.length; i++) {
+            let currentPosition = monsterPool[i].getPosition()
+            let currentMatrixPosition = BattleUtil.fromModelPositionToMatrixPosition(currentPosition)
+            if (monsterPool[i].getType() !== MonsterConfig.Type.EVIL_BAT && MapUtil.isValidCell(BattleUtil.fromModelPositionToMatrixPosition(currentPosition))) {
+                let newPath = this.getPath(currentMatrixPosition)
+                monsterPool[i].setPathToTower(newPath)
+                monsterPool[i].resetDirectionWithNewPath()
+            }
+        }
+        // Cập nhật lại hiển thị
+        if (this.getWho() === BattleUtil.Who.Mine) {
+            cc.director.getRunningScene().getMapLayer().updatePath(this.getWho())
+        }
+        cc.log(Date.now())
     },
 
 })
