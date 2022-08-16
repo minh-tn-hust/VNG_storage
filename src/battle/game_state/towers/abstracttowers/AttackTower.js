@@ -34,7 +34,7 @@ let AttackTower = Tower.extend({
         this.setDamage(CardUtil.upgradeFactorToLevel(
             stat[level]["damage"], this.getCardLevel(),CardUtil.upgradeDamagePercent
         ));
-        cc.log("Damage: ",this.getDamage());
+        // cc.log("Damage: ",this.getDamage());
         this.setSpeed(stat[level]["attackSpeed"]/Tower.SPEED_UNIT);
         this.setRange(stat[level]["range"]);
         this.setBulletRadius(stat[level]["bulletRadius"]);

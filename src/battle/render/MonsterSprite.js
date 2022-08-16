@@ -78,12 +78,14 @@ let MonsterSprite = cc.Sprite.extend({
     // thực hiện cập nhật lại vị trí của con quái, được gọi frame by frame
     // quãng được đi ~ 1 / 6 quản đường mà Model di chuyển
     update : function(dt) {
-        this.moving(dt)
-        this.updateHPBar()
-        this.runEffect()
-        if (this.getMonster()._needUpdateAnimation) {
-            this.runAnimationByDirection(true)
-            this.getMonster()._needUpdateAnimation = false
+        if (!(cc.director.getRunningScene().getInfo().getEndGame() === true)) {
+            this.moving(dt)
+            this.updateHPBar()
+            this.runEffect()
+            if (this.getMonster()._needUpdateAnimation) {
+                this.runAnimationByDirection(true)
+                this.getMonster()._needUpdateAnimation = false
+            }
         }
     },
 

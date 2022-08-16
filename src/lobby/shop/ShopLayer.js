@@ -108,9 +108,7 @@ var ShopLayer = cc.Layer.extend({
         shopLayer.setPosition(0,0)
         this.addChild(shopLayer)
 
-        this.schedule(function() {
-
-        }, 1)
+        this.schedule(function() { }, 1)
     },
 
     /**
@@ -186,7 +184,6 @@ var ShopLayer = cc.Layer.extend({
                         if (self.getController().isEnoughResource(itemPack[button.id])) {
                             let popupLayerController = PopupLayerController.getInstance()
                             if (itemPack[button.id].id < 0) {
-                                cc.log("THIS IS SOME THING ELSE HERE")
                                 popupLayerController.createPopup(PopupLayerController.TYPE.OPEN_CHEST, {index : button.id})
                             } else {
                                 popupLayerController.createPopup(PopupLayerController.TYPE.BUY_ITEM_NOTI, {

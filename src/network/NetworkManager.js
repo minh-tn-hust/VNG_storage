@@ -72,8 +72,13 @@ NetworkManger.Connector = cc.Class.extend({
                 let popupController = PopupLayerController.getInstance()
                 popupController.createPopup(PopupLayerController.TYPE.RESOURCE_ANIMATION, {resource : ResourceAnimtion.COIN })
                 break
+            case gv.CMD.END_GAME:
+                cc.log(JSON.stringify(packet))
+                cc.director.getRunningScene().showResult()
+                break
             case gv.CMD.BUY_SHOP_ITEM:
                 cc.log("Buy shop item");
+                cc.log(JSON.stringify(packet))
                 if (packet.err === 7) {
                     let popupController = PopupLayerController.getInstance()
                     popupController.createPopup(PopupLayerController.TYPE.REWARD,
@@ -194,7 +199,6 @@ NetworkManger.Connector = cc.Class.extend({
                 break;
             case gv.CMD.BUY_CHEST_BY_GEM:
                 if (packet.error===NetworkManager.ERROR.SUCCESS){
-                    cc.log("Remaing Gem: ",packet.gem);
                     UserInfo.getInstance().changeGem(packet.gem);
                     ErrorHandler.getInstance().notify(ErrorHandler.ERROR.BUY_CHEST_BY_GEM_SUCCESS);
                 } else if (packet.error===ErrorHandler.ERROR.NOT_ENOUGH_GEM){
@@ -202,13 +206,11 @@ NetworkManger.Connector = cc.Class.extend({
                 }
                 break
             case gv.CMD.GET_TIMESTAMP:
-                cc.log("THIS IS TIMESTAMP")
                 cc.log(packet.timestamp)
                 UserInfo.getInstance().setTimestamp(packet.timestamp)
                 UserInfo.getInstance().notify(UserInfo.Event.CHANGE_RESOURCE)
                 break
             case gv.CMD.MATCHING:
-                cc.log("MATCHING DONE")
                 cc.log(JSON.stringify(packet))
                 let battleDeck = UserInfo.getInstance().getBattleDeck()
                 packet["battleDeck"] = battleDeck
@@ -216,13 +218,11 @@ NetworkManger.Connector = cc.Class.extend({
                 MainController.getInstance().runBattleScene(packet)
                 break
             case gv.CMD.ABORT_MATCHING:
-                cc.log("abort matching ok")
                 if (packet.err===0){
                     UserInfo.getInstance().notify(UserInfo.Event.ABORT_MATCH_DONE)
                 }
                 break
             case gv.CMD.DROP_MONSTER:
-                cc.log("DROP MONSTER _ REAL")
                 this.getBattleHandler().receiveDropMonster(packet)
                 cc.log(JSON.stringify(packet))
                 break
@@ -230,7 +230,6 @@ NetworkManger.Connector = cc.Class.extend({
             //     this.getBattleHandler().receiveDropMonsterTest(packet)
             //     break
             case gv.CMD.PLANT_TOWER:
-                cc.log("PLANT TOWER NOW")
                 this.getBattleHandler().receivePlantTower(packet)
                 cc.log(JSON.stringify(packet))
 

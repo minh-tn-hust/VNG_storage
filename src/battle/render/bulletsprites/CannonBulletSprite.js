@@ -7,9 +7,7 @@ var CannonBulletSprite = LockMonsterBulletSprite.extend({
 
     createAnimationCache: function (){
         var assetConfig = this.getAsset();
-        cc.log("assetConfig: ",JSON.stringify(assetConfig));
         cc.spriteFrameCache.addSpriteFrames(assetConfig.asset.plist);
-        cc.log("DIT CON ME");
         var frame = cc.spriteFrameCache.getSpriteFrame("tower_cannon_bullet_0000.png");
         var animFrame = new cc.AnimationFrame(frame,1);
         var animFrames = [];

@@ -11,7 +11,6 @@ var LockMonsterBulletSprite = BulletSprite.extend({
 
     runAnim: function () {
         this.stopAllActions();
-        cc.log("Check Anim: ",cc.animationCache.getAnimation(this.getAnimName()));
         this.runAction(cc.repeatForever(cc.animate(
             cc.animationCache.getAnimation(this.getAnimName())
         )));

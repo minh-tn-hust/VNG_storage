@@ -511,6 +511,7 @@
                 "Tag": 1979,
                 "Children": [
                   {
+                    "IsCustomSize": true,
                     "FontSize": 17,
                     "LabelText": "15h32m",
                     "FontResource": {
@@ -518,6 +519,7 @@
                       "Path": "SVN-Supercell Magic.ttf",
                       "Plist": ""
                     },
+                    "HorizontalAlignmentType": "HT_Center",
                     "OutlineColor": {
                       "G": 0,
                       "B": 0
@@ -550,17 +552,17 @@
                       "Y": 0.5
                     },
                     "PreSize": {
-                      "X": 0.5915,
+                      "X": 0.6831,
                       "Y": 0.7188
                     },
-                    "LeftMargin": 43.2,
-                    "RightMargin": 14.8,
+                    "LeftMargin": 36.7,
+                    "RightMargin": 8.3,
                     "TopMargin": 4.5,
                     "BottomMargin": 4.5,
                     "Tag": 1977,
                     "ActionTag": 1552707412,
                     "Size": {
-                      "X": 84.0,
+                      "X": 97.0,
                       "Y": 23.0
                     },
                     "Name": "remainingTimeLabel",

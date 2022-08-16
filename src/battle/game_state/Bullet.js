@@ -78,7 +78,7 @@ let Bullet = cc.Class.extend({
         if (distance < this.getStepSize() * BattleConfig.TICK_DURATION){
             this.setPosition(this.getTargetPosition());
             this.setIsHit(true);
-            this.getTarget().changeHP(this.getDamage())
+            this.hitTarget();
         } else {
             let factor = this.getStepSize() * BattleConfig.TICK_DURATION /distance;
             let delta = (targetPos.x - curPos.x) * factor; // change of x
@@ -87,5 +87,9 @@ let Bullet = cc.Class.extend({
             curPos.y = curPos.y + delta;
             this.setPosition(curPos);
         }
+    },
+
+    hitTarget: function (){
+        this.getTarget().changeHP(this.getDamage());
     }
 })

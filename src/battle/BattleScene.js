@@ -6,6 +6,7 @@ let BattleScene = cc.Scene.extend({
     _serverTick : null,
     _timeStamp : null,
     _mapLayer : null,
+    _end : null,
 
     /** @returns {GameLoop} */
     getMyGameLoop : function() {return this._myGameLoop},
@@ -79,10 +80,22 @@ let BattleScene = cc.Scene.extend({
         if (this._myGameLoop.getTick() > this.getServerTick()) {
             this.speedUpGameLoop(BattleUtil.Who.Mine, BattleConfig.TICK_DURATION)
         }
-        if (this.getInfo().getEndGame() === true) {
-            this.unschedule(this.updateMyGameLoop)
-            this.unschedule(this.updateEnemyGameLoop)
-        }
+    },
+
+    showResult : function() {
+        this.unschedule(this.updateMyGameLoop)
+        this.unschedule(this.updateEnemyGameLoop)
+        let scaleTo = cc.scaleTo(2, 0.8).easing(cc.easeBackOut(2))
+        let objectLayer = this.getChildByTag(BattleScene.OBJ_TAG)
+        let decorLayer = this.getChildByTag(BattleScene.DECOR_TAG)
+        let mapLayer = this.getChildByTag(BattleScene.MAP_TAG)
+        objectLayer.runAction(scaleTo)
+        decorLayer.runAction(scaleTo.clone())
+        let callFunc = cc.callFunc(function(){
+            let resultLayer = new ResultLayer(this.getInfo())
+            this.addChild(resultLayer, 100000, 1)
+        }.bind(this))
+        mapLayer.runAction(cc.sequence(scaleTo.clone(), callFunc))
     },
 
     updateMyGameLoop : function() {
@@ -104,14 +117,18 @@ let BattleScene = cc.Scene.extend({
     },
 
     initLayer : function() {
+        let backgroundImage = cc.Sprite("res/map_asset/map_background.png")
+        backgroundImage.setScale(100)
+        backgroundImage.setPosition(cc.winSize.width / 2, cc.winSize.height /2)
+        this.addChild(backgroundImage, -1000, 0)
         // Khởi tạo Background
         let backgroundDecorationLayer = new BackgroundDecorationLayer()
-        this.addChild(backgroundDecorationLayer, BattleConfig.BackgroundLayer.zOrder, 0)
+        this.addChild(backgroundDecorationLayer, BattleConfig.BackgroundLayer.zOrder, BattleScene.DECOR_TAG)
 
         // Khởi tạo Map
         let mapLayer = new MapLayer(this._myGameLoop.getMapController(), this._enemyGameLoop.getMapController())
         this.setMapLayer(mapLayer)
-        this.addChild(mapLayer,  BattleConfig.MapLayer.zOrder, 0)
+        this.addChild(mapLayer,  BattleConfig.MapLayer.zOrder, BattleScene.MAP_TAG)
 
         // Khởi tạo UI dành cho người dùng tương tác
         let battleUILayer = new BattleUILayer(
@@ -126,7 +143,7 @@ let BattleScene = cc.Scene.extend({
 
         // Khởi tạo ObjectLayer chứa quái và trụ
         let objectLayer = new ObjectLayer()
-        this.addChild(objectLayer, BattleConfig.ObjectLayer.zOrder, 0)
+        this.addChild(objectLayer, BattleConfig.ObjectLayer.zOrder, BattleScene.OBJ_TAG)
         this.setObjectLayer(objectLayer)
     },
 
@@ -156,3 +173,6 @@ let BattleScene = cc.Scene.extend({
 })
 
 BattleScene.UI_TAG = 1234452
+BattleScene.DECOR_TAG = 8347593
+BattleScene.MAP_TAG = 824358
+BattleScene.OBJ_TAG = 1841338

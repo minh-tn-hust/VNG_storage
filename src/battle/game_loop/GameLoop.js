@@ -15,6 +15,7 @@ let GameLoop = cc.Class.extend({
     _towerController : null,
     _mapController : null,
     _isRollBack : null,
+    _isEndGame : null,
 
     // GETTER
     getTick : function(){return this._tick;},
@@ -28,6 +29,7 @@ let GameLoop = cc.Class.extend({
     getMapController : function() {return this._mapController},
     isClone : function() {return this._isClone},
     isRollBack : function() {return this._rollBack},
+    getEndGame : function() {return this._isEndGame},
 
 
     /** Trả về map khởi đầu của game đấu (trạng thái bắt đầu của map) */
@@ -35,6 +37,7 @@ let GameLoop = cc.Class.extend({
 
 
     // SETTER
+    setEndGame : function(value) {this._isEndGame = value},
     setTick : function(newTick) {this._tick = newTick;},
     setActionQueue : function(newActionQueue) {this._actionQueue = newActionQueue;},
     setWho : function(who) {this._who = who },
@@ -70,21 +73,23 @@ let GameLoop = cc.Class.extend({
      * Trong hàm này thực hiện tất cả các logic của game như là
      */
     update : function() {
-        let currentTick = this.getTick()
-        let isClone = this.isClone()
+        if (this.getEndGame() !== true) {
+            let currentTick = this.getTick()
+            let isClone = this.isClone()
 
-        let tickAction = this.getActionQueue().getListActionFromTick(currentTick)
-        for (let i = 0; i < tickAction.length; i++) {
-            this.fromEventToGameAction(tickAction[i], isClone)
+            let tickAction = this.getActionQueue().getListActionFromTick(currentTick)
+            for (let i = 0; i < tickAction.length; i++) {
+                this.fromEventToGameAction(tickAction[i], isClone)
+            }
+
+            // TODO : cập nhật lại các thay đổi cho quái vật
+            this.getMonsterController().updateAllMonster()
+
+            // TODO : cập nhật thay đổi cho trụ và các loại đạn (trúng quái, quái mất máu, làm chậm, ..., các sự kiện khác)
+            this.getTowerController().updateAllTower(currentTick);
+
+            this.setTick(currentTick + 1)
         }
-
-        // TODO : cập nhật lại các thay đổi cho quái vật
-        this.getMonsterController().updateAllMonster()
-
-        // TODO : cập nhật thay đổi cho trụ và các loại đạn (trúng quái, quái mất máu, làm chậm, ..., các sự kiện khác)
-        this.getTowerController().updateAllTower(currentTick);
-
-        this.setTick(currentTick + 1)
     },
 
     // TODO : thực hiện các UserEvent có trong tick này
@@ -121,7 +126,6 @@ let GameLoop = cc.Class.extend({
                 cc.log("USE SPELL")
                 break
             case UserEvent.Type.SYSTEM_MONSTER:
-                cc.log("GEN MONSTER GEN MONSTER")
                 let actionQueue = this.getActionQueue().getActionList()
                 actionQueue.push(new UserEvent(this.getTick() + 1, {cardId : MonsterConfig.Type.CROW_SKELETON}, UserEvent.Type.CREATE_MONSTER, this.getWho()))
                 actionQueue.push(new UserEvent(this.getTick() + 6, {cardId : MonsterConfig.Type.EVIL_BAT}, UserEvent.Type.CREATE_MONSTER, this.getWho()))
@@ -130,9 +134,8 @@ let GameLoop = cc.Class.extend({
                 break
             case UserEvent.Type.END_GAME:
                 let info = cc.director.getRunningScene().getInfo()
-                let resultLayer = new ResultLayer(info)
-                cc.director.getRunningScene().addChild(resultLayer, 100000, 1)
                 info.setEndGame(true)
+                this.setEndGame(true)
                 break
         }
     },

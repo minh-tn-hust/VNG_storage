@@ -12,25 +12,25 @@
               <AbstractNodeData Name="buyButton" ActionTag="563178494" Tag="120" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="3.7850" RightMargin="2.2150" TopMargin="136.1600" BottomMargin="2.8400" TouchEnable="True" FontSize="12" ButtonText=" " Scale9Enable="True" Scale9Width="194" Scale9Height="111" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="151.0000" Y="63.0000" />
                 <Children>
-                  <AbstractNodeData Name="price" ActionTag="-660564726" Tag="121" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="71.1468" RightMargin="32.8532" TopMargin="20.5000" BottomMargin="20.5000" FontSize="16" LabelText="500" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="47.0000" Y="22.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="94.6468" Y="31.5000" />
+                  <AbstractNodeData Name="price" ActionTag="-660564726" Tag="121" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentHeightEnable="True" PercentHeightEnabled="True" LeftMargin="59.0712" RightMargin="20.9288" TopMargin="-1.0951" BottomMargin="1.0951" IsCustomSize="True" FontSize="16" LabelText="1000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="71.0000" Y="63.0000" />
+                    <AnchorPoint ScaleY="0.4826" />
+                    <Position X="59.0712" Y="31.5000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.6268" Y="0.5000" />
-                    <PreSize X="0.3113" Y="0.3492" />
+                    <PrePosition X="0.3912" Y="0.5000" />
+                    <PreSize X="0.4702" Y="1.0000" />
                     <FontResource Type="Normal" Path="SVN-Supercell Magic.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="goldIcon" ActionTag="-1375998283" Tag="122" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="22.8500" RightMargin="68.1500" TopMargin="-0.5000" BottomMargin="-0.5000" ctype="SpriteObjectData">
+                  <AbstractNodeData Name="goldIcon" ActionTag="-1375998283" Tag="122" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="15.3000" RightMargin="75.7000" TopMargin="-0.5000" BottomMargin="-0.5000" ctype="SpriteObjectData">
                     <Size X="60.0000" Y="64.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="52.8500" Y="31.5000" />
+                    <Position X="45.3000" Y="31.5000" />
                     <Scale ScaleX="0.5000" ScaleY="0.5000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.3500" Y="0.5000" />
+                    <PrePosition X="0.3000" Y="0.5000" />
                     <PreSize X="0.3974" Y="1.0159" />
                     <FileData Type="Normal" Path="shop_asset/common_icon_gold_small.png" Plist="" />
                     <BlendFunc Src="1" Dst="771" />
@@ -83,14 +83,14 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="0" G="0" B="0" />
               </AbstractNodeData>
-              <AbstractNodeData Name="numberOfPieces" ActionTag="1573535434" Tag="124" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="84.9639" RightMargin="15.0361" TopMargin="106.3870" BottomMargin="68.6130" FontSize="20" LabelText="xDF" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ShadowEnabled="True" ctype="TextObjectData">
-                <Size X="57.0000" Y="27.0000" />
+              <AbstractNodeData Name="numberOfPieces" ActionTag="1573535434" Tag="124" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="74.9639" RightMargin="5.0361" TopMargin="106.3870" BottomMargin="68.6130" IsCustomSize="True" FontSize="20" LabelText="xDF" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ShadowEnabled="True" ctype="TextObjectData">
+                <Size X="77.0000" Y="27.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="113.4639" Y="82.1130" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.7227" Y="0.4065" />
-                <PreSize X="0.3631" Y="0.1337" />
+                <PreSize X="0.4904" Y="0.1337" />
                 <FontResource Type="Normal" Path="SVN-Supercell Magic.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="0" G="0" B="0" />
@@ -105,7 +105,7 @@
             <FileData Type="Normal" Path="shop_asset/lobby_shop_item_background.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Disable" ActionTag="1482361893" Tag="26" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-78.5000" RightMargin="-78.5000" TopMargin="-101.0000" BottomMargin="-101.0000" LeftEage="51" RightEage="51" TopEage="66" BottomEage="66" Scale9OriginX="51" Scale9OriginY="66" Scale9Width="55" Scale9Height="70" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Disable" Visible="False" ActionTag="1482361893" Tag="26" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-78.5000" RightMargin="-78.5000" TopMargin="-101.0000" BottomMargin="-101.0000" LeftEage="51" RightEage="51" TopEage="66" BottomEage="66" Scale9OriginX="51" Scale9OriginY="66" Scale9Width="55" Scale9Height="70" ctype="ImageViewObjectData">
             <Size X="157.0000" Y="202.0000" />
             <Children>
               <AbstractNodeData Name="CheckIcon" ActionTag="-617802289" Tag="27" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="38.0000" RightMargin="38.0000" TopMargin="68.5000" BottomMargin="68.5000" ctype="SpriteObjectData">
@@ -140,7 +140,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="shop_asset/lobby_shop_item_background.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="CoverButton" ActionTag="-843220565" Alpha="0" Tag="345" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-78.5000" RightMargin="-78.5000" TopMargin="-101.0000" BottomMargin="-101.0000" TouchEnable="True" FontSize="14" ButtonText="Button" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="CoverButton" Visible="False" ActionTag="-843220565" Alpha="0" Tag="345" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-78.5000" RightMargin="-78.5000" TopMargin="-101.0000" BottomMargin="-101.0000" TouchEnable="True" FontSize="14" ButtonText="Button" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="157.0000" Y="202.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position />

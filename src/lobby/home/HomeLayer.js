@@ -15,7 +15,8 @@ var HomeLayer = cc.Layer.extend({
             // let self = this;
             switch (eventType) {
                 case ccui.Widget.TOUCH_ENDED :
-                    cc.director.runScene( new WaitingMatchingLayer())
+                    // cc.director.runScene( new WaitingMatchingLayer())
+                    MainController.getInstance().runWaitingMatchingScene();
                     NetworkManager.Connector.getIntance().getBattleHandler().sendMatching()
             }
         }, this)

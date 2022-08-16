@@ -107,22 +107,24 @@ var TowerSprite = cc.Sprite.extend({
     },
 
     update : function(dt) {
-        let target = this.getTower().getTarget()
-        // cc.log("Direction: ",Util.fromTowerDigitalToDirection(this.getDirection()))
-        if (target !== null && this.getAsset().numberOfDirection!==1 ) {
-            let targetPosition = BattleUtil.fromModelPositionToPosition(
-                target.getPosition(),this.getWho());
-            let towerPosition = this.getPosition();
+        if (cc.director.getRunningScene().getInfo().getEndGame() !== true) {
+            let target = this.getTower().getTarget()
+            // cc.log("Direction: ",Util.fromTowerDigitalToDirection(this.getDirection()))
+            if (target !== null && this.getAsset().numberOfDirection!==1 ) {
+                let targetPosition = BattleUtil.fromModelPositionToPosition(
+                    target.getPosition(),this.getWho());
+                let towerPosition = this.getPosition();
 
-            // cập nhất hướng quay hiện tại cho trụ
-            let newDirection = cc.p(targetPosition.x - towerPosition.x, targetPosition.y - towerPosition.y)
-            this.changeDirection(newDirection)
+                // cập nhất hướng quay hiện tại cho trụ
+                let newDirection = cc.p(targetPosition.x - towerPosition.x, targetPosition.y - towerPosition.y)
+                this.changeDirection(newDirection)
 
-            // kiểm tra những target nếu như khoảng cách tới trụ > 100 thì thực hiện loại bỏ
-            if (Math.sqrt(
-                newDirection.x * newDirection.x
-                + newDirection.y * newDirection.y) > this.getTower().getRangeSize()){
-                this.setTarget(null)
+                // kiểm tra những target nếu như khoảng cách tới trụ > 100 thì thực hiện loại bỏ
+                if (Math.sqrt(
+                    newDirection.x * newDirection.x
+                    + newDirection.y * newDirection.y) > this.getTower().getRangeSize()){
+                    this.setTarget(null)
+                }
             }
         }
     },

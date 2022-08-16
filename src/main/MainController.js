@@ -13,8 +13,15 @@ let MainController = cc.Class.extend({
      * @param {BattleInitiator} battleInitiator
      */
     runBattleScene : function(battleInitiator) {
-        UserInfo.getInstance().removeListener()
+        UserInfo.getInstance().removeListener();
+        ErrorHandler.getInstance().removeListeners();
         cc.director.runScene(new cc.TransitionFade(0.5, new BattleScene(battleInitiator)))
+    },
+
+    runWaitingMatchingScene: function () {
+        UserInfo.getInstance().removeListener();
+        ErrorHandler.getInstance().removeListeners();
+        cc.director.runScene( new WaitingMatchingLayer());
     },
 
     /**

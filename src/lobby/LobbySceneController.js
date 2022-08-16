@@ -97,7 +97,6 @@ var LobbySceneController = cc.Class.extend({
 
     ctor:function (mainController){
         this.mainController = mainController;
-        this.userInfo = null;
         PopupLayerController._popupLayerController = new PopupLayerController(this)
 
         this.setUILayerController(new UILayerController(this));

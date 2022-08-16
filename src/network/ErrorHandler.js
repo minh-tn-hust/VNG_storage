@@ -28,7 +28,13 @@ var ErrorHandler = cc.Class.extend({
         while(listener.length!==0){
             listener.shift();
         }
+    },
+
+    removeListeners : function () {
+        delete this.getEventListener();
+        this._eventListener = {};
     }
+
 
 })
 

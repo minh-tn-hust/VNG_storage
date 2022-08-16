@@ -43,8 +43,8 @@ let BattleConfig = {
         FROG_BUTCHER : 2,
         RABBIT_STICKY : 3,
         BEAR_POLAR : 4,
-        SNAKE_RED : 5,
-        GOAT_LAUNCHER : 6
+        GOAT_LAUNCHER : 5,
+        SNAKE_RED : 6,
     },
     Asset : {
         TREE : "res/map_asset/map_decoration_tree_0002.png",
@@ -95,7 +95,7 @@ let BattleConfig = {
     Drawing : 2,
     MAX_ENERGY : 200,
     TICK_DURATION : 0.1,
-    INIT_ENERGY : 20,
+    INIT_ENERGY : 200,
     INIT_POINT : 20,
     INIT_ROUND : 0
 

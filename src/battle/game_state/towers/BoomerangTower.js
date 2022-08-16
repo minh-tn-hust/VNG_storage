@@ -8,7 +8,7 @@ var BoomerangTower = AttackTower.extend({
     },
 
     createBulletUI: function (bullet) {
-        let bulletUI = new BoomerangBulletSprite(bullet);
+        let bulletUI = new BoomerangBulletSprite(bullet,this.getLevel());
         bulletUI.retain();
         return bulletUI;
     }

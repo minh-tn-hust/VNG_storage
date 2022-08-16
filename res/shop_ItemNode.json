@@ -124,13 +124,16 @@
                 "Tag": 120,
                 "Children": [
                   {
+                    "IsCustomSize": true,
                     "FontSize": 16,
-                    "LabelText": "500",
+                    "LabelText": "1000",
                     "FontResource": {
                       "Type": "Normal",
                       "Path": "SVN-Supercell Magic.ttf",
                       "Plist": ""
                     },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
                     "OutlineColor": {
                       "G": 0,
                       "B": 0
@@ -143,11 +146,10 @@
                     "ShadowOffsetX": 2.0,
                     "ShadowOffsetY": -2.0,
                     "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
+                      "ScaleY": 0.4826
                     },
                     "Position": {
-                      "X": 94.6468,
+                      "X": 59.0712,
                       "Y": 31.5
                     },
                     "Scale": {
@@ -159,22 +161,24 @@
                     "PositionPercentXEnabled": true,
                     "PositionPercentYEnabled": true,
                     "PrePosition": {
-                      "X": 0.6268,
+                      "X": 0.3912,
                       "Y": 0.5
                     },
+                    "PercentHeightEnable": true,
+                    "PercentHeightEnabled": true,
                     "PreSize": {
-                      "X": 0.3113,
-                      "Y": 0.3492
+                      "X": 0.4702,
+                      "Y": 1.0
                     },
-                    "LeftMargin": 71.1468,
-                    "RightMargin": 32.8532,
-                    "TopMargin": 20.5,
-                    "BottomMargin": 20.5,
+                    "LeftMargin": 59.0712,
+                    "RightMargin": 20.9288,
+                    "TopMargin": -1.0951,
+                    "BottomMargin": 1.0951,
                     "Tag": 121,
                     "ActionTag": -660564726,
                     "Size": {
-                      "X": 47.0,
-                      "Y": 22.0
+                      "X": 71.0,
+                      "Y": 63.0
                     },
                     "Name": "price",
                     "ctype": "TextObjectData"
@@ -194,7 +198,7 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 52.85,
+                      "X": 45.3,
                       "Y": 31.5
                     },
                     "Scale": {
@@ -206,15 +210,15 @@
                     "PositionPercentXEnabled": true,
                     "PositionPercentYEnabled": true,
                     "PrePosition": {
-                      "X": 0.35,
+                      "X": 0.3,
                       "Y": 0.5
                     },
                     "PreSize": {
                       "X": 0.3974,
                       "Y": 1.0159
                     },
-                    "LeftMargin": 22.85,
-                    "RightMargin": 68.15,
+                    "LeftMargin": 15.3,
+                    "RightMargin": 75.7,
                     "TopMargin": -0.5,
                     "BottomMargin": -0.5,
                     "Tag": 122,
@@ -384,6 +388,7 @@
                 "ctype": "TextObjectData"
               },
               {
+                "IsCustomSize": true,
                 "FontSize": 20,
                 "LabelText": "xDF",
                 "FontResource": {
@@ -391,6 +396,8 @@
                   "Path": "SVN-Supercell Magic.ttf",
                   "Plist": ""
                 },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -424,17 +431,17 @@
                   "Y": 0.4065
                 },
                 "PreSize": {
-                  "X": 0.3631,
+                  "X": 0.4904,
                   "Y": 0.1337
                 },
-                "LeftMargin": 84.9639,
-                "RightMargin": 15.0361,
+                "LeftMargin": 74.9639,
+                "RightMargin": 5.0361,
                 "TopMargin": 106.387,
                 "BottomMargin": 68.613,
                 "Tag": 124,
                 "ActionTag": 1573535434,
                 "Size": {
-                  "X": 57.0,
+                  "X": 77.0,
                   "Y": 27.0
                 },
                 "Name": "numberOfPieces",

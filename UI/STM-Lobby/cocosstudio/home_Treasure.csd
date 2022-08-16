@@ -101,14 +101,14 @@
               <AbstractNodeData Name="TimeBar" ActionTag="994495416" Tag="1979" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="0.5000" RightMargin="0.5000" TopMargin="0.5600" BottomMargin="151.4400" LeftEage="46" RightEage="46" TopEage="10" BottomEage="10" Scale9OriginX="46" Scale9OriginY="10" Scale9Width="50" Scale9Height="12" ctype="ImageViewObjectData">
                 <Size X="142.0000" Y="32.0000" />
                 <Children>
-                  <AbstractNodeData Name="remainingTimeLabel" ActionTag="1552707412" Tag="1977" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="43.2000" RightMargin="14.8000" TopMargin="4.5000" BottomMargin="4.5000" FontSize="17" LabelText="15h32m" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="84.0000" Y="23.0000" />
+                  <AbstractNodeData Name="remainingTimeLabel" ActionTag="1552707412" Tag="1977" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="36.7000" RightMargin="8.3000" TopMargin="4.5000" BottomMargin="4.5000" IsCustomSize="True" FontSize="17" LabelText="15h32m" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="97.0000" Y="23.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="85.2000" Y="16.0000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.6000" Y="0.5000" />
-                    <PreSize X="0.5915" Y="0.7188" />
+                    <PreSize X="0.6831" Y="0.7188" />
                     <FontResource Type="Normal" Path="SVN-Supercell Magic.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />

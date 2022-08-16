@@ -58,8 +58,10 @@ let Monster = cc.Class.extend({
         if (hp < 0) {
             this._hp = 0
             this.setCanTarget(false)
-            this.setIsDie(true)
-            cc.director.getRunningScene().getInfo().dropPoint(0, this.getWho(), this.getConfig().gainEnergy)
+            if (this.isDie() === false) {
+                this.setIsDie(true)
+                cc.director.getRunningScene().getInfo().dropPoint(0, this.getWho(), this.getConfig().gainEnergy)
+            }
         } else {
             if (hp > this.getMaxHp()) {
                 this._hp = this.getMaxHp()
@@ -105,8 +107,6 @@ let Monster = cc.Class.extend({
     setIsDie : function(isDie) {
         this._isDie = isDie
         if (isDie === true) {
-            cc.log(cc.director.getRunningScene().getMyGameLoop().getTick().toString() + "================")
-            cc.log("MONSTER DIE")
         }
     },
 
@@ -141,7 +141,6 @@ let Monster = cc.Class.extend({
     changeHP : function(damage){
         let currentHp = this.getHp()
         this.setHp(currentHp - damage)
-        cc.log(this.getHp())
     },
 
 
@@ -189,8 +188,10 @@ let Monster = cc.Class.extend({
             this.moving()
         } else {
             this.setCanTarget(false);
-            this.setIsDie(true)
-            cc.director.getRunningScene().getInfo().dropPoint(this.getConfig().dropPoint, this.getWho(), this.getConfig().gainEnergy)
+            if (this.isDie() === false)  {
+                cc.director.getRunningScene().getInfo().dropPoint(this.getConfig().dropPoint, this.getWho(), this.getConfig().gainEnergy)
+                this.setIsDie(true)
+            }
         }
     },
 

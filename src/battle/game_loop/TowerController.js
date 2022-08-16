@@ -76,7 +76,6 @@ let TowerController = cc.Class.extend({
      * @param {boolean} isCloned
      */
     plantTower: function (cid, position,cardLevel,isCloned) {
-        cc.log("TOWER CONTROLLER - plantTower")
         let tower = this.getTowers()[position.y][position.x];
         // nếu như tại đó đã tồn tại trụ rồi
         if (tower !== undefined){

@@ -929,6 +929,54 @@
                 },
                 "Name": "TopBorder",
                 "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_house.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -277.7769,
+                  "Y": 430.9896
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -333.7769,
+                "RightMargin": 221.7769,
+                "TopMargin": -497.9896,
+                "BottomMargin": 363.9896,
+                "Tag": 157,
+                "ActionTag": -823128601,
+                "Size": {
+                  "X": 112.0,
+                  "Y": 134.0
+                },
+                "Name": "map_house_1_0",
+                "ctype": "SpriteObjectData"
               }
             ],
             "ActionTag": 697264958,
@@ -1124,6 +1172,96 @@
                 },
                 "Name": "River",
                 "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_0001.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -68.197,
+                  "Y": 644.3833
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": -0.1066,
+                  "Y": 0.5672
+                },
+                "PreSize": {
+                  "X": 0.3844,
+                  "Y": 0.2474
+                },
+                "LeftMargin": -191.197,
+                "RightMargin": 585.197,
+                "TopMargin": 351.1167,
+                "BottomMargin": 503.8833,
+                "Tag": 635,
+                "ActionTag": -66214101,
+                "Size": {
+                  "X": 246.0,
+                  "Y": 281.0
+                },
+                "Name": "LeftRock",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_decoration_0002.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.4321,
+                  "ScaleY": 0.5061
+                },
+                "Position": {
+                  "X": 679.1444,
+                  "Y": 628.7333
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.0612,
+                  "Y": 0.5535
+                },
+                "PreSize": {
+                  "X": 0.4359,
+                  "Y": 0.1998
+                },
+                "LeftMargin": 558.5885,
+                "RightMargin": -197.5885,
+                "TopMargin": 395.1514,
+                "BottomMargin": 513.8486,
+                "Tag": 638,
+                "ActionTag": -86456922,
+                "Size": {
+                  "X": 279.0,
+                  "Y": 227.0
+                },
+                "Name": "RightStream",
+                "ctype": "SpriteObjectData"
               }
             ],
             "ActionTag": -1006504897,
@@ -1216,7 +1354,7 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 323.4949,
+                      "X": 323.5,
                       "Y": 266.8
                     },
                     "Scale": {
@@ -1235,8 +1373,8 @@
                       "X": 0.8331,
                       "Y": 0.837
                     },
-                    "LeftMargin": 53.9949,
-                    "RightMargin": 54.0051,
+                    "LeftMargin": 54.0,
+                    "RightMargin": 54.0,
                     "TopMargin": 0.7,
                     "BottomMargin": 74.3,
                     "Tag": 80,
@@ -1257,7 +1395,7 @@
                         },
                         "Position": {
                           "X": 269.5,
-                          "Y": 192.5001
+                          "Y": 192.5
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -1277,8 +1415,8 @@
                         },
                         "LeftMargin": -1.0,
                         "RightMargin": -1.0,
-                        "TopMargin": -1.0001,
-                        "BottomMargin": -0.9999,
+                        "TopMargin": -1.0,
+                        "BottomMargin": -1.0,
                         "Tag": 81,
                         "ActionTag": 1721422302,
                         "Size": {
@@ -1920,6 +2058,51 @@
                 },
                 "Name": "BottomBorder",
                 "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "map_asset/map_house.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 295.0376,
+                  "Y": -362.156
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 239.0376,
+                "RightMargin": -351.0376,
+                "TopMargin": 295.156,
+                "BottomMargin": -429.156,
+                "Tag": 156,
+                "ActionTag": -1330809686,
+                "Size": {
+                  "X": 112.0,
+                  "Y": 134.0
+                },
+                "Name": "map_house_1",
+                "ctype": "SpriteObjectData"
               }
             ],
             "ActionTag": -974055367,
@@ -1945,6 +2128,8 @@
         "map_asset/map_background_0001.png",
         "map_asset/map_background_0002.png",
         "map_asset/map_background_0003.png",
+        "map_asset/map_decoration_0001.png",
+        "map_asset/map_decoration_0002.png",
         "map_asset/map_decoration_grass_0002.png",
         "map_asset/map_decoration_rock_0001.png",
         "map_asset/map_decoration_rock_0004.png",
@@ -1953,6 +2138,7 @@
         "map_asset/map_decoration_tree_0002.png",
         "map_asset/map_decoration_tree_0003.png",
         "map_asset/map_decoration_tree_0004.png",
+        "map_asset/map_house.png",
         "map_asset/map_monster_gate_enemy.png",
         "map_asset/map_monster_gate_player.png",
         "map_asset/map_river_0000.png",

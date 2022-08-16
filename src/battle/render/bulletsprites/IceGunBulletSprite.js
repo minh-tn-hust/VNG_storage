@@ -8,7 +8,6 @@ let IceGunBulletSprite = LockMonsterBulletSprite.extend({
     createAnimationCache: function (){
         let assetConfig = this.getAsset();
         cc.spriteFrameCache.addSpriteFrames(assetConfig.asset.plist);
-        cc.log("DIT CON ME");
         let frame = cc.spriteFrameCache.getSpriteFrame("tower_ice_gun_bullet_0000.png");
         let animFrame = new cc.AnimationFrame(frame,1);
         let animFrames = [];

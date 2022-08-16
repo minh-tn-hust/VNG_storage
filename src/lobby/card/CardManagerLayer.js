@@ -52,6 +52,7 @@ var CardManagerLayer = cc.Layer.extend({
             battleDeck[i].setCardImage(cards[i]);
             cards[i].tag=battleDeck[i].getCardID();
             button = Util.getChildByName(cards[i],"buttonCard")[0];
+            cc.log("Mode: ",this.cardMode)
             button.addTouchEventListener(function (sender,type) {
                 if (this.cardMode === CardUtil.buttonCardMode.MANAGE_MODE_CARD) {
                     this.buttonOpenPopup(sender,type,CardUtil.idPopup.BTL_CARD_PU)

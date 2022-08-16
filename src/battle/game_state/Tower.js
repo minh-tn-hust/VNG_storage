@@ -102,8 +102,8 @@ let Tower = cc.Class.extend({
         this.setIsCloned(isCloned);
     },
 
-    canUpgrade: function () {
-        return this.getLevel() <= this.getMaxEvoLevel();
+    canUpgrade: function (){
+        return this.getLevel() < this.getMaxEvoLevel();
     },
 
     /**
@@ -111,7 +111,7 @@ let Tower = cc.Class.extend({
      * @returns {boolean} true if success, false otherwise
      */
     upgrade: function () {
-        if (this.getLevel() <= this.getMaxEvoLevel()){
+        if (this.getLevel() < this.getMaxEvoLevel()){
             this.setLevel(this.getLevel() + 1);
             cc.log("Upgrade to level: ",this.getLevel())
             this.setBasicStat(this.getLevel());

@@ -12,6 +12,7 @@ let Info = cc.Class.extend({
     _enemyName : null,
     _needUpdate : false,
     _endGame : false,
+    _incommingEnergy : null,
 
     // GETTER
     getEndGame : function() {return this._endGame},
@@ -28,6 +29,7 @@ let Info = cc.Class.extend({
     getEnemyTrophy : function () {return this._enemyTrophy},
     getEnemyName : function () {return this._enemyName},
     getNeedUpdate : function() {return this._needUpdate},
+    getIncommingEnergy : function() {return this._incommingEnergy},
 
     // SETTER
     setEndGame : function(value) {this._endGame = value},
@@ -43,11 +45,13 @@ let Info = cc.Class.extend({
     setEnemyName : function(enemyName) {this._enemyName = enemyName},
     setEnemyTrophy : function(  enemyTrophy) {this._enemyTrophy = enemyTrophy},
     setNeedUpdate : function(value) {this._needUpdate = value},
+    setIncommingEnergy : function(value) {this._incommingEnergy = value},
 
     /** @param {BattleInitiator} battleInitiator*/
     ctor : function(battleInitiator) {
         this.setCurrentRound(BattleConfig.INIT_ROUND)
         this.setEnergy(BattleConfig.INIT_ENERGY)
+        this.setIncommingEnergy(BattleConfig.INIT_ENERGY)
         this.setInGameCard(battleInitiator.battleDeck)
         this.setPoint(BattleConfig.INIT_POINT)
         this.setEnemyPoint(BattleConfig.INIT_POINT)
@@ -75,15 +79,16 @@ let Info = cc.Class.extend({
      */
     foldCard : function(index) {
         let energy = this.getEnergy()
-        if (energy < 5) {
-            return false
-        } else {
-            this.setEnergy(energy - 5)
+        // if (energy < 0) {
+        //     return false
+        // } else {
+            this.setEnergy(energy - 0)
             let currentDeck = this.getCurrentDeck()
             currentDeck[index] = this.getNextCard()
             this.generateNextCard()
+            this.setIncommingEnergy(energy)
             return true
-        }
+        // }
     },
 
     dropPoint : function(amount, who, gainEnergy) {
@@ -98,8 +103,16 @@ let Info = cc.Class.extend({
 
     useCard : function(index) {
         let currentDeck = this.getCurrentDeck()
-        currentDeck[index] = this.getNextCard()
-        this.generateNextCard()
+        let usedCard = currentDeck[index]
+        let minimumEnergy = Util.getPlantEnergy(usedCard.cardID)
+        if (this.getEnergy() >= minimumEnergy) {
+            currentDeck[index] = this.getNextCard()
+            this.generateNextCard()
+            this.setEnergy(this.getEnergy() - minimumEnergy)
+            return true
+        } else {
+            return false
+        }
     },
 
     generateNextCard : function() {
@@ -107,5 +120,9 @@ let Info = cc.Class.extend({
         let cardCounter = this.getCardCounter() + 1
         this.setCardCounter(cardCounter % 8)
         this.setNextCard(JSON.parse(JSON.stringify(inGameCards[cardCounter % 8])))
+    },
+
+    nextRound : function() {
+        this.setCurrentRound(this.getCurrentRound() + 1)
     },
 })

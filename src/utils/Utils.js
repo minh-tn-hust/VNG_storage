@@ -196,3 +196,21 @@ Util.getEuclideDistance = function(position1 , position2) {
     return Math.sqrt((position1.x - position2.x) * (position1.x - position2.x) + (position1.y - position2.y) * (position1.y - position2.y))
 
 }
+Util.getPlantEnergy = function(cid) {
+    if (cid <= 6 && cid >= 0) {
+        return TowerConfig.getPlantEnergy(cid)
+    } else {
+        switch (cid) {
+            case MonsterConfig.Type.GHOST_SWORDER:
+                return MonsterConfig.GHOST_SWORDER.requireEnergy
+            case MonsterConfig.Type.GIANT:
+                return MonsterConfig.GIANT.requireEnergy
+            case MonsterConfig.Type.CROW_SKELETON:
+                return MonsterConfig.CROW_SKELETON.requireEnergy
+            case MonsterConfig.Type.EVIL_BAT:
+                return MonsterConfig.EVIL_BAT.requireEnergy
+            case MonsterConfig.Type.NINJA:
+                return MonsterConfig.NINJA.requireEnergy
+        }
+    }
+}

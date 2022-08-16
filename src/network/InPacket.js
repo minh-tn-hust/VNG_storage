@@ -396,3 +396,13 @@ NetworkManger.packetMap[gv.CMD.PLANT_TOWER] = fr.InPacket.extend({
         this.error = this.getError()
     }
 })
+
+NetworkManger.packetMap[gv.CMD.END_GAME] = fr.InPacket.extend({
+    ctor : function() {
+        this._super()
+    },
+    readData : function() {
+        this.result = this.getInt()
+        this.chestIndex = this.getInt()
+    }
+})

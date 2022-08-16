@@ -21,6 +21,11 @@ var GameClient = cc.Class.extend(
         },
 
         loadConfig: function () {
+            if(cc.sys.os === cc.sys.OS_WINDOWS) {
+                this._serverName = "127.0.0.1";
+                this._port = 1101;
+                return;
+            }
             var fileName = "ipConfig.json";
             var jsonData = cc.loader.getRes(fileName);
             if (jsonData == null) {

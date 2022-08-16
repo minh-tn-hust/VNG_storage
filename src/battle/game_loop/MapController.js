@@ -129,12 +129,8 @@ let MapController = cc.Class.extend({
      *
      */
     plantTowerWithPosition : function(position, cid) {
-        cc.log("PLANT TOWER")
-        cc.log(Date.now())
         let map = this.getMap();
-        cc.log(JSON.stringify(map))
         map[position.y][position.x] = cid
-        cc.log(JSON.stringify(this.getMap()))
 
         // Cập nhật lại đường đi mới cho bản đồ hiện tại
         this.setPath(this.findingPath(this.getMap()))
