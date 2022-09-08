@@ -1,0 +1,21 @@
+@startuml
+actor User as user
+boundary MainGui as gui
+boundary ShopGui as shopGui
+control Module as eventControl
+control PaymenModule as paymentControl
+boundary PaymentGui as paymentGui
+
+user -> gui : Bấm vào nút shop
+gui -> eventControl : Hiển thị ShopGui
+user -> shopGui : Lựa chọn cách thực hiện payment
+shopGui -> shopGui : Cập nhật lại Gui tương ứng với phương thức
+user -> shopGui : Lựa chọn gói muốn mua
+eventControl -> paymentControl : Hiển thị hình thức thanh toán
+paymentControl -> paymentGui : hiển thị Gui
+user -> paymentGui : xác nhận thanh toán
+paymentGui -> paymentControl : thực hiện thanh toán
+
+
+
+@enduml

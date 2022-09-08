@@ -1,0 +1,34 @@
+@startuml
+actor User as user
+boundary TreasureMineDrillGui as gui
+boundary TreasureMineMainGui as mainGui
+control TreasureMineModule as control
+entity TreasureMineInfo as info
+database Server as server
+
+user -> gui : Click vào nút đào
+activate gui
+gui -> control : kiểm tra năng lượng có đủ hay không
+deactivate gui
+alt có đủ năng lượng để đào
+    control -> server : gửi gói tin đào
+    deactivate control
+    activate server
+    server -> server : kiểm tra các điều kiện
+    server -> control : chấp nhận cho phép đào
+    deactivate server
+    activate control
+    control -> mainGui : chạy animation đào 
+    deactivate control
+    control -> info : cập nhật lại thông tin
+    activate control
+    control -> mainGui : cập nhật lại gui
+    deactivate control
+
+else không đủ năng lượng để đào
+    control -> control : hiển thị thông báo không đủ năng lượng
+    end
+
+
+
+@enduml

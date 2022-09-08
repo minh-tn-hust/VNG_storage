@@ -1,0 +1,168 @@
+@startuml
+left to right direction
+package UI {
+    class TreasureMineMainGui {
+        - doADrill()
+        - do10Drills()
+        - getMiningProcessGift()
+        - refreshGui()
+    } 
+    package Drill {
+        class TreasureMineDrillGui { 
+            - doAUpdate()
+        }
+    }
+    package Exchanging {
+        class TreasureMineExchangeMainGui { 
+            - slots : TreasureMineExchangeMainSlot[]
+            - updateExchangeList()
+        }
+        class TreasureMineExchangeMainSlot { }
+        TreasureMineExchangeMainGui o- TreasureMineExchangeMainSlot
+
+        class TreasureMineExchangeExpandedGui { 
+            - exchangeGui : TreasureMineExchangeGui
+            - historyGui : TreasureMineHistoryGui
+            - collectionGui : TreasureMineCollectionGui
+            - refreshGui()
+        }
+        
+        package Exchange {
+            class TreasureMineExchangeGui { 
+                - slots : TreasureMineExchangeSlot[]
+                - updateExchangeList()
+            }
+            class TreasureMineExchangeSlot { 
+                - updateSlot()
+            }
+            TreasureMineExchangeSlot -l-* TreasureMineExchangeGui
+        }
+        package Collection {
+            class TreasureMineCollectionGui { 
+                - slots : TreasureMineCollectionSlot[]
+                - updateCollectionList()
+            }
+            class TreasureMineCollectionSlot { 
+                - updateSlot()
+            }
+            TreasureMineCollectionSlot -l-* TreasureMineCollectionGui
+        }
+        package History {
+            class TreasureMineHistoryGui { 
+                - slots : TreasureMineHistorySlot[]
+                - updateHistoryList()
+            }
+            class TreasureMineHistorySlot { 
+                - updateSlot()
+            }
+            TreasureMineHistoryGui -l-* TreasureMineHistorySlot
+        }
+        TreasureMineExchangeExpandedGui o-up- TreasureMineExchangeGui
+        TreasureMineExchangeExpandedGui o-up- TreasureMineCollectionGui
+        TreasureMineExchangeExpandedGui o-up- TreasureMineHistoryGui
+    }
+
+    package Shop {
+        class TreasureMineShopGui { }
+        class TreasureMineShopSlot { }
+        class TreasureMineShopOfferSlot { }
+        TreasureMineShopGui o-- TreasureMineShopSlot
+        TreasureMineShopSlot o-- TreasureMineShopOfferSlot
+    }
+
+    package Guide {
+        class TreasureMineGuideGui { }
+        class TreasureMineGuideSlot { }
+        TreasureMineGuideGui o-- TreasureMineGuideSlot
+    }
+
+    package Receiver {
+        class TreasureMineReceiverListGui { }
+        class TreasureMineReceiverListSlot { }
+    }
+}
+
+package Model {
+    class TreasureMineInfo {
+        - exchange : ExchangeInfo
+        - shop : ShopInfo
+        - mining : MiningInfo
+        - receiverList : Receiver[]
+    }
+    class Receiver {
+        - name : string
+        - avatar : url
+    }
+    class ExchangeInfo {
+        - listItem : Item
+    }
+    class MiningInfo {
+        - curState : number
+        - curDrillLevel : number
+        - curDrillPiece : number
+        - curMiningField : Tile[]
+    }
+    class Tile {
+        - itemType : GOLD | DRILL | PIECE
+        - amount : number
+        - state : number
+    }
+    class Item {
+        - type : number
+        - piece : number
+    }
+}
+
+package Logic {
+
+}
+
+class TreasureMineModule {
+    - treasureMineInfo : TreasureMineInfo
+
+    - gMain : TreasureMineMainGui
+    - gDrill : TreasureMineDrillBitGui
+    - gExchanging : TreasureMineHistoryGui
+    - gShop : TreasureMineShopGui
+
+    ---
+    - showGui()
+    - hideGui()
+    - localize()
+    - onGameMessage()
+    ---
+    - showExchangeGui()
+    - hideExchangeGui()
+
+    - showGuideGui()
+    - hideGuideGui()
+
+    - showShopGui()
+    - hideShopGui()
+    ---
+    - showNeedMoreDrillPopup()
+    - showRewardPopup()
+    - showReceiverListPopup()
+    ---
+    - sendRequestTreasureInfo()
+    - sendRequestGetHistory()
+    - sendRequestUpdateGrill()
+    - sendRequestDoDigging()
+    - sendRequestGetProcessGift()
+    - sendRequestExchange()
+
+    - receiveTreasureInfo()
+    - receiveHistory()
+    - receiveDiggingResult()
+    - receiveUpdateGrillResult()
+    - receiveProcessGift()
+    - receiveExcahngeResult()
+    - receiveDigging()
+    ---
+    - runEffAddGold()
+    - runEffAddDrill()
+    - runEffAddItemPiece()
+    --- 
+    - getTreasureMineInfo()
+}
+@enduml
