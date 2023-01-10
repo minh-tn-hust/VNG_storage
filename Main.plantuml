@@ -1,0 +1,66 @@
+@startuml
+class TreasureMineModule {
+    + onGameMessage // thực hiện tiếp nhận và gọi các hàm xử lý liên quan
+    + packetHandler // thưc hiện tiếp nhận gói tin và thực hiện gọi hàm xử lý UI
+    + uiController 
+    + ui
+    + model
+    + modelController
+}
+
+interface GuiComponent {
+    + runInitAnimation()
+    + runDisposeAniamtion()
+    + refreshGui()
+    + disableAllButton()
+    + setInfo()
+}
+
+class TreasureMineMainGui implements GuiComponent {
+
+}
+
+class TreasureMinePlayField {
+
+}
+
+class TreasureMineExchangeGui {
+
+}
+
+class TreasureMineUI {
+    ---
+    lớp chứa các thành phần nút bấm có trên màn hình,
+    lopws này sẽ là lớp con của lớp TreasureMineMainGui,
+    nhận sự kiện của người dùng và thực hiện các tương tác tương ứng
+    ---
+    - backToLooby()
+    - openExchangePart()
+    - openGuideGui()
+    - doADrill()
+    - doTenDrills()
+}
+
+@enduml
+
+
+
+// Các vấn đề cần ử lý
+- Tách riêng biệt được class Module, không chứa quá nhiều logic bên trong
+- Có thể triển khai cả model update first và ui update first
+- Module xử lý gói tin, Module xử lý hành động, Module xử lý UI
+
+- Các thành phần UI thực hiện gọi về Module để thực hiện request các gói
+- Thành phần module chứa các module
+    - NetworkModule : thực hiện xử lý gửi và nhận gói tin
+    - UserActionHandler : thực hiện nhận xử lý các hành động của người dùng
+        - thằng này nhận sự kiện và thực hiện handle các hành động liên
+        ví dụ như: khi người dùng thực hiện nhấn đào -> nó nhận sự kiện đào
+        -> nó gọi module kiểm tra -> nó gọi module network
+    - Thằng nào thực hiện cập nhật UI, thằng nào thực hiện cập nhật Model
+
+- Khi đang thực hiện hanle gửi và nhận gói tin/ hành động trong sự kiện,
+các nút cần được disable, không cho phép người dùng thực hiện click
+
+
+

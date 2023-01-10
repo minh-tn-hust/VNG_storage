@@ -1,0 +1,80 @@
+@startuml
+
+class TreasureMineModule {
+    + eventInfo : EventInfo
+    + networkHander : NetworkHandler
+    + userHandler : UserHandler
+    + uiController : UIController
+    + init()
+    + onGameMessage()
+}
+
+class NetworkHandler {
+    + receive()
+    + send()
+}
+
+class UserHandler {
+    + doADrill()
+    + doTenDrill()
+    + exchangeItem()
+    + openGuide()
+    + backToLobby()
+    + openShop()
+}
+
+class UIController {
+    + listGUI : Object(key : string, value : GuiComponent)
+    + showGui(guiId : string)
+    + showMainGui()
+    + showGuideGui()
+    + showExchangeGui()đủ 
+    + showShopGui()
+}
+
+interface GuiComponent {
+    + runInitAnimation()
+    + runDisposeAniamtion()
+    + refreshGui()
+    + disableAllButton()
+    + setInfo()
+    + showGui()
+    + hideGui()
+    --- 
+    Bắt buộc theo để có thể thực hiện gọi được các phương thức tương tự
+    trong hệ thống cây phân cấp GUI
+}
+
+class GUI implements GuiComponent {
+
+}
+
+TreasureMineModule *-- NetworkHandler
+TreasureMineModule *-- UserHandler
+TreasureMineModule *-- UIController
+
+UIController o-- GUI
+@enduml
+
+
+--- 
+Khi người dùng thực hiện một hành động, ví dụ hành động Đào chẳng hạn
+
+-> Gui chứa nút đào -> UserHandler và gọi hành động đào
+Sau đó UserHandler TreasureMineModelController để thực hiện kiểm xem
+có thể đào được hay không
+
+Các hành động sẽ xảy ra 
+UserHandler thực hiện hành động đào
+TreasureMineModelController thực hiện kiểm tra xem đủ tài nguyên hay không
+Nếu đủ tài nguyên
+    Thực hiện gọi tới NetworkHandler
+    Thực hiện gửi gói tin Đào
+Nếu không đủ tài nguyên
+    Gọi tới UIController và hiển thị popup không đủ gói tin
+ 
+Các thành phần tham gia 
+UserHandler -> Thực hiện xử lý các hành động của người dùng
+TreasureMineModelController -> Xử lý các logic liên quan tới Model hiện tại của Event
+NetworkHandler -> Xử lý gửi gói tin đi
+UIController -> Xử lý các sự kiện liên quan tới UI
